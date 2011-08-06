@@ -814,9 +814,9 @@ class Params
 
 	class wcwithmarkerongoal
 	{
-		title = "SHOW A MARKER ON OPERATION GOAL POSITION";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
+		title = "SHOW A MARKER";
+		values[] = {0, 1, 2};
+		texts[] = {"NONE", "FOCUS MIDDLE OF ZONE", "FOCUS ON GOAL"};
+		default = 2;
 	};
 };

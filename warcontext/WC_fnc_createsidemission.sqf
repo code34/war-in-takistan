@@ -1078,7 +1078,7 @@
 		};
 	};
 
-	if(wcwithmarkerongoal == 1) then {
+	if(wcwithmarkerongoal == 2) then {
 		"operationtext" setmarkerpos _position;
 	};
 

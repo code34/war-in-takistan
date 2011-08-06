@@ -162,7 +162,10 @@
 		diag_log format ["WARCONTEXT: COMPUTING LOCATION %1", text _location];
 
 		_marker = ['rescuezone', wcdistance, _position, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarker;
-		_marker2 = ['operationtext', 0.5, _position, 'ColorRED', 'ICON', 'FDIAGONAL', 'flag', 0, (localize (format["STR_WCSHORT_MISSION%1", _missionnumber])), false] call WC_fnc_createmarker;
+
+		if(wcwithmarkerongoal > 0) then {
+			_marker2 = ['operationtext', 0.5, _position, 'ColorRED', 'ICON', 'FDIAGONAL', 'flag', 0, (localize (format["STR_WCSHORT_MISSION%1", _missionnumber])), false] call WC_fnc_createmarker;
+		};
 
 		wcselectedzone = _position;
 		["wcselectedzone", "client"] call WC_fnc_publicvariable;
