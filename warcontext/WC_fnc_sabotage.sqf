@@ -1,0 +1,54 @@
+	// -----------------------------------------------
+	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// warcontext  - sabotage
+
+	private [
+		"_unit", 
+		"_enemy", 
+		"_enemy", 
+		"_missioncomplete"
+	];
+
+	_unit = _this select 0;
+	_unit setVehicleInit "this lock true;";
+	_unit setvariable ["wcsabotage", false, true];
+	_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\WC_fnc_dosabotage.sqf',[],-1,false];";
+	processInitCommands;
+
+	_missioncomplete = false;
+
+	while {!_missioncomplete} do {
+        	sleep 1;
+		if(wcalert > 99) then {
+			wcmessageW = ["Mission failed", localize "STR_WC_MESSAGELEAVEZONE"];
+			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			wcmissionsuccess = true;
+			wcobjectiveindex = wcobjectiveindex + 1;
+			_missioncomplete = true;
+		};
+		if((!alive _unit) or (damage _unit > 0.9)) then {
+				wcmessageW = ["Mission failed", localize "STR_WC_MESSAGELEAVEZONE"];
+				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				wcmissionsuccess = true;
+				wcobjectiveindex = wcobjectiveindex + 1;
+				_missioncomplete = true;
+				_unit setdamage 1;
+		};
+		if(_unit getvariable "wcsabotage") then {
+			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			wcmissionsuccess = true;
+			wcobjectiveindex = wcobjectiveindex + 1;
+			_missioncomplete = true;
+			wcleveltoadd = 1;
+			wcsabotagelist = wcsabotagelist + [(typeof _unit)];
+			wcfame = wcfame + wcbonusfame;
+			wcenemyglobalelectrical = wcenemyglobalelectrical + wcbonuselectrical;
+			wcenemyglobalfuel = wcenemyglobalfuel + wcbonusfuel;
+		};
+	};
+
+	sleep 60;
+
+	deletevehicle _unit;
+	

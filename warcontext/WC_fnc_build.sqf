@@ -1,0 +1,41 @@
+	// -----------------------------------------------
+	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// warcontext  - sabotage
+
+	private [
+		"_unit", 
+		"_enemy", 
+		"_enemy", 
+		"_missioncomplete",
+		"_typeof",
+		"_position"
+	];
+
+	_unit = _this select 0;
+	_typeof = _this select 1;
+
+	_position = position _unit;
+
+	_unit setvariable ["wcbuild", false, true];
+	_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Build</t>', 'warcontext\WC_fnc_dobuild.sqf',[],-1,false];";
+	processInitCommands;
+
+	_missioncomplete = false;
+
+	while {!_missioncomplete} do {
+		if(_unit getvariable "wcbuild") then {	
+			deletevehicle _unit;
+			_unit = _typeof createvehicle _position;
+			_unit setpos _position;
+			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			wcmissionsuccess = true;
+			wcobjectiveindex = wcobjectiveindex + 1;
+			_missioncomplete = true;
+			wcleveltoadd = 1;
+			wcfame = wcfame + wcbonusfame;
+			wcenemyglobalelectrical = wcenemyglobalelectrical + wcbonuselectrical;
+			wcenemyglobalfuel = wcenemyglobalfuel + wcbonusfuel;
+		};
+		sleep 1;
+	};

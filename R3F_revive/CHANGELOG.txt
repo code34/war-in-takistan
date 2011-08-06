@@ -1,0 +1,16 @@
+v1.3
+- Compatibility to Arrowhead (ArmA2 compatibility still guaranted)
+- The stringtable.csv is replaced by an alternative simpler system
+- We now need to heal the dead body only once
+
+v1.2
+- Fix the altitude of the player when he becomes unconscious in a building, on a roof, a bridge, ...
+- The installation manual has been enhanced
+
+v1.1
+- The "respawn at camp" is now based on the "respawn_xxx" markers system
+- The revive requires now 1 to 4 (random) "heal" actions to make the revive process longer
+- There is now a briefing on the demo mission
+
+v1.0
+- First public release
