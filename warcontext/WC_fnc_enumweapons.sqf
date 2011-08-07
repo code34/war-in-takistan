@@ -18,12 +18,12 @@
 				_displayname = tolower (getText (_object >> "displayName"));
 				if!(_displayname in _displaynames) then {
 					_displaynames = _displaynames + [_displayname];
-					if(_objectype < 4097) then {
+					//if(_objectype < 4097) then {
 						_weapons = _weapons + [_objectname];
-					};
+					//};
 				};
 			};
 		};
 	};
-	
+
 	_weapons;
