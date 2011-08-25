@@ -43,14 +43,14 @@
 		clearweaponcargo 	_crate;
 		clearmagazinecargo 	_crate;	
 
-		{_crate addWeaponCargo [_x, _amountweapon];} forEach wclistofweapons;
-
 		switch (_autoload) do {
 			case "addons": {
-				_magazines = [wclistofweapons] call WC_fnc_enummagazines;
+				{_crate addWeaponCargo [_x, _amountweapon];} forEach wclistofaddonweapons;
+				_magazines = [wclistofaddonweapons] call WC_fnc_enummagazines;
 			};
 
 			default {
+				{_crate addWeaponCargo [_x, _amountweapon];} forEach wclistofweapons;
 				_magazines = [wclistofweapons + ["Throw", "Put"]] call WC_fnc_enummagazines;
 			};
 		};
