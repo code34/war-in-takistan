@@ -35,7 +35,7 @@
 	}foreach _buildings;
 
 	_count = 0;
-	_staticclass = ["AGS_RU", "KORD_high", "KORD_TK_EP1", "DSHkM_Mini_TriPod_TK_INS_EP1", "DSHKM_TK_GUE_EP1"];
+	_staticclass = ["AGS_TK_INS_EP1", "KORD_TK_EP1", "DSHkM_Mini_TriPod_TK_INS_EP1", "DSHKM_TK_GUE_EP1", "KORD_high_TK_EP1", "Metis_TK_EP1", "SPG9_TK_INS_EP1"];
 	{
 		if(random 1 > 0.95) then {
 			_static = _staticclass call BIS_fnc_selectRandom;

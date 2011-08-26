@@ -60,7 +60,7 @@
 	wccam camsetrelpos [0.4, 0.6, 1.65];
 	wccam CamCommit 0;
 	imam setmimic "smile";
-	playsound "ALL_HAHA";
+
 	TitleRsc ["Titrecredits","Plain",2];
 	wccam camsetrelpos [2, 1, 1.65];
 	wccam CamCommit 10;

@@ -140,8 +140,8 @@
 		};
 
 		case 4: {
-			_missiontext = [_missionname," Destroy a kamaz"," refuel"];
-			_vehicle = createVehicle ["KamazRefuel", _position, [], 0, "NONE"];
+			_missiontext = [_missionname," Destroy an ural"," refuel"];
+			_vehicle = createVehicle ["UralRefuel_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_vehicle setVehicleInit "this lock true;";
 			processInitCommands;
@@ -152,7 +152,7 @@
 
 		case 5: {
 			_missiontext = [_missionname," Destroy an Ural"];
-			_vehicle = createVehicle ["Ural_ZU23_Gue", _position, [], 0, "NONE"];
+			_vehicle = createVehicle ["Ural_ZU23_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_vehicle setVehicleInit "this lock true;";
 			processInitCommands;
@@ -223,7 +223,7 @@
 
 		case 9: {
 			_missiontext = [_missionname," Destroy a big","fuel location"];
-			_vehicle = createVehicle ["Land_Ind_TankBig", _position, [], 0, "NONE"];
+			_vehicle = createVehicle ["Land_Fuel_tank_big", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "destroy";
 			wcbonusfame = 0;
@@ -482,7 +482,7 @@
 
 		case 23: {
 			_missiontext = [_missionname,"Destroy","an IED"];
-			_type = ["VolhaLimo_TK_CIV_EP1","LandRover_TK_CIV_EP1","UAZ_Unarmed_TK_CIV_EP1","Volha_2_TK_CIV_EP1","Volha_1_TK_CIV_EP1","Land_Misc_Garb_Heap_EP1", "Land_Misc_Rubble_EP1", "Land_Misc_IronPipes_EP1", "Land_bags_stack_EP1", "Land_Market_stalls_01_EP1", "Land_bags_EP1", "Land_Crates_stack_EP1","Land_Misc_ConcBox_EP1","Land_Misc_Well_C_EP1","Land_Misc_Well_L_EP1","Land_transport_crates_EP1","Fort_Barricade_EP1","UH60_wreck_EP1","C130J_wreck_EP1","BMP2Wreck","BRDMWreck","HMMWVWreck","LADAWreck","Mi8Wreck","SKODAWreck","T72Wreck","T72WreckTurret","UAZWreck","UH1Wreck","UralWreck","datsun01Wreck","datsun02Wreck","hiluxWreck"] call BIS_fnc_selectRandom;
+			_type = ["VolhaLimo_TK_CIV_EP1","LandRover_TK_CIV_EP1","UAZ_Unarmed_TK_CIV_EP1","Volha_2_TK_CIV_EP1","Volha_1_TK_CIV_EP1","Land_Misc_Garb_Heap_EP1", "Land_Misc_Rubble_EP1", "Land_Misc_IronPipes_EP1", "Land_bags_stack_EP1", "Land_Market_stalls_01_EP1", "Land_bags_EP1", "Land_Crates_stack_EP1","Land_Misc_ConcBox_EP1","Land_Misc_Well_C_EP1","Land_Misc_Well_L_EP1","Land_transport_crates_EP1","Fort_Barricade_EP1","UH60_wreck_EP1","C130J_wreck_EP1"] call BIS_fnc_selectRandom;
 			_vehicle = createVehicle [_type, _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_createied;
 			_missiontype = "ied";
@@ -499,7 +499,7 @@
 
 		case 25: {
 			_missiontext = [_missionname,"Destroy","an electrical station"];
-			_vehicle = createVehicle ["Land_trafostanica_velka", _position, [], 0, "NONE"];
+			_vehicle = createVehicle ["PowGen_Big_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "destroy";
 			wcbonusfame = -0.1;
@@ -745,7 +745,7 @@
 
 		case 47: {
 			_missiontext = [_missionname," Destroy an ammo cache"];
-			_vehicle = createVehicle ["RUVehicleBox", _position, [], 0, "NONE"];
+			_vehicle = createVehicle ["TKVehicleBox_EP1", _position, [], 0, "NONE"];
 			_camo = createVehicle ["Land_CamoNetB_EAST_EP1", [0,0,0], [], 0, "NONE"];
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
@@ -757,7 +757,7 @@
 
 		case 48: {
 			_missiontext = [_missionname," Destroy a repair center"];
-			_vehicle = createVehicle ["Land_repair_center", _position, [], 0, "NONE"];
+			_vehicle = createVehicle ["TK_GUE_WarfareBHeavyFactory_Base_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "destroy";
 			wcbonusfame = 0;
@@ -901,9 +901,9 @@
 		};
 
 		case 59: {
-			_missiontext = [_missionname,"Retrieve", "an AV8B2 plane"];
+			_missiontext = [_missionname,"Retrieve", "an AH6X"];
 			_hangar = (nearestObjects [_position, ["Land_Mil_hangar_EP1"], 400]) call BIS_fnc_selectRandom;
-			_vehicle = "AV8B2" createvehicle position _hangar;
+			_vehicle = "AH6X_EP1" createvehicle position _hangar;
 			_vehicle setdir (getdir _hangar + 180);
 			[_vehicle] spawn WC_fnc_rob;
 			_varname="bonusav8b";
@@ -914,9 +914,9 @@
 		};
 
 		case 60: {
-			_missiontext = [_missionname,"Retrieve", "an F35B plane"];
+			_missiontext = [_missionname,"Retrieve", "an AH64D_EP1 plane"];
 			_hangar = (nearestObjects [_position, ["Land_Mil_hangar_EP1"], 400]) call BIS_fnc_selectRandom;
-			_vehicle = "F35B" createvehicle position _hangar;
+			_vehicle = "AH64D_EP1" createvehicle position _hangar;
 			_vehicle setdir (getdir _hangar + 180);
 			[_vehicle] spawn WC_fnc_rob;
 			_varname="bonusf35b";

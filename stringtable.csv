@@ -21,7 +21,7 @@ STR_WC_MISSION0,	"A nuclear scud launcher has been dectected in enemy territory.
 STR_WC_MISSION1,	"A gold trafficant is know to support enemy power by giving it retribution. This guy employ a lot of workers in these area and have the credit of poor people working for him. Eliminate him",	"Un trafficant est connu pour cooperer avec l enemi en lui reversant des contributions. Cet homme emploi de nombreux ouvriers dans la region, et a tout leur soutien. Vous devez l eliminer."
 STR_WC_MISSION2,	"A famous russian scientist is working on a secret project. We assume that it could be a nuclear bomb. During this week, this scientist is going to his house. Eliminate him.",	"Un scientifique renome travaille sur un projet secret. Durant cette semaine, ce scientifique est en deplacement dans sa maison de famille. Eliminez le."
 STR_WC_MISSION3,	"Intel reports an enemy special camp on this position. It seems like these guys love booze and when they're drunk they do bad things to the local civilians.Sneak in and destroy the barracks.",	"Nous avons localises des barraquements des forces speciales enemies. Comme ces hommes aiment boire, ils ont causes des histoires dans les villages alentours.  Detruisez les baraquements."
-STR_WC_MISSION4,	"Enemy is waiting for a fuel delivery. Destroy the kamaz which is transporting it!",	"Les enemis attendent un reapprovisionnement de carburant. Detruisez le kamaz."
+STR_WC_MISSION4,	"Enemy is waiting for a fuel delivery. Destroy the truck which is transporting it!",	"Les enemis attendent un reapprovisionnement de carburant. Detruisez le camion."
 STR_WC_MISSION5,	"Enemy is waiting for an ammo delivery. Destroy the ural which is transporting it!", "Les enemis attendent un reapprovisionnement de munitions. Detruisez l'ural."
 STR_WC_MISSION6,	"A takistani commander is visiting this place. He wants to set up a new military base in this area. The local citizens are worried about it. Eliminate him!",	"Un commandant Takistanais est en deplacement. Cet endroit sera utilise pour construire une nouvelle base. La population locale est tres inquiete. Eliminez le."
 STR_WC_MISSION7,	"We have localized an enemy mobile base. Enemy uses it to transmit information about our armor movement. Destroy the Bmp2",	"Nous avons localise une base enemie mobile. Cette petite base donne des informations sur le deplacement de nos blindes. Detruisez le Bmp2."
@@ -76,8 +76,8 @@ STR_WC_MISSION55,	"A friendly area is under attack. Defend it! To activate the m
 STR_WC_MISSION56,	"A friendly area is under attack. Defend it! To activate the mission, soldiers must go to the flag and protect the zone during a time",	"Une zone amie est attaque. Defendez la! Pour activer la mission, les soldats doivent se rendre au drapeau et proteger la zone pendant un certains temps."
 STR_WC_MISSION57,	"A C130 was on a flight over Takistan when it was shot down by enemies. The pilot is still alive, but in the hands of enemy soldiers. Get your boys together for this rescue mission!",	"Un C130 etait en mission au dessus du Takistan quand il a ete descendu par la DCA enemie. Un de nos pilotes est encore vivant, mais a ete capture. Recuperez le."
 STR_WC_MISSION58,	"Enemy has stolen one of our A10 plane. Retrieve it!",	"Les enemis ont vole un de nos A10, recuperez le!"
-STR_WC_MISSION59,	"Enemy has stolen one of our AV8B2 plane. Retrieve it!",	"Les enemis ont vole un de nos AV8B2, recuperez le!"
-STR_WC_MISSION60,	"Enemy has stolen one of our F35B plane. Retrieve it!",	"Les enemis ont vole un de nos F35B, recuperez le!"
+STR_WC_MISSION59,	"Enemy has stolen one of our AH6X plane. Retrieve it!",	"Les enemis ont vole un de nos AH6X, recuperez le!"
+STR_WC_MISSION60,	"Enemy has stolen one of our AH64 plane. Retrieve it!",	"Les enemis ont vole un de nos AH64, recuperez le!"
 STR_WC_MISSION61,	"We know that enemy will use a su 25 to strike our armors. Find it at airport base and destroy it!",	"Nous savons que les enemis vont utiliser un su 25 pour frapper nos blindes. Trouvez le a l aeroport et detruisez le!"
 STR_WC_MISSION62,	"We know that enemy pilots train to flight witha L39. To stop them, you have to find it at airport base and destroy it!",	"Nous savons que les pilotes enemis s entrainent avec un L39. Trouvez le a l aeroport et detruisez le!"
 STR_WC_MISSION63,	"We have informations about an attack on an oil pump. Do your best to defend the oil pump!",	"Nous avons eu des informations sur une attaque enemie sur un forage petrolier! Protegez le!"
@@ -96,7 +96,7 @@ STR_WCSHORT_MISSION0,	Destroy a scud launcher,	Destroy a scud launcher
 STR_WCSHORT_MISSION1,	Kill a gold trafficant,	Kill a gold trafficant
 STR_WCSHORT_MISSION2,	Kill a nuclear scientist,	Kill a nuclear scientist
 STR_WCSHORT_MISSION3,	Destroy a barrack,	Destroy a barrack
-STR_WCSHORT_MISSION4,	Destroy a kamaz,	Destroy a kamaz
+STR_WCSHORT_MISSION4,	Destroy an ural refuel,	Destroy an ural refuel
 STR_WCSHORT_MISSION5,	Destroy an ural,	Destroy an ural
 STR_WCSHORT_MISSION6,	Kill a takistan commander,	Kill a takistan commander
 STR_WCSHORT_MISSION7,	Destroy a bmp2 hq,	Destroy a bmp2 hq
@@ -151,8 +151,8 @@ STR_WCSHORT_MISSION55,	Defend an area,	Defend an area
 STR_WCSHORT_MISSION56,	Defend some barracks,	Defend some barracks,
 STR_WCSHORT_MISSION57,	Rescue a c130 pilot, Rescue a c130 pilot
 STR_WCSHORT_MISSION58,	Retrieve an a10 plane, Retrieve an a10 plane
-STR_WCSHORT_MISSION59,	Retrieve an av8b2 plane, Retrieve an av8b2 plane
-STR_WCSHORT_MISSION60,	Retrieve a f35b plane, Retrieve a f35b plane
+STR_WCSHORT_MISSION59,	Retrieve an AH6X plane, Retrieve an AH6X plane
+STR_WCSHORT_MISSION60,	Retrieve a AH64 plane, Retrieve a AH64 plane
 STR_WCSHORT_MISSION61,	Destroy a su25,	Destroy a su25
 STR_WCSHORT_MISSION62,	Destroy a l39,	Destroy a l39
 STR_WCSHORT_MISSION63,	Defend an oil pump,	Defend an oil pump
