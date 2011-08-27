@@ -23,7 +23,7 @@
 			waituntil { wcgrave > 0 };
 			wcgrave = wcgrave - 1;
 			_position2 = [_position2 select 0, (_position2 select 1) + 5];
-			_typeof = ["gravecross2", "GraveCrossHelmet"] call BIS_fnc_selectRandom;
+			_typeof = wcgravetype call BIS_fnc_selectRandom;
 			_vehicle = _typeof createVehicle _position2;
 			_vehicle setpos _position2;
 			_position3 = [(_position2 select 0),(_position2 select 1)-1];
