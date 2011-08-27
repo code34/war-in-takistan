@@ -11505,8 +11505,8 @@ class Mission
 			name="teleporter";
 			text="teleporter";
 			type="mil_flag";
-			colorName="ColorYellow";
-			angle=-612.72614;
+			colorName="ColorGreen";
+			angle=-612.72601;
 		};
 		class Item5
 		{
