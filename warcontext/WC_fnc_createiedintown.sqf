@@ -4,41 +4,6 @@
 	
 	private ["_position", "_iedobject", "_object", "_position", "_iedtype", "_positions", "_count", "_index"];
 
-	//_iedobject = [
-	//		"VolhaLimo_TK_CIV_EP1",
-	//		"LandRover_TK_CIV_EP1",
-	//		"UAZ_Unarmed_TK_CIV_EP1",
-	//		"Volha_2_TK_CIV_EP1",
-	//		"Volha_1_TK_CIV_EP1",
-	//		"Land_Misc_Garb_Heap_EP1", 
-	//		"Land_Misc_Rubble_EP1", 
-	//		"Land_Misc_IronPipes_EP1", 
-	//		"Land_bags_stack_EP1", 
-	//		"Land_Market_stalls_01_EP1", 
-	//		"Land_bags_EP1", 
-	//		"Land_Crates_stack_EP1",
-	//		"Land_Misc_ConcBox_EP1",
-	//		"Land_Misc_Well_C_EP1",
-	//		"Land_Misc_Well_L_EP1",
-	//		"Land_transport_crates_EP1",
-	//		"Fort_Barricade_EP1",
-	//		"UH60_wreck_EP1",
-	//		"BMP2Wreck",
-	//		"BRDMWreck",
-	//		"HMMWVWreck",
-	//		"LADAWreck",
-	//		"Mi8Wreck",
-	//		"SKODAWreck",
-	//		"T72Wreck",
-	//		"T72WreckTurret",
-	//		"UAZWreck",
-	//		"UH1Wreck",
-	//		"UralWreck",
-	//		"datsun01Wreck",
-	//		"datsun02Wreck",
-	//		"hiluxWreck"
-	//];
-
 	_iedobject = [
 		"Land_transport_crates_EP1",
 		"Land_Misc_Garb_Heap_EP1",
