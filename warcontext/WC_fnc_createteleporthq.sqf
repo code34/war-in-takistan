@@ -13,13 +13,15 @@
 	_position = _this select 0;
 
 	_locationsneartarget = nearestLocations [_position, ["NameCityCapital", "NameCity","NameVillage", "Name", "Hill", "Mount"], 700];
+
+	sleep 1;
 	
 	_location = _locationsneartarget  call BIS_fnc_selectRandom;
 	while { _location distance _position < 500 } do {
 		_location = _locationsneartarget  call BIS_fnc_selectRandom;
 		sleep 0.5;
 	};
-	_position = (position _location) findemptyposition [10, 300];
+	_position = (position _location) findemptyposition [10, 200];
 
 	deletevehicle wcteleport;
 	wcteleport = "M1130_HQ_unfolded_Base_EP1" createVehicle _position;
