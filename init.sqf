@@ -60,6 +60,7 @@
 	WC_fnc_build			= compile preprocessFile "warcontext\WC_fnc_build.sqf";
 	WC_fnc_bomb			= compile preprocessFile "warcontext\WC_fnc_bomb.sqf";
 	WC_fnc_bringvehicle		= compile preprocessFile "warcontext\WC_fnc_bringvehicle.sqf";
+	WC_fnc_civilianinit 		= compile preprocessFile "warcontext\WC_fnc_civilianinit.sqf";
 	WC_fnc_clockformat 		= compile preprocessFile "warcontext\WC_fnc_clockformat.sqf";
 	WC_fnc_computeavillage 		= compile preprocessFile "warcontext\WC_fnc_computeavillage.sqf";
 	WC_fnc_copymarker 		= compile preprocessFile "warcontext\WC_fnc_copymarker.sqf";

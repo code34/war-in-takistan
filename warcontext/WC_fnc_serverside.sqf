@@ -302,64 +302,11 @@
 		
 			// we must wait - async return bug of arma
 			sleep 1;
-		
-			[wccivilianmodule,"ALICE_civilianinit",[{
-				if(random 1 > 0.97) then {
-					_civiltype = ["bomberman", "propagander", "altercation", "saboter"] call BIS_fnc_selectRandom;
-			
-					switch (_civiltype) do {
-						case "bomberman": {
-							if(random 1 > wcfame) then {
-								wcgarbage = [_this] spawn WC_fnc_createied;
-							};
-						};
-			
-						case "propagander": {
-							if(random 1 > wcfame) then {
-								wcgarbage = [_this] spawn WC_fnc_propagand;
-							};
-						};
-			
-						case "altercation": {
-							if(random 1 > wcfame) then {
-								wcgarbage = [_this] spawn WC_fnc_altercation;
-							};
-						};
-			
-						case "saboter": {
-							if(random 1 > wcfame) then {
-								wcgarbage = [_this] spawn WC_fnc_sabotagecivilian;
-							};
-						};
-					};
-				} else {
-					if(random 1 > 0.8) then {
-						wcgarbage = [_this] spawn WC_fnc_dodrive;
-					};
-				};
-		
-				_this addEventHandler ['HandleDamage', {
-					if!((_this select 0) == (_this select 3)) then {
-						(_this select 0) setdamage (0.5 + (random 0.5));
-					};
-				}];
-				_this addeventhandler ['killed', {
-					_this spawn WC_fnc_garbagecollector;
-					if((name (_this select 1)) in wcinteam) then {
-						wcnumberofkilledofmissionC = wcnumberofkilledofmissionC + 1;
-						wccivilkilled =  wccivilkilled + 1;
-						["wccivilkilled", "client"] call WC_fnc_publicvariable;
-						wcfame = wcfame - random (0.1);
-					};
-				}];
-				if!((typeof _this) in wccivilwithoutweapons) then {
-					if( random 1 > wcfame ) then {
-						_this addweapon "AKS_74";
-						_this addmagazine "30Rnd_545x39_AK";
-					};
-					_this addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
-				};
-			}]] call bis_fnc_variablespaceadd;
+
+			// we initialize civilians init queue	
+			wcgarbage = [] spawn WC_fnc_civilianinit;		
+
+			[wccivilianmodule,"ALICE_civilianinit",[{ wccivilianstoinit = wccivilianstoinit + [_this]; }]] call bis_fnc_variablespaceadd;
 		};
 	};
 
