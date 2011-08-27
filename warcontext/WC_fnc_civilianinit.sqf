@@ -23,7 +23,7 @@
 			
 				case "propagander": {
 					if(random 1 > wcfame) then {
-						wcgarbage = [_this] spawn WC_fnc_propagand;
+						wcgarbage = [_unit] spawn WC_fnc_propagand;
 					};
 				};
 			
