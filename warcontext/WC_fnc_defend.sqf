@@ -38,7 +38,7 @@
 	_markerdest = [format['defendzone%1', wcdefendzoneindex], 300, position _flag, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
 	wcdefendzoneindex = wcdefendzoneindex  + 1;
 
-	for "_x" from 0 to floor(random 2) step 1 do {
+	//for "_x" from 0 to floor(random 2) step 1 do {
 		_position = (position _flag) findEmptyPosition [5, 100];
 		_type = ["M1A1_US_DES_EP1", "M2A2_EP1"] call BIS_fnc_selectRandom;
 		_arrayofvehicle =[ _position, 0, _type, west] call BIS_fnc_spawnVehicle;
@@ -48,7 +48,7 @@
 		_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _markerdest];
 		_vehicle setVehicleInit _scriptinit;
 		processInitCommands;
-	};
+	//};
 
 	wcbegindefend = false;
 	waituntil {wcbegindefend};
