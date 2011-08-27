@@ -30,6 +30,9 @@
 
 	["wcteleport", "client"] call WC_fnc_publicvariable;
 
+	wchintW = localize "STR_WC_MESSAGEMHQDEPLOYED";
+	["wchintW", "client"] call WC_fnc_publicvariable;
+
 	deletemarker "teleporthq";	
 	_marker = ['teleporthq', 0.5, _position, 'ColorGreen', 'ICON', 'FDIAGONAL', 'Headquarters', 0, '', false] call WC_fnc_createmarker;
 

@@ -232,6 +232,7 @@ STR_WC_MESSAGELOCKING,	locking %1, verouillage de %1
 STR_WC_MESSAGEISUNLOCKED,	%1 is unlocked,	%1 est deverouille
 STR_WC_MESSAGECANNOTREPAIR,	You can't repair Vehicle. Too much dammage.,	Le vehicule est trop endommage. Vous ne pouvez pas le reparer.
 STR_WC_MESSAGEANBOMBERMANEXPLOSION,	A bomber man exploded near %1,	Un homme bombe a explose a cote de %1
+STR_WC_MESSAGEMHQDEPLOYED,	The MHQ has been deployed near insertion zone,	Le MHQ a ete deploye pres de la zone d insertion
 STR_WC_MESSAGEANIEDEXPLOSION,	An IED exploded near %1,	Un ied a explose a pres de %1
 STR_WC_MESSAGEANIEDEXPLOSIONNEARVEHICLE,	An IED exploded near friendly vehicle,	Un ied a explose a cote d un vehicle allie
 STR_WC_MESSAGEABEENDETECTED,	You have been detected,	Vous avez ete reconnu
