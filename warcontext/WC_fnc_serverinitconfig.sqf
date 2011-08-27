@@ -19,6 +19,12 @@
 	// blacklist of faction
 	wcblacklistside = [];
 
+	// contain all civilian to init
+	wccivilianstoinit = [];
+
+	// grave type - arrowhead content
+	wcgravetype = ["gravecross2_EP1", "GraveCrossHelmet_EP1"];
+
 	// array of player name intizialited
 	wcplayerready = [];
 
@@ -98,8 +104,8 @@
 	// time in secondes before to garbage dead body
 	wctimetogarbagedeadbody = 360;
 
-	// soldiers fame
-	wcfame = 1;
+	// soldiers fame - start at good
+	wcfame = 0.51;
 
 	// begining distance of ambiant life (grow during the game)
 	wcambiantdistance = 1500;
