@@ -173,11 +173,11 @@ FNCT_R3F_DEBUG_ShowMainDlg = {
 	_show = _this select 0;
 	_main_dialog = uiNamespace getVariable "VAR_R3F_DEBUG_main_dialog";
 	{
-		if((_x != R3F_DEBUG_ID_icon) && (_x != R3F_DEBUG_ID_title) && (_x != R3F_DEBUG_ID_VERSION)) then {
+		//if((_x != R3F_DEBUG_ID_icon) && (_x != R3F_DEBUG_ID_title) && (_x != R3F_DEBUG_ID_VERSION)) then {
 			_control = _main_dialog displayCtrl _x;
 			_control ctrlshow _show;
 			_control ctrlCommit 0;
-		};
+		//};
 	}forEach VAR_R3F_DEBUG_Controls;
 	/*
 	_control = _main_dialog displayCtrl R3F_DEBUG_ID_Watcher_Title;
@@ -199,6 +199,10 @@ FNCT_R3F_DEBUG_ShowWatcher = {
 		_control ctrlCommit 0;
 		
 	}forEach VAR_R3F_DEBUG_Watcher_Controls;
+
+	_control = _main_dialog displayCtrl R3F_DEBUG_ID_Watcher_Title;
+	_control ctrlshow _show;
+	_control ctrlCommit 0;
 };
 
 FNCT_R3F_DEBUG_CallDebugFunction = 

@@ -24,19 +24,6 @@
 		closedialog 0;
 	};
 
-	//waituntil {isnull wccam};
-	//wccam = "camera" camCreate [0,0,1000];
-	//wccam cameraEffect ["internal","back"];
-
-	//ShowCinemaBorder false;
-	//wccam camsettarget recruter;
-	//wccam camsetrelpos [-5, -10, 1.5];
-	//wccam CamCommit 0;
-	//wccameffect = PPEffectCreate ["ColorCorrections", 1999];
-	//wccameffect PPEffectEnable true;
-	//wccameffect PPEffectAdjust [0.5, 0.7, 0.0, [1.0, 1.0, 1.0, 0.0], [1.0, 1.0, 1.0, 0.0], [1.0, 1.0, 1.0, 1.0]];
-	//wccameffect PPEffectCommit 0;
-
 	if(wcrecruitberanked == 1) then {
 		_rank = rank player;
 		if(_rank == "Private") then { _maxsize = 1;};
@@ -81,7 +68,6 @@
 			} else {
 				if(random 1 > 0.02) then {
 					[localize "STR_WC_MENURECRUITMENT", "You are not enough ranked to give some orders", "Increase your rank by winning points", 10] spawn WC_fnc_playerhint;
-					playsound "ALL_HAHA";
 				} else {
 					[localize "STR_WC_MENURECRUITMENT", "Ok, recruiter give you one men because you are a friend", "Increase your rank by winning points", 10] spawn WC_fnc_playerhint;
 					sleep 10;
