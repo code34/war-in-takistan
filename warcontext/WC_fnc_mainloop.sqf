@@ -259,6 +259,9 @@
 		{		
 			wcgarbage = [_x] spawn WC_fnc_createcivilcar;
 			wcgarbage = [position _x] spawn WC_fnc_createiedintown;
+			if(random 1> 0.7) then {
+				wcgarbage = [position _x] spawn WC_fnc_createsheep;
+			};
 		}foreach _civillocation;
 
 		if(wcwithteleporthq == 1) then {
