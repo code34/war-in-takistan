@@ -189,7 +189,7 @@
 		};
 
 		wcradio = createVehicle ["TK_WarfareBUAVterminal_EP1", ["rescuezone", "onground", "onflat"] call WC_fnc_createpositioninmarker, [], 0, "NONE"];
-		_markerradio = ['radiotower', 0.5, position wcradio, 'ColorRED', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, '', false] call WC_fnc_createmarker;
+		_markerradio = ['radiotower', 0.5, position wcradio, 'ColorRED', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, 'Radio site', false] call WC_fnc_createmarker;
 
 		wcradio setVectorUp [0,0,1];
 		wcradio addeventhandler ['HandleDamage', {
