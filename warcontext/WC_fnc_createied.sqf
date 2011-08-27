@@ -85,5 +85,5 @@
 		if!(_unit getvariable "wciedactivate") then {
 			_missioncomplete = true;
 		};
-		sleep 2;
+		sleep 1;
 	};
