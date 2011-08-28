@@ -558,11 +558,13 @@
 		};
 	};
 
-	// INITIALIZE PLAYER SCORE ON SERVER
 	sleep 5;
 
 	_kindofgame = if (wckindofgame == 1) then { "arcade"; } else { "simulation";};
 	["Welcome to base", "Take some weapons at ammobox and wait for orders.", format["This mission is currently played as %1 game.", _kindofgame], 10] spawn WC_fnc_playerhint;
+
+	// INITIALIZE PLAYER SCORE ON SERVER
+	sleep 30;
 
 	wcplayeraddscore = [player, -1];
 	["wcplayeraddscore", "server"] call WC_fnc_publicvariable;

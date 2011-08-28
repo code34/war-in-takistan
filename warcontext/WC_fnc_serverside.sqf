@@ -231,6 +231,11 @@
 		wcmissionsuccess = _this select 0;
 	};
 
+	// retrieve team members
+	WC_fnc_netcode_wcinteam = {
+		wcinteam = _this select 0;
+	};
+
 
 	if(tolower(worldName) == "takistan") then {
 		_positions = [position tower2, 7, 360, getdir tower2, 7] call WC_fnc_docircle;
