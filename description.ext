@@ -819,4 +819,12 @@ class Params
 		texts[] = {"NONE", "FOCUS MIDDLE OF ZONE", "FOCUS ON GOAL"};
 		default = 2;
 	};
+
+	class wcwithantiairsite
+	{
+		title = "ENEMY USE ANTI AIR SITE";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
 };

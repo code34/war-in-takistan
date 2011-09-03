@@ -51,6 +51,7 @@
 	SortByDistance			= compile preprocessFile "extern\Common_SortByDistance.sqf";
 		
 	// warcontext scripts 
+	WC_fnc_antiair 			= compile preprocessFile "warcontext\WC_fnc_antiair.sqf";
 	WC_fnc_airpatrol 		= compile preprocessFile "warcontext\WC_fnc_airpatrol.sqf";
 	WC_fnc_ambiantlife 		= compile preprocessFile "warcontext\WC_fnc_ambiantlife.sqf";
 	WC_fnc_altercation 		= compile preprocessFile "warcontext\civilian\WC_fnc_altercation.sqf";
