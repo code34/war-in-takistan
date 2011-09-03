@@ -26,7 +26,7 @@
 
 
 	{
-		if(_x distance _unit < 5000) then {
+		if(_x distance _unit < 500) then {
 			_needpropagander = false;
 		};
 		if(isnull _x) then { wcpropagander = wcpropagander - [_x]; };

@@ -1,7 +1,7 @@
 	// -----------------------------------------------
-	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - civil drive car across the map
-	// -----------------------------------------------
+
 	if (!isServer) exitWith{};
 
 	private [

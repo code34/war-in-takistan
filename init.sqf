@@ -48,19 +48,20 @@
 	// external scripts
 	EXT_fnc_atot 			= compile preprocessFile "extern\EXT_fnc_atot.sqf";
 	EXT_fnc_createcomposition	= compile preprocessFile "extern\EXT_fnc_createcomposition.sqf";
-	SortByDistance			= Compile preprocessFile "extern\Common_SortByDistance.sqf";
+	SortByDistance			= compile preprocessFile "extern\Common_SortByDistance.sqf";
 		
-	// warcontext scripts
+	// warcontext scripts 
 	WC_fnc_airpatrol 		= compile preprocessFile "warcontext\WC_fnc_airpatrol.sqf";
 	WC_fnc_ambiantlife 		= compile preprocessFile "warcontext\WC_fnc_ambiantlife.sqf";
-	WC_fnc_altercation 		= compile preprocessFile "warcontext\WC_fnc_altercation.sqf";
+	WC_fnc_altercation 		= compile preprocessFile "warcontext\civilian\WC_fnc_altercation.sqf";
 	WC_fnc_attachmarker 		= compile preprocessFile "warcontext\WC_fnc_attachmarker.sqf";
 	WC_fnc_attachmarkerinzone	= compile preprocessFile "warcontext\WC_fnc_attachmarkerinzone.sqf";
 	WC_fnc_backupbuilding		= compile preprocessFile "warcontext\WC_fnc_backupbuilding.sqf";
 	WC_fnc_build			= compile preprocessFile "warcontext\WC_fnc_build.sqf";
+	WC_fnc_buildercivilian		= compile preprocessFile "warcontext\civilian\WC_fnc_buildercivilian.sqf";
 	WC_fnc_bomb			= compile preprocessFile "warcontext\WC_fnc_bomb.sqf";
 	WC_fnc_bringvehicle		= compile preprocessFile "warcontext\WC_fnc_bringvehicle.sqf";
-	WC_fnc_civilianinit 		= compile preprocessFile "warcontext\WC_fnc_civilianinit.sqf";
+	WC_fnc_civilianinit 		= compile preprocessFile "warcontext\civilian\WC_fnc_civilianinit.sqf";
 	WC_fnc_clockformat 		= compile preprocessFile "warcontext\WC_fnc_clockformat.sqf";
 	WC_fnc_computeavillage 		= compile preprocessFile "warcontext\WC_fnc_computeavillage.sqf";
 	WC_fnc_copymarker 		= compile preprocessFile "warcontext\WC_fnc_copymarker.sqf";
@@ -96,7 +97,7 @@
 	WC_fnc_deletemarker		= compile preprocessFile "warcontext\WC_fnc_deletemarker.sqf";
 	WC_fnc_destroygroup		= compile preprocessFile "warcontext\WC_fnc_destroygroup.sqf";
 	WC_fnc_docircle			= compile preprocessFile "warcontext\WC_fnc_docircle.sqf";
-	WC_fnc_dodrive			= compile preprocessFile "warcontext\WC_fnc_dodrive.sqf";
+	WC_fnc_drivercivilian		= compile preprocessFile "warcontext\civilian\WC_fnc_drivercivilian.sqf";
 	WC_fnc_enumcompositions		= compile preprocessFile "warcontext\WC_fnc_enumcompositions.sqf";
 	WC_fnc_enumfaction 		= compile preprocessFile "warcontext\WC_fnc_enumfaction.sqf";
 	WC_fnc_enumcfgpatches 		= compile preprocessFile "warcontext\WC_fnc_enumcfgpatches.sqf";
@@ -109,6 +110,7 @@
 	WC_fnc_grouphandler		= compile preprocessFile "warcontext\WC_fnc_grouphandler.sqf";
 	WC_fnc_getobject		= compile preprocessFile "warcontext\WC_fnc_getobject.sqf";
 	WC_fnc_heal			= compile preprocessFile "warcontext\WC_fnc_heal.sqf";
+	WC_fnc_healercivilian		= compile preprocessFile "warcontext\civilian\WC_fnc_healercivilian.sqf";
 	WC_fnc_jail			= compile preprocessFile "warcontext\WC_fnc_jail.sqf";
 	WC_fnc_mainloop 		= compile preprocessFile "warcontext\WC_fnc_mainloop.sqf";
 	WC_fnc_liberatehotage 		= compile preprocessFile "warcontext\WC_fnc_liberatehotage.sqf";
@@ -119,7 +121,7 @@
 	WC_fnc_nastyvehicleevent	= compile preprocessFile "warcontext\WC_fnc_nastyvehicleevent.sqf";
 	WC_fnc_patrol			= compile preprocessFile "warcontext\WC_fnc_patrol.sqf";
 	WC_fnc_protectobject		= compile preprocessFile "warcontext\WC_fnc_protectobject.sqf";
-	WC_fnc_propagand		= compile preprocessFile "warcontext\WC_fnc_propagand.sqf";
+	WC_fnc_propagand		= compile preprocessFile "warcontext\civilian\WC_fnc_propagand.sqf";
 	WC_fnc_publishmission		= compile preprocessFile "warcontext\WC_fnc_publishmission.sqf";
 	WC_fnc_rescuecivil		= compile preprocessFile "warcontext\WC_fnc_rescuecivil.sqf";
 	WC_fnc_rob			= compile preprocessFile "warcontext\WC_fnc_rob.sqf";
@@ -128,7 +130,7 @@
 	WC_fnc_restorebuilding 		= compile preprocessFile "warcontext\WC_fnc_restorebuilding.sqf";
 	WC_fnc_garbagecollector		= compile preprocessFile "warcontext\WC_fnc_garbagecollector.sqf";
 	WC_fnc_respawnvehicle		= compile preprocessFile "warcontext\WC_fnc_respawnvehicle.sqf";
-	WC_fnc_sabotagecivilian 	= compile preprocessFile "warcontext\WC_fnc_sabotagecivilian.sqf";
+	WC_fnc_sabotercivilian 		= compile preprocessFile "warcontext\civilian\WC_fnc_sabotercivilian.sqf";
 	WC_fnc_setskill 		= compile preprocessFile "warcontext\WC_fnc_setskill.sqf";
 	WC_fnc_serverside 		= compile preprocessFile "warcontext\WC_fnc_serverside.sqf";
 	WC_fnc_sentinelle	 	= compile preprocessFile "warcontext\WC_fnc_sentinelle.sqf";

@@ -1,8 +1,8 @@
 	// -----------------------------------------------
-	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - create propagander in towns
 	// propagander give weapons to civilians
-	// -----------------------------------------------
+
 	if (!isServer) exitWith{};
 
 	private [
@@ -28,7 +28,7 @@
 	_limitofsizeofgroup = ceil (random 10);
 
 	{
-		if(_x distance _unit < 5000) then {
+		if(_x distance _unit < 500) then {
 			_needpropagander = false;
 		};
 		if(isnull _x) then { wcpropagander = wcpropagander - [_x]; };

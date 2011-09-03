@@ -35,13 +35,25 @@
 			
 				case "saboter": {
 					if(random 1 > wcfame) then {
-						wcgarbage = [_unit] spawn WC_fnc_sabotagecivilian;
+						wcgarbage = [_unit] spawn WC_fnc_sabotercivilian;
+					};
+				};
+
+				case "builder": {
+					if(random 1 > wcfame) then {
+						wcgarbage = [_unit] spawn WC_fnc_buildercivilian;
+					};
+				};
+
+				case "healer": {
+					if(random 1 > wcfame) then {
+						wcgarbage = [_unit] spawn WC_fnc_healercivilian;
 					};
 				};
 			};
 		} else {
 			if(random 1 > 0.8) then {
-				wcgarbage = [_unit] spawn WC_fnc_dodrive;
+				wcgarbage = [_unit] spawn WC_fnc_drivercivilian;
 			};
 		};
 		
