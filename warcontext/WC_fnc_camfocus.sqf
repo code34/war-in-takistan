@@ -42,7 +42,7 @@
 		};
 		
 		case 3: {
-			_distance = 200;
+			_distance = 150;
 		};
 	};
 
@@ -69,14 +69,32 @@
 
 	waituntil {isnull wccam};
 
+
 	wccam = "camera" camCreate [0,0,1000];
 	wccam cameraEffect ["internal","back"];
 	ShowCinemaBorder true;
 
-	wccam camsettarget _object;
- 	_object setCameraInterest 50;
-	wccam camsetrelpos [-50, -50, 30];
-	wccam CamCommit 0;
+	switch (wcwithcam) do {
+		case 1:{
+			_exit = true;			
+		};
+
+		case 2: {
+			wccam camsettarget _object;
+			_object setCameraInterest 50;
+			wccam camsetrelpos [-2, -2, 2];
+			wccam CamCommit 0;
+			_distance = 10;
+		};
+		
+		case 3: {
+			wccam camsettarget _object;
+			_object setCameraInterest 50;
+			wccam camsetrelpos [-50, -50, 15];
+			wccam CamCommit 0;
+			_distance = 200;
+		};
+	};
 
 	while { (format["%1", wcanim] != "" and _sleep < 60)} do {
 		_missiontext spawn WC_fnc_infotext;
