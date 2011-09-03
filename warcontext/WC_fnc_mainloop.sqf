@@ -174,6 +174,13 @@
 			wcgarbage = [_marker] spawn WC_fnc_mortar;
 		};
 
+		// build an antiair
+		if(wcwithantiairsite > 0) then {
+			for "_x" from 1 to floor (random (3)) step 1 do {
+				wcgarbage = [] spawn WC_fnc_antiair;
+			};
+		};
+
 		if(random 1 > 0.95) then {
 			_position = [[8000,8000],[0,0],"onmount"] call WC_fnc_createposition;
 			_position = [_position select 0, _position select 1, 500];
