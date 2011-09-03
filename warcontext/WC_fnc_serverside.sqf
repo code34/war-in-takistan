@@ -427,15 +427,25 @@
 		};
 	};
 
-	// For open game
+	// For open game - all players are team members
 	if(wckindofserver != 1) then {
 		[] spawn {
-			private ["_array"];
+			private ["_array", "_knownplayer", "_player"];
+
+			// array contains known player (diff jip & player)
+			_knownplayer = [];
+
 			while { true } do {
 				_array = [];
 				{
-					_array = _array + [name _x];
+					_player = name _x;
+					if((_player in wcinteam) or !(_player in _knownplayer)) then {
+						_array = _array + [_player];
+						_knownplayer = _knownplayer + [_player];
+					};
+					sleep 0.01;
 				}foreach playableUnits;	
+		
 				if(format["%1", wcinteam] != format["%1", _array]) then {
 					wcinteam = _array;
 					["wcinteam", "client"] call WC_fnc_publicvariable;
@@ -445,14 +455,17 @@
 		};
 	};
 
+	// for game with only one life
 	if(wcwithonelife == 1) then {
-		while { true } do {
-			{
-				if(name _x in wconelife) then {
-					_x setdammage 1;
-				};
-			}foreach playableunits;
-			sleep 4;
+		[] spawn {
+			while { true } do {
+				{
+					if(name _x in wconelife) then {
+						_x setdammage 1;
+					};
+				}foreach playableunits;
+				sleep 4;
+			};
 		};
 	};
 
