@@ -59,7 +59,7 @@
 					_position = [0,0,0];
 					if(_enemy distance _unit < 800) then {
 						while { [_position select 0, _position select 1] distance [(position _enemy select 0), (position _enemy select 1)] > 100 } do {
-							_position = [((getpos _enemy) select 0) + ([50,70] call WC_fnc_seed), ((getpos _enemy) select 1) + ([50,70] call WC_fnc_seed), 0];
+							_position = [((getpos _enemy) select 0) + ([45,70] call WC_fnc_seed), ((getpos _enemy) select 1) + ([45,70] call WC_fnc_seed), 0];
 							_friendlyunits = nearestObjects [_position, ["Man", "LandVehicle"], 70];
 							{
 								if((side _x) in wcenemyside) then {
@@ -81,7 +81,7 @@
 							"ARTY_SmokeShellWhite" createVehicle position _enemy;
 							#endif						
 						};
-						sleep (30 + random 30);
+						sleep (20 + random 30);
 					};
 				};
 				sleep 5;
