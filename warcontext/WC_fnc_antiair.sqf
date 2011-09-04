@@ -5,6 +5,9 @@
 	private ["_position", "_mount", "_vehicle", "_arrayofpilot", "_group", "_pilot", "_type"];
 
 	_hill = nearestLocations [getmarkerpos "respawn_west", ["hill"], 20000];
+
+	sleep 1;
+	
 	_position = (position (_hill call BIS_fnc_selectRandom)) findEmptyPosition [2, 20];
 
 	_type = ["ZU23_TK_GUE_EP1", "Ural_ZU23_TK_GUE_EP1"] call BIS_fnc_selectRandom;
