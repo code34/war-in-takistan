@@ -7,10 +7,8 @@
 	if (!isServer) exitWith{};
 
 	[] spawn {
-		if(wcautoload == 1) then {
-			wccfgpatches = [] call WC_fnc_enumcfgpatches;
-			publicvariable "wccfgpatches";
-		};
+		wccfgpatches = [] call WC_fnc_enumcfgpatches;
+		publicvariable "wccfgpatches";
 	};
 
 	// All vehicles that are respawnables (arcade mode)

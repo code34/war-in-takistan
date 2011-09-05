@@ -292,8 +292,8 @@
 		wcwestside = _this select 0;
 	};
 
-	WC_fnc_netcode_wcautoload = {
-		wcautoload = _this select 0;
+	WC_fnc_netcode_wcautoloadweapons = {
+		wcautoloadweapons = _this select 0;
 	};
 
 	WC_fnc_netcode_wccombined = {

@@ -596,9 +596,25 @@ class Params
 		default=3000;
 	};
 
-	class wcautoload
+	class wcautoloadweapons
 	{
-		title = "AUTOLOAD ADDONS (REQUIRE SAME ADDONS ON CLIENT SIDE)";
+		title = "AUTOLOAD WEAPONS (REQUIRE SAME ADDONS ON CLIENT SIDE)";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 0;
+	};
+
+	class wcautoloadtroops
+	{
+		title = "AUTOLOAD TROOPS (REQUIRE SAME ADDONS ON CLIENT SIDE)";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 0;
+	};
+
+	class wcautoloadvehicles
+	{
+		title = "AUTOLOAD VEHICLES (REQUIRE SAME ADDONS ON CLIENT SIDE)";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 0;

@@ -100,7 +100,7 @@
 	if(wckindofgame == 1) then {
 		wcgarbage = ["Hospital", getmarkerpos "hospital"] spawn BIS_fnc_3dcredits;
 		wcgarbage = ["Weapons", getmarkerpos "crate1"] spawn BIS_fnc_3dcredits;
-		if(wcautoload == 1) then {
+		if(wcautoloadweapons == 1) then {
 			wcgarbage = ["Addons Weapons", getmarkerpos "autoloadcrate"] spawn BIS_fnc_3dcredits;
 		};
 		wcgarbage = ["Presets", position preset] spawn BIS_fnc_3dcredits;
@@ -236,7 +236,7 @@
 	#endif
 
 	wcgarbage = [(getmarkerpos "crate1"), "base"] spawn WC_fnc_createammobox;
-	if(wcautoload == 1) then {
+	if(wcautoloadweapons == 1) then {
 		wcgarbage = [(getmarkerpos "autoloadcrate"), "addons"] spawn WC_fnc_createammobox;
 	};
 
