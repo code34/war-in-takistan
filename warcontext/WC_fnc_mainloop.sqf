@@ -150,12 +150,11 @@
 		wcdate = _time;
 		if(isdedicated) then {
 			setdate wcdate;
-			["wcdate", "client"] call WC_fnc_publicvariable;
-			["wcday", "client"] call WC_fnc_publicvariable;
-			["wcweather", "client"] call WC_fnc_publicvariable;
-		} else {
-			wcgarbage = [] spawn WC_fnc_fasttime;
 		};
+
+		["wcdate", "client"] call WC_fnc_publicvariable;
+		["wcday", "client"] call WC_fnc_publicvariable;
+		["wcweather", "client"] call WC_fnc_publicvariable;
 
 		_active setpos _position;
 
