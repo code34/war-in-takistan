@@ -13,12 +13,6 @@
 	SliderSetPosition[13002, wcviewDist];
 	SliderSetPosition[13004, (50 - wcterraingrid)];
 	
-	_kindofgame = if(wckindofgame == 1) then {"arcade";} else {"simulation";};
-	_kindofserver = switch (wckindofserver) do { case 1: {"team";}; case 2: {"open";}; case 2: {"no team";}; };
-	_autoload = if(wcautoloadweapons == 0) then {"no";} else {"yes";};
-	_combined = if (wccombined == 0) then {"Arrowhead";}else{"Combined operation";};
-	_text = format["Server settings\n\nKind of game: %1\nKind of server: %5\nView Distance max: %2\nAutoload addons: %3\nGame content: %4\n\nMissing addons on client side:\n", _kindofgame, wcviewdistance, _autoload, _combined,_kindofserver];
-
 	_text = "Game settings";
 	lbAdd [13007, _text];
 
