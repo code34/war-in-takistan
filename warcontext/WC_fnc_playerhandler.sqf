@@ -296,10 +296,6 @@
 		wcautoloadweapons = _this select 0;
 	};
 
-	WC_fnc_netcode_wccombined = {
-		wccombined = _this select 0;
-	};
-
 	WC_fnc_netcode_wcmotd = {
 		wcmotd = _this select 0;
 	};
