@@ -17,44 +17,6 @@
 
 	#include "common.hpp"
 
-	WC_fnc_attachmarkerlocal	= compile preprocessFile "warcontext\WC_fnc_attachmarkerlocal.sqf";
-	WC_fnc_camfocus 		= compile preprocessFile "warcontext\WC_fnc_camfocus.sqf";
-	WC_fnc_checkpilot		= compile preprocessFile "warcontext\WC_fnc_checkpilot.sqf";
-	WC_fnc_clockformat 		= compile preprocessFile "warcontext\WC_fnc_clockformat.sqf";
-	WC_fnc_createammobox		= compile preprocessFile "warcontext\WC_fnc_createammobox.sqf";
-	WC_fnc_createnuclearzone 	= compile preprocessFile "warcontext\WC_fnc_createnuclearzone.sqf";
-	WC_fnc_createposition 		= compile preprocessFile "warcontext\WC_fnc_createposition.sqf";
-	WC_fnc_createpositioninmarker 	= compile preprocessFile "warcontext\WC_fnc_createpositioninmarker.sqf";
-	WC_fnc_createmarker 		= compile preprocessFile "warcontext\WC_fnc_createmarker.sqf";
-	WC_fnc_createmarkerlocal	= compile preprocessFile "warcontext\WC_fnc_createmarkerlocal.sqf";
-	WC_fnc_enummusic 		= compile preprocessFile "warcontext\WC_fnc_enummusic.sqf";
-	WC_fnc_enummagazines 		= compile preprocessFile "warcontext\WC_fnc_enummagazines.sqf";
-	WC_fnc_enumvehicle 		= compile preprocessFile "warcontext\WC_fnc_enumvehicle.sqf";
-	WC_fnc_enumweapons 		= compile preprocessFile "warcontext\WC_fnc_enumweapons.sqf";
-	WC_fnc_eventhandler 		= compile preprocessFile "warcontext\WC_fnc_eventhandler.sqf";
-	WC_fnc_exportweaponsplayer	= compile preprocessFile "warcontext\WC_fnc_exportweaponsplayer.sqf";
-	WC_fnc_garbagecollector		= compile preprocessFile "warcontext\WC_fnc_garbagecollector.sqf";
-	WC_fnc_fasttime			= compile preprocessFile "warcontext\WC_fnc_fasttime.sqf";
-	WC_fnc_followvehicle		= compile preprocessFile "warcontext\WC_fnc_followvehicle.sqf";
-	WC_fnc_infotext			= compile preprocessFile "extern\fn_infoText.sqf";
-	WC_fnc_intro			= compile preprocessFile "intro.sqf";
-	WC_fnc_keymapper		= compile preprocessFile "warcontext\WC_fnc_keymapper.sqf";
-	WC_fnc_lifeslider		= compile preprocessFile "warcontext\WC_fnc_lifeslider.sqf";
-	WC_fnc_light			= compile preprocessFile "warcontext\WC_fnc_light.sqf";
-	WC_fnc_nuclearnuke		= compile preprocessFile "warcontext\WC_fnc_nuclearnuke.sqf";
-	WC_fnc_newfollowplayer		= compile preprocessFile "warcontext\WC_fnc_newfollowplayer.sqf";
-	WC_fnc_markerhintlocal		= compile preprocessFile "warcontext\WC_fnc_markerhintlocal.sqf";
-	WC_fnc_onkilled			= compile preprocessFile "warcontext\WC_fnc_onkilled.sqf";
-	WC_fnc_playerhandler		= compile preprocessFile "warcontext\WC_fnc_playerhandler.sqf";
-	WC_fnc_playerhint		= compile preprocessFile "warcontext\WC_fnc_playerhint.sqf";
-	WC_fnc_unlockvehicle 		= compile preprocessFile "warcontext\WC_fnc_unlockvehicle.sqf";
-	WC_fnc_unflipvehicle 		= compile preprocessFile "warcontext\WC_fnc_unflipvehicle.sqf";
-	WC_fnc_repairvehicle 		= compile preprocessFile "warcontext\WC_fnc_repairvehicle.sqf";
-	WC_fnc_restoreloadout		= compile preprocessFile "warcontext\WC_fnc_restoreloadout.sqf";
-	WC_fnc_restoreactionmenu	= compile preprocessFile "warcontext\WC_fnc_restoreactionmenu.sqf";
-	WC_fnc_saveloadout		= compile preprocessFile "warcontext\WC_fnc_saveloadout.sqf";
-	WC_fnc_teamstatus		= compile preprocessFile "extern\TeamStatusDialog\TeamStatusDialog.sqf";
-
 	// Init global variables
 	wcgarbage = [] call WC_fnc_commoninitconfig;
 	wcgarbage = [] call WC_fnc_clientinitconfig;
