@@ -49,20 +49,6 @@
 	wcallsides = wceastside + wcresistanceside;
 	wccivilwithoutweapons = ["TK_CIV_Woman01_EP1", "TK_CIV_Woman02_EP1", "TK_CIV_Woman03_EP1"];
 
-	// if arrowhead
-	if(wccombined == 0) then {
-		private ["_temp"];
-		_temp = [];
-		wcfactionblacklist = ["RU", "INS", "GUE"];
-		wcfactionlist = (wcallsides select 0) - wcfactionblacklist;
-		{
-			if!((_x select 0) in wcfactionblacklist) then {
-				_temp = _temp + [_x];
-			};
-		}foreach (wcallsides select 1);	
-		wcallsides = [wcfactionlist, _temp];
-	};
-
 	wcfactions = (wcallsides select 0) - wcblacklistside;
 	wcclasslist = wcallsides select 1;
 	wcvehicleslistEmission = wcvehicleslistE;
