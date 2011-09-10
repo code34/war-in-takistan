@@ -82,7 +82,7 @@
 	}foreach wclistofmissions;
 	lbSetCurSel [1500, 0];
 
-	_marker = ['choosemission', 200, [0,0,0], 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
+	_marker = ['choosemission', 800, [0,0,0], 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
 
 	if!((_count < 4) and (name player in wcinteam)) then {
 		ctrlSetText [1600, localize "STR_ACGUI_MM_BTN_CLOSE"];
