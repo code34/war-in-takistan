@@ -620,14 +620,6 @@ class Params
 		default = 0;
 	};
 
-	class wccombined
-	{
-		title = "GAME CONTENT";
-		values[] = {0,1};
-		texts[] = {"ARROWHEAD", "COMBINED OPERATION"};
-		default = 0;
-	};
-
 	class wckindofserver
 	{
 		title = "KIND OF SERVER";
@@ -718,7 +710,7 @@ class Params
 
 	class wcwithhq
 	{
-		title = "ADMIN CHOOSES THE MISSIONS FOR PLAYERS";
+		title = "3 BEST PLAYERS CHOOSE MISSIONS OF PLAYERS";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 0;
