@@ -27,6 +27,7 @@
 		"wcobjective",
 		"wcnuclearzone",
 		"wchostage",
+		"wccfgpatches",
 		"wcday",
 		"wcweather",
 		"wcselectedzone",
