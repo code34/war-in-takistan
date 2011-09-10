@@ -15,23 +15,33 @@
 	
 	_kindofgame = if(wckindofgame == 1) then {"arcade";} else {"simulation";};
 	_kindofserver = switch (wckindofserver) do { case 1: {"team";}; case 2: {"open";}; case 2: {"no team";}; };
-	_autoload = if(wcautoload == 0) then {"no";} else {"yes";};
+	_autoload = if(wcautoloadweapons == 0) then {"no";} else {"yes";};
 	_combined = if (wccombined == 0) then {"Arrowhead";}else{"Combined operation";};
 	_text = format["Server settings\n\nKind of game: %1\nKind of server: %5\nView Distance max: %2\nAutoload addons: %3\nGame content: %4\n\nMissing addons on client side:\n", _kindofgame, wcviewdistance, _autoload, _combined,_kindofserver];
 
-	if(wcautoload == 1) then {
-		if(count wccfglocalpatches > 0) then {
-			{
-				_text = _text + format["%1\n", _x];
-			}foreach wccfglocalpatches;
-		} else {
-				_text = _text + "None";
-		};
-	} else {
-		_text = _text + "None";
+	_text = "Game settings";
+	lbAdd [13007, _text];
+
+	for "_i" from 0 to (count paramsArray - 1) do {
+		_text = format["%1 = %2", configName ((missionConfigFile >> "Params") select _i), paramsArray select _i];
+		lbAdd [13007, _text];
 	};
 
-	ctrlSetText [13007, _text];
+	_text = "";
+	lbAdd [13007, _text];
+
+	_text = "Missing Addons";
+	lbAdd [13007, _text];
+
+	if(count wccfglocalpatches > 0) then {
+		{
+			_text = format["%1", _x];
+			lbAdd [13007, _text];
+		}foreach wccfglocalpatches;
+	} else {
+			_text = "None";
+			lbAdd [13007, _text];
+	};
 	
 	while {alive player && dialog} do {
 		sleep 0.1;

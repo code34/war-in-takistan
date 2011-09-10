@@ -634,18 +634,27 @@ class SettingsDialog {
 			action = "MenuAction = 2";
 		};
 
-		class VM_GAMESETTINGS: RscText
+		//class VM_GAMESETTINGS: RscText
+		//{
+		//	idc = 13007;
+		//	x = 0.410;
+		//	y = 0.120;
+		//	w = 0.69;
+		//	h = 0.73;
+		//	SizeEx = 0.030;
+		//	style = ST_MULTI;
+		//	lineSpacing = 0.7;
+		//	colorText[] = {1, 1, 1, 1};
+		//	colorBackground[] = {0.3, 0.3, 0.3, 0.3};
+		//};
+
+		class VM_GAMESETTINGS: RscListBox
 		{
 			idc = 13007;
 			x = 0.410;
 			y = 0.120;
 			w = 0.69;
 			h = 0.73;
-			SizeEx = 0.030;
-			style = ST_MULTI;
-			lineSpacing = 0.7;
-			colorText[] = {1, 1, 1, 1};
-			colorBackground[] = {0.3, 0.3, 0.3, 0.3};
 		};
 		
 		class VM_TG_VAL: RscText 
