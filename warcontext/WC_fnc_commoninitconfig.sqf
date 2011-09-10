@@ -4,7 +4,7 @@
 	// -----------------------------------------------
 	#include "common.hpp"
 
-	wcversion	= 1.34;
+	wcversion	= 1.40;
 
 	wcside 		=  [west];
 	
