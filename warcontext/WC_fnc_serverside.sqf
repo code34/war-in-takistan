@@ -298,9 +298,6 @@
 	if(wckindofserver != 3) then {
 		if(wcwithcivilian == 1) then {
 
-			civilian setFriend [west, 0];
-			civilian setFriend [east, 1];
-
 			wcalice = createGroup civilian;	
 			if(tolower(worldName) == "takistan") then {
 				wccivilianmodule = wcalice createUnit ["Alice2Manager",[0,0,0],[],0,"NONE"];

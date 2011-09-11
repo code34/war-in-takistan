@@ -8,6 +8,9 @@
 	while { true } do {
 		waituntil { count wccivilianstoinit > 0 };
 
+		civilian setFriend [west, wcfame];
+		civilian setFriend [east, 1];
+
 		_unit = wccivilianstoinit select 0;
 		wccivilianstoinit = wccivilianstoinit - [_unit];
 
@@ -80,5 +83,5 @@
 			};
 			_unit addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
 		};
-		sleep 0.5;
+		sleep 1;
 	};
