@@ -415,7 +415,7 @@ class cfgFunctions
 
 
 class CfgMusic {
-	tracks[]={};
+	tracks[]={intro, outro};
 	class intro
 	{
 		name = "";
@@ -431,151 +431,151 @@ class CfgMusic {
 
 class CfgSounds
 {
- sounds[] = {};   
-  class paper
-  {
-   name = "paper";
-   sound[] = {"\sound\paper.ogg", 1, 1};
-   titles[] = {};
-  };
-  class drum
-  {
-   name = "drum";
-   sound[] = {"\sound\drum.ogg", 0.4, 1};
-   titles[] = {};
-  };
-  class allah
-  {
-   name = "allah";
-   sound[] = {"\sound\allah.ogg", 0.4, 1};
-   titles[] = {};
-  };
-  class bombdetector1
-  {
-   name = "bombdetector1";
-   sound[] = {"\sound\bip6.ogg", 0.4, 0.2};
-   titles[] = {};
-  };
-  class bombdetector2
-  {
-   name = "bombdetector2";
-   sound[] = {"\sound\bip6.ogg", 0.4, 1};
-   titles[] = {};
-  };
-  class bombdetector3
-  {
-   name = "bombdetector3";
-   sound[] = {"\sound\bip7.ogg", 0.4, 1};
-   titles[] = {};
-  };
-  class bomb
-  {
-   name = "bomb";
-   sound[] = {"\sound\bomb.ogg", 1, 1};
-   titles[] = {};
-  };
-  class alarm1
-  {
-   name = "alarm1";
-   sound[] = {"\sound\alarm.ogg", 1, 1};
-   titles[] = {};
-  };
-  class alarm2
-  {
-   name = "alarm2";
-   sound[] = {"\sound\alarm.ogg", 0.1, 1};
-   titles[] = {};
-  };
-  class alarm3
-  {
-   name = "alarm3";
-   sound[] = {"\sound\alarm.ogg", 0.01, 1};
-   titles[] = {};
-  };
-  class help1
-  {
-   name = "help1";
-   sound[] = {"\sound\help.ogg", 1, 1};
-   titles[] = {};
-  };
-  class help2
-  {
-   name = "help2";
-   sound[] = {"\sound\help.ogg", 0.1, 1};
-   titles[] = {};
-  };
-  class help3
-  {
-   name = "help3";
-   sound[] = {"\sound\help.ogg", 0.01, 1};
-   titles[] = {};
-  };
-  class bip1
-  {
-   name = "bip1";
-   sound[] = {"\sound\bip1.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip2
-  {
-   name = "bip2";
-   sound[] = {"\sound\bip2.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip3
-  {
-   name = "bip3";
-   sound[] = {"\sound\bip3.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip4
-  {
-   name = "bip4";
-   sound[] = {"\sound\bip4.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip5
-  {
-   name = "bip5";
-   sound[] = {"\sound\bip5.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip6
-  {
-   name = "bip6";
-   sound[] = {"\sound\bip6.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip7
-  {
-   name = "bip7";
-   sound[] = {"\sound\bip7.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip8
-  {
-   name = "bip8";
-   sound[] = {"\sound\bip8.ogg", 1, 1};
-   titles[] = {};
-  };
-  class bip9
-  {
-   name = "bip9";
-   sound[] = {"\sound\bip9.ogg", 1, 1};
-   titles[] = {};
-  };
-  class geiger
-  {
-   name = "geiger";
-   sound[] = {"\sound\geiger.ogg", 0.6, 1};
-   titles[] = {};
-  };
-  class missionvoid1
-  {
-   name = "missionvoid1";
-   sound[] = {"\sound\help.ogg", 1, 1};
-   titles[] = {};
-  };
+	sounds[] = {};  
+	class paper
+	{
+		name = "paper";
+		sound[] = {"\sound\paper.ogg", 1, 1};
+		titles[] = {};
+	};
+	class drum
+	{
+		name = "drum";
+		sound[] = {"\sound\drum.ogg", 0.4, 1};
+		titles[] = {};
+	};
+	class allah
+	{
+		name = "allah";
+		sound[] = {"\sound\allah.ogg", 0.4, 1};
+		titles[] = {};
+	};
+	class bombdetector1
+	{
+		name = "bombdetector1";
+		sound[] = {"\sound\bip6.ogg", 0.4, 0.2};
+		titles[] = {};
+	};
+	class bombdetector2
+	{
+		name = "bombdetector2";
+		sound[] = {"\sound\bip6.ogg", 0.4, 1};
+		titles[] = {};
+	};
+	class bombdetector3
+	{
+		name = "bombdetector3";
+		sound[] = {"\sound\bip7.ogg", 0.4, 1};
+		titles[] = {};
+	};
+	class bomb
+	{
+		name = "bomb";
+		sound[] = {"\sound\bomb.ogg", 1, 1};
+		titles[] = {};
+	};
+	class alarm1
+	{
+		name = "alarm1";
+		sound[] = {"\sound\alarm.ogg", 1, 1};
+		titles[] = {};
+	};
+	class alarm2
+	{
+		name = "alarm2";
+		sound[] = {"\sound\alarm.ogg", 0.1, 1};
+		titles[] = {};
+	};
+	class alarm3
+	{
+		name = "alarm3";
+		sound[] = {"\sound\alarm.ogg", 0.01, 1};
+		titles[] = {};
+	};
+	class help1
+	{
+		name = "help1";
+		sound[] = {"\sound\help.ogg", 1, 1};
+		titles[] = {};
+	};
+	class help2
+	{
+		name = "help2";
+		sound[] = {"\sound\help.ogg", 0.1, 1};
+		titles[] = {};
+	};
+	class help3
+	{
+		name = "help3";
+		sound[] = {"\sound\help.ogg", 0.01, 1};
+		titles[] = {};
+	};
+	class bip1
+	{
+		name = "bip1";
+		sound[] = {"\sound\bip1.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip2
+	{
+		name = "bip2";
+		sound[] = {"\sound\bip2.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip3
+	{
+		name = "bip3";
+		sound[] = {"\sound\bip3.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip4
+	{
+		name = "bip4";
+		sound[] = {"\sound\bip4.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip5
+	{
+		name = "bip5";
+		sound[] = {"\sound\bip5.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip6
+	{
+		name = "bip6";
+		sound[] = {"\sound\bip6.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip7
+	{
+		name = "bip7";
+		sound[] = {"\sound\bip7.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip8
+	{
+		name = "bip8";
+		sound[] = {"\sound\bip8.ogg", 1, 1};
+		titles[] = {};
+	};
+	class bip9
+	{
+		name = "bip9";
+		sound[] = {"\sound\bip9.ogg", 1, 1};
+		titles[] = {};
+	};
+	class geiger
+	{
+		name = "geiger";
+		sound[] = {"\sound\geiger.ogg", 0.6, 1};
+		titles[] = {};
+	};
+	class missionvoid1
+	{
+		name = "missionvoid1";
+		sound[] = {"\sound\help.ogg", 1, 1};
+		titles[] = {};
+	};
 };
 
 class Params
