@@ -125,7 +125,6 @@ switch (typename _types) do {
 
 					//--- Set name
 					call compile format ["%1 = _logic;",_classname];
-					//call compile format ["%1 = _logic; publicvariable '%1';",_classname];
 					_logic setvariable ["name",_name,true];
 					_logic setvariable ["class",configname _current,true];
 					_logic setvariable ["type",_type,true];
@@ -182,7 +181,6 @@ switch (typename _types) do {
 
 					//--- Set name
 					call compile format ["%1 = _logic;",_classname];
-					//call compile format ["%1 = _logic; publicvariable '%1';",_classname];
 					_logic setvariable ["name",_name,true];
 					_logic setvariable ["class",_classname,true];
 					_logic setvariable ["neighbors",[]];
@@ -223,7 +221,6 @@ switch (typename _types) do {
 
 							//--- Set name
 							call compile format ["%1 = _logic;",_classname];
-							//call compile format ["%1 = _logic; publicvariable '%1';",_classname];
 
 							//--- Debug - draw marker
 							if (_debug) then {

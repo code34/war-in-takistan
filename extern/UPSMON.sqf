@@ -578,7 +578,7 @@ if (_initpos!="ORIGINAL") then {
 	_try=0;
 	_bld=0;
 	_bldpos=0;
-	while {_try<20} do {
+	while {_try < 20} do {
 		_currPos=[_centerX,_centerY,_rangeX,_rangeY,_cosdir,_sindir,_areadir] call KRON_randomPos;
 		_posinfo=[_currPos] call KRON_PosInfo3;
 		// _posinfo: [0,0]=no house near, [obj,-1]=house near, but no roof positions, [obj,pos]=house near, with roof pos

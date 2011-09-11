@@ -1,116 +1,106 @@
-// =========================================================================================================
-//  UPSMON - Urban Patrol Script  Mon
-//  Version: 5.0.7 
-// Author: Monsada (chs.monsada@gmail.com) 
-//		Comunidad Hispana de Simulación: 
-//		http://www.simulacion-esp.com
-//
-//		Wiki: http://dev-heaven.net/projects/upsmon/wiki
-//		Forum: http://forums.bistudio.com/showthread.php?t=91696
-//		Share your missions with upsmon: http://dev-heaven.net/projects/upsmon/boards/86
-// ---------------------------------------------------------------------------------------------------------
-//  Based on Urban Patrol Script  
-//  Version: 2.0.3 
-//  Author: Kronzky (www.kronzky.info / kronzky@gmail.com)
-// ---------------------------------------------------------------------------------------------------------
+	// =========================================================================================================
+	// Based on UPSMON - Urban Patrol Script  Mon
+ 	// Author: =[A*C]= code34 (nicolas_boiteux@yahoo.fr)
+	// Version x 
+	// delete surrended option and publicvariable
+	// ---------------------------------------------------------------------------------------------------------
+	//  Based on UPSMON - Urban Patrol Script  Mon
+	//  Version: 5.0.7 
+	// Author: Monsada (chs.monsada@gmail.com) 
+	// ---------------------------------------------------------------------------------------------------------
+	//  Based on Urban Patrol Script  
+	//  Version: 2.0.3 
+	//  Author: Kronzky (www.kronzky.info / kronzky@gmail.com)
+	// ---------------------------------------------------------------------------------------------------------
 
-//Adding eventhandlers
-"KRON_UPS_EAST_SURRENDED" addPublicVariableEventHandler { if (_this select 1) then { nul=[east] execvm "extern\UPSMON\MON_surrended.sqf";};};
-"KRON_UPS_WEST_SURRENDED" addPublicVariableEventHandler { if (_this select 1) then { nul=[west] execvm "extern\UPSMON\MON_surrended.sqf";};};
-"KRON_UPS_GUER_SURRENDED" addPublicVariableEventHandler { if (_this select 1) then { nul=[resistance] execvm "extern\UPSMON\MON_surrended.sqf";};};
-"MON_LOCAL_EXEC" addPublicVariableEventHandler { if (local ((_this select 1)select 0)) then {
-	call ( compile format[(_this select 1)select 1,(_this select 1)select 0] );
-	};
-};
+	if (!isServer) exitWith {};
 
-if (!isServer) exitWith {};
-
-//1=Enable or 0=disable debug. in debug could see a mark positioning de leader and another mark of the destinity of movement, very useful for editing mision
-KRON_UPS_Debug = 0;
-
-//Time that lider wait until doing another movement, this time reduced dinamically under fire, and on new targets
-KRON_UPS_react = 60;
-
-//Min time to wait for doing another reaction
-KRON_UPS_minreact = 30;
-
-//Max waiting is the maximum time patrol groups will wait when arrived to target for doing another target.
-KRON_UPS_maxwaiting = 30;
-
-// how long AI units should be in alert mode after initially spotting an enemy
-KRON_UPS_alerttime = 90;
-
-// how far opfors should move away if they're under attack
-KRON_UPS_safedist = 300;
-
-// how close unit has to be to target to generate a new one target or to enter stealth mode
-KRON_UPS_closeenough = 300;
-
-// how close units have to be to each other to share information, over this, will lose target
-KRON_UPS_sharedist = 800;
-
-//If enabled IA comunicating between them with radio defined sharedist distance, 
-KRON_UPS_comradio = 2;
-
-//Sides that are enemies of resistance
-KRON_UPS_Res_enemy = [west];
-
-//Frequency for doin calculations for each squad.
-KRON_UPS_Cycle = 20;
-
-//Height that heli will fly this input will be randomiced in a 10%
-KRON_UPS_flyInHeight = 100;
-
-//Max distance to target for doing paradrop, will be randomiced between 0 and 100% of this value.
-KRON_UPS_paradropdist = 250;
-
-//Enables or disables AI to use static weapons
-KRON_UPS_useStatics = true;
-
-//Enables or disables AI to put mines if armored enemies near
-KRON_UPS_useMines = false;
-
-//Distance from destination for seraching vehicles
-KRON_UPS_searchVehicledist = 500;
-
-//Percentage of units to surrender.
-KRON_UPS_EAST_SURRENDER = 0;
-KRON_UPS_WEST_SURRENDER = 0;
-KRON_UPS_GUER_SURRENDER = 0;
-
-//Efective distance for doing perfect ambush (max distance is this x2)
-KRON_UPS_ambushdist = 50;
-
-//Enable it to send reinforcements, better done it in a trigger inside your mission.
-KRON_UPS_reinforcement = false; 
-
-//Artillery support, better control if set in trigger
-KRON_UPS_ARTILLERY_EAST_FIRE = false; //set to true for doing east to fire
-KRON_UPS_ARTILLERY_WEST_FIRE = false; //set to true for doing west to fire
-KRON_UPS_ARTILLERY_GUER_FIRE = false; //set to true for doing resistance to fire
+	//1=Enable or 0=disable debug. in debug could see a mark positioning de leader and another mark of the destinity of movement, very useful for editing mision
+	KRON_UPS_Debug = 0;
+	
+	//Time that lider wait until doing another movement, this time reduced dinamically under fire, and on new targets
+	KRON_UPS_react = 60;
+	
+	//Min time to wait for doing another reaction
+	KRON_UPS_minreact = 30;
+	
+	//Max waiting is the maximum time patrol groups will wait when arrived to target for doing another target.
+	KRON_UPS_maxwaiting = 30;
+	
+	// how long AI units should be in alert mode after initially spotting an enemy
+	KRON_UPS_alerttime = 90;
+	
+	// how far opfors should move away if they're under attack
+	KRON_UPS_safedist = 300;
+	
+	// how close unit has to be to target to generate a new one target or to enter stealth mode
+	KRON_UPS_closeenough = 300;
+	
+	// how close units have to be to each other to share information, over this, will lose target
+	KRON_UPS_sharedist = 800;
+	
+	//If enabled IA comunicating between them with radio defined sharedist distance, 
+	KRON_UPS_comradio = 2;
+	
+	//Sides that are enemies of resistance
+	KRON_UPS_Res_enemy = [west];
+	
+	//Frequency for doin calculations for each squad.
+	KRON_UPS_Cycle = 20;
+	
+	//Height that heli will fly this input will be randomiced in a 10%
+	KRON_UPS_flyInHeight = 100;
+	
+	//Max distance to target for doing paradrop, will be randomiced between 0 and 100% of this value.
+	KRON_UPS_paradropdist = 250;
+	
+	//Enables or disables AI to use static weapons
+	KRON_UPS_useStatics = true;
+	
+	//Enables or disables AI to put mines if armored enemies near
+	KRON_UPS_useMines = false;
+	
+	//Distance from destination for seraching vehicles
+	KRON_UPS_searchVehicledist = 500;
+	
+	//Percentage of units to surrender.
+	KRON_UPS_EAST_SURRENDER = 0;
+	KRON_UPS_WEST_SURRENDER = 0;
+	KRON_UPS_GUER_SURRENDER = 0;
+	
+	//Efective distance for doing perfect ambush (max distance is this x2)
+	KRON_UPS_ambushdist = 50;
+	
+	//Enable it to send reinforcements, better done it in a trigger inside your mission.
+	KRON_UPS_reinforcement = false; 
+	
+	//Artillery support, better control if set in trigger
+	KRON_UPS_ARTILLERY_EAST_FIRE = false; //set to true for doing east to fire
+	KRON_UPS_ARTILLERY_WEST_FIRE = false; //set to true for doing west to fire
+	KRON_UPS_ARTILLERY_GUER_FIRE = false; //set to true for doing resistance to fire
 
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
 //		Initialization of public Variables used in script, do not touch	
 //----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------			
-	KRON_UPS_flankAngle = 45; //Angulo de flanqueo
-	KRON_UPS_INIT = 0;        //Variable que indica que ha sido inicializado
-	KRON_UPS_EAST_SURRENDED = false;
-	KRON_UPS_WEST_SURRENDED = false;
-	KRON_UPS_GUER_SURRENDED = false;
-	KRON_AllWest=[];	//All west AI 
-	KRON_AllEast=[];	//All east AI 
-	KRON_AllRes=[];		//All resistance AI 
-	KRON_UPS_East_enemies = [];
-	KRON_UPS_West_enemies = [];
-	KRON_UPS_Guer_enemies = [];
-	KRON_UPS_East_friends = [];
-	KRON_UPS_West_friends = [];
-	KRON_UPS_Guer_friends = [];
-	KRON_targets0 =[];//objetivos west
-	KRON_targets1 =[];//objetivos east
-	KRON_targets2 =[];//resistence	
-	KRON_targetsPos =[];//Posiciones de destino actuales.
-	KRON_NPCs = []; //Lideres de los grupos actuales	
+	KRON_UPS_flankAngle 			= 45; // flank angle
+	KRON_UPS_INIT 				= 0;  // ups is init or not
+	KRON_UPS_EAST_SURRENDED 		= false;
+	KRON_UPS_WEST_SURRENDED 		= false;
+	KRON_UPS_GUER_SURRENDED 		= false;
+	KRON_AllWest				= [];	//All west AI 
+	KRON_AllEast				= [];	//All east AI 
+	KRON_AllRes				= [];	//All resistance AI 
+	KRON_UPS_East_enemies 			= [];
+	KRON_UPS_West_enemies 			= [];
+	KRON_UPS_Guer_enemies 			= [];
+	KRON_UPS_East_friends 			= [];
+	KRON_UPS_West_friends 			= [];
+	KRON_UPS_Guer_friends 			= [];
+	KRON_targets0 				= [];	// west goal
+	KRON_targets1 				= [];	// east goal
+	KRON_targets2 				= [];	// resistance goal
+	KRON_targetsPos 			= [];	// destination position
+	KRON_NPCs 				= [];	// group leader
 	KRON_UPS_Instances=0;
 	KRON_UPS_Total=0;
 	KRON_UPS_Exited=0;
@@ -122,10 +112,8 @@ KRON_UPS_ARTILLERY_GUER_FIRE = false; //set to true for doing resistance to fire
 	KRON_UPS_ARTILLERY_EAST_TARGET = objnull;
 	KRON_UPS_ARTILLERY_GUER_TARGET = objnull;
 	KRON_UPS_TEMPLATES = [];
-	KRON_UPS_MG_WEAPONS = ["MG36","M249","M240","MK_48","PK","PKm","Pecheneg","M249 Para","M249 Para M145","M240G M145","M60"];
+	KRON_UPS_MG_WEAPONS = ["M249_EP1","M249_TWS_EP1","M249_m145_EP1","M60A4_EP1","MG36_camo","Mk_48_DES_EP1","m240_scoped_EP1"];
 	
-	
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // ***************************************** SERVER INITIALIZATION *****************************************
 if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
@@ -135,44 +123,191 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 	
 	//scripts initialization
 	UPSMON = compile preprocessFile "extern\UPSMON.sqf";	
-	UPSMON_surrended = compile preprocessFile "extern\UPSMON\MON_surrended.sqf";	
 
 	// declaración de variables privadas
 	private["_obj","_trg","_l","_pos"];
 
 	// global functions
-	KRON_randomPos = {private["_cx","_cy","_rx","_ry","_cd","_sd","_ad","_tx","_ty","_xout","_yout"];_cx=_this select 0; _cy=_this select 1; _rx=_this select 2; _ry=_this select 3; _cd=_this select 4; _sd=_this select 5; _ad=_this select 6; _tx=random (_rx*2)-_rx; _ty=random (_ry*2)-_ry; _xout=if (_ad!=0) then {_cx+ (_cd*_tx - _sd*_ty)} else {_cx+_tx}; _yout=if (_ad!=0) then {_cy+ (_sd*_tx + _cd*_ty)} else {_cy+_ty}; [_xout,_yout]};
-	KRON_PosInfo = {private["_pos","_lst","_bld","_bldpos"];_pos=_this select 0; _lst=_pos nearObjects ["House",12]; if (count _lst==0) then {_bld=0;_bldpos=0} else {_bld=_lst select 0; _bldpos=[_bld] call KRON_BldPos}; [_bld,_bldpos]};
-	KRON_PosInfo3 = {private["_pos","_lst","_bld","_bldpos"];_pos=_this select 0; _lst= nearestObjects [_pos, [], 3];
-		if (count _lst==0) then {_bld=objnull;_bldpos=0} else {_bld = nearestbuilding (_lst select 0); 
-		_bldpos=[_bld] call KRON_BldPos2}; [_bld,_bldpos]};
-	KRON_BldPos = {private ["_bld","_bldpos","_posZ","_maxZ"];_bld=_this select 0;_maxZ=0;_bi=0;_bldpos=0;while {_bi>=0} do {if (((_bld BuildingPos _bi) select 0)==0) then {_bi=-99} else {_bz=((_bld BuildingPos _bi) select 2); if (((_bz)>4) && ((_bz>_maxZ) || ((_bz==_maxZ) && (random 1>.8)))) then {_maxZ=_bz; _bldpos=_bi}};_bi=_bi+1};_bldpos};
-	KRON_BldPos2 = {private ["_bld","_bldpos"];
-						_bld=_this select 0; _bldpos = 1;
-						while {format ["%1", _bld buildingPos _bldpos] != "[0,0,0]"}  do {_bldpos = _bldpos + 1;};
-					_bldpos = _bldpos - 1; _bldpos;};
-	KRON_OnRoad = {private["_p","_w","_i","_lst"];_p=_this select 0; _w=_this select 1; _i=_this select 2; _lst=_p nearObjects ["House",12]; if ((count _lst==0) && (_w || !(surfaceIsWater _p))) then {_i=99}; (_i+1)};
-	KRON_getDirPos = {private["_a","_b","_from","_to","_return"]; _from = _this select 0; _to = _this select 1; _return = 0; _a = ((_to select 0) - (_from select 0)); _b = ((_to select 1) - (_from select 1)); if (_a != 0 || _b != 0) then {_return = _a atan2 _b}; if ( _return < 0 ) then { _return = _return + 360 }; _return};
-	//KRON_distancePosSqr = {round(((round((_this select 0) select 0)-round((_this select 1) select 0))^2 + (round((_this select 0) select 1)-round((_this select 1) select 1))^2)^0.5)};
-	//KRON_distancePosSqr = {((((_this select 0) select 0)-((_this select 1) select 0))^2 + (((_this select 0) select 1)-((_this select 1) select 1))^2)^0.5};
+
+	// Create a random pos around a position
+	// parameters: _centerX,_centerY,_rangeX,_rangeY,_cosdir,_sindir,_areadir
+	KRON_randomPos = {
+		private["_cx","_cy","_rx","_ry","_cd","_sd","_ad","_tx","_ty","_xout","_yout"];
+
+		_cx=_this select 0; 
+		_cy=_this select 1; 
+		_rx=_this select 2; 
+		_ry=_this select 3; 
+		_cd=_this select 4; 
+		_sd=_this select 5; 
+		_ad=_this select 6; 
+
+		_tx = random (_rx * 2) - _rx; 
+		_ty = random (_ry * 2) - _ry; 
+
+		if (_ad != 0) then {
+			_xout = _cx + (_cd * _tx - _sd * _ty);
+		} else {
+			_xout = _cx + _tx;
+		}; 
+
+		if (_ad != 0) then {
+			_yout = _cy + (_sd * _tx + _cd * _ty);
+		} else {
+			_yout = _cy + _ty;
+		}; 
+		[_xout,_yout];
+	};
+
+	KRON_PosInfo = {
+		private["_pos","_lst","_bld","_bldpos"];
+
+		_pos = _this select 0; 
+		_lst = _pos nearObjects ["House",12]; 
+
+
+		if (count _lst == 0) then {
+			_bld = 0;
+			_bldpos = 0;
+		} else {
+			_bld = _lst select 0;
+			_bldpos = [_bld] call KRON_BldPos;
+		}; 
+		[_bld,_bldpos];
+	};
+
+
+
+	KRON_PosInfo3 = {
+		private["_pos","_lst","_bld","_bldpos"];
+		
+		_pos=_this select 0; 
+		_lst= nearestObjects [_pos, [], 3];
+
+		if (count _lst==0) then {
+			_bld=objnull;
+			_bldpos=0
+		} else {
+			_bld = nearestbuilding (_lst select 0); 
+			_bldpos=[_bld] call KRON_BldPos2;
+		}; 
+		[_bld,_bldpos];
+	};
+
+
+	KRON_BldPos = {
+		private ["_bld","_bldpos","_posZ","_maxZ"];
+		
+		_bld = _this select 0;
+		_maxZ = 0;
+		_bi = 0;
+		_bldpos = 0;
+
+		while {_bi >= 0 } do {
+			if (((_bld BuildingPos _bi) select 0) == 0) then {
+				_bi=-99
+			} else {
+				_bz = ((_bld BuildingPos _bi) select 2);
+				 if (((_bz)>4) && ((_bz>_maxZ) || ((_bz==_maxZ) && (random 1> 0.8))) ) then {
+					_maxZ = _bz; 
+					_bldpos = _bi;
+				};
+			};
+			_bi = _bi + 1;
+		};
+		_bldpos;
+	};
+
+
+	KRON_BldPos2 = {
+		private ["_bld","_bldpos"];
+
+		_bld=_this select 0;
+		_bldpos = 1;
+
+		while {format ["%1", _bld buildingPos _bldpos] != "[0,0,0]"}  do {
+			_bldpos = _bldpos + 1;
+		};
+		_bldpos = _bldpos - 1; 
+		_bldpos;
+	};
+
+
+	KRON_OnRoad = {
+		private["_p","_w","_i","_lst"];
+		
+		_p=_this select 0; 
+		_w=_this select 1; 
+		_i=_this select 2; 
+	
+		_lst = _p nearObjects ["House",12]; 
+
+		if ((count _lst==0) && (_w || !(surfaceIsWater _p))) then {
+			_i=99;
+		}; 
+		(_i+1);
+	};
+
+
+	KRON_getDirPos = {
+		private ["_a","_b","_from","_to","_return"]; 
+
+		_from = _this select 0; 
+		_to = _this select 1; 
+		_return = 0; 
+
+		_a = ((_to select 0) - (_from select 0));
+		_b = ((_to select 1) - (_from select 1)); 
+
+		if (_a != 0 || _b != 0) then {
+			_return = _a atan2 _b;
+		};
+
+		if ( _return < 0 ) then { 
+			_return = _return + 360;
+		}; 
+		_return;
+	};
+
+
 	KRON_distancePosSqr = {round(((((_this select 0) select 0)-((_this select 1) select 0))^2 + (((_this select 0) select 1)-((_this select 1) select 1))^2)^0.5)};
+
 	KRON_relPos = {private["_p","_d","_a","_x","_y","_xout","_yout"];_p=_this select 0; _x=_p select 0; _y=_p select 1; _d=_this select 1; _a=_this select 2; _xout=_x + sin(_a)*_d; _yout=_y + cos(_a)*_d;[_xout,_yout,0]};
 	KRON_rotpoint = {private["_cp","_a","_tx","_ty","_cd","_sd","_cx","_cy","_xout","_yout"];_cp=_this select 0; _cx=_cp select 0; _cy=_cp select 1; _a=_this select 1; _cd=cos(_a*-1); _sd=sin(_a*-1); _tx=_this select 2; _ty=_this select 3; _xout=if (_a!=0) then {_cx+ (_cd*_tx - _sd*_ty)} else {_cx+_tx}; _yout=if (_a!=0) then {_cy+ (_sd*_tx + _cd*_ty)} else {_cy+_ty}; [_xout,_yout,0]};
+
 	KRON_stayInside = {
+
 		private["_np","_nx","_ny","_cp","_cx","_cy","_rx","_ry","_d","_tp","_tx","_ty","_fx","_fy"];
-		_np=_this select 0;	_nx=_np select 0;	_ny=_np select 1;
-		_cp=_this select 1;	_cx=_cp select 0;	_cy=_cp select 1;
-		_rx=_this select 2;	_ry=_this select 3;	_d=_this select 4;
+
+		_np = _this select 0;
+		_nx = _np select 0;
+		_ny =_np select 1;
+		_cp =_this select 1;
+		_cx =_cp select 0;
+		_cy =_cp select 1;
+		_rx =_this select 2;
+		_ry =_this select 3;
+		_d = _this select 4;
+
 		_tp = [_cp,_d,(_nx-_cx),(_ny-_cy)] call KRON_rotpoint;
-		_tx = _tp select 0; _fx=_tx;
-		_ty = _tp select 1; _fy=_ty;
+
+		_tx = _tp select 0; 
+		_fx = _tx;
+		_ty = _tp select 1;
+		_fy = _ty;
+
 		if (_tx<(_cx-_rx)) then {_fx=_cx-_rx};
 		if (_tx>(_cx+_rx)) then {_fx=_cx+_rx};
 		if (_ty<(_cy-_ry)) then {_fy=_cy-_ry};
 		if (_ty>(_cy+_ry)) then {_fy=_cy+_ry};
-		if ((_fx!=_tx) || (_fy!=_ty)) then {_np = [_cp,_d*-1,(_fx-_cx),(_fy-_cy)] call KRON_rotpoint};
+
+		if ((_fx!=_tx) || (_fy!=_ty)) then {
+			_np = [_cp,_d*-1,(_fx-_cx),(_fy-_cy)] call KRON_rotpoint;
+		};
 		_np;
 	};
+
+
 // Misc
 	KRON_UPSgetArg = {private["_cmd","_arg","_list","_a","_v"]; _cmd=_this select 0; _arg=_this select 1; _list=_this select 2; _a=-1; {_a=_a+1; _v=format["%1",_list select _a]; if (_v==_cmd) then {_arg=(_list select _a+1)}} foreach _list; _arg};
 	KRON_UPSsetArg = {private["_cmd","_arg","_list","_a","_v"]; 
@@ -232,8 +367,6 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 				
 				if ( count KRON_AllWest <= _countWestSur  ) then { 
 					KRON_UPS_WEST_SURRENDED = true; 
-					publicvariable "KRON_AllWest";					
-					publicvariable "KRON_UPS_WEST_SURRENDED";
 				};
 			};				
 			
@@ -244,9 +377,7 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 				}foreach KRON_AllEast;
 				
 				if ( count KRON_AllEast <= _countEastSur  ) then { 
-					KRON_UPS_EAST_SURRENDED = true; 
-					publicvariable "KRON_AllEast";						
-					publicvariable "KRON_UPS_EAST_SURRENDED";					
+					KRON_UPS_EAST_SURRENDED = true; 				
 				};
 			};				
 
@@ -257,25 +388,10 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 				}foreach KRON_AllRes;
 				
 				if ( count KRON_AllRes <= _countResSur  ) then { 
-					KRON_UPS_GUER_SURRENDED = true; 
-					publicvariable "KRON_AllRes";						
-					publicvariable "KRON_UPS_GUER_SURRENDED";						
+					KRON_UPS_GUER_SURRENDED = true; 					
 				};			
 			};	
-
-			//Exec surrended script
-			if (KRON_UPS_WEST_SURRENDED && !_WestSur ) then {
-				_WestSur = true;
-				[west] spawn UPSMON_surrended;
-			};
-			if (KRON_UPS_EAST_SURRENDED && !_EastSur ) then {
-				_EastSur = true;
-				[east] spawn UPSMON_surrended;
-			};
-			if (KRON_UPS_GUER_SURRENDED && !_ResSur ) then {
-				_ResSur = true;
-				[Resistance] spawn UPSMON_surrended;
-			};			
+		
 			sleep 0.5;	
 			
 			_sharedenemy = 0;	
