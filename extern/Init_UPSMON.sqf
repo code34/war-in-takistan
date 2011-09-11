@@ -218,7 +218,7 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 		_bldpos;
 	};
 
-
+	// find the index of the position on the roof of the building
 	KRON_BldPos2 = {
 		private ["_bld","_bldpos"];
 
@@ -398,6 +398,7 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 			_targets0 = [];
 			_targets1 = [];
 			_targets2 = [];
+
 			{
 				if (!isnull _x && alive _x && !captive _x ) then {	
 					_npc = _x;								
@@ -427,7 +428,7 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 					
 					//Gets known targets on each leader for comunicating enemy position
 					//Has better performance with targetsquery
-					//_targets = _npc nearTargets KRON_UPS_sharedist;		
+
 					_targets = _npc targetsQuery ["","","","",""];
 					
 					{
@@ -435,8 +436,6 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 						_target = _x select 1;//Targetsquery							
 						
 						if ( side _target in _enemyside ) then {																									
-							//if (KRON_UPS_Debug>0) then {diag_log format["%1: %2 _enemyside=%3 _target=%4 %5 enemies=%6",_npc getVariable ("UPSMON_grpid"),_npc,_enemyside, typeof _target,side _target,_npc countEnemy _targets ]};								
-							//if (KRON_UPS_Debug>0) then {player globalchat format["%1: %2 _enemyside=%3 _target=%4 %5 enemies=%6",_npc getVariable ("UPSMON_grpid"),_npc,_enemyside, typeof _target,side _target,_npc countEnemy _targets ]};															
 							if (!isnull _target && alive _target && canmove _target && !captive _target && _npc knowsabout _target > 0.5 
 								&& ( _target iskindof "Land" || _target iskindof "Air" || _target iskindof "Ship" )
 								&& !( _target iskindof "Animal")
@@ -445,16 +444,15 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 									|| (!isnull (driver _target) && canmove (driver _target))) 									
 							) then {
 								//Saves last known position	
-								//_knownpos = _x select 0;	//Neartargets							
-								_knownpos = _x select 4;//Targetsquery
+								_knownpos = _x select 4;	//Targetsquery
 								_target setvariable ["UPSMON_lastknownpos", _knownpos, false];	
 								call (compile format ["_targets%1 = _targets%1 - [_target]",_sharedenemy]);
 								call (compile format ["_targets%1 = _targets%1 + [_target]",_sharedenemy]);						
 							};	
 						};
-					}foreach _targets;							
+					}foreach _targets;
 				};					
-				sleep 0.5;				
+				sleep 0.5;
 			}foreach KRON_NPCs;												
 			
 			//Share targets
