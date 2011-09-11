@@ -50,6 +50,7 @@
 			_missiontext = [_missionname," Destroy Scud"," launcher"];
 			_vehicle = createVehicle ["MAZ_543_SCUD_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			_vehicle action ["scudLaunch", _vehicle];
 			_missiontype = "destroy";
 			wcbonusfame = 0;
 			wcbonusnuclear = 0.15;
