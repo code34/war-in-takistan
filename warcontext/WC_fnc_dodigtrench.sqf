@@ -24,7 +24,7 @@
 	sleep 10;
 	if !(alive player) exitwith {};
 
-	_trench = "Fort_envelopeBig" createVehicle _position;
+	_trench = "Fort_envelopeBig_EP1" createVehicle _position;
 	_trench setposatl _position;
 	_trench setdir _mydir;
 
