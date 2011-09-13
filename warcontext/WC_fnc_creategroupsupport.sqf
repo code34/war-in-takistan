@@ -25,6 +25,7 @@
 		"_typeofgroup", 
 		"_typeofvehicle",
 		"_unitsofgroup",
+		"_unitoftype",
 		"_unitsoftype",
 		"_unit",
 		"_vehicle"
@@ -67,7 +68,9 @@
 		}foreach wcclasslist;
 
 		for "_x" from 1 to _sizeofgroup do {
-			_unitsofgroup = [(_unitsoftype call BIS_fnc_selectRandom)] + _unitsofgroup;
+			_unitoftype = (_unitsoftype call BIS_fnc_selectRandom);
+			_unitsoftype = _unitsoftype - [_unitoftype];
+			_unitsofgroup = [_unitoftype] + _unitsofgroup;
 		};
 
 		diag_log format ["WARCONTEXT: CREATING A SUPPORT GROUP %2 IN ZONE %1 OF SIZE %3", _marker, _typeofgroup, _sizeofgroup];

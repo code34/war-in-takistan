@@ -25,6 +25,7 @@
 		"_typeofgroup", 
 		"_typeofvehicle",
 		"_unitsofgroup",
+		"_unitoftype",
 		"_unitsoftype",
 		"_unit",
 		"_vehicle"
@@ -63,7 +64,9 @@
 		}foreach wcclasslist;
 
 		for "_x" from 1 to _sizeofgroup do {
-			_unitsofgroup = [(_unitsoftype call BIS_fnc_selectRandom)] + _unitsofgroup;
+			_unitoftype = (_unitsoftype call BIS_fnc_selectRandom);
+			_unitsoftype = _unitsoftype - [_unitoftype];
+			_unitsofgroup = [_unitoftype] + _unitsofgroup;
 		};
 
 
