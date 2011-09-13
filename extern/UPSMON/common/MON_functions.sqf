@@ -1501,7 +1501,7 @@ MON_evadeGrenade = {
 MON_animCroqueta = {	
 	if (!alive _this || (vehicle _this) != _this || !canmove _this || !(_this iskindof "Man")) exitwith{};
 		
-	if ((random 1)<=.50) then {													
+	if ((random 1) <= 0.50) then {													
 		_x switchmove "AmovPpneMstpSrasWrflDnon_AmovPpneMevaSlowWrflDl"; //croqueta																														
 	} else {
 		_x switchmove "AmovPpneMstpSrasWrflDnon_AmovPpneMevaSlowWrflDr"; //croqueta																				
@@ -1521,14 +1521,14 @@ MON_throw_grenade = {
 		[_npc,_target] spawn MON_dowatch;
 		sleep 1;
 	
-		_npc selectWeapon "throw";     
+		_npc selectWeapon "Throw";     
 		_npc fire ["SmokeShellMuzzle","SmokeShellMuzzle","SmokeShell"];
 	} else {
 		_npc addMagazine "HandGrenade";
 		[_npc,_target] spawn MON_dowatch;
 		sleep 1;
 	
-		_npc selectWeapon "throw";     
+		_npc selectWeapon "Throw";     
 		_npc fire ["HandGrenadeMuzzle","HandGrenadeMuzzle","HandGrenade"];
 	};
 	sleep 4;
