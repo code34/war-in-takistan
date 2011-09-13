@@ -233,19 +233,33 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 	};
 
 
+	// parameters: _targetPos,(_isplane||_isboat),_road
 	KRON_OnRoad = {
-		private["_p","_w","_i","_lst"];
+		private["_position","_w","_i","_lst"];
 		
-		_p=_this select 0; 
+		_position =_this select 0; 
 		_w=_this select 1; 
 		_i=_this select 2; 
 	
-		_lst = _p nearObjects ["House",12]; 
+		_lst = _position nearObjects ["House",12]; 
 
-		if ((count _lst==0) && (_w || !(surfaceIsWater _p))) then {
+		if ((count _lst == 0) && (_w || !(surfaceIsWater _position))) then {
 			_i=99;
 		}; 
 		(_i+1);
+	};
+
+	KRON_OnRoad2 = {
+		private["_position", "_roads"];
+		
+		_position =_this select 0;
+		_roads = _position nearRoads 12;
+
+		if(count _roads > 0) then {
+			true;	
+		} else {
+			false;
+		};
 	};
 
 
@@ -334,66 +348,32 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 	
 		private["_obj","_trg","_l","_pos","_countWestSur","_countEastSur","_countResSur","_WestSur","_EastSur","_ResSur","_target","_targets","_targets0","_targets1","_targets2","_npc","_cycle"
 			,"_arti","_side","_range","_rounds","_area","_maxcadence","_mincadence","_bullet","_fire","_knownpos","_sharedenemy","_enemyside"];
-		_cycle = 20; //Time to do a call to commander
-		_arti = objnull;
-		_side = "";
-		_range = 0;
-		_rounds = 0;	
-		_area = 0;	
-		_maxcadence = 0;	
-		_mincadence = 0;	
-		_bullet = "";	
-		_fire = false;
-		_target = objnull;
-		_knownpos =[0,0,0];
-		_enemyside = [];
+
+		_cycle 		= 20; //Time to do a call to commander
+		_arti 		= objnull;
+		_side 		= "";
+		_range 		= 0;
+		_rounds 	= 0;	
+		_area 		= 0;	
+		_maxcadence 	= 0;	
+		_mincadence 	= 0;	
+		_bullet 	= "";	
+		_fire 		= false;
+		_target 	= objnull;
+		_knownpos 	= [0,0,0];
+		_enemyside 	= [];
 
 		_WestSur = KRON_UPS_WEST_SURRENDED;
 		_EastSur = KRON_UPS_EAST_SURRENDED;
 		_ResSur = KRON_UPS_GUER_SURRENDED;	
 			
 		//Main loop
-		while {true} do 
-		{			
+		while {true} do {			
+
 			_countWestSur = round ( KRON_UPS_West_Total * KRON_UPS_WEST_SURRENDER / 100);
 			_countEastSur = round ( KRON_UPS_East_Total * KRON_UPS_EAST_SURRENDER / 100);
 			_countResSur = round ( KRON_UPS_Guer_Total * KRON_UPS_GUER_SURRENDER / 100);	
-			
-			//Checks for WEST surrender
-			if (KRON_UPS_WEST_SURRENDER > 0 && !KRON_UPS_WEST_SURRENDED ) then {							
-				{
-					if (!alive _x || !canmove _x) then {KRON_AllWest = KRON_AllWest-[_x]};
-				}foreach KRON_AllWest;
-				
-				if ( count KRON_AllWest <= _countWestSur  ) then { 
-					KRON_UPS_WEST_SURRENDED = true; 
-				};
-			};				
-			
-			//Checks for EAST surrender
-			if (KRON_UPS_EAST_SURRENDER > 0 && !KRON_UPS_EAST_SURRENDED ) then {							
-				{
-					if (!alive _x || !canmove _x) then {KRON_AllEast = KRON_AllEast-[_x]};
-				}foreach KRON_AllEast;
-				
-				if ( count KRON_AllEast <= _countEastSur  ) then { 
-					KRON_UPS_EAST_SURRENDED = true; 				
-				};
-			};				
-
-			//Checks for RESISTANCE surrender
-			if (KRON_UPS_GUER_SURRENDER > 0 && !KRON_UPS_GUER_SURRENDED ) then {							
-				{
-					if (!alive _x || !canmove _x) then {KRON_AllRes = KRON_AllRes-[_x]};
-				}foreach KRON_AllRes;
-				
-				if ( count KRON_AllRes <= _countResSur  ) then { 
-					KRON_UPS_GUER_SURRENDED = true; 					
-				};			
-			};	
-		
-			sleep 0.5;	
-			
+						
 			_sharedenemy = 0;	
 			_targets0 = [];
 			_targets1 = [];
@@ -418,7 +398,7 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 						//Resistance targets
 						case resistance: {								
 							_sharedenemy = 2;
-							_enemyside = KRON_UPS_Res_enemy;
+							_enemyside = [west];
 						};
 					};		
 					
@@ -428,13 +408,10 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 					
 					//Gets known targets on each leader for comunicating enemy position
 					//Has better performance with targetsquery
-
 					_targets = _npc targetsQuery ["","","","",""];
 					
 					{
-						//_target = _x select 4;      //Neartargets
-						_target = _x select 1;//Targetsquery							
-						
+						_target = _x select 1;
 						if ( side _target in _enemyside ) then {																									
 							if (!isnull _target && alive _target && canmove _target && !captive _target && _npc knowsabout _target > 0.5 
 								&& ( _target iskindof "Land" || _target iskindof "Air" || _target iskindof "Ship" )
@@ -451,9 +428,9 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 							};	
 						};
 					}foreach _targets;
-				};					
+				};
 				sleep 0.5;
-			}foreach KRON_NPCs;												
+			}foreach KRON_NPCs;
 			
 			//Share targets
 			KRON_targets0 = _targets0;
@@ -548,9 +525,9 @@ if (isNil("KRON_UPS_INIT") || KRON_UPS_INIT == 0) then {
 	
 	
 	
-// ***********************************************************************************************************	
-//									  INITIALIZATION  OF UPSMON
-// ***********************************************************************************************************		
+	// ***********************************************************************************************************	
+	//									  INITIALIZATION  OF UPSMON
+	// ***********************************************************************************************************		
 	_l = allunits + vehicles;
 	{
 		if ((_x iskindof "AllVehicles") && (side _x != civilian)) then {

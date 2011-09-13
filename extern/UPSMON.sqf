@@ -94,19 +94,19 @@
 	};
 
 	// Postioning
-	private["_targetX","_targetY","_relTX","_relTY","_relUX","_relUY","_waiting","_pursue","_react","_newpos","_currPos","_orgPos","_targetPos","_attackPos","_flankPos","_avoidPos", "_speedmode"];
+	private["_targetX","_targetY","_waiting","_pursue","_react","_newpos","_currPos","_orgPos","_targetPos","_attackPos","_flankPos","_avoidPos", "_speedmode"];
 	
-	private["_dist","_lastdist","_lastmove1","_lastmove2","_gothit", "_supressed" , "_flankdist","_nBuilding","_nBuildingt","_distnbuid","_distnbuidt"];
+	private["_dist","_lastdist","_lastmove1","_lastmove2","_gothit", "_supressed" , "_flankdist","_nBuilding","_nBuildingt"];
 	
-	private["_objsflankPos1","_cntobjs1","_objsflankPos2","_cntobjs2","_targettext","_dir1","_dir2","_dir3","_dd","_timeontarget","_newdamage","_dirf1","_dirf2","_fightmode",
+	private["_objsflankPos2","_targettext","_dir1","_dir2","_dir3","_dd","_timeontarget","_newdamage","_lastdamage", "_dirf1","_dirf2","_fightmode",
 			"_flankPos2","_cosU","_sinU","_cosT","_sinT","_reinforcement","_reinforcementsent","_target","_targets","_flankdir","_prov","_lastpos","_newtarget","_planta","_nomove",
 			"_newflankAngle","_sharedist" ,"_targetPosOld","_fldest","_grpidx","_grpid","_i","_unitpos","_Behaviour", "_incar", "_inheli" , "_inboat","_gunner","_driver"
 			,"_vehicle","_minreact","_lastreact","_CombatMode","_rnd","_GetOutDist","_GetOut","_GetIn_NearestVehicles","_makenewtarget","_index","_wp","_grp","_wptype","_wpformation","_i"
 			,"_targetdead","_frontPos","_GetIn","_dist1","_dist2","_dist3","_fldestfront","_fldest2","_bld","_blddist","_bldunitin","_flyInHeight","_fortify","_buildingdist","_rfid","_rfidcalled","_Mines"
-			,"_enemytanks","_enemytanksnear","_friendlytanksnear","_mineposition","_enemytanknear","_roads","_timeout","_lastcurrpos","_wait","_countfriends","_side","_SURRENDER","_spawned","_nowp","_unitsIn"
+			,"_enemytanks","_enemytanksnear","_friendlytanksnear","_mineposition","_enemytanknear","_roads","_timeout","_lastcurrpos","_wait","_countfriends","_side","_spawned","_nowp","_unitsIn"
 			,"_ambush","_ambushed","_ambushdist","_friendside","_enemyside","_newattackPos","_fixedtargetpos","_NearestEnemy","_targetdist","_cargo","_targetsnear","_landing","_ambushwait"
-			,"_membertypes","_respawn","_respawnmax","_lead","_safemode","_vehicles","_dist3","_lastwptype","_template","_unittype","_initstr","_fortifyorig","_nowpType","_ambushtype"
-			,"_vehicletypes"];
+			,"_membertypes","_respawn","_respawnmax","_lead","_safemode","_vehicles","_dist3","_lastwptype","_template","_unittype","_initstr", "_nowpType","_ambushtype"
+			,"_vehicletypes", "_nearroad"];
 						
 	_grpid =0;
 	_exit = false;
@@ -146,7 +146,6 @@
 	_side="";
 	_friendside=[];
 	_enemyside=[];
-	_SURRENDER = 0;
 	_surrended = false;
 	_inheli = false;
 	spawned = false;
@@ -172,7 +171,6 @@
 	_lastwptype = "";
 	_unittype = "";
 	_initstr = "";
-	_fortifyorig= false;
 
 	// unit that's moving
 	_obj = _this select 0;		
@@ -220,7 +218,6 @@
 	// show area marker 
 	_showmarker = if ("SHOWMARKER" in _UCthis) then {"SHOWMARKER"} else {"HIDEMARKER"};
 	if (_showmarker=="HIDEMARKER") then {
-		//_areamarker setMarkerCondition "false"; // VBS2
 		_areamarker setMarkerPos [-abs(_centerX),-abs(_centerY)];
 	};
 
@@ -256,7 +253,6 @@
 	};
 
 	if (alive _npc) then {_exit = false;};	
-	if (KRON_UPS_Debug>0 && _exit) then {player sidechat format["%1 There is no alive members %1 %2 %3",_grpidx,typename _npc,typeof _npc, count units _npc]};	
 
 	// exit if something went wrong during initialization (or if unit is on roof)
 	if (_exit) exitWith {
@@ -300,7 +296,7 @@
 			case west:
 				{ 	_sharedenemy=0; 
 					_friendside = [west];
-					_enemyside = [east];				
+					_enemyside = [east, resistance];				
 				};
 			case east:
 				{  
@@ -316,17 +312,6 @@
 				};
 		};
 	};
-
-
-	if (_side in KRON_UPS_Res_enemy) then {
-		_enemyside = _enemyside + [resistance];
-	}else {
-		_friendside = _friendside + [resistance];	
-	};
-
-
-	//Sets min units alive for surrender
-	_surrender = call (compile format ["KRON_UPS_%1_SURRENDER",_side]); 
 
 	// count friendly armor
 	{
@@ -344,13 +329,13 @@
 
 
 	// store some trig calculations
-	_cosdir=cos(_areadir);
-	_sindir=sin(_areadir);
+	_cosdir = cos(_areadir);
+	_sindir = sin(_areadir);
 
 	// minimum distance of new target position
 	_mindist = (_rangeX^2+_rangeY^2)/3;
 
-	if (_rangeX==0) exitWith {
+	if (_rangeX == 0) exitWith {
 		hint format["UPS: Cannot patrol Sector: %1\nArea Marker doesn't exist",_areamarker]; 
 		diag_log format ["WARCONTEXT: UPSMON - %1 AREA marker doesn t exist ", _areamarker];
 	};
@@ -360,101 +345,101 @@
 	_orgMode = behaviour _npc;
 	_orgSpeed = speedmode _npc;
 
-// set first target to current position (so we'll generate a new one right away)
-_currPos = getpos _npc;
-_orgPos = _currPos;
-_orgDir = getDir _npc;
-_orgWatch=[_currPos,50,_orgDir] call KRON_relPos; 
-_lastpos = _currPos;
+	// set first target to current position (so we'll generate a new one right away)
+	_currPos = getpos _npc;
+	_orgPos = _currPos;
+	_orgDir = getDir _npc;
+	_orgWatch= [_currPos, 50, _orgDir] call KRON_relPos; 
+	_lastpos = _currPos;
 
-_avoidPos = [0,0];
-_flankPos = [0,0];
-_attackPos = [0,0];
-_newattackPos = [0,0];
-_fixedtargetpos = [0,0];
-_frontPos = [0,0];
-_dirf1 = 0;_dirf2=0;_flankPos2=[0,0];
-_dist = 10000;
-_lastdist = 0;
-_lastmove1 = 0;
-_lastmove2 = 0;
-_maxmove=0;
-_moved=0;
+	_avoidPos = [0,0];
+	_flankPos = [0,0];
+	_attackPos = [0,0];
+	_newattackPos = [0,0];
+	_fixedtargetpos = [0,0];
+	_frontPos = [0,0];
+	_dirf1 = 0;
+	_dirf2 = 0;
+	_flankPos2 = [0,0];
+	_dist = 10000;
+	_lastdist = 0;
+	_lastmove1 = 0;
+	_lastmove2 = 0;
+	_maxmove = 0;
+	_moved = 0;
+	_timeontarget = 0;
 
-_damm=0;
-_dammchg=0;
-_lastdamm = 0;
-_timeontarget = 0;
+	_fightmode = "walk";
+	_fm=0;
+	_gothit = false;
+	_pursue = false;
+	_hitPos = [0,0,0];
+	_react = 0;
 
-_fightmode = "walk";
-_fm=0;
-_gothit = false;
-_pursue=false;
-_hitPos=[0,0,0];
-_react = 0;
-_lastdamage = 0;
-_lastknown = 0;
-_opfknowval = 0;
+	// sum of damage of each soldiers of group
+	_lastdamage = 0;
 
-_sin0=1;
-_sin90=1; _cos90=0;
-_sin270=-1; _cos270=0;
-_targetX =0; _targetY=0; 
-_relTX=0;_relTY=0;
-_relUX=0;_relUY=0;
-_supressed = false;
-_flankdist=0;
-_nBuilding=nil;
-_nBuildingt =nil;
-_speedmode="Limited";
-_distnbuid = 0;
-_distnbuidt = 0;
-_objsflankPos1 =  [];
-_cntobjs1 = 0;
-_objsflankPos2 =  [];
-_cntobjs2 = 0;
-_targettext ="";
-_dir1 =0;_dir2=0;_dir3=0;_dd=0;
-_timeontarget=0;
-_newdamage =0;
-_reinforcement ="";
-_reinforcementsent = false;
-_target = objnull;
-_newtarget=objnull;
-_flankdir=0; //1 tendencia a flankpos1, 2 tendencia a flankpos2
-_prov=0;
-_targets=[];
-_planta=0; //Indice de plantas en edificios
-_newflankAngle = 0;
-_closeenough = KRON_UPS_closeenough;
-_gunner = objnull;
-_driver = objnull;
-_fortify = false;
-_buildingdist =  150; //Distance to search buildings near
-_Behaviour = "CARELESS"; 
-_grp = grpnull;
-_grp = group _npc;
-_template = 0;
-_nowpType = 1;
-_ambushtype = 1;
+	_lastknown = 0;
+	_opfknowval = 0;
 
+	_sin0 = 1;
+	_sin90 = 1;
+	_cos90 = 0;
+	_sin270 = -1;
+	_cos270 = 0;
+	_targetX = 0; 
+	_targetY = 0; 
+	_supressed = false;
+	_flankdist = 0;
+	_nBuilding = nil;
+	_nBuildingt =nil;
+	_speedmode="Limited";
+	_objsflankPos2 =  [];
+	_targettext ="";
+	_dir1 = 0;
+	_dir2 = 0;
+	_dir3 = 0;
+	_dd = 0;
 
+	_reinforcement ="";
+	_reinforcementsent = false;
 
-// set target tolerance high for choppers & planes
-if (_isplane) then {_closeenough=KRON_UPS_closeenough * 2};
+	_target = objnull;
+	_newtarget = objnull;
+	_flankdir = 0; //1 tendencia a flankpos1, 2 tendencia a flankpos2
+	_prov=0;
+	_targets=[];
+	_planta=0; //Indice de plantas en edificios
+	_newflankAngle = 0;
+	_closeenough = KRON_UPS_closeenough;
 
+	_gunner = objnull;
+	_driver = objnull;
+	_fortify = false;
 
-// ***************************************** optional arguments *****************************************
+	_buildingdist =  150; //Distance to search buildings near
+	_Behaviour = "CARELESS"; 
+	_grp = group _npc;
+	_template = 0;
+	_nowpType = 1;
+	_ambushtype = 1;
+
+	// set target tolerance high for choppers & planes
+	if (_isplane) then {_closeenough = KRON_UPS_closeenough * 2};
+
+	// ***************************************** optional arguments *****************************************
 
 	// wait at patrol end points
 	_pause = if ("NOWAIT" in _UCthis) then {"NOWAIT"} else {"WAIT"};
+
 	// don't move until an enemy is spotted
 	_nomove  = if ("NOMOVE" in _UCthis) then {"NOMOVE"} else {"MOVE"};
+
 	//fortify group in near places
-	_fortify= if ("FORTIFY" in _UCthis) then {true} else {false};
-	_fortifyorig = _fortify;
+	_fortify = if ("FORTIFY" in _UCthis) then {true} else {false};
+
 	if (_fortify) then {
-		_nomove="NOMOVE";
+		_nomove = "NOMOVE";
 		_minreact = KRON_UPS_minreact * 3;
 		_buildingdist = _buildingdist * 2;
 		_makenewtarget = true;
@@ -466,9 +451,11 @@ if (_isplane) then {_closeenough=KRON_UPS_closeenough * 2};
 	_nowp = if ("NOWP" in _UCthis) then {true} else {false};
 	_nowp = if ("NOWP2" in _UCthis) then {true} else {_nowp};
 	_nowp = if ("NOWP3" in _UCthis) then {true} else {_nowp};
+
 	_nowpType = if ("NOWP2" in _UCthis) then {2} else {_nowpType};
 	_nowpType = if ("NOWP3" in _UCthis) then {3} else {_nowpType};
 	_orignowp = _nowp;
+
 	//Ambush squad will no move until in combat or so close enemy
 	_ambush= if ("AMBUSH" in _UCthis) then {true} else {false};
 	_ambush= if ("AMBUSH:" in _UCthis) then {true} else {_ambush};
@@ -477,12 +464,12 @@ if (_isplane) then {_closeenough=KRON_UPS_closeenough * 2};
 	_ambushwait = ["AMBUSH2:",_ambushwait,_UCthis] call KRON_UPSgetArg;
 	_ambushType = if ("AMBUSH2" in _UCthis) then {2} else {_ambushType};
 	_ambushType = if ("AMBUSH2:" in _UCthis) then {2} else {_ambushType};
+
 	// don't follow outside of marker area
 	_respawn = if ("RESPAWN" in _UCthis) then {true} else {false};
 	_respawn = if ("RESPAWN:" in _UCthis) then {true} else {_respawn};
 	_respawnmax = ["RESPAWN:",_respawnmax,_UCthis] call KRON_UPSgetArg;
 	if (!_respawn) then {_respawnmax = 0};
-
 
 	// any init strings?
 	_initstr = ["INIT:","",_UCthis] call KRON_UPSgetArg;
@@ -503,13 +490,13 @@ if (_isplane) then {_closeenough=KRON_UPS_closeenough * 2};
 	switch (side _npc) do {
 		case east:
 			{
-		  	KRON_AllEast=KRON_AllEast + units _npc; 
+			  	KRON_AllEast = KRON_AllEast + units _npc; 
 			};
 
 		case resistance:
 			{  	
-				KRON_AllRes=KRON_AllRes + units _npc; 
-				KRON_UPS_East_enemies = KRON_UPS_East_enemies+units _npc;
+				KRON_AllRes = KRON_AllRes + units _npc; 
+				KRON_UPS_East_enemies = KRON_UPS_East_enemies + units _npc;
 			};
 	};
 	call (compile format ["KRON_UPS_%1_Total = KRON_UPS_%1_Total + count (units _npc)",side _npc]); 	
@@ -551,7 +538,6 @@ if (_isplane) then {_closeenough=KRON_UPS_closeenough * 2};
 
 	if (_rfid > 0) then {
 		_reinforcement="REINFORCEMENT";
-		//if (KRON_UPS_Debug>0) then {hintsilent format["%1: reinforcement group %2",_grpidx,_rfid,_rfidcalled,_reinforcement]}; 	
 	};
 
 	//Is a template for spawn module?
@@ -592,7 +578,7 @@ if (_isplane) then {_closeenough=KRON_UPS_closeenough * 2};
 	_zoneempty = ["EMPTY:",0,_UCthis] call KRON_UPSgetArg;
 
 
-	//Si algún soldado tiene un edificio util cerca lo toma		
+	// if fortify, soldiers go into static	
 	if ( _nomove == "NOMOVE" ) then {		
 		_unitsIn = [_grpid, _npc, 300] call MON_GetIn_NearestStatic;		
 		if ( count _unitsIn > 0 ) then { sleep 10};
@@ -601,12 +587,12 @@ if (_isplane) then {_closeenough=KRON_UPS_closeenough * 2};
 
 
 	// init done
-	_makenewtarget=true;
-	_newpos=false;
-	_targetPos = [0,0,0];//_currPos;
-	_targettext ="_currPos";
+	_makenewtarget = true;
+	_newpos = false;
+	_targetPos = [0,0,0]; //_currPos;
+	_targettext = "_currPos";
 	_swimming = false;
-	_waiting = if (_nomove=="NOMOVE") then {9999} else {0};
+	_waiting = if(_nomove == "NOMOVE") then { 9999 } else {0};
 	_sharedist = if (_nomove=="NOMOVE") then {KRON_UPS_sharedist} else {KRON_UPS_sharedist*1.5};
 
 
@@ -625,26 +611,27 @@ _loop=true;
 
 scopeName "main"; 
 while {_loop} do {
-//if (KRON_UPS_Debug>0) then {player sidechat format["%1: _cycle=%2 _currcycle=%3 _react=%4 _waiting=%5",_grpidx,_cycle,_currcycle,_react,_waiting]}; 
-	_timeontarget=_timeontarget+_currcycle;
-	_react=_react+_currcycle;	
+
+	_timeontarget = _timeontarget + _currcycle;
+	_react = _react + _currcycle;	
 	_waiting = _waiting - _currcycle;
 	_lastreact = _lastreact+_currcycle;
 	_newpos = false;			
 	
 	// did anybody in the group got hit?
-	_newdamage=0; 
+	_newdamage = 0; 
 	{
-		if((damage _x)>0.2) then {
-			_newdamage=_newdamage+(damage _x); 
+		if((damage _x) > 0.2) then {
+			_newdamage= _newdamage + (damage _x); 
+
 			// damage has increased since last round
-			if (_newdamage>_lastdamage) then {
-				_lastdamage=_newdamage; 
+			if (_newdamage > _lastdamage) then {
+				_lastdamage = _newdamage; 
 				_gothit=true;
 			};
 		};
 		if (!alive _x || !canmove _x) then {
-			_members=_members-[_x];  			
+			_members = _members - [_x];  			
 		};
 		sleep 0.5;	
 	} foreach _members;
@@ -694,7 +681,6 @@ while {_loop} do {
 				
 				//If no targets adds this
 				if (count _targets <= 0) then {
-					//_target = _NearestEnemy;
 					_targets = _targets + [_NearestEnemy];					
 					_NearestEnemy setvariable ["UPSMON_lastknownpos", position _NearestEnemy, false];						
 					//if (KRON_UPS_Debug>0) then {player globalchat format["%1: %3 added to targets",_grpidx,typeof _x, typeof _target]}; 						
@@ -1457,7 +1443,7 @@ while {_loop} do {
 		_lastpos = _targetPos;
 		_lastcurrpos = _currpos; //sets last currpos for avoiding stuk				
 			
-		if (_waiting<0) then {
+		if (_waiting < 0) then {
 			//Gets distance to targetpos
 			_targetdist = [_currPos,_targetPos] call KRON_distancePosSqr;	
 			
@@ -1506,12 +1492,9 @@ while {_loop} do {
 				_react = 0;		
 				_lastreact = 0;	
 				_makenewtarget = false;				
-				_gothit=false;
 				_timeontarget = 0;
-				_wptype = "MOVE";
-				
-				//if (KRON_UPS_Debug>0) then {player globalchat format["%1 _fixedtargetPos %2 dist %3 ",_grpidx,_fixedtargetPos,_dist]};	
-				
+				_wptype = "MOVE";			
+			
 				if (format ["%1",_fixedtargetPos] !="[0,0]") then {	
 					_targetPos = _fixedtargetPos; _targettext ="Reinforcement";					
 				}else{				
@@ -1531,29 +1514,51 @@ while {_loop} do {
 						};
 					} else {
 						// re-read marker position/size
-						_centerpos = getMarkerPos _areamarker; _centerX = abs(_centerpos select 0); _centerY = abs(_centerpos select 1);
+						_centerpos = getMarkerPos _areamarker; 
+						_centerX = abs(_centerpos select 0);
+						_centerY = abs(_centerpos select 1);
 						_centerpos = [_centerX,_centerY];
-						_areasize = getMarkerSize _areamarker; _rangeX = _areasize select 0; _rangeY = _areasize select 1;
+
+						_areasize = getMarkerSize _areamarker; 
+						_rangeX = _areasize select 0; 
+						_rangeY = _areasize select 1;
 						_areadir = (markerDir _areamarker) * -1;
+
 						// find a new target that's not too close to the current position
-						_targetPos=_currPos; _targettext ="newTarget";
-						_tries=0;
-						while {((([_currPos,_targetPos] call KRON_distancePosSqr) < _mindist)) && (_tries<20)} do {
-							_tries=_tries+1;
-							// generate new target position (on the road)
-							_road=0;
-							while {_road<20} do {
-								_targetPos=[_centerX,_centerY,_rangeX,_rangeY,_cosdir,_sindir,_areadir] call KRON_randomPos; 
-								_road=[_targetPos,(_isplane||_isboat),_road] call KRON_OnRoad;
-								sleep 0.5;
+						_targetPos=_currPos; 
+						_targettext ="newTarget";
+
+						//_tries=0;
+						//while {((([_currPos,_targetPos] call KRON_distancePosSqr) < _mindist)) && (_tries<20)} do {
+						//	_tries= _tries + 1;
+						//	// generate new target position (on the road)
+						//	_road=0;
+						//	while {_road < 20} do {
+						//		_targetPos = [_centerX,_centerY,_rangeX,_rangeY,_cosdir,_sindir,_areadir] call KRON_randomPos; 
+						//		_road = [_targetPos,(_isplane||_isboat),_road] call KRON_OnRoad;
+						//		sleep 0.5;
+						//	};
+						//	sleep 0.5;
+						//};
+
+						_nearroad = false;
+						_tries = 0;
+						while { !_nearroad && _tries < 20 } do {
+							if ([_currPos,_targetPos] call KRON_distancePosSqr < _mindist) then {
+								_targetPos = [_centerX,_centerY,_rangeX,_rangeY,_cosdir,_sindir,_areadir] call KRON_randomPos; 
+								_nearroad = [_targetPos] call KRON_OnRoad2;
 							};
+							_tries = _tries + 1;
 							sleep 0.5;
-						};						
+						};
 					};
 				};
-				sleep 0.05;
+
 				// distance to target position		
-				_avoidPos = [0,0]; _flankPos = [0,0]; _attackPos = [0,0];	_frontPos = [0,0];			
+				_avoidPos = [0,0]; 
+				_flankPos = [0,0]; 
+				_attackPos = [0,0];
+				_frontPos = [0,0];			
 				_fm=0;				
 				_newpos=true;								
 			};
@@ -1805,10 +1810,9 @@ while {_loop} do {
 					_npc setbehaviour "CARELESS";
 					_npc setspeedmode "FULL";					
 					_timeout = time + 60;
-					
+			
 					{ 
 						waituntil {vehicle _x != _x || !canmove _x || !alive _x || time > _timeout || movetofailed _x}; 
-						[_x, wcside] spawn WC_fnc_sentinelle;
 						sleep 0.5;
 					}foreach _unitsIn;
 					
@@ -1901,7 +1905,7 @@ while {_loop} do {
 			if (_gothit || _dist <= _closeenough) then {
 				{
 					if (!canStand _x || ((primaryWeapon _x ) in KRON_UPS_MG_WEAPONS) || (vehicle _x == _x && _x iskindof "Man" && (random 100) < 50) ) then {						
-						_x suppressFor 20;
+						_x suppressFor random(20);
 					};
 					sleep 0.5;
 				} foreach units _npc;									
@@ -1909,10 +1913,7 @@ while {_loop} do {
 		};						
 		
 	
-		_gothit=false;	
-		
-		//moving
-		//if (KRON_UPS_Debug>0) then {player sidechat format["%1: %2 %3 %4 %5 %6 %7 %8 %9 %10",_grpidx, _wptype, _targettext,_dist, _speedmode, _unitpos, _Behaviour, _wpformation,_fightmode,count waypoints _grp];};											
+		_gothit=false;
 	};//if ((_waiting<=0) && _newpos) then {	
 
 	if (_track=="TRACK") then { 

@@ -365,38 +365,40 @@ MON_GetIn_NearestBoat = {
 //	<-	_npc: lider
 //	->	_getin: true if any getin
 MON_GetIn_NearestStatic = {
+
 	private["_vehicles","_npc","_units","_unitsIn","_grpid","_getin","_count"];
-	_grpid = _this select 0;	
-	_npc = _this select 1;	
-	_count = 0;
-	_distance = 100;		
+
+	_grpid 		= _this select 0;	
+	_npc 		= _this select 1;	
+	_count 		= 0;
+	_distance 	= 100;		
+
 	if ((count _this) > 2) then {_distance = _this select 2;};	
 	
-	_vehicles=[];
+	_vehicles = [];
 	_units = [];
 	_unitsIn = [];
-	_getin=false;
+	_getin = false;
 	
-	//Buscamos staticos cerca
+	// Retrieve statics near leader 
 	_vehicles = [_npc,_distance] call MON_NearestsStaticWeapons;
 
 	if ( count _vehicles == 0) exitwith {_unitsIn;};	
 	
 	if (leader _npc == _npc) then {
 		_units = (units _npc) - [_npc];
-	} else
-	{
+	} else {
 		_units = _units + [_npc];
 	};
 	
-	//Solo tomamos las unidades vivas y que no estén en vehiculo
+	// retrieve alive units that don t have vehicles
 	{
 		if ( (_x iskindof "Man") && _x == vehicle _x && alive _x && canmove _x && canstand _x) then {
 			_unitsIn = _unitsIn + [_x];			
 		};
 	}foreach _units;
 	
-	//Intentamos tomar solo las que estén disponibles
+	// Retrieve units ready
 	_units = [];
 	{
 		if (unitready _x) then {
@@ -409,15 +411,12 @@ MON_GetIn_NearestStatic = {
 		_unitsIn = _units;
 	};
 	
-	//if (KRON_UPS_Debug>0 ) then {player sidechat format["%1: Found %2 estatic weapons %3 men available",_grpid,count _vehicles, count _unitsIn]}; 
-	
-	 _units = _unitsIn;
+	_units = _unitsIn;
 	if ( count _unitsIn > 0) then {		
 		_units = [_grpid, _units, _vehicles, true] call MON_selectvehicles;				
 	};
 	
 	_unitsIn = _unitsIn - _units;
-
 	_unitsIn;
 };
 
@@ -427,12 +426,15 @@ MON_GetIn_NearestStatic = {
 //	<-	_units: array of units to getin
 //	<-	_vehicles: array of vehicles to use
 //	->	_untis:  array of units getin
- MON_selectvehicles = {
+
+MON_selectvehicles = {
+
 	private["_vehicles","_emptypositions","_units","_unitsIn","_i","_grpid","_vehgrpid","_unit","_wp","_any","_index","_cargo"];
+
 	_grpid = _this select 0;	
 	_units = _this select 1;
 	_vehicles = _this select 2;	
-	_any = _this select 3;	//meter en cualquier vehiculo
+	_any = _this select 3;
 	
 	_wp = [];	
 	_vehicle = [];
@@ -451,8 +453,10 @@ MON_GetIn_NearestStatic = {
 		_emptypositions = _x select 1;		
 		_unitsIn = [];
 		_i = 0;
+
 		_vehgrpid = _vehicle getvariable ("UPSMON_grpid");
 		_cargo = _vehicle getvariable ("UPSMON_cargo");
+
 		if ( isNil("_vehgrpid") ) then {_vehgrpid = 0;};	
 		if ( isNil("_cargo") ) then {_cargo = [];};		
 
@@ -2154,9 +2158,12 @@ MON_ACE_Watersurvival = {
 //	<-	 _maxcadence: Cadence of fire, is random between min 
 //	<-	 _mincadence: Minimum cadence
 //	<-	 _bullet: class of bullet to fire, default ARTY_Sh_81_HE
+
 MON_artillery_dofire = {
 	if (!isserver) exitWith {}; 
+
 	private ["_smoke1","_i","_area","_position","_maxcadence","_mincadence","_sleep","_rounds"];
+
 	_area = 150;
 	_maxcadence = 10;
 	_mincadence = 5;
@@ -2164,10 +2171,9 @@ MON_artillery_dofire = {
 	_rounds = 5;
 	_bullet = "ARTY_Sh_81_HE";	
 	_position =[];
-	//_bullet = "ARTY_Sh_105_HE";
-	//_bullet = "ARTY_Sh_122_HE";
-	
+
 	_position  = _this select 0;
+
 	if ((count _this) > 1) then {_rounds = _this select 1;};	
 	if ((count _this) > 2) then {_area = _this select 2;};	
 	if ((count _this) > 3) then {_maxcadence = _this select 3;};	
@@ -2176,6 +2182,7 @@ MON_artillery_dofire = {
 	
 	_area2 = _area * 2;
 	if (KRON_UPS_Debug>0) then {player globalchat format["artillery doing fire on %1",_position]};	
+
 	for [{_i=0}, {_i<_rounds}, {_i=_i+1}] do  { 		
 		_sleep = random _maxcadence;
 		if (_sleep < _mincadence) then {_sleep = _mincadence};
