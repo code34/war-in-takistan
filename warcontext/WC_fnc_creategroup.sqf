@@ -115,7 +115,7 @@
 	} else {
 		if(random 1 > 0.4) then {
 			_list = nearestObjects [_position, ["house","building"] , 70];
-			if(count _list > 8) then {
+			if(count _list > 10) then {
 				_scriptinit = format["wcgarbage = [this, '%1', 'showmarker', 'fortify'] execVM 'extern\upsmon.sqf';", _marker];
 			} else {
 				_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
