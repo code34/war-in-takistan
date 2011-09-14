@@ -36,19 +36,24 @@
 		_vehicle setVehicleAmmo random 0.5;
 	};
 
-	// if simulation vehicles not respawn
-	if(wckindofgame == 2) exitwith {};
-
 	WC_fnc_initializevehicle = {
 		_vehicle = _this select 0;
 
 	
-		if(wckindofgame == 1) then {
+		//if(wckindofgame == 1) then {
 			_vehicle removeAllEventHandlers "HandleDamage";
 			_vehicle addEventHandler ['HandleDamage', {
-				(_this select 0) setdamage ( (getdammage(_this select 0)) + ((_this select 2)/50) );
+				if (_this select 2 > wcdammagethreshold) then {
+					(_this select 0) removeAllEventHandlers "HandleDamage";
+					if((_this select 2) + (getdammage (_this select 0)) > 0.9) then {
+						(_this select 0) setdamage 1;
+					} else {
+						(_this select 0) setdamage ((getdammage(_this select 0)) + (_this select 2));
+					};
+				}
+				//(_this select 0) setdamage ( (getdammage(_this select 0)) + ((_this select 2)/50) );
 			}];
-		};
+		//};
 
 		_vehicle addEventHandler ['Fired', '
 			private ["_name"];
@@ -63,6 +68,9 @@
 	};
 
 	[_vehicle] call WC_fnc_initializevehicle;
+
+	// if simulation vehicles not respawn
+	if(wckindofgame == 2) exitwith {};
 
 	while {true} do {
 		if (count (crew _vehicle) == 0) then {
