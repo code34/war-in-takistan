@@ -64,9 +64,11 @@
 		}foreach wcclasslist;
 
 		for "_x" from 1 to _sizeofgroup do {
-			_unitoftype = (_unitsoftype call BIS_fnc_selectRandom);
-			_unitsoftype = _unitsoftype - [_unitoftype];
-			_unitsofgroup = [_unitoftype] + _unitsofgroup;
+			if(count _unitsoftype > 0) then {
+				_unitoftype = (_unitsoftype call BIS_fnc_selectRandom);
+				_unitsoftype = _unitsoftype - [_unitoftype];
+				_unitsofgroup = [_unitoftype] + _unitsofgroup;
+			};
 		};
 
 
