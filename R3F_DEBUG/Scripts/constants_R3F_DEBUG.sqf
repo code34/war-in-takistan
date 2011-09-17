@@ -11,7 +11,7 @@
 ********************************************************************************************/
 
 #define CONST_R3F_DEBUG_DEFAULT_RADIUS	1000
-#define CONST_R3F_DEBUG_DEFAUT_VEHICLE	"HMMWV"
+#define CONST_R3F_DEBUG_DEFAUT_VEHICLE	"HMMWV_M1151_M2_CZ_DES_EP1"
 
 #define CONST_R3F_DEBUG_VELOCITY1    	1
 #define CONST_R3F_DEBUG_VELOCITY2    	2
