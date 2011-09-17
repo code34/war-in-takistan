@@ -41,6 +41,13 @@
 	// Kind of medics
 	wcmedicclass = ["ACE_USMC_Soldier_Medic_D", "HEXA_Soldier_ISAF_Medic", "FR_OHara", "USMC_Soldier_Medic", "GER_Soldier_Medic_EP1", "US_Delta_Force_Medic_EP1", "US_Soldier_Medic_EP1", "BWMod_MedicG", "BWMod_MedicG_Desert", "BWMod_MedicG_ISAF", "US_Delta_Force_Medic_EP1_retex_ger_des", "US_Soldier_Medic_EP1_retex_ger_des", "US_Delta_Force_Medic_EP1_retex_ger_wdl", "US_Soldier_Medic_EP1_retex_ger_wdl", "GER_Soldier_Medic_EP1_des", "GER_Soldier_Medic_EP1_wdl", "RU_Soldier_Medic"];
 
+	// blacklist of units that can pop dynamicly (exclude mission)
+	wcblacklistenemyclass = ["TK_Soldier_Crew_EP1", "TK_Aziz_EP1", "TK_Special_Forces_EP1", "TK_Special_Forces_MG_EP1", "TK_Special_Forces_TL_EP1"];
+
+	// blacklist of vehicles that can pop dynamicly (exclude mission)
+	wcblacklistenemyvehicleclass = ["BRDM2_ATGM_TK_EP1","GRAD_TK_EP1"];
+	
+
 	// Simulation mode has a harder scoring system
 	if(wckindofgame == 1) then {
 		wcscorelimitmin = -80; 
@@ -67,9 +74,11 @@
 
 	// IA skill
 	if(wckindofgame == 1) then {
+		wccivilianskill = 0.2;
 		wcskill = 0.38;
 		wcskill = wcskill + (wclevel * 0.02);
 	} else {
+		wccivilianskill = 0.2;
 		wcskill = 0.68;
 		wcskill = wcskill + (wclevel * 0.02);
 	};
@@ -115,4 +124,5 @@
 		wccompositions = ["MediumTentCamp_TK_EP1","MediumTentCamp2_TK_EP1","MediumTentCamp3_TK_EP1","AntiAir1_TK_EP1","Firebase1_TK_EP1","FuelDump1_TK_EP1","RadarSite1_TK_EP1","VehicleParking1_TK_EP1","HeliParking1_TK_EP1","AirplaneParking1_TK_EP1","WeaponsStore1_TK_EP1","Camp1_TK_EP1","Camp2_TK_EP1","Camp1_TKM_EP1","Camp2_TKM_EP1","FiringRange_Wreck4","FiringRange_Wreck5"];
 	};
 
+	wcvehicleslistE = wcvehicleslistE - wcblacklistenemyvehicleclass;
 	true;
