@@ -6,6 +6,8 @@
 
 	if (!isServer) exitWith{};
 
+	private ["_countofobject", "_y", "_x"];
+
 	[] spawn {
 		wccfgpatchesoa = ["cadata","halo_test","caanimals","ca_anims","ca_anims_sdr","ca_anims_wmn","ca_anims_e","cabuildings","ca_e","ca_pmc","ca_heads","cadata_particleeffects","ca_dubbing","calanguage","calanguage_missions","ca_modules","ca_missions_ambientcombat","ca_modules_dyno","ca_modules_e","caroads2","caroads_e","carocks_e","casounds","castructures","cafonts","ca_animals2","ca_animals2_anim_config","ca_animals2_chicken","ca_animals2_cow","ca_animals2_dogs","ca_animals2_dogs_fin","ca_animals2_dogs_pastor","ca_animals2_goat","ca_animals2_rabbit","ca_animals2_sheep","ca_animals2_wildboar","ca_anims_char","cabuildings2","ca_dubbingradio_e","ca_missions_e","castructures_e","castructures_e_housea","castructures_e_ind","castructures_e_misc","castructures_e_wall","castructures_pmc","castructures_pmc_buildings","castructures_pmc_misc","caui","caweapons","caweapons_ak","caweapons_colt1911","caweapons_ksvk","caweapons_m107","caweapons_m252_81mm_mortar","caweapons_metis_at_13","caweapons_2b14_82mm_mortar","caweapons_spg9","caweapons_zu23","caweapons_e_ammoboxes","cacharacters","cacharacters_e_head","ca_dubbing_baf","camisc2","camisc","ca_missions_armory2","ca_missions_secops","ca_missions_pmc","warfare2","cawater2","cawater2_seafox","caweapons2","caweapons2_rpg18","caweapons_kord","cacharacters2","cacharacters_e","catracked","caweapons_warfare_weapons","cawheeled","cawheeled_pickup","cawheeled_offroad","caair","camisc3","catracked2","catracked2_2s6m_tunguska","catracked2_t34","catracked2_us_m270mlrs","cawheeled2","cawheeled2_hmmwv_base","cawheeled2_m1114_armored","cawheeled2_hmmwv_ambulance","cawheeled2_m998a2_avenger","cawheeled2_ikarus","cawheeled2_lada","cawheeled2_mtvr","cawheeled2_v3s","cawheeled3","cawheeled3_m1030","cawheeled3_tt650","cawheeled_e","cawheeled_e_atv","cawheeled_e_landrover","cawheeled_pmc","caa10","ca_ah64d","caair2","caair2_c130j","caair2_chukartarget","caair2_f35b","arma2_ka52","caair2_mq9predatorb","caair2_mv22","ca_air2_su25","caair2_uh1y","caair3","caair3_su34","ca_baf","warfarebuildings","camisc_e", "ca_modules_arty","camp_armory_misc","caweapons_baf","caweapons_e","caweapons_pmc","caweapons_pmc_xm8","caair_e","caair_e_ah64d","caair_e_ch_47f","caair_pmc","cacharacters_baf","cacharacters_w_baf","catracked_e","cawheeled_d_baf","caair_baf","catracked_baf"];
 		wccfgpatchesserver = [] call WC_fnc_enumcfgpatches;
@@ -17,6 +19,9 @@
 
 	// blacklist of faction
 	wcblacklistside = [];
+
+	// number of objects (house, buildings) a zone contains to declare it as a possible mission zone
+	wcminimunofobjectforamission = 35;
 
 	// contain all civilian to init
 	wccivilianstoinit = [];
@@ -177,13 +182,18 @@
 
 	wczonelocations = [];
 
-	for "_i" from 1 to 100 do {
-		_temp = [wcmaptopright, wcmapbottomleft, "onground"] call WC_fnc_createposition;
-		while { _temp distance getmarkerpos "respawn_west" < 1000} do {
-			_temp = [wcmaptopright, wcmapbottomleft, "onground"] call WC_fnc_createposition;
+	_y = (wcmapbottomleft select 1);
+	while { _y < (wcmaptopright select 1) } do {
+		for "_x" from (wcmapbottomleft select 0) to (wcmaptopright select 0) step (random 100 + 100) do {
+			_temp = [_x, _y];
+			_countofobject = count (nearestObjects [_temp, ["All"] , 200]);
+			if((_temp distance getmarkerpos "respawn_west" > 1000) && (_countofobject > wcminimunofobjectforamission)) then {
+				wczonelocations = wczonelocations + [_temp];
+			};
 		};
-		wczonelocations = wczonelocations + [_temp];
+		_y = _y + random 100 + 100;
 	};
+
 
 	wctownlocationsneartarget = [];
 	wctownwithbunker = [];
@@ -224,5 +234,8 @@
 
 	// number of grave at begining
 	wcgrave = 0;
+
+	civilian setFriend [east, 1];
+	civilian setFriend [resistance, 1];
 
 	true;
