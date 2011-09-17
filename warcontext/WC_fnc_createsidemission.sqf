@@ -849,7 +849,7 @@
 			_missiontext = [_missionname,"Rescue"," a pilot"];
 			_group = createGroup west;
 			_vehicle2 = "UH60_wreck_EP1" createvehicle _position;
-			_vehicle = _group createUnit ["USMC_Soldier_Pilot", _position, [], 0, "NONE"];
+			_vehicle = _group createUnit ["US_Pilot_Light_EP1", _position, [], 0, "NONE"];
 			[_vehicle] spawn WC_fnc_liberatehotage;
 			_missiontype = "liberate";
 			wcbonusfame = 0;
@@ -882,7 +882,7 @@
 			_missiontext = [_missionname,"Rescue"," a C130 pilot"];
 			_group = createGroup west;
 			_vehicle2 = "C130J_wreck_EP1" createvehicle _position;
-			_vehicle = _group createUnit ["USMC_Soldier_Pilot", _position, [], 0, "NONE"];
+			_vehicle = _group createUnit ["US_Pilot_Light_EP1", _position, [], 0, "NONE"];
 			[_vehicle] spawn WC_fnc_liberatehotage;
 			_missiontype = "liberate";
 			wcbonusfame = 0;
