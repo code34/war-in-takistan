@@ -10,6 +10,7 @@
 
 		civilian setFriend [west, wcfame];
 		civilian setFriend [east, 1];
+		civilian setFriend [resistance, 1];
 
 		_unit = wccivilianstoinit select 0;
 		wccivilianstoinit = wccivilianstoinit - [_unit];
@@ -82,6 +83,7 @@
 				_unit addmagazine "30Rnd_545x39_AK";
 			};
 			_unit addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
+			wcgarbage = [_unit, wccivilianskill] spawn WC_fnc_setskill;
 		};
 		sleep 1;
 	};
