@@ -44,4 +44,14 @@
 			};
 		'];
 
+		_vehicle addeventhandler ['FiredNear', {
+			if(side(_this select 1) in [west, civilian]) then {
+				if(random 1 > 0.3) then {
+					(_this select 0) doTarget (_this select 1);
+					(_this select 0) reveal (_this select 1);
+					(_this select 0) doFire (_this select 1);
+				};
+			};
+		}];
+
 		wcvehicles = wcvehicles + [_vehicle];
