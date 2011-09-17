@@ -60,12 +60,14 @@
 	} else {
 
 		_group = createGroup east;
-		_sizeofgroup = ceil(random 10);
+		_sizeofgroup = ceil(random 6);
 		{
 			if(_typeofgroup == (_x select 0)) then {
 				_unitsoftype = 	_unitsoftype + [(_x select 1)];
 			};
 		}foreach wcclasslist;
+
+		_unitsoftype = _unitsoftype - wcblacklistenemyclass;
 
 		for "_x" from 1 to _sizeofgroup do {
 			if(count _unitsoftype > 0) then {
