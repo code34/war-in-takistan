@@ -68,7 +68,7 @@
 							}foreach _friendlyunits;
 							sleep 0.05;
 						};
-						if(random 1 > 0.5) then {
+						if(random 1 > 0.3) then {
 							#ifdef _ACE_
 							"ACE_ARTY_Sh_82_HE" createVehicle _position;
 							#else
@@ -81,7 +81,7 @@
 							"ARTY_SmokeShellWhite" createVehicle position _enemy;
 							#endif						
 						};
-						sleep (20 + random 30);
+						sleep (15 + random 20);
 					};
 				};
 				sleep 5;
