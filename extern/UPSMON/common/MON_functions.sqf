@@ -1492,9 +1492,12 @@ MON_evadeGrenade = {
 	
 	_this playmovenow "AmovPercMstpSlowWrflDnon_ActsPpneMstpSlowWrflDr_GrenadeEscape";							
 	sleep 8;
+
 	if (!alive _this || (vehicle _this) != _this  || !canmove _this) exitwith{};
+
 	_this switchmove "AmovPpneMstpSrasWrflDnon_AmovPpneMevaSlowWrflDr"; //croqueta														
 	_this playmovenow "AmovPpneMstpSrasWrflDnon"; //prone							
+
 };
 
 //Realiza la animación de la croqueta

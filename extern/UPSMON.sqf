@@ -221,7 +221,6 @@
 		"_vehicles",
 		"_lastwptype",
 		"_template",
-		"_unittype",
 		"_initstr",
 		 "_nowpType",
 		"_ambushtype",
@@ -285,7 +284,6 @@
 	_safemode = ["CARELESS","SAFE"];
 	_vehicles = [];
 	_lastwptype = "";
-	_unittype = "";
 	_initstr = "";
 
 	// unit that's moving
@@ -751,10 +749,8 @@ while {_loop && (count (units _group) > 0)} do {
 		sleep 0.5;	
 	} foreach (units _group);
 	
-
-	_npc = leader _group;							
-	
 	// ASSIGN LEADER OF GROUP ID
+	_npc = leader _group;
 	KRON_NPCs set [_grpid,_npc];
 
 	// current position of leader
@@ -767,17 +763,16 @@ while {_loop && (count (units _group) > 0)} do {
 		_pursue=false;
 			
 		// check kind of vehicle of leader
-		_incar = "LandVehicle" countType [vehicle (_npc)]>0;
-		_inheli = "Air" countType [vehicle (_npc)]>0;
-		_inboat = "Ship" countType [vehicle (_npc)]>0;			
+		_incar = "LandVehicle" countType [vehicle (_npc)] > 0;
+		_inheli = "Air" countType [vehicle (_npc)] > 0;
+		_inboat = "Ship" countType [vehicle (_npc)] > 0;			
 			
 		//Gets targets from radio
 		_targets = call (compile format ["KRON_targets%1",_sharedenemy]);	
 				
 		//Reveal targets found by members to leader
 		{
-			_NearestEnemy = assignedTarget _x;			
-			//_NearestEnemy = _x findnearestenemy _x;	
+			_NearestEnemy = assignedTarget _x;
 			if (_x knowsabout _NearestEnemy > 0.5 && (_npc knowsabout _NearestEnemy <= 0.5 || count _targets <= 0 )) then 	{		
 				if (_npc knowsabout _NearestEnemy <= 0.5 ) then 	{		
 					_npc reveal _NearestEnemy;
@@ -788,7 +783,6 @@ while {_loop && (count (units _group) > 0)} do {
 				if (count _targets <= 0) then {
 					_targets = _targets + [_NearestEnemy];					
 					_NearestEnemy setvariable ["UPSMON_lastknownpos", position _NearestEnemy, false];						
-					//if (KRON_UPS_Debug>0) then {player globalchat format["%1: %3 added to targets",_grpidx,typeof _x, typeof _target]}; 						
 				};
 			};
 
@@ -834,7 +828,7 @@ while {_loop && (count (units _group) > 0)} do {
 			//Solicita por radio la posición del enemigo, si está dentro del radio de acción actua
 			if ((KRON_UPS_comradio == 2)) then
 			{	
-				_targetsnear = false;			
+				_targetsnear = false;
 				
 				//I we have a close target alive do not search another
 				if (!alive _target || !canmove _target || _dist > _closeenough) then {					
@@ -867,7 +861,7 @@ while {_loop && (count (units _group) > 0)} do {
 							};
 						};
 					sleep 0.5;			
-					} foreach _targets;		
+					} foreach _targets;
 					sleep 0.5;	
 				};
 			};				
@@ -1200,7 +1194,7 @@ while {_loop && (count (units _group) > 0)} do {
 			_dir2 = (_dir1+180) mod 360;			
 			
 			//Establecemos una distancia de flanqueo	
-			_flankdist = ((random 0.5)+0.7)*KRON_UPS_safedist;
+			_flankdist = ((random 0.5)+0.7) * KRON_UPS_safedist;
 						
 			//La distancia de flanqueo no puede ser superior a la distancia del objetivo o nos pordría pillar por la espalda
 			_flankdist = if ((_flankdist*1.40) >= _dist) then {_dist*.65} else {_flankdist};
@@ -1211,24 +1205,25 @@ while {_loop && (count (units _group) > 0)} do {
 			_avoidPos = [_currPos,_dir2, KRON_UPS_safedist] call MON_GetPos2D;		
 
 			//Calculamos posición de avance frontal			
-			_frontPos = [_targetPos,_dir2, _flankdist] call MON_GetPos2D;	
-						
+			_frontPos = [_targetPos,_dir2, _flankdist] call MON_GetPos2D;					
 
 			//Adaptamos el ángulo de flanqueo a la distancia		
 			_newflankAngle = ((random(KRON_UPS_flankAngle)+1) * 2 * (_flankdist / KRON_UPS_safedist )) + (KRON_UPS_flankAngle/1.4) ;
+
 			if (_newflankAngle > KRON_UPS_flankAngle) then {_newflankAngle = KRON_UPS_flankAngle};			
 			
 			//Calculamos posición de flanqueo 1 45º
 			_dirf1 = (_dir2+_newflankAngle) mod 360;			
-			_flankPos = [_targetPos,_dirf1, _flankdist] call MON_GetPos2D;					
-			
+			_flankPos = [_targetPos,_dirf1, _flankdist] call MON_GetPos2D;
 			
 			//Calculamos posición de flanqueo 2 -45º			
 			_dirf2 = (_dir2-_newflankAngle+360) mod 360;		
 			_flankPos2 = [_targetPos,_dirf2, _flankdist] call MON_GetPos2D;	
 			
 			if (KRON_UPS_Debug>0) then {
-				"flank1" setmarkerpos _flankPos; "flank2" setmarkerpos _flankPos2; "target" setmarkerpos _attackPos;	
+				"flank1" setmarkerpos _flankPos; 
+				"flank2" setmarkerpos _flankPos2; 
+				"target" setmarkerpos _attackPos;	
 			};
 						
 						
@@ -1592,11 +1587,12 @@ while {_loop && (count (units _group) > 0)} do {
 				_wptype = "MOVE";			
 			
 				if (format ["%1",_fixedtargetPos] !="[0,0]") then {	
-					_targetPos = _fixedtargetPos; _targettext ="Reinforcement";					
+					_targetPos = _fixedtargetPos; 
+					_targettext = "Reinforcement";					
 				}else{				
 					if (KRON_UPS_Debug>0) then {player sidechat format["%1 Patrol to new position",_grpidx]};	
 					if ((_nomove=="NOMOVE") && (_timeontarget>KRON_UPS_alerttime)) then {
-						if (([_currPos,_orgPos] call KRON_distancePosSqr)<_closeenough) then {
+						if (([_currPos,_orgPos] call KRON_distancePosSqr) < _closeenough) then {
 							_newpos = false;
 							_wptype = "HOLD";
 							_waiting = 9999;
@@ -1637,16 +1633,18 @@ while {_loop && (count (units _group) > 0)} do {
 						//	sleep 0.5;
 						//};
 
-						_nearroad = false;
-						_tries = 0;
-						while { !_nearroad && _tries < 20 } do {
-							if ([_currPos,_targetPos] call KRON_distancePosSqr < _mindist) then {
-								_targetPos = [_centerX,_centerY,_rangeX,_rangeY,_cosdir,_sindir,_areadir] call KRON_randomPos; 
-								_nearroad = [_targetPos] call KRON_OnRoad2;
-							};
-							_tries = _tries + 1;
-							sleep 0.5;
-						};
+						_targetPos = [_areamarker, "onground"] call WC_fnc_createpositioninmarker;
+
+						//_nearroad = false;
+						//_tries = 0;
+						//while { !_nearroad && _tries < 20 } do {
+						//	if ([_currPos,_targetPos] call KRON_distancePosSqr < _mindist) then {
+						//		_targetPos = [_centerX,_centerY,_rangeX,_rangeY,_cosdir,_sindir,_areadir] call KRON_randomPos; 
+						//		_nearroad = [_targetPos] call KRON_OnRoad2;
+						//	};
+						//	_tries = _tries + 1;
+						//	sleep 0.5;
+						//};
 					};
 				};
 
@@ -1683,7 +1681,6 @@ while {_loop && (count (units _group) > 0)} do {
 //**********************************************************************************************************************
 //   								NEWPOS:	SE	EJECUTA		LA	ORDEN 	DE 	MOVIMIENTO
 //**********************************************************************************************************************
-//	if (KRON_UPS_Debug>0) then {player sidechat format["%1 rea=%2 wai=%3 tim=%4 tg=%5 %6",_grpidx,_react,_waiting,_timeontarget,typeof _target,alive _target]};							
 	if ((_waiting<=0) && _newpos) then {		
 
 		_npc = leader _group;	
@@ -1763,7 +1760,7 @@ while {_loop && (count (units _group) > 0)} do {
 							[_x] dofollow _npc;
 						};
 						sleep 0.5;
-					}foreach _members;
+					}foreach (units _group);
 				};
 				sleep 0.05;	
 				
