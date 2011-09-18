@@ -24,7 +24,7 @@
 	_road = _roads call BIS_fnc_selectRandom;
 
 	_group = creategroup civilian;
-	for "_x" from 1 to (random 10) step 1 do {
+	for "_x" from 1 to (random 8) step 1 do {
 		_type = ["Sheep01_EP1", "Sheep02_EP1"] call BIS_fnc_selectRandom;
 		_unit = _group createUnit [_type, position _road, [], 0, "NONE"];
 		wcobjecttodelete = wcobjecttodelete + [_unit];
