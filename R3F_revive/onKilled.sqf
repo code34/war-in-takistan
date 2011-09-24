@@ -36,20 +36,6 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 
 	private ["_position_avant_mort", "_direction_avant_mort", "_chargeurs_avant_mort", "_armes_avant_mort", "_hasruck", "_hasruckace", "_ruckmags", "_ruckweapons", "_rucktype", "_enemy", "_sacados_avant_mort", "_backpack", "_weapononback", "_prisonneer", "_enemys"];
 	
-	if(wcwithonelife == 1) then {
-		tskExample1 = player createSimpleTask ["Task Message"];
-		tskExample1 setSimpleTaskDescription ["Task Message", "You have been killed", "You have been killed"];
-		_end = createTrigger["EmptyDetector", [4000,4000,0]];
-		_end setTriggerArea[10, 10, 0, false];
-		_end setTriggerActivation["CIV", "PRESENT", TRUE];
-		_end setTriggerStatements["true", "
-
-		", ""];
-		_end setTriggerType "END1";
-		wconelife = name player;
-		["wconelife", "server"] call WC_fnc_publicvariable;
-	};
-
 	// Mémorisation des données du cadavre avant qu'ArrowHead ne corompe la référence vers celui-ci
 	_position_avant_mort = getPosatl R3F_REV_corps_avant_mort;
 	_direction_avant_mort = getDir R3F_REV_corps_avant_mort;
