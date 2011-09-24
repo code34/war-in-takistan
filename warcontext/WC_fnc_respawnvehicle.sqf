@@ -87,7 +87,7 @@
 				_vehicle = _type createvehicle _startpos;
 				_vehicle setposatl _startpos;
 				_vehicle setdir _startdir;
-				_vehicle setvehicleinit format["this setvehiclevarname %1;", _vehiclename];
+				_vehicle setvehicleinit format["this setvehiclevarname '%1';", _vehiclename];
 				processinitcommands;
 				_vehicle setvariable ["R3F_LOG_objets_charges", _objets_charges, true];
 				_move = 0;
