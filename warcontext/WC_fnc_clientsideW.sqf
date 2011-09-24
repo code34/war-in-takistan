@@ -520,6 +520,20 @@
 		};
 	};
 
+	// if player die, end of game for one life mission
+	if(wcwithonelife == 1) then {
+		tskExample1 = player createSimpleTask ["Task Message"];
+		tskExample1 setSimpleTaskDescription ["Task Message", "You have been killed", "You have been killed"];
+		_end = createTrigger["EmptyDetector", [4000,4000,0]];
+		_end setTriggerArea[10, 10, 0, false];
+		_end setTriggerActivation["CIV", "PRESENT", TRUE];
+		_end setTriggerStatements["!alive player", "
+			wctoonelife = name player;
+			['wctoonelife', 'server'] call WC_fnc_publicvariable;
+		", ""];
+		_end setTriggerType "END1";
+	};
+
 	sleep 5;
 
 	_kindofgame = if (wckindofgame == 1) then { "arcade"; } else { "simulation";};

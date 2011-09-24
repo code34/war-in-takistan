@@ -217,7 +217,7 @@
 	};
 
 	// insert player name died during a one life mission
-	WC_fnc_netcode_wconelife = {
+	WC_fnc_netcode_wctoonelife = {
 		wconelife = wconelife + [(_this select 0)];		
 	};
 
@@ -460,11 +460,11 @@
 		[] spawn {
 			while { true } do {
 				{
-					if(name _x in wconelife) then {
-						_x setdammage 1;
+					if((name _x) in wconelife) then {
+						_x setdammage ((damage _x) + 0.1);
 					};
 				}foreach playableunits;
-				sleep 4;
+				sleep 10;
 			};
 		};
 	};
