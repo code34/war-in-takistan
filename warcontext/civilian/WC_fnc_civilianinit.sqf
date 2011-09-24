@@ -85,5 +85,5 @@
 			_unit addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
 			wcgarbage = [_unit, wccivilianskill] spawn WC_fnc_setskill;
 		};
-		sleep 1;
+		sleep 2;
 	};
