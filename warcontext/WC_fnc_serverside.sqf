@@ -427,24 +427,27 @@
 	// For open game - all players are team members
 	if(wckindofserver != 1) then {
 		[] spawn {
-			private ["_array", "_knownplayer", "_player"];
+			private ["_array", "_knownplayer", "_player", "_lastinteam"];
 
 			// array contains known player (diff jip & player)
 			_knownplayer = [];
 
 			while { true } do {
 				_array = [];
+				
 				{
 					_player = name _x;
-					if((_player in wcinteam) or !(_player in _knownplayer)) then {
+					if!(_player in _knownplayer) then {
 						_array = _array + [_player];
 						_knownplayer = _knownplayer + [_player];
 					};
 					sleep 0.01;
-				}foreach playableUnits;	
+				}foreach playableUnits;
+	
+				_lastinteam = wcinteam + _array;
 		
-				if(format["%1", wcinteam] != format["%1", _array]) then {
-					wcinteam = _array;
+				if(format["%1", wcinteam] != format["%1", _lastinteam]) then {
+					wcinteam = _lastinteam;
 					["wcinteam", "client"] call WC_fnc_publicvariable;
 				};
 				sleep 60;
