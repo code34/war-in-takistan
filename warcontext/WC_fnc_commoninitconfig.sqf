@@ -15,7 +15,7 @@
 	wcminfpsonserver = 15;
 
 	// Adress of teamspeak server
-	wcteamspeak = "[FR] join us: \n ts3.air-commando.org:9987 \n pass: ackillaz";
+	wcteamspeak = "[FR] join us: \n ts3.air-commando.fr:9987 \n pass: ackillaz";
 
 	// limit of playable map
 	switch (tolower(worldname)) do {
