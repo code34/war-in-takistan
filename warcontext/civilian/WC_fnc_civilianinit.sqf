@@ -21,6 +21,7 @@
 			switch (_civiltype) do {
 				case "bomberman": {
 					if(random 1 > wcfame) then {
+						_unit addbackpack "TK_ALICE_Pack_Explosives_EP1";
 						wcgarbage = [_unit] spawn WC_fnc_createied;
 					};
 				};
@@ -39,6 +40,7 @@
 			
 				case "saboter": {
 					if(random 1 > wcfame) then {
+						_unit addbackpack "TK_ALICE_Pack_Explosives_EP1";
 						wcgarbage = [_unit] spawn WC_fnc_sabotercivilian;
 					};
 				};
