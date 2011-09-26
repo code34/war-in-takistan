@@ -60,7 +60,7 @@
 		};
 	};
 
-	_maxnumberofmission = 74;
+	_maxnumberofmission = 75;
 
 	// arcade = 1
 	if(wckindofgame == 1) then {

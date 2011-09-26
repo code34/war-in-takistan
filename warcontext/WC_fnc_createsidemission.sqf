@@ -1045,6 +1045,14 @@
 			wcbonusfame = 0;
 		};
 
+		case 74: {
+			_missiontext = [_missionname,"Build","a bunker"];
+			_vehicle = "Land_Dirthump01_EP1" createvehicle _position;
+			wcgarbage = [_vehicle, "Land_fortified_nest_big_EP1"] spawn WC_fnc_build;
+			_missiontype = "build";
+			wcbonusfame = 0.1;
+		};
+
 		case 100: {
 			_missiontext = [_missionname," Kill the enemy","leader"];
 			_vehicle = imam;
@@ -1089,7 +1097,7 @@
 			_vehicle addeventhandler ['HandleDamage', {
 				if (_this select 2 > wcdammagethreshold) then {
 					(_this select 0) removeAllEventHandlers "HandleDamage";
-					wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+					wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 					if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; };
 					["wcmessageW", "client"] call WC_fnc_publicvariable;
 					wcmissionsuccess = true;
@@ -1113,7 +1121,7 @@
 				};
 			}];
 			_vehicle addeventhandler ['killed', {
-				wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+				wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
@@ -1129,7 +1137,7 @@
 			_startposition = position _vehicle;
 			sleep 10;
 			waituntil {!(_vehicle getvariable "wciedactivate")};
-			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
