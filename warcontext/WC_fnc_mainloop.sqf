@@ -278,6 +278,8 @@
 		waituntil {wcmissionsuccess};
 		wcmissionsuccess = false;
 
+		"operationtext" setMarkerText "Mission is finished. Leave the zone";
+
 		if(wcwithteleportflagatend == 1) then {
 			_positionflag = (position _location) findemptyposition [10, 300];
 			wcflag = "FlagCarrierUSA_EP1" createVehicle _positionflag;
@@ -363,9 +365,7 @@
 				if(ceil (wcfame * 100) > 25) then {
 					_fame = "Bad";
 				} else {
-					if(ceil (wcfame * 100) > 0) then {
-						_fame = "Ugly";
-					};
+					_fame = "Ugly";
 				};
 			};
 		};
