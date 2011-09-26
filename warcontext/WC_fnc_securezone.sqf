@@ -16,30 +16,8 @@
 	_enemys = [];
 
 	// wait initialization
-	sleep 60;
+	sleep 120;
 
-	_global = nearestObjects[_unit,["Man"], wcdistance];
-	{
-		if!(isplayer _x) then {
-			if!(side _x == civilian) then {
-				_enemys = _enemys + [_x];
-			};
-		};
-	}foreach _global;
-
-	_global = nearestObjects[_unit,["Landvehicle"], wcdistance];
-	{
-		{
-			if!(isplayer _x) then {
-				if(!(side _x == civilian) and !(side _x == west)) then {
-					_enemys = _enemys + [_x];
-
-				};
-			};
-		}foreach (crew _x);
-	}foreach _global;
-
-	_count = count _enemys;
 	_counter = 0;
 
 	while {!_missioncomplete} do {
@@ -48,7 +26,7 @@
 		_global = nearestObjects[_unit,["Man"], wcdistance];
 		{
 			if!(isplayer _x) then {
-				if!(side _x == civilian) then {
+				if((side _x == east) or (side _x == resistance)) then {
 					_enemys = _enemys + [_x];
 
 				};
@@ -59,7 +37,7 @@
 		{
 			{
 				if!(isplayer _x) then {
-					if(!(side _x == civilian) and !(side _x == west)) then {
+					if((side _x == east) or (side _x == resistance)) then {
 						_enemys = _enemys + [_x];
 	
 					};
@@ -70,13 +48,13 @@
 
 		if(_counter > 20) then {
 			_counter = 0;
-			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMEN", format["Still %1 enemies", count _enemys, ceil(_count * 0.2)]];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", format["Still %1 enemies", count _enemys]];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};			
 		};
 
-		// if - 10% of enemy stay on zone success
-		if(count _enemys <= (_count * 0.2)) then {
-			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+		// if -5 of enemy stay on zone success
+		if(count _enemys < 5) then {
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
