@@ -42,7 +42,7 @@
 		};
 		
 		case 3: {
-			_distance = 150;
+			_distance = 100;
 		};
 	};
 
