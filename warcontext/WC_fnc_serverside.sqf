@@ -178,7 +178,7 @@
 			deletevehicle _vehicle;
 			_vehicle = _typeof createvehicle _position;
 			_vehicle setvehiclevarname _vehiclename;
-			//_vehicle setvehicleinit format["this setvehiclevarname %1;", _vehiclename];
+			//_vehicle setvehicleinit format["this setvehiclevarname '%1';", _vehiclename];
 			//processinitcommands;
 			_vehicle setposatl _position; 
 			_vehicle setdir _dir;
@@ -237,6 +237,7 @@
 	};
 
 
+	// put light around chopper landing zone
 	if(tolower(worldName) == "takistan") then {
 		_positions = [position tower2, 7, 360, getdir tower2, 7] call WC_fnc_docircle;
 		{
@@ -455,7 +456,7 @@
 		};
 	};
 
-	// for game with only one life
+	// for game with only one life - eject player already died
 	if(wcwithonelife == 1) then {
 		[] spawn {
 			while { true } do {
