@@ -20,7 +20,7 @@
 		if (count _list > 0) then {
 			{	
 				if ((isplayer _x) or (_x in units(group player))) then {	
-						if((format ["%1", _x getvariable "deadmarker"] == "true") and (wcplayerside in wcside)) then {
+						if(format ["%1", _x getvariable "deadmarker"] == "true") then {
 							_marker = [(name _x), 0.4, position _x, 'ColorRed', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, (name _x), true] call WC_fnc_createmarkerlocal;
 						} else {
 							if (typeOf vehicle _x in wcmedicclass) then {
