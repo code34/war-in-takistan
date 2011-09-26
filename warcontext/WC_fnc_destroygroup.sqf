@@ -36,7 +36,7 @@
 	while { !_missioncomplete } do {
 		_counter = _counter + 1;
 		if((count units _group == 0) or (damage _unit > 0.8)) then {
-			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;

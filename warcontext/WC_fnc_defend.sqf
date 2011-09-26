@@ -70,7 +70,7 @@
 		_timer = _timer - 1;
 		_countdead = _countdead + 1;
 		if(_timer < 1) then {
-			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
@@ -78,7 +78,7 @@
 				wcleveltoadd = 1;
 		};
 		if((wcnumberofkilledofmissionW - _delta) > (playersNumber west)) then {
-			wcmessageW = ["Mission failed", "Too much died"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much died"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
@@ -93,7 +93,7 @@
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 		};
 		if (_count > 180) then {
-			wcmessageW = ["Mission failed", "Too much players out of area"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much players out of area"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
