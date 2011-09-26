@@ -43,14 +43,14 @@
 	while {!_missioncomplete} do {
         	sleep 1;
 		if((!alive _unit) or (damage _unit > 0.9)) then {
-			wcmessageW = ["Mission failed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
 		};
 		if(_startpos distance position _unit > 1000) then {
-			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;

@@ -57,7 +57,7 @@
 		}foreach _civils;
 
 		if(_count == count _civils) then {
-			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
@@ -69,7 +69,7 @@
 		};
 
 		if(count _civils < floor(0.80 * _number)) then {
-			wcmessageW = ["Mission Failed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
