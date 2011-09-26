@@ -657,7 +657,7 @@ class Params
 		title = "NUMBER OF OPERATIONS TO COMPLETE CAMPAIGN";
 		values[] = {3, 5, 7, 9, 11, 21, 41, 61};
 		texts[] = {"2", "4", "6", "8", "10", "20", "40", "60"};
-		default = 11;
+		default = 9;
 	};
 
 	class wcwithlight
