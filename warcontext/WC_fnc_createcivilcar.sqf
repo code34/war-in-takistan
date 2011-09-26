@@ -35,15 +35,15 @@
 				if(wckindofgame == 2) then {
 					_car setfuel (random 1);
 					_car setdamage (random 1);
-					if(random 1> 0.95) then {
-						_car setVectorUp [1, 0, 0];
-					};
+				};
+				if(random 1> 0.95) then {
+					_car setVectorUp [1, 0, 0];
+				};
+				if(random 1 > 0.95) then {
+					wcgarbage = [_car] spawn WC_fnc_createied;
 				};
 				wcvehicles = wcvehicles + [_car];
 				_count = _count + 1;
-				if(random 1 > 0.98) then {
-					wcgarbage = [_car] spawn WC_fnc_createied;
-				};
 			};
 			// else {
 			//	if(random 1 > 0.95) then {
