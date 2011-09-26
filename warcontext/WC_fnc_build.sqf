@@ -27,7 +27,7 @@
 			deletevehicle _unit;
 			_unit = _typeof createvehicle _position;
 			_unit setpos _position;
-			wcmessageW = ["Mission completed", localize "STR_WC_MESSAGELEAVEZONE"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
