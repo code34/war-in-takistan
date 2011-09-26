@@ -128,7 +128,7 @@
 				};
 
 				if(_support) then { _counter = _counter + 1;};
-				if(_counter > 4) then { 
+				if(_counter > 3) then { 
 					diag_log "WARCONTEXT: BOMBING IS AVALAIBLE";
 					wcbombingavalaible = 1;
 					["wcbombingavalaible", "client"] call WC_fnc_publicvariable;
