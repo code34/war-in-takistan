@@ -364,7 +364,7 @@
 				if((isnil "wcbombingsupport") and (wcbombingavalaible == 1)) then {
 					wcbombingsupport = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBOMBING"+"</t>", "warcontext\WC_fnc_bombingsupport.sqf",[],-1,false];
 				};
-				if((isnil "wcmanageteam") and (wckindofserver == 1)) then {
+				if((isnil "wcmanageteam") and (wckindofserver != 3)) then {
 					wcmanageteam = player addAction ["<t color='#dddd00'>Manage team</t>", "warcontext\WC_fnc_manageteam.sqf",[],6,false];
 				};
 			} else {
@@ -522,12 +522,12 @@
 
 	// if player die, end of game for one life mission
 	if(wcwithonelife == 1) then {
-		tskExample1 = player createSimpleTask ["Task Message"];
-		tskExample1 setSimpleTaskDescription ["Task Message", "You have been killed", "You have been killed"];
 		_end = createTrigger["EmptyDetector", [4000,4000,0]];
 		_end setTriggerArea[10, 10, 0, false];
 		_end setTriggerActivation["CIV", "PRESENT", TRUE];
-		_end setTriggerStatements["!alive player", "
+		_end setTriggerStatements["!alive player && local player", "
+			tskExample1 = player createSimpleTask ['Task Message'];
+			tskExample1 setSimpleTaskDescription ['Task Message', 'You have been killed', 'You have been killed'];
 			wctoonelife = name player;
 			['wctoonelife', 'server'] call WC_fnc_publicvariable;
 		", ""];
@@ -538,6 +538,7 @@
 
 	_kindofgame = if (wckindofgame == 1) then { "arcade"; } else { "simulation";};
 	["Welcome to base", "Take some weapons at ammobox and wait for orders.", format["This mission is currently played as %1 game.", _kindofgame], 10] spawn WC_fnc_playerhint;
+
 
 	// INITIALIZE PLAYER SCORE ON SERVER
 	sleep 30;
