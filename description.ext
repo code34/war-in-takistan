@@ -639,7 +639,7 @@ class Params
 	class wcopposingforce
 	{
 		title = "ENEMIES FORCE ON ZONE";
-		values[] = {1, 2, 3, 4, 2};
+		values[] = {1, 2, 3, 4, 5};
 		texts[] = {"WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
 		default = 3;
 	};
