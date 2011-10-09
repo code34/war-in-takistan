@@ -45,8 +45,9 @@
 		_vehicle 	= _arrayofvehicle select 0;
 		_arrayofpilot 	= _arrayofvehicle select 1;
 		_group 		= _arrayofvehicle select 2;
-		_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _markerdest];
-		_vehicle setVehicleInit _scriptinit;
+		//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _markerdest];
+		//_vehicle setVehicleInit _scriptinit;
+		wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		processInitCommands;
 	//};
 

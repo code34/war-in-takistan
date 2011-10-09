@@ -115,9 +115,10 @@
 		if(_vehicle isKindOf "Air") then {
 			wcgarbage = [_vehicle, _position] spawn WC_fnc_createairpatrol2;
 		} else {
-			_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _marker];
+			//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _marker];
+			wcgarbage = [_vehicle, _marker, 'showmarker'] execVM 'extern\ups.sqf';
 		};
-		_vehicle setVehicleInit _scriptinit;
+		//_vehicle setVehicleInit _scriptinit;
 		if((typeof _vehicle) in wcsabotagelist) then {
 			_vehicle setdamage 1;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", format["%1 sabotaged explosed", (typeof _vehicle)]];
@@ -127,14 +128,17 @@
 		if(random 1 > 0.4) then {
 			_list = nearestObjects [_position, ["house","building"] , 70];
 			if(count _list > 10) then {
-				_scriptinit = format["wcgarbage = [this, '%1', 'showmarker', 'fortify'] execVM 'extern\upsmon.sqf';", _marker];
+				//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker', 'fortify'] execVM 'extern\upsmon.sqf';", _marker];
+				wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] execVM 'extern\upsmon.sqf';
 			} else {
-				_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
+				//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
+				wcgarbage = [(leader _group), _marker, 'showmarker'] execVM 'extern\upsmon.sqf';
 			};
 		} else {
-			_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
+			//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
+			wcgarbage = [(leader _group), _marker, 'showmarker'] execVM 'extern\upsmon.sqf';
 		};
-		(leader _group) setVehicleInit _scriptinit;
+		//(leader _group) setVehicleInit _scriptinit;
 	};
 
 	processInitCommands;

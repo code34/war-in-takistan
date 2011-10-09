@@ -211,15 +211,18 @@
 			{
 				_x action ["eject", _vehicle];
 			}foreach (crew _vehicle);
-			_scriptinit = format["wcgarbage = [this, '%1', 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';", _markerdest];
-			(leader _group) setVehicleInit _scriptinit;
+			//_scriptinit = format["wcgarbage = [this, '%1', 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';", _markerdest];
+			//(leader _group) setVehicleInit _scriptinit;
+			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
 		} else {
-			_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _markerdest];
-			_vehicle setVehicleInit _scriptinit;
+			//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _markerdest];
+			//_vehicle setVehicleInit _scriptinit;
+			wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		};
 	} else {
-		_scriptinit = format["wcgarbage = [this, '%1', 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';", _markerdest];
-		(leader _group) setVehicleInit _scriptinit;
+		//_scriptinit = format["wcgarbage = [this, '%1', 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';", _markerdest];
+		//(leader _group) setVehicleInit _scriptinit;
+		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
 	};
 
 	processInitCommands;
