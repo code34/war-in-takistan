@@ -1,4 +1,4 @@
-Language,	English,	French
+ï»¿Language,	English,	French
 STR_WC_TEAM0,		"Mercenary",	"Mercenaire"
 STR_WC_TEAM1,		"Hero team",	"Heroe team"
 STR_WC_TEAM2,		"Elite team",	"Elite team"
@@ -273,9 +273,9 @@ STR_R3F_REV_attente_reanimation,	You're waiting for a medic...,	Vous etes en att
 STR_R3F_REV_marqueur_attente_reanimation,	%1 unconscious,	%1 inconscient
 STR_R3F_REV_nb_reanimations_plusieurs,	You've been healed... You still have %1 possibilities of healing.,	Vous avez ete soigne... Il vous reste %1 possibilites de reanimation.
 STR_R3F_REV_nb_reanimations_une,	You've been healed... You only have one possibility of healing before returning to base.,	Vous avez ete soigne... Il ne vous reste plus qu'une reanimation possible avant retour au camp.
-STR_R3F_REV_nb_reanimations_zero,	You've been healed... It was your last possibility of healing.,	Vous avez ete soigne...C'etait votre dernière possibilite de reanimation.
+STR_R3F_REV_nb_reanimations_zero,	You've been healed... It was your last possibility of healing.,	Vous avez ete soigne...C'etait votre derniÃ¨re possibilite de reanimation.
 STR_R3F_REV_plus_de_reanimation,You've reached the limit of healing...,Vous avez atteint le nombre limite de reanimations...
-STR_R3F_REV_hors_jeu,You're now out of the game...,Vous etes à present hors jeu...
+STR_R3F_REV_hors_jeu,You're now out of the game...,Vous etes Ã  present hors jeu...
 STR_R3F_REV_respawn_camp,You respawn at camp...,Vous reapparaissez au camp...
 STR_R3F_REV_ne_pas_se_reanimer_soi_meme,You can't revive yourself.,Vous ne pouvez pas vous reanimer vous-meme.
 #include "extern\TeamStatusDialog\stringtable.csv"
