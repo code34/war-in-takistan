@@ -38,8 +38,6 @@
 	sleep 6;		
 	titleText ["", "PLAIN"];
 
-	playsound "ALL_HAHA";
-
 	playMusic "outro";
 
 	sleep 4;
