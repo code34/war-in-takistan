@@ -9,12 +9,14 @@
 	#ifdef _ACE_
 		if!(isClass(configFile >> "cfgPatches" >> "ace_main")) then {
 			player setpos [0,0,0];
-			while { true } do { hintsilent "Dummy player";};
+			removeAllWeapons player;
+			while { true } do { hint "Dummy player without ACE: check your addons moron!";};
 		};
 	#else
 		if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
 			player setpos [0,0,0];
-			while { true } do { hintsilent "Dummy player";};
+			removeAllWeapons player;
+			while { true } do { hint "Dummy player with ACE: check your addons moron!";};
 		};
 	#endif
 
