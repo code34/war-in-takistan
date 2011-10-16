@@ -60,7 +60,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=29;
+		items=30;
 		class Item0
 		{
 			side="LOGIC";
@@ -1110,6 +1110,76 @@ class Mission
 					skill=0.60000002;
 					text="imam";
 					init="this setvariable [""wcprotected"", true]; this allowdammage false; this setposatl [getPos this select 0, getpos this select 1, 0.3]; removeAllWeapons this;";
+				};
+			};
+		};
+		class Item29
+		{
+			side="WEST";
+			class Vehicles
+			{
+				items=5;
+				class Item0
+				{
+					position[]={7051.8242,331.27588,4931.813};
+					azimut=-253.743;
+					special="CARGO";
+					id=1119;
+					side="WEST";
+					vehicle="US_Delta_Force_TL_EP1";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+					init="this setGroupid [""Juliet""];";
+				};
+				class Item1
+				{
+					position[]={7052.1343,331.27441,4932.3018};
+					azimut=-245.526;
+					special="CARGO";
+					id=1120;
+					side="WEST";
+					vehicle="US_Delta_Force_Medic_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="this setGroupid [""Juliet""];";
+				};
+				class Item2
+				{
+					position[]={7051.5972,331.27902,4931.3462};
+					azimut=-246.52901;
+					special="CARGO";
+					id=1121;
+					side="WEST";
+					vehicle="US_Delta_Force_Night_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="this setGroupid [""Juliet""];";
+					description="Engineer";
+				};
+				class Item3
+				{
+					position[]={7051.0093,331.2619,4931.4551};
+					azimut=-251.19501;
+					special="CARGO";
+					id=1122;
+					side="WEST";
+					vehicle="US_Delta_Force_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="this setGroupid [""Juliet""];";
+				};
+				class Item4
+				{
+					position[]={7051.2881,331.26004,4931.9224};
+					azimut=-257.27399;
+					special="CARGO";
+					id=1123;
+					side="WEST";
+					vehicle="US_Delta_Force_Assault_EP1";
+					player="PLAY CDG";
+					skill=0.60000002;
+					init="this setGroupid [""Juliet""];";
 				};
 			};
 		};
