@@ -3,6 +3,21 @@
 	// warcontext - Description: init
 	// -----------------------------------------------
 
+	#include "warcontext\common.hpp"
+
+	// protection against dummy player that come with ACE when doesn t need
+	#ifdef _ACE_
+		if!(isClass(configFile >> "cfgPatches" >> "ace_main")) then {
+			player setpos [0,0,0];
+			while { true } do { hintsilent "Dummy player";};
+		};
+	#else
+		if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
+			player setpos [0,0,0];
+			while { true } do { hintsilent "Dummy player";};
+		};
+	#endif
+
 	titleText [localize "STR_WC_MESSAGEINITIALIZING", "BLACK FADED"];
 
 	// initialize lobby parameters
