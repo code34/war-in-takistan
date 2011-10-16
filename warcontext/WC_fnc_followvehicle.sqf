@@ -3,13 +3,17 @@
 	// warcontext - follow vehicle on map which have a name
 
 	private [
+		"_arrayofmarker",
 		"_arrayofvehicle", 
 		"_arrayofvehicle2",
 		"_x", 
+		"_marker",
 		"_markername", 
 		"_position", 
 		"_counter"
 	];
+
+	_arrayofmarker = [];
 
 	WC_fnc_refreshvehiclelist = {
 		private [
@@ -34,7 +38,8 @@
 
 	_arrayofvehicle = [] call WC_fnc_refreshvehiclelist;
 	{
-		wcgarbage = [(_x select 1), 2, [0,0,0], 'ColorGreen', 'ICON', 'FDIAGONAL', 'Vehicle', 0, '', true] call WC_fnc_createmarkerlocal;
+		_marker = [(_x select 1), 2, [0,0,0], 'ColorGreen', 'ICON', 'FDIAGONAL', 'Vehicle', 0, '', true] call WC_fnc_createmarkerlocal;
+		_arrayofmarker = _arrayofmarker + [_marker];
 	}foreach _arrayofvehicle;
 
 	_counter = 0;
@@ -57,12 +62,17 @@
 			};
 		}foreach _arrayofvehicle;
 		_counter = _counter + 1;
-		if(_counter > 30) then {
+		if(_counter > 60) then {
 			_arrayofvehicle = [] call WC_fnc_refreshvehiclelist;
 			{
-				wcgarbage = [(_x select 1), 2, [0,0,0], 'ColorGreen', 'ICON', 'FDIAGONAL', 'Vehicle', 0, '', true] call WC_fnc_createmarkerlocal;
+				deletemarkerlocal _x;
+			} foreach _arrayofmarker;
+			_arrayofmarker = [];
+			{
+				_marker = [(_x select 1), 2, [0,0,0], 'ColorGreen', 'ICON', 'FDIAGONAL', 'Vehicle', 0, '', true] call WC_fnc_createmarkerlocal;
+				_arrayofmarker = _arrayofmarker + [_marker];
 			}foreach _arrayofvehicle;
 			_counter = 0;
 		};
-		sleep 2;
+		sleep 0.5;
 	};
