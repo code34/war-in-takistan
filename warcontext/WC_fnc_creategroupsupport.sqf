@@ -103,7 +103,7 @@
 	// initialisation script for units
 	_leader = leader _group;
 
-	_position = getmarkerpos _markerdest;
+	_position = [_markerdest, "onground", "onflat"] call WC_fnc_createpositioninmarker;
 	while { ((count (units _group) > 0) and (_leader distance _position > wcdistance )) } do {
 		_leader = leader _group;
 
@@ -217,11 +217,22 @@
 			{
 				_x action ["eject", _vehicle];
 			}foreach (crew _vehicle);
-			//_scriptinit = format["wcgarbage = [this, '%1', 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';", _markerdest];
-			//(leader _group) setVehicleInit _scriptinit;
 			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
-			_vehicle setfuel 0;
-			_vehicle setVehicleAmmo 0;
+
+			// after group leave vehicle, a new group drive the vehicle
+			_group = creategroup east;
+			_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [0,0], [], 0, 'FORM'];
+			_soldier moveindriver _vehicle;
+
+			_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [0,0], [], 0, 'FORM'];
+			_soldier moveingunner _vehicle;
+
+			_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [0,0], [], 0, 'FORM'];
+			_soldier moveincommander _vehicle;
+			_group addvehicle _vehicle;
+
+			wcgarbage = [_group] spawn WC_fnc_grouphandler;
+			wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		} else {
 			//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _markerdest];
 			//_vehicle setVehicleInit _scriptinit;
@@ -233,7 +244,7 @@
 		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
 	};
 
-	processInitCommands;
+	//processInitCommands;
 
 	if (count (units _group) < 1) then {
 		if (_motorized) then {
