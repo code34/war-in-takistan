@@ -238,6 +238,11 @@
 			sleep 2;
 		};
 
+		for "_x" from 1 to 20 step 1 do {
+			_handle = [] spawn WC_fnc_createconvoy;
+			sleep 2;
+		};
+
 		if(isnil text _location) then {
 			_city = nearestLocation [position _location, "NameCity"];
 			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGENEAR", text _city], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
