@@ -81,6 +81,7 @@
 	WC_fnc_createammobox 		= compile preprocessFile "warcontext\WC_fnc_createammobox.sqf";
 	WC_fnc_createbunker 		= compile preprocessFile "warcontext\WC_fnc_createbunker.sqf";
 	WC_fnc_createcivilcar 		= compile preprocessFile "warcontext\WC_fnc_createcivilcar.sqf";
+	WC_fnc_createconvoy 		= compile preprocessFile "warcontext\WC_fnc_createconvoy.sqf";
 	WC_fnc_creategroup 		= compile preprocessFile "warcontext\WC_fnc_creategroup.sqf";
 	WC_fnc_creategroupdefend	= compile preprocessFile "warcontext\WC_fnc_creategroupdefend.sqf";
 	WC_fnc_creategroupsupport	= compile preprocessFile "warcontext\WC_fnc_creategroupsupport.sqf";
