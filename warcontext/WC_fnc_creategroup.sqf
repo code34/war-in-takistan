@@ -58,7 +58,7 @@
 
 	if (_motorized) then {
 		_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
-		_arrayofvehicle =[_position, 0, _typeofgroup, east] call BIS_fnc_spawnVehicle;
+		_arrayofvehicle = [_position, 0, _typeofgroup, east] call BIS_fnc_spawnVehicle;
 		sleep 0.05;
 
 		_vehicle 	= _arrayofvehicle select 0;
@@ -141,7 +141,7 @@
 		//(leader _group) setVehicleInit _scriptinit;
 	};
 
-	processInitCommands;
+	//processInitCommands;
 
 	if (count (units _group) < 1) then {
 		if (_motorized) then {
