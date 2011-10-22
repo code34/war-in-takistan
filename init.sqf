@@ -8,14 +8,22 @@
 	// protection against dummy player that come with ACE when doesn t need
 	#ifdef _ACE_
 		if!(isClass(configFile >> "cfgPatches" >> "ace_main")) then {
-			player setpos [0,0,0];
-			removeAllWeapons player;
+			if(isserver) then {
+				diag_log "WARCONTEXT: DEDICATED SERVER - MISSING ACE ADDONS - WIT DOESNT START";
+			} else {
+				player setpos [0,0,0];
+				removeAllWeapons player;
+			};
 			while { true } do { hint "Dummy player without ACE: check your addons moron!";};
 		};
 	#else
 		if (isClass(configFile >> "cfgPatches" >> "ace_main")) then {
-			player setpos [0,0,0];
-			removeAllWeapons player;
+			if(isserver) then {
+				diag_log "WARCONTEXT: DEDICATED SERVER - USING ACE WITH NON ACE VERSION - WIT DOESNT START";
+			} else {
+				player setpos [0,0,0];
+				removeAllWeapons player;
+			};
 			while { true } do { hint "Dummy player with ACE: check your addons moron!";};
 		};
 	#endif
