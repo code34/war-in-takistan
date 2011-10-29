@@ -77,6 +77,7 @@
 	// degrade a player
 	WC_fnc_netcode_wcdegrade = {
 		private ["_wcdegrade"];
+		_wcdegrade = _this select 0;
 		(_wcdegrade select 0) setrank (_wcdegrade select 1);
 		if(wckindofserver != 3) then {
 			wcteamscore = wcteamscore - 1;
@@ -91,6 +92,16 @@
 		if(wckindofserver != 3) then {
 			_respawntotent = _this select 0;
 			if(_respawntotent in wcinteam) then {
+				wcteamscore = wcteamscore - 1;
+			};
+		};
+	};
+
+	// a player respawn to hq
+	WC_fnc_netcode_wcrespawntohq = {
+		if(wckindofserver != 3) then {
+			_respawntohq = _this select 0;
+			if(_respawntohq in wcinteam) then {
 				wcteamscore = wcteamscore - 1;
 			};
 		};
