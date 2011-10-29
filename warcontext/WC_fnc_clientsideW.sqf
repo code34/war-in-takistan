@@ -56,7 +56,8 @@
 	wcgarbage = [] spawn WC_fnc_lifeslider;
 
 	_marker = ['rescue', 0.01, [0,0,0], 'ColorRed', 'ICON', 'FDIAGONAL', 'Selector_selectedMission', 0, '', false] call WC_fnc_createmarkerlocal;
-	_marker2 = ['respawn', 0.5, [0,0,0], 'ColorRed', 'ICON', 'FDIAGONAL', 'Camp', 0, format["%1 Camp", name player], false] call WC_fnc_createmarkerlocal;
+	wcrespawnmarker = ['respawn', 0.5, [0,0,0], 'ColorRed', 'ICON', 'FDIAGONAL', 'Camp', 0, format["%1 Camp", name player], false] call WC_fnc_createmarkerlocal;
+	wcrespawnmarker setmarkersize [0,0];
 
 	// arcade == 1
 	if(wckindofgame == 1) then {
