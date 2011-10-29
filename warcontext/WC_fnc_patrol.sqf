@@ -44,10 +44,7 @@
 			_list = (position _unit) nearEntities [["Man"], 300];
 			{
 				if(side _x == west) then {
-					if( _cible distance (_unit getHideFrom _cible) < 1.3) then {
-						_cibles = _cibles + [_x];
-					};
-					if( _unit distance (_cible getHideFrom _unit) < 1.3) then {
+					if( _cible distance (_unit getHideFrom _cible) < 100) then {
 						_cibles = _cibles + [_x];
 					};
 				} else {
@@ -75,7 +72,7 @@
 				_count = _count - 0.1;
 			} else {
 				dostop _unit;
-				_min = 10;
+				_min = 200;
 				{					
 					if( _unit distance (_x getHideFrom _unit) < _min) then {
 						_min =  _unit distance (_x getHideFrom _unit);
