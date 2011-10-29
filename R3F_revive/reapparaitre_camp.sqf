@@ -31,14 +31,30 @@
 // Mémorisation du fil d'exécution lancé
 R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 {
+
+	// Camp can be ; base, tent, hq
 	private ["_camp"];
 
 	_camp = _this select 0;
-	if(isnil "wctent") then {
-		_camp = true;
-		wcrespawnmarker setmarkerpos [0,0];
-	} else {
-		if((getdammage wctent > 0.9) or !(alive wctent)) then {_camp = true; wcrespawnmarker setmarkerpos [0,0];};
+
+	if(_camp == "tent") then {
+		if(isnil "wctent") then {
+			_camp = "base";
+			wcrespawnmarker setmarkerpos [0,0];
+			wcrespawnmarker setMarkerSize [0, 0];
+		} else {
+			if((getdammage wctent > 0.9) or !(alive wctent)) then {
+				_camp = "base"; 
+				wcrespawnmarker setmarkerpos [0,0];
+				wcrespawnmarker setMarkerSize [0, 0];
+			};
+		};
+	};
+
+	if(_camp == "hq") then {
+		if(format ["%1", wcteleport] == "any") then {
+			_camp = "base";
+		};
 	};
 
 	closeDialog 0;
@@ -71,9 +87,6 @@ R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 		player setvariable ["deadmarker", false, true];
 	};
 
-	player setVehicleInit "this allowdammage true;";
-	processInitCommands;
-	
 	// On masque ce qui se passe au joueur (joueur dans les airs + animations forcés)
 	R3F_REV_effet_video_couleur ppEffectAdjust [0.25, 1, 0, [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 	R3F_REV_effet_video_couleur ppEffectCommit 0;
@@ -88,26 +101,36 @@ R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 	player selectWeapon (primaryWeapon player);
 	player playMoveNow "AmovPercMstpSlowWrflDnon";
 	
-	sleep 5;
+	sleep 3;
 
-	if(_camp) then {
-		wcgarbage = [localize "STR_R3F_REV_dontrespawnatbase"] call BIS_fnc_dynamicText;
-		wcrespawntobase = name player;
-		["wcrespawntobase", "all"] call WC_fnc_publicvariable;
-	} else {
-		wcgarbage = [localize "STR_R3F_REV_dontrespawnatbase"] call BIS_fnc_dynamicText;
-		wcrespawntotent = name player;
-		["wcrespawntotent", "all"] call WC_fnc_publicvariable;
-	};
-	
 	// Retour du corps au marqueur de réapparition
 	player setVelocity [0, 0, 0];
 
-	if(_camp) then {
-		player setPos getmarkerpos "respawn_west";
-	} else {
-		player setpos (wcrespawnposition select 0);
-	};	
+	switch (_camp) do {
+		case "base": {
+			wcgarbage = [localize "STR_R3F_REV_dontrespawnatbase"] call BIS_fnc_dynamicText;
+			wcrespawntobase = name player;
+			["wcrespawntobase", "all"] call WC_fnc_publicvariable;
+			player setPos getmarkerpos "respawn_west";
+			R3F_REV_nb_reanimations = R3F_REV_CFG_nb_reanimations;
+		};
+
+		case "hq": {
+			wcgarbage = [localize "STR_R3F_REV_dontrespawnatbase"] call BIS_fnc_dynamicText;
+			wcrespawntohq = name player;
+			["wcrespawntohq", "all"] call WC_fnc_publicvariable;
+			_position = (position wcteleport) findemptyposition [10, 300];
+			player setpos _position;	
+		};
+
+		case "tent": {
+			wcgarbage = [localize "STR_R3F_REV_dontrespawnatbase"] call BIS_fnc_dynamicText;
+			wcrespawntotent = name player;
+			["wcrespawntotent", "all"] call WC_fnc_publicvariable;
+			player setpos (wcrespawnposition select 0);
+		};
+	};
+
 	player setCaptive false;
 
 	wcgarbage = [] spawn WC_fnc_restoreactionmenu;
@@ -116,11 +139,11 @@ R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 	player addweapon "ACE_Earplugs";
 	#endif
 	
-	// Restauration du nombre de réanimations possibles
-	if(_camp) then {
-		R3F_REV_nb_reanimations = R3F_REV_CFG_nb_reanimations;
-	};
-	
 	ppEffectDestroy R3F_REV_effet_video_flou;
 	ppEffectDestroy R3F_REV_effet_video_couleur;
+
+	sleep 5;
+
+	player setVehicleInit "this allowdammage true;";
+	processInitCommands;
 };

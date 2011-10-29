@@ -190,6 +190,7 @@ STR_WC_MESSAGEWASKILLED,	Soldier %1 was killed: -1 point,	Le soldat %1 a ete tue
 STR_WC_MESSAGEMISSIONINITIALIZED,	Mission Initialized,	Mission Initialisee
 STR_WC_MESSAGERESPAWNTOBASE,	%1 has respawned to base!,	%1 a respawn a la base!
 STR_WC_MESSAGERESPAWNTOTENT,	%1 has respawned to his tent !,	%1 a respawn a sa tente!
+STR_WC_MESSAGERESPAWNTOHQ,	%1 has respawned to HQ!,	%1 a respawn au HQ!
 STR_WC_MESSAGEGOTABLAME,	%1 has got a blame !,	%1 a recu un blame !
 STR_WC_MESSAGEMISSINGADDONS,	MISSING ADDON: %1,	ADDON MANQUANT: %1
 STR_WC_MESSAGEBUILDINGFINISHED,	Building is finished, Construction terminee
