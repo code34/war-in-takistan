@@ -11,6 +11,7 @@
 		"_unit", 
 		"_target",
 		"_lastposition",
+		"_nearestenemy",
 		"_position",
 		"_vehicle",
 		"_vehicles",
@@ -32,6 +33,7 @@
 	_arrayofpilot 	= _arrayofvehicle select 1;
 	_group 		= _arrayofvehicle select 2;
 
+
 	_vehicle setVehicleLock "LOCKED";
 	_unit = driver _vehicle;
 
@@ -45,8 +47,29 @@
 
 	_lastposition = position _vehicle;
 
+	[_group] spawn {
+		private ["_group", "_list", "_cibles"];
+
+		while { (count (units _group) > 0) } do {
+			_cibles = [];
+			_list = (position (leader _group)) nearEntities [["All"], 300];
+			{
+				if(driver _x == west) then {
+					_cibles = _cibles + [_x];
+				};
+				sleep 0.01;
+			}foreach _list;
+
+			{
+				_group reveal _x;
+				gunner _group dowatch position _x;
+			} foreach _cibles;
+			sleep 4;
+		};
+	};
+
 	while { count (crew _vehicle) > 0 } do {
-		if(position _unit distance position _target > 150) then {
+		if(position (driver _vehicle) distance position _target > 150) then {
 			{	
 				_x domove position _target;
 			}foreach (crew _vehicle);
