@@ -211,7 +211,7 @@
 		}];
 
 		if(_intown) then {
-			_temp = (["rescuezone", "onground", "onflat"] call WC_fnc_createpositioninmarker) findEmptyPosition [2, 20];
+			_temp = (["rescuezone", "onground", "onflat"] call WC_fnc_createpositioninmarker) findEmptyPosition [2, 80];
 			_generator = "PowerGenerator_EP1" createvehicle _temp;
 			_generator setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\WC_fnc_dosabotage.sqf',[true],-1,false];";
 			_generator setdir ((getdir wcradio) + 180);
@@ -238,7 +238,7 @@
 			sleep 2;
 		};
 
-		for "_x" from 1 to 20 step 1 do {
+		for "_x" from 1 to (20 + wclevel) step 1 do {
 			_handle = [] spawn WC_fnc_createconvoy;
 			sleep 2;
 		};
