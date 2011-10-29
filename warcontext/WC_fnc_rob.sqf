@@ -62,6 +62,15 @@
 			_unit setVehicleInit "this setfuel 1;";
 			processInitCommands;
 		};
+		if(count (crew _unit) > 0) then {
+			{
+				if(!(isplayer _x) and !(side _x in wcside)) then {
+					_x action ["eject", _unit];
+					unassignVehicle _x;
+					(group _x) leaveVehicle _unit;
+				};
+			}foreach (crew _unit);
+		};
 	};
 
 	sleep 120;
