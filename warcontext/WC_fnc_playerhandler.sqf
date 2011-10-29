@@ -65,6 +65,13 @@
 		hintsilent _message;
 	};
 
+	WC_fnc_netcode_wcrespawntohq = {
+		wcrespawntohq = _this select 0;
+		_message = format[localize "STR_WC_MESSAGERESPAWNTOHQ", wcrespawntohq];
+		wcclientlogs = wcclientlogs + [_message];
+		hintsilent _message;
+	};
+
 	WC_fnc_netcode_wcpromote = {
 		wcpromote = _this select 0;
 		_name = name (wcpromote select 0);
@@ -76,13 +83,14 @@
 	};
 
 	WC_fnc_netcode_wcdegrade = {
+		private  ["_name", "_rank"];
 		wcdegrade = _this select 0;
 		_name = name (wcdegrade select 0);
 		_rank = wcdegrade select 1;
 		(wcdegrade select 0) setrank _rank;
 		hintsilent format[localize "STR_WC_MESSAGEPLAYERDEGRADED", _name, _rank];
 		wcrankchanged = true;
-		wcclientlogs = wcclientlogs + ["A soldier got degraded: - 1 point"];
+		wcclientlogs = wcclientlogs + [format["%1 got degraded: - 1 point", _name]];
 	};
 
 	WC_fnc_netcode_wcranksync = {
