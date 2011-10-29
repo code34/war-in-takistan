@@ -24,8 +24,8 @@
 		wctent setVehicleInit _text;
 		processInitCommands;
 		wcrespawnposition = [position player, wctent];
-		"respawn" setmarkerposlocal _position;
-		"respawn" setmarkersizelocal [0,0]; 
+		wcrespawnmarker setmarkerposlocal _position;
+		wcrespawnmarker setmarkersizelocal [0,0]; 
 		[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
 	} else {
 		if((getdammage wctent > 0.9) or !(alive wctent)) then {
@@ -42,8 +42,8 @@
 			wctent setVehicleInit _text;
 			processInitCommands;
 			wcrespawnposition = [position player, wctent];
-			"respawn" setmarkerposlocal _position;
-			"respawn" setmarkersizelocal [0.5,0.5]; 
+			wcrespawnmarker setmarkerposlocal _position;
+			wcrespawnmarker setmarkersizelocal [0.5,0.5]; 
 			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
 		} else {
 			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEREMOVETENT", localize "STR_WC_MESSAGECANBUILDTENT", 10] spawn WC_fnc_playerhint;
