@@ -38,6 +38,7 @@
 		"wcmotd",
 		"wcenemykilled",
 		"wccivilkilled",
+		"wcwithonelife",
 		"wcinteam",
 		"wcteleport"
 	];

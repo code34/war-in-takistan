@@ -306,7 +306,7 @@
 				if((_x distance player < 100) and _x != player) then {
 					wcbonus = wcbonus + 1;
 				};
-				sleep 0.1;
+				sleep 0.01;
 			}foreach playableUnits;
 			if(wcbonus > 10000) then {
 				_message =["You have win", "10 points Teamplay bonus"];
@@ -533,6 +533,22 @@
 			['wctoonelife', 'server'] call WC_fnc_publicvariable;
 		", ""];
 		_end setTriggerType "END1";
+
+		[] spawn {
+			while { true } do {
+				if((name player) in wconelife) then {
+					removeallweapons player;
+					removeallItems player;
+					if(isnil "wcspectate") then {
+						wcspectate = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUSPECTATOR"+"</t>", "spect\specta.sqf",[],-1,false];
+					} else {
+						if!(isnil "wcspectate") then { player removeAction wcspectate;};
+						wcspectate = nil;
+					};
+				};
+				sleep 60;
+			};
+		};
 	};
 
 	sleep 5;

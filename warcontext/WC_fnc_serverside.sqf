@@ -50,12 +50,14 @@
 						_count = _count + 1;
 					};
 				};
+				sleep 0.01;
 			}foreach allunits;
 			if(_count < 4) then {
 				{
 					if(_x select 0 == _missionnumber) then {
 						wccurrentmission = _x;
 					};
+					sleep 0.01;
 				}foreach wclistofmissions;
 			};
 		};
@@ -153,6 +155,7 @@
 				_find = true;
 			};
 			_index = _index + 1;
+			sleep 0.01;
 		}foreach wcscoreboard;
 
 		if!(_find) then {
@@ -256,6 +259,7 @@
 			_light setpos _x;
 			_light setVehicleInit "this allowdammage false;";
 			processInitCommands;
+			sleep 0.01;
 		}foreach _positions;
 	
 		_positions = [position tower3, 7, 360, getdir tower3, 7] call WC_fnc_docircle;
@@ -264,6 +268,7 @@
 			_light setpos _x;
 			_light setVehicleInit "this allowdammage false;";
 			processInitCommands;
+			sleep 0.01;
 		}foreach _positions;
 	
 		_positions = [position tower4, 7, 360, getdir tower3, 7] call WC_fnc_docircle;
@@ -272,6 +277,7 @@
 			_light setpos _x;
 			_light setVehicleInit "this allowdammage false;";
 			processInitCommands;
+			sleep 0.01;
 		}foreach _positions;
 	
 		_positions = [getmarkerpos "repair", 7, 360, getdir tower3, 7] call WC_fnc_docircle;
@@ -280,6 +286,7 @@
 			_light setpos _x;
 			_light setVehicleInit "this allowdammage false;";
 			processInitCommands;
+			sleep 0.01;
 		}foreach _positions;
 	};
 
@@ -296,7 +303,7 @@
 
 	{
 		wcgarbage = [_x, 120] spawn WC_fnc_respawnvehicle;
-		
+		sleep 0.01;
 	}foreach wcrespawnablevehicles;
 	wcrespawnablevehicles = [];
 
@@ -334,7 +341,7 @@
 			{
 				_position = getmarkerpos (_x select 0);
 				(_x select 0) setMarkerPos _position;
-				sleep 1;
+				sleep 0.01;
 			}foreach wcarraymarker;
 			sleep 120;
 		};
@@ -411,6 +418,7 @@
 							_player addscore _score;
 						};
 					};
+					sleep 0.01;
 				}foreach wcscoreboard;
 				sleep 1;
 			};
@@ -429,8 +437,10 @@
 					} else {
 						_x setdamage (getDammage _x +  0.001);
 					};
-					{_x setdamage  (getDammage _x + 0.001)} foreach (crew _x);
+					{_x setdamage  (getDammage _x + 0.001); sleep 0.01;} foreach (crew _x);
+					sleep 0.01;
 				} forEach _array;
+				sleep 0.01;
 			}foreach wcnuclearzone;
 			sleep 1;
 		};
@@ -467,20 +477,6 @@
 		};
 	};
 
-	// for game with only one life - eject player already died
-	if(wcwithonelife == 1) then {
-		[] spawn {
-			while { true } do {
-				{
-					if((name _x) in wconelife) then {
-						_x setdammage ((damage _x) + 0.1);
-					};
-				}foreach playableunits;
-				sleep 10;
-			};
-		};
-	};
-
 	// synchronize the players rank
 	[] spawn {
 		private ["_lastranksync"];
@@ -489,7 +485,7 @@
 			wcranksync = [];
 			{
 				wcranksync = wcranksync + [[_x, rank _x]];
-				sleep 0.05;
+				sleep 0.01;
 			}foreach playableunits;	
 			if(format["%1", _lastranksync] != format["%1", wcranksync]) then {
 				_lastranksync = wcranksync;

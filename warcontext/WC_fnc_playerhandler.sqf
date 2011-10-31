@@ -336,6 +336,10 @@
 		wcwithvehicles = _this select 0;
 	};
 
+	WC_fnc_netcode_wcwithonelife = {
+		wcwithonelife = _this select 0;
+	};
+
 	player addEventHandler ['Fired', '
 		private ["_name"];
 		if!(wcdetected) then {
