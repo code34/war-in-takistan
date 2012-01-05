@@ -539,14 +539,8 @@
 				if((name player) in wconelife) then {
 					removeallweapons player;
 					removeallItems player;
-					if(isnil "wcspectate") then {
-						wcspectate = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUSPECTATOR"+"</t>", "spect\specta.sqf",[],-1,false];
-					} else {
-						if!(isnil "wcspectate") then { player removeAction wcspectate;};
-						wcspectate = nil;
-					};
 				};
-				sleep 60;
+				sleep 10;
 			};
 		};
 	};
