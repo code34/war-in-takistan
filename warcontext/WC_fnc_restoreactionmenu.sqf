@@ -22,10 +22,10 @@
 	// Admin menu
 	wcadmin = serverCommandAvailable "#kick";
 	if (wcadmin) then {
-		wcspectate = nil;
 		wcbombingsupport = nil;
 		wccancelmission = nil;
 		wcmanageteam = nil;
+		wcspectate = nil;
 	};
 
 	// Check operation Plan

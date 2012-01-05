@@ -232,7 +232,9 @@
 
 	// insert player name died during a one life mission
 	WC_fnc_netcode_wctoonelife = {
-		wconelife = wconelife + [(_this select 0)];		
+		if!((_this select 0) in wconelife) then {
+			wconelife = wconelife + [(_this select 0)];		
+		};
 	};
 
 	// start a defend mission
@@ -314,24 +316,22 @@
 	sleep 1;
 
 
-	if(wckindofserver != 3) then {
-		if(wcwithcivilian == 1) then {
-
+	if(wcwithcivilian == 1) then {
+		if(wckindofserver != 3) then {
 			wcalice = createGroup civilian;	
 			if(tolower(worldName) == "takistan") then {
 				wccivilianmodule = wcalice createUnit ["Alice2Manager",[0,0,0],[],0,"NONE"];
-			} else {
-				wccivilianmodule = wcalice createUnit ["AliceManager",[0,0,0],[],0,"NONE"];
+
+				wccivilianmodule setVariable ["townlist", wcadd]; 
+			
+				// we must wait - async return bug of arma
+				sleep 1;
+	
+				// we initialize civilians init queue	
+				wcgarbage = [] spawn WC_fnc_civilianinit;		
+	
+				[wccivilianmodule,"ALICE_civilianinit",[{ wccivilianstoinit = wccivilianstoinit + [_this]; }]] call bis_fnc_variablespaceadd;
 			};
-			wccivilianmodule setVariable ["townlist", wcadd]; 
-		
-			// we must wait - async return bug of arma
-			sleep 1;
-
-			// we initialize civilians init queue	
-			wcgarbage = [] spawn WC_fnc_civilianinit;		
-
-			[wccivilianmodule,"ALICE_civilianinit",[{ wccivilianstoinit = wccivilianstoinit + [_this]; }]] call bis_fnc_variablespaceadd;
 		};
 	};
 
