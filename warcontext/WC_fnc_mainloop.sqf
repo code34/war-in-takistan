@@ -238,7 +238,7 @@
 			sleep 2;
 		};
 
-		for "_x" from 1 to (20 + wclevel) step 1 do {
+		for "_x" from 1 to wcconvoylevel step 1 do {
 			_handle = [] spawn WC_fnc_createconvoy;
 			sleep 2;
 		};
