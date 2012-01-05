@@ -684,6 +684,14 @@ class Params
 		default = 2;
 	};
 
+	class wcconvoylevel
+	{
+		title = "ENEMIES VEHICLES PATROL ON MAP";
+		values[] = {10, 20, 30};
+		texts[] = {"WEAK", "NORMAL", "STRONG"};
+		default = 10;
+	};
+
 	class wcwithrussian
 	{
 		title = "ENEMIES USE RUSSIAN FORCES";
