@@ -95,7 +95,7 @@
 	wctimetogarbagedeadbody = 360;
 
 	// soldiers fame - start at good
-	wcfame = 0.51;
+	wcfame = 0.70;
 
 	// begining distance of ambiant life (grow during the game)
 	wcambiantdistance = 1500;
