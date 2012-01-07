@@ -92,7 +92,7 @@ STR_WC_MISSION71,	"We need to secure an airfield zone for next operation. Go ove
 STR_WC_MISSION72,	"We need to secure an Oil Pump zone, to much takistans go around. Go over there and clean the zone!",	"Nous avons besoin de securisez une zone autour du forage car il y a trop de takistanais. Allez la bas et securisez la zone!"
 STR_WC_MISSION73,	"A little base required ammo. Bring an ammo truck from base to this little base!",	"Une petite base a besoin d un camion de munitions. Apportez ce camion de munitions!"
 STR_WC_MISSION74,	"We need an advanced base. Build a bunker here",	"Nous avons besoin d un poste avance, construisez un bunker ici"
-STR_WC_MISSION100,	"You have found the place where the enemy leader is. You have to kill him to stop the war. Good luck!",	"Vous avez decouvert l endroit ou se cache le leader enemi. Vous devez le tuer pour arreter la guerre. Bonne chance !"
+STR_WC_MISSION100,	"Final mission: You have found the place where the enemy leader is. You have to kill him to stop the war. Good luck!",	"Final mission: Vous avez decouvert l endroit ou se cache le leader enemi. Vous devez le tuer pour arreter la guerre. Bonne chance !"
 STR_WCSHORT_MISSION0,	Destroy a scud launcher,	Destroy a scud launcher
 STR_WCSHORT_MISSION1,	Kill a gold trafficant,	Kill a gold trafficant
 STR_WCSHORT_MISSION2,	Kill a nuclear scientist,	Kill a nuclear scientist
@@ -168,7 +168,7 @@ STR_WCSHORT_MISSION71,	Secure an airfield zone,	Secure an airfield zone
 STR_WCSHORT_MISSION72,	Secure an oil pump zone,	Secure an oil pump zone
 STR_WCSHORT_MISSION73,	Bring an ammo truck,	Bring an ammo truck
 STR_WCSHORT_MISSION74,	Build a bunker,	Build a bunker
-STR_WCSHORT_MISSION100,	Kill the enemy leader,	Kill the enemy leader
+STR_WCSHORT_MISSION100,	Final: Kill the leader,	Final: Kill the leader
 STR_WC_TITLE_MISSION, War in Takistan: Operations Iron Rains, War in Takistan: Operations pluies d'acier
 STR_WC_CALLREINFORCEMENT, Incoming reinforcement, Des renforts attaquent
 STR_WC_MENUBUILDTRENCH, Dig trench, Creuser une tranchee
