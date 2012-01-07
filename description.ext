@@ -687,8 +687,8 @@ class Params
 	class wcconvoylevel
 	{
 		title = "ENEMIES VEHICLES PATROL ON MAP";
-		values[] = {10, 20, 30};
-		texts[] = {"WEAK", "NORMAL", "STRONG"};
+		values[] = {0, 10, 20, 30};
+		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG"};
 		default = 10;
 	};
 
