@@ -70,10 +70,7 @@
 
 	while { count (crew _vehicle) > 0 } do {
 		if(position (driver _vehicle) distance position _target > 150) then {
-			{	
-				_x domove position _target;
-			}foreach (crew _vehicle);
-			sleep 60;
+			driver _vehicle domove ((position _target) findEmptyPosition [10,300]);
 		} else {
 			_target = wctownlocations call BIS_fnc_selectRandom;
 		};
