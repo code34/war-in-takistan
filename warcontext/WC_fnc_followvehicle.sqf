@@ -51,14 +51,14 @@
 				_markername setmarkerposlocal _position;
 				_markername setmarkertextlocal (_x select 2);
 				_markername setMarkerColorLocal "ColorGREEN";
-				_markername setmarkertype "Vehicle";
+				_markername setmarkertypeLocal "Vehicle";
 			}else{
 				_markername = _x select 1;
 				_position = getpos (_x select 0);
 				_markername setmarkerposlocal _position;
 				_markername setmarkertextlocal (_x select 2);
 				_markername setMarkerColorLocal "ColorRED";
-				_markername setmarkertype "DestroyedVehicle";
+				_markername setmarkertypeLocal "DestroyedVehicle";
 			};
 		}foreach _arrayofvehicle;
 		_counter = _counter + 1;
