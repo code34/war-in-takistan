@@ -34,11 +34,16 @@
 		wciedindex = wciedindex + 1;
 		_position = _x findEmptyPosition [1,5];
 		if(count _position > 0) then {
-			_iedtype = _iedobject call BIS_fnc_selectRandom;
-			_iedobject = _iedobject - [_iedtype];
-			_object = _iedtype createVehicle _position;
-			_object setpos _position;
-			_object setdir (random 360);
+
+			if(random 1 > 0.5) then {
+				_iedtype = _iedobject call BIS_fnc_selectRandom;
+				_iedobject = _iedobject - [_iedtype];
+				_object = _iedtype createVehicle _position;
+				_object setpos _position;
+				_object setdir (random 360);
+			} else {
+				_object = (nearestObjects[_position,["All"], 200]) call BIS_fnc_selectRandom;
+			};
 			if(random 1 > 0.7) then {
 				_marker = [_name, 0.5, _position, 'ColorRed', 'ICON', 'FDIAGONAL', 'dot', 0, '', false] call WC_fnc_createmarkerlocal;
 				wcgarbage = [_object] spawn WC_fnc_createied;
