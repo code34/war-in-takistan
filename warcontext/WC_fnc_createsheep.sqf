@@ -27,6 +27,9 @@
 	for "_x" from 1 to (random 8) step 1 do {
 		_type = ["Sheep01_EP1", "Sheep02_EP1"] call BIS_fnc_selectRandom;
 		_unit = _group createUnit [_type, position _road, [], 0, "NONE"];
+		if(random 1 > 0.98) then {
+			wcgarbage = [_unit] spawn WC_fnc_createied;
+		};
 		wcobjecttodelete = wcobjecttodelete + [_unit];
 	};
 
