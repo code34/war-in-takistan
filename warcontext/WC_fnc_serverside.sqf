@@ -312,28 +312,13 @@
 	_wctownlocations = nearestLocations [[7000,7000], ["NameCityCapital", "NameCity","NameVillage", "Name"], 20000];   
 	wcadd = ([_wctownlocations, []] call bis_fnc_locations);
 
+	{
+		wcgarbage = [_x] spawn WC_fnc_popcivilian;
+	}foreach _wctownlocations;
+	wcgarbage = [] spawn WC_fnc_civilianinit;	
+
 	// we must wait - async return bug of arma
 	sleep 1;
-
-
-	if(wcwithcivilian == 1) then {
-		if(wckindofserver != 3) then {
-			wcalice = createGroup civilian;	
-			if(tolower(worldName) == "takistan") then {
-				wccivilianmodule = wcalice createUnit ["Alice2Manager",[0,0,0],[],0,"NONE"];
-
-				wccivilianmodule setVariable ["townlist", wcadd]; 
-			
-				// we must wait - async return bug of arma
-				sleep 1;
-	
-				// we initialize civilians init queue	
-				wcgarbage = [] spawn WC_fnc_civilianinit;		
-	
-				[wccivilianmodule,"ALICE_civilianinit",[{ wccivilianstoinit = wccivilianstoinit + [_this]; }]] call bis_fnc_variablespaceadd;
-			};
-		};
-	};
 
 	// refresh public markers
 	[] spawn {

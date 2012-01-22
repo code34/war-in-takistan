@@ -84,10 +84,9 @@
 				_unit addweapon "LeeEnfield";
 				_unit addmagazine "10x_303";
 				_unit addmagazine "10x_303";
-				_unit addmagazine "10x_303";
 			};
 			_unit addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
-			wcgarbage = [_unit, wccivilianskill] spawn WC_fnc_setskill;
 		};
+		wcgarbage = [_unit, wccivilianskill] spawn WC_fnc_setskill;
 		sleep 2;
 	};

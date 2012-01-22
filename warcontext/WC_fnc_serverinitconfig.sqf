@@ -26,6 +26,9 @@
 	// contain all civilian to init
 	wccivilianstoinit = [];
 
+	// index for marker of town
+	wcciviltownindex = 0;
+
 	// grave type - arrowhead content
 	wcgravetype = ["gravecross2_EP1", "GraveCrossHelmet_EP1"];
 
