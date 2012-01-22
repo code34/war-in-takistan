@@ -147,6 +147,7 @@
 	WC_fnc_patrol			= compile preprocessFile "warcontext\WC_fnc_patrol.sqf";
 	WC_fnc_playerhandler		= compile preprocessFile "warcontext\WC_fnc_playerhandler.sqf";
 	WC_fnc_playerhint		= compile preprocessFile "warcontext\WC_fnc_playerhint.sqf";
+	WC_fnc_popcivilian		= compile preprocessFile "warcontext\civilian\WC_fnc_popcivilian.sqf";
 	WC_fnc_protectobject		= compile preprocessFile "warcontext\WC_fnc_protectobject.sqf";
 	WC_fnc_propagand		= compile preprocessFile "warcontext\civilian\WC_fnc_propagand.sqf";
 	WC_fnc_publishmission		= compile preprocessFile "warcontext\WC_fnc_publishmission.sqf";
