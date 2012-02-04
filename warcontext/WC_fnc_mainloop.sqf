@@ -147,13 +147,14 @@
 		600 setfog (wcweather select 1);
 		600 setOvercast (wcweather select 2);
 
-		wcdate = _time;
-		if(isdedicated) then {
-			setdate wcdate;
+		if(wcskiptime == 1) then {
+			wcdate = _time;
+			if(isdedicated) then {
+				setdate wcdate;
+			};
+			["wcdate", "client"] call WC_fnc_publicvariable;
+			["wcday", "client"] call WC_fnc_publicvariable;
 		};
-
-		["wcdate", "client"] call WC_fnc_publicvariable;
-		["wcday", "client"] call WC_fnc_publicvariable;
 		["wcweather", "client"] call WC_fnc_publicvariable;
 
 		_active setpos _position;
@@ -270,9 +271,6 @@
 		{		
 			wcgarbage = [_x] spawn WC_fnc_createcivilcar;
 			wcgarbage = [position _x] spawn WC_fnc_createiedintown;
-			if(random 1> 0.7) then {
-				wcgarbage = [position _x] spawn WC_fnc_createsheep;
-			};
 		}foreach _civillocation;
 
 		if(wcwithteleporthq == 1) then {

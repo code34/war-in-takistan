@@ -596,6 +596,15 @@ class Params
 		default=3000;
 	};
 
+	class wcskiptime
+	{
+		title = "FAST TIME";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+
 	class wcautoloadweapons
 	{
 		title = "AUTOLOAD WEAPONS (REQUIRE SAME ADDONS ON CLIENT SIDE)";
