@@ -85,6 +85,10 @@
 			wclevelmaxoutofcity = 10;
 		};
 
+		if(wcwithenemyvehicle == 0) then {
+			_numberofvehicle = 0;
+		};
+
 		_position = wczonelocations call BIS_fnc_selectRandom;
 		_position = [_position] call WC_fnc_relocateposition;
 		while { _position distance getmarkerpos "respawn_west" < 1000} do {

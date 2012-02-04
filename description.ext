@@ -797,6 +797,14 @@ class Params
 		default = 0;
 	};
 
+	class wcwithenemyvehicle
+	{
+		title = "ENEMIES USE VEHICLES";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
 	class wcwithenvironment
 	{
 		title = "ENVIRONMENT SOUNDS";
