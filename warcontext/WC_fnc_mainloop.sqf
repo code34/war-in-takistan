@@ -163,6 +163,10 @@
 
 		_marker = ['rescuezone', wcdistance, _position, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarker;
 
+		if(wcairopposingforce > 0) then {
+			_airmarker = ['airzone', 2000, _position, 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
+		};
+
 		if(wcwithmarkerongoal > 0) then {
 			_marker2 = ['operationtext', 0.5, _position, 'ColorRED', 'ICON', 'FDIAGONAL', 'flag', 0, (localize (format["STR_WCSHORT_MISSION%1", _missionnumber])), false] call WC_fnc_createmarker;
 		};
@@ -332,6 +336,7 @@
 		deletemarker "bombzone";
 		deletemarker "iedzone";
 		deletemarker "radiotower";
+		deletemarkerlocal "airzone";
 
 		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONFINISHED", wclevel], localize "STR_WC_MESSAGNEXTSTEP"];
 		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};

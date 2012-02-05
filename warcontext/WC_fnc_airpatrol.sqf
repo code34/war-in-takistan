@@ -17,40 +17,53 @@
 		"_distance",
 		"_move",
 		"_formationtype",
-		"_marker"
+		"_marker",
+		"_vehicle",
+		"_exit",
+		"_time"
 	];
 
 	_unit = _this select 0;
+	_vehicle = vehicle _unit;
 
-	while { (alive _unit) } do {
-		_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
+	_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
 
-		if((vehicle _unit) iskindof "Air") then {
-			_position = [wcmaptopright, wcmapbottomleft, "onground"] call WC_fnc_createposition;
-			while { _position distance getmarkerpos "respawn_west" < 2000 } do {
-				_position = [wcmaptopright, wcmapbottomleft, "onground"] call WC_fnc_createposition;
-			};
-		};
-
-		if((vehicle _unit) iskindof "Ship") then {
-			_position = [wcmaptopright, wcmapbottomleft, "onsea"] call WC_fnc_createposition;
-		};
-
-		[group _unit, 0] setWaypointFormation _formationtype;
-		[group _unit, 0] setWaypointPosition [_position, 5];
-		[group _unit, 0] setWaypointType "MOVE";
-		[group _unit, 0] setWaypointVisible true;
-		[group _unit, 0] setWaypointSpeed "FULL";
-		(group _unit) setCurrentWaypoint [group _unit, 0];
-
-		while { (position _unit) distance _position > 1000 } do {
-			if(position _unit distance getmarkerpos "respawn_west" < 2000) then {
-				_unit domove _position;
-				sleep 10;
-			};
-			sleep 5;
-		};
-
-		(vehicle _unit) setfuel 1;
-		sleep 1;
+	if((vehicle _unit) iskindof "Air") then {
+		waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
+		_position = wcselectedzone;
 	};
+
+	if((vehicle _unit) iskindof "Ship") then {
+		_position = [wcmaptopright, wcmapbottomleft, "onsea"] call WC_fnc_createposition;
+	};
+
+	while {alive _unit} do {
+		_position = ["airzone"] call WC_fnc_createpositioninmarker;
+		_group setBehaviour "COMBAT";
+		_group setCombatMode "GREEN";
+		_unit domove [_position select 0, _position select 1, 150];
+		(vehicle _unit) flyInHeight 150;
+		waituntil { (_unit distance [_position select 0, _position select 1, 150] < 100)};
+	};
+
+
+	_exit = false;
+	while {!_exit} do {
+		if((position _unit) distance [0,0,0] < 1000) then {
+			_exit = true;
+		};
+		if (alive _unit) then {
+			_unit domove [0,0,0];
+		} else {
+			_exit = true;
+		};
+		sleep 10;
+	};
+
+	{
+		_x setdammage 1;
+		deletevehicle _x;
+	} foreach (crew _vehicle);
+
+	_vehicle setdammage 1;
+	deletevehicle _vehicle;

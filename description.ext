@@ -653,6 +653,14 @@ class Params
 		default = 3;
 	};
 
+	class wcairopposingforce
+	{
+		title = "ENEMIES AIR FORCE ON ZONE";
+		values[] = {0, 1, 2, 3, 4, 5};
+		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
+		default = 0;
+	};
+
 	class wcrecruitberanked
 	{
 		title = "PLAYERS MUST BE RANKED TO RECRUIT SOME IA";
@@ -787,14 +795,6 @@ class Params
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
-	};
-
-	class wcwithairpatrol
-	{
-		title = "ENEMIES USE AIR PATROL";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 0;
 	};
 
 	class wcwithenemyvehicle
