@@ -4,7 +4,22 @@
 	// -----------------------------------------------
 
 	
-	private ["_buildings", "_position", "_number", "_civil", "_civiltype", "_group", "_marker", "_size", "_name", "_allunits", "_positions", "_index", "_active", "_back"];
+	private [
+		"_buildings", 
+		"_number", 
+		"_civil", 
+		"_civiltype", 
+		"_group", 
+		"_marker", 
+		"_size", 
+		"_name", 
+		"_allunits", 
+		"_position", 
+		"_positions", 
+		"_index", 
+		"_active", 
+		"_back"
+	];
 
 	_position = position (_this select 0);
 
@@ -38,7 +53,8 @@
 	for "_x" from 0 to _number do {
 		_civiltype = wccivilclass call BIS_fnc_selectRandom;
 		//_civil = _group createUnit [_civiltype, _position, [], 0, "FORM"];
-		_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
+		//_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
+		_position = _positions call BIS_fnc_selectRandom;
 		//_civil domove _position;
 		_back = _back + [[_civiltype, _position]];
 
@@ -48,7 +64,6 @@
 		if(count _allunits < 1) then {
 			_allunits = units _group;
 		};
-
 
 		// restore civils
 		if(west countside list _active == 0) then {
@@ -63,8 +78,10 @@
 			{
 				_civiltype = _x select 0;
 				_civil = _group createUnit [_civiltype, (_x select 1), [], 0, "FORM"];
-				_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
-				_civil domove _position;
+				//_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
+				_position = _positions call BIS_fnc_selectRandom;
+				_civil setvariable ["destination", _position, false];
+				_civil setvariable ["wcprotected", true, false];
 				wccivilianstoinit = wccivilianstoinit + [_civil];
 			}foreach _back;
 			_allunits = units _group;
@@ -72,15 +89,35 @@
 		};
 
 		_group setCombatMode "RED";
-		_group setBehaviour "COMBAT";
 		_civil = _allunits select 0;
 		_allunits = _allunits - [_civil];
-		//if(random 1 > 0.9) then {
-		//	_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
-		//} else {
+
+		_civil setspeedmode "limited";
+		_civil setbehaviour "safe";
+		_civil allowFleeing 0;
+
+		if(position _civil distance (_civil getvariable "destination") < 8) then {
 			_position = _positions call BIS_fnc_selectRandom;
-		//};
-		_civil domove _position;
+			_civil setvariable ["destination", _position, false];
+			_civil domove _position;
+			_civil setvariable ["moveretry", 0, false];
+		} else {
+			_civil domove (_civil getvariable "destination");
+		};
+
+		if(format["%1", _civil getvariable "lastpos"] == format["%1", position _civil]) then {
+			_civil setvariable ["moveretry", (_civil getvariable "moveretry") + 1, false];
+		};
+
+		_civil setvariable ["lastpos", position _civil, false];
+
+		if(_civil getvariable "moveretry" > 3) then {
+			_position = _positions call BIS_fnc_selectRandom;
+			_civil setvariable ["destination", _position, false];
+			_civil domove _position;
+			_civil setvariable ["moveretry", 0, false];
+		};
+
 		sleep 5;
 	};
 
