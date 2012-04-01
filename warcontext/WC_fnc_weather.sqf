@@ -9,14 +9,10 @@
 
 	while {true} do {
 		_rain = random 0.65;
-		if((date select 3 > 2) and (date select 3 < 5)) then {
-			_fog = 0.9 + random (0.3);
+		if((date select 4 > 2) and (date select 4 <7)) then {
+			_fog = 0.6 + (random 0.4);
 		} else {
-			if((date select 3 > 3) and (date select 3 <6)) then {
-				_fog = 0.8 + random (0.3);
-			}else{
-				_fog  = random 0.6;
-			};
+			_fog  = random 0.5;
 		};
 		_overcast = random 1;
 		wcweather = [_rain, _fog, _overcast];
