@@ -23,6 +23,7 @@
 			playmusic "";
 			titleText ["", "PLAIN"];
 			ppEffectDestroy wccameffect;
+			"FilmGrain" ppEffectEnable false;
 			camUseNVG false;
 			false setCamUseTi 1;
 		} else {
