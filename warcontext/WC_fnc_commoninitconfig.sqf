@@ -15,7 +15,7 @@
 	wcminfpsonserver = 15;
 
 	// Adress of teamspeak server
-	wcteamspeak = "[FR] join us: \n ts3.air-commando.fr:9987 \n pass: ackillaz";
+	wcteamspeak = "Join me on BIS forum: Code34";
 
 	// limit of playable map
 	switch (tolower(worldname)) do {
