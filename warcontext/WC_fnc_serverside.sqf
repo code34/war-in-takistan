@@ -5,7 +5,11 @@
 
 	#include "common.hpp"
 
+	private ["_civillocation"];
+
 	if (!isServer) exitWith{};
+
+
 
 	// Grab all WC_fnc_publicvariable events
 	if(isdedicated) then {
@@ -17,7 +21,7 @@
 		flagusa setvehicleinit 'this addAction ["Halo Jump", "warcontext\WC_fnc_halo.sqf",[],-1,false]';
 	};
 
-	if(wcwithairpatrol == 1) then {
+	if(wcairopposingforce > 0) then {
 		wcgarbage = [] spawn WC_fnc_createairpatrol;
 	};
 
@@ -314,8 +318,23 @@
 
 	{
 		wcgarbage = [_x] spawn WC_fnc_popcivilian;
+		if(random 1> 0.80) then {
+			wcgarbage = [position _x] spawn WC_fnc_createsheep;
+		};
 	}foreach _wctownlocations;
-	wcgarbage = [] spawn WC_fnc_civilianinit;	
+	wcgarbage = [] spawn WC_fnc_civilianinit;
+
+
+	_bunker = nearestObjects [getmarkerpos "respawn_west", ["Land_fortified_nest_small_EP1"], 20000];
+	{
+		_dir = getdir _x;
+		_pos = getpos _x; 
+		_unit = "DSHKM_TK_GUE_EP1" createvehicle _pos; 
+		_unit setpos _pos; 
+		_unit setdir (_dir + 180);
+	}foreach _bunker;
+
+
 
 	// we must wait - async return bug of arma
 	sleep 1;
