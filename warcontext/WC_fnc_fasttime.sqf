@@ -46,7 +46,7 @@
 			_currentminute = date select 4;
 			_clock = [_currenthour, _currentminute] call WC_fnc_clockformat;
 		};
-		hintsilent format["Fast time: %1 -> %2", _clock, _cibleclockformat];
+		hintsilent format["Fast time: %1 -> %2 \nPress Tab key to skip fast time", _clock, _cibleclockformat];
 		sleep 0.0005;
 	}; 
 
