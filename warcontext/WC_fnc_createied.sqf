@@ -33,36 +33,38 @@
 			if(count _enemys > 0) then {
 				{
 					_enemy = _x;
-					if(((_enemy distance _unit) < 8) and ((side _enemy) in wcside) and (!(typeOf _enemy in wcengineerclass) or (_unit isKindOf "Man") or ((_enemy iskindof "LandVehicle") and (count (crew _enemy) > 0) and (side (driver _enemy) in wcside))) and !(_missioncomplete)) then {
-						_position = position _unit;
-						"ARTY_R_227mm_HE" createVehicle [_position select 0, _position select 1, 0];
-						"Bo_GBU12_LGB" createVehicle [_position select 0, _position select 1, 0];
-						if(_enemy iskindof "LandVehicle") then {
-							{					
-								_x setdamage 1;
-							}foreach crew _enemy;
-						};
-						if(_unit isKindOf "Man") then {
-							wcallahsound = name _enemy;
-							["wcallahsound", "client"] call WC_fnc_publicvariable;
-							playsound "allah";
+					if(isplayer _enemy) then {
+						if(((_enemy distance _unit) < 8) and ((side _enemy) in wcside) and (!(typeOf _enemy in wcengineerclass) or (_unit isKindOf "Man") or ((_enemy iskindof "LandVehicle") and (count (crew _enemy) > 0) and (side (driver _enemy) in wcside))) and !(_missioncomplete)) then {
+							_position = position _unit;
+							"ARTY_R_227mm_HE" createVehicle [_position select 0, _position select 1, 0];
+							"Bo_GBU12_LGB" createVehicle [_position select 0, _position select 1, 0];
 							if(_enemy iskindof "LandVehicle") then {
-								wchintW = "A bomber man has explosed near friendly vehicle";
-							} else {
-								wchintW = format[localize "STR_WC_MESSAGEANBOMBERMANEXPLOSION", name _enemy];						
+								{					
+									_x setdamage 1;
+								}foreach crew _enemy;
 							};
-						} else {
-							if(_enemy iskindof "LandVehicle") then {
-								wchintW = localize "STR_WC_MESSAGEANIEDEXPLOSIONNEARVEHICLE";
+							if(_unit isKindOf "Man") then {
+								wcallahsound = name _enemy;
+								["wcallahsound", "client"] call WC_fnc_publicvariable;
+								playsound "allah";
+								if(_enemy iskindof "LandVehicle") then {
+									wchintW = "A bomber man has explosed near friendly vehicle";
+								} else {
+									wchintW = format[localize "STR_WC_MESSAGEANBOMBERMANEXPLOSION", name _enemy];						
+								};
 							} else {
-								wchintW = format[localize "STR_WC_MESSAGEANIEDEXPLOSION", name _enemy];
+								if(_enemy iskindof "LandVehicle") then {
+									wchintW = localize "STR_WC_MESSAGEANIEDEXPLOSIONNEARVEHICLE";
+								} else {
+									wchintW = format[localize "STR_WC_MESSAGEANIEDEXPLOSION", name _enemy];
+								};
 							};
+							["wchintW", "client"] call WC_fnc_publicvariable;
+							hintsilent wchintW;
+							_missioncomplete = true;
+							_unit setvariable ["wciedactivate", false, true];
+							_unit setdamage 1;
 						};
-						["wchintW", "client"] call WC_fnc_publicvariable;
-						hintsilent wchintW;
-						_missioncomplete = true;
-						_unit setvariable ["wciedactivate", false, true];
-						_unit setdamage 1;
 					};
 				}foreach _enemys;
 			};
