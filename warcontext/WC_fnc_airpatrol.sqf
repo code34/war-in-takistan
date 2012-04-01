@@ -37,15 +37,20 @@
 		_position = [wcmaptopright, wcmapbottomleft, "onsea"] call WC_fnc_createposition;
 	};
 
+	_group setCombatMode "BLUE";
+
+	_vehicle addEventHandler ['Hit', '
+		group (driver (_this select 0)) setCombatMode "RED";
+	'];
+
+
 	while {alive _unit} do {
 		_position = ["airzone"] call WC_fnc_createpositioninmarker;
 		_group setBehaviour "COMBAT";
-		_group setCombatMode "GREEN";
-		_unit domove [_position select 0, _position select 1, 150];
-		(vehicle _unit) flyInHeight 150;
+		_unit domove [_position select 0, _position select 1, 300];
+		(vehicle _unit) flyInHeight 300;
 		waituntil { (_unit distance [_position select 0, _position select 1, 150] < 100)};
 	};
-
 
 	_exit = false;
 	while {!_exit} do {
