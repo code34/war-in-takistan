@@ -96,6 +96,7 @@
 		};
 	};
 
+	"FilmGrain" ppEffectEnable true;
 	while { (format["%1", wcanim] != "" and _sleep < 60)} do {
 		_missiontext spawn WC_fnc_infotext;
 		_x = random _distance;
@@ -104,10 +105,23 @@
 		if(random 1 > 0.5) then { _ysign = 1; } else { _ysign = -1;};	
 		if(_distance == 10) then { _alt = random 3;}else{_alt = 3 + (random 20);};
 		wccam camsetrelpos [(_x * _xsign), (_y * _ysign), (_alt)];
-		wccam CamCommit 10;
-		sleep 10;
-		_sleep = _sleep + 10;
+
+		//_instant = random 1;
+		//if(_instant > 0.5) then {
+			wccam CamCommit 0;			
+		//} else {
+		//	wccam CamCommit 10;
+		//};
+
+		"FilmGrain" ppEffectAdjust[random 0.2, 5, 3.42, 10, 8.5, false];
+		"FilmGrain" ppEffectCommit 0; 
+		sleep 5;
+		"FilmGrain" ppEffectAdjust[1, 1, 3.42, 10, 8.5, false]; 
+		"FilmGrain" ppEffectCommit 0.2;
+		sleep random 0.2;
+		_sleep = _sleep + 5;
 	};
+	"FilmGrain" ppEffectEnable false;
 
 	ppEffectDestroy wccameffect;
 	wccam cameraEffect ["terminate","back"];
