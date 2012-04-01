@@ -3,6 +3,7 @@
 	// warcontext  - steal an object
 
 	private [
+		"_find",
 		"_unit", 
 		"_enemy", 
 		"_sabotage", 
@@ -23,19 +24,22 @@
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
 		};
-		_enemy = nearestObjects [_unit, ["Man"], 20];
-		if(count(_enemy) > 0) then {
-			_enemy = _enemy select 0;
-			if(_enemy distance _unit < 2) then {
-				if((side _enemy) in wcside) then {
-					wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-					if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
-					wcmissionsuccess = true;
-					wcobjectiveindex = wcobjectiveindex + 1;
-					_missioncomplete = true;
-					wcleveltoadd = 1;
-				};
+
+		_enemy = nearestObjects [_unit, ["All"], 2];
+		_find = false;
+		{
+			if(isplayer _x) then {
+				_find = true;
 			};
+		}foreach _enemy;
+
+		if(_find) then {
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
+			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			wcmissionsuccess = true;
+			wcobjectiveindex = wcobjectiveindex + 1;
+			_missioncomplete = true;
+			wcleveltoadd = 1;
 		};
 	};
 
