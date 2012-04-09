@@ -50,9 +50,10 @@
 			["Build a vehicle", "Wait while the building of your vehicle", "The vehicle will appear near you in few seconds. Older one will be delete.", 3] spawn WC_fnc_playerhint;
 			_position = (position player) findemptyposition [5, 30];
 			deletevehicle wcmyatv;
-			wcmyatv = _type createVehicle _position;
 			closedialog 0;
 			menuaction = -1;
+			sleep 3;
+			wcmyatv = _type createVehicle _position;
 		};
 		if(menuaction == 2) then {
 			closedialog 0;
