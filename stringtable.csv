@@ -38,7 +38,7 @@ STR_WC_MISSION17,	"There is an heavy factory in this village. Destroy it!",	"Il 
 STR_WC_MISSION18,	"A suicide bomber  has been localized near a village by civillians. Find him and stop him!",	"Un homme bombe a ete localise dans un village par la population. Trouvez le et neutralisez le."
 STR_WC_MISSION19,	"A warlord who is terrorizing the country has been localized. Eliminate him!",	"Un seigneur de guerre qui propage la terreur dans le pays a ete localise. Eliminez le."
 STR_WC_MISSION20,	"A takistani officer visit this village to talk about peace in the country. Eliminate him!",	"Un officier takistanais visite cet endroit pour organiser une reunion au sujet de la paix dans le pays. Eliminez le."
-STR_WC_MISSION21,	"An AA artillery position has been spotted. This AA artillery is very strong and caused a lot of damage to our planes. Find it and destroy it!",	"Un piece d artillerie AA a ete localise. Cette piece d artillerie AA cause de nombreux degats a nos avions. Detruisez la."
+STR_WC_MISSION21,	"An AA pod has been spotted. This AA artillery is very strong and caused a lot of damage to our planes. Find it and destroy it!",	"Un piece d artillerie AA a ete localise. Cette piece d artillerie AA cause de nombreux degats a nos avions. Detruisez la."
 STR_WC_MISSION22,	"A nuclear launcher has been spotted. We don't know if it's armed or not. Find out and destroy it!",	"Un lanceur de missile nucleaire a ete localise. Nous ne savons pas s il est arme ou pas. Trouvez le et detruisez le."
 STR_WC_MISSION23,	"An IED has been found in the village by locals. An engineer must find it and defuse it!",	"Un ied a ete trouve par les habitants locaux. Un ingenieur doit le desamorcer"
 STR_WC_MISSION24,	"The radio tower allows the enemy to call in reinforcements.It will take few minutes before the first soldiers arrive. You must destroy the radio tower as soon as possible before enemy alert!",	"Cette tour radio permet a l'enemi d appeler des renforts. Quand l enemi appelle du renfort cela peut prendre plusieurs minutes avant l arrivee des premiers soldats. Vous devez detruire l antenne le plus tot possible avant que l enemi sonne l alerte!"
@@ -94,46 +94,46 @@ STR_WC_MISSION73,	"A little base required ammo. Bring an ammo truck from base to
 STR_WC_MISSION74,	"We need an advanced base. Build a bunker here",	"Nous avons besoin d un poste avance, construisez un bunker ici"
 STR_WC_MISSION100,	"Final mission: You have found the place where the enemy leader is. You have to kill him to stop the war. Good luck!",	"Final mission: Vous avez decouvert l endroit ou se cache le leader enemi. Vous devez le tuer pour arreter la guerre. Bonne chance !"
 STR_WCSHORT_MISSION0,	Destroy a scud launcher,	Destroy a scud launcher
-STR_WCSHORT_MISSION1,	Kill a gold trafficant,	Kill a gold trafficant
+STR_WCSHORT_MISSION1,	Kill gold trafficant,	Kill gold trafficant
 STR_WCSHORT_MISSION2,	Kill a nuclear scientist,	Kill a nuclear scientist
-STR_WCSHORT_MISSION3,	Destroy a barrack,	Destroy a barrack
-STR_WCSHORT_MISSION4,	Destroy an ural refuel,	Destroy an ural refuel
-STR_WCSHORT_MISSION5,	Destroy an ural,	Destroy an ural
-STR_WCSHORT_MISSION6,	Kill a takistan commander,	Kill a takistan commander
+STR_WCSHORT_MISSION3,	Destroy the barrack,	Destroy the barrack
+STR_WCSHORT_MISSION4,	Destroy the refuel ural,	Destroy the refuel ural
+STR_WCSHORT_MISSION5,	Destroy the ural,	Destroy an ural
+STR_WCSHORT_MISSION6,	Kill a takistani commander,	Kill a takistani commander
 STR_WCSHORT_MISSION7,	Destroy a bmp2 hq,	Destroy a bmp2 hq
 STR_WCSHORT_MISSION8,	Destroy a small fuel location,	Destroy a small fuel location
 STR_WCSHORT_MISSION9,	Destroy a big fuel location,	Destroy a big fuel location
-STR_WCSHORT_MISSION10,	Destroy a cargo smuggling,	Destroy a cargo smuggling
-STR_WCSHORT_MISSION11,	Destroy a power generator,	Destroy a power generator
+STR_WCSHORT_MISSION10,	Destroy a smuggled cargo,	Destroy a smuggled cargo
+STR_WCSHORT_MISSION11,	Destroy enemy airfac,	Destroy a enemy airfac
 STR_WCSHORT_MISSION12,	Destroy a commando group,	Destroy a commando group
 STR_WCSHORT_MISSION13,	Destroy a transport chopper,	Destroy a transport chopper
-STR_WCSHORT_MISSION14,	Kill the treat,	Kill the treat
+STR_WCSHORT_MISSION14,	Kill the spy,	Kill the spy
 STR_WCSHORT_MISSION15,	Destroy the radar,	Destroy the radar,
 STR_WCSHORT_MISSION16,	Destroy the hospital,	Destroy the hospital
 STR_WCSHORT_MISSION17,	Destroy the heavy factory,	Destroy the heavy factory
-STR_WCSHORT_MISSION18,	Eliminate the bomber man,	Eliminate the bomber man
+STR_WCSHORT_MISSION18,	Eliminate the suicide bomber,	Eliminate the suicide bomber
 STR_WCSHORT_MISSION19,	Kill a war lord,	Kill a war lord
-STR_WCSHORT_MISSION20,	Kill a takistan officer,	Kill a takistan officer
+STR_WCSHORT_MISSION20,	Kill a takistani officer,	Kill a takistani officer
 STR_WCSHORT_MISSION21,	Destroy an aa artillery,	Destroy an aa artillery
 STR_WCSHORT_MISSION22,	Destroy a missile launcher,	Destroy a missile launcher
-STR_WCSHORT_MISSION23,	Destroy an IED,	Destroy an IED
+STR_WCSHORT_MISSION23,	Defuse an IED,	Defuse an IED
 STR_WCSHORT_MISSION24,	Destroy a radio tower,	Destroy a radio tower
 STR_WCSHORT_MISSION25,	Destroy an electical station,	Destroy an electrical station
 STR_WCSHORT_MISSION26,	Destroy a ZSU,	Destroy a ZSU
 STR_WCSHORT_MISSION27,	Destroy a T72,	Destroy a T72
-STR_WCSHORT_MISSION28,	Liberate an hostage,	Liberate an hostage
-STR_WCSHORT_MISSION29,	Destroy a terminal installation,	Destroy a terminal installation
+STR_WCSHORT_MISSION28,	Liberate the hostage,	Liberate the hostage
+STR_WCSHORT_MISSION29,	Destroy UAV terminal,	Destroy UAV terminal
 STR_WCSHORT_MISSION30,	Liberate an officer,	Liberate an officer,
 STR_WCSHORT_MISSION31,	Liberate a tourist,	Liberate a tourist
 STR_WCSHORT_MISSION32,	Sabotage a ZSU,	Sabotage a ZSU
 STR_WCSHORT_MISSION33,	Sabotage a T72,	Sabotage a T72
 STR_WCSHORT_MISSION34,	Sabotage a radio tower, Sabotage a radio tower
 STR_WCSHORT_MISSION35,	Steal secret document,	Steal secret document
-STR_WCSHORT_MISSION36,	Rob a brdm2,	Rob a brdm2
-STR_WCSHORT_MISSION37,	Rob a btr60,	Rob a btr60
-STR_WCSHORT_MISSION38,	Rob an ural,	Rob an ural
-STR_WCSHORT_MISSION39,	Capture a takistan commander, Capture a takistan commander
-STR_WCSHORT_MISSION40,	Capture a takistan officer,	Capture a takistan officer
+STR_WCSHORT_MISSION36,	Steal a brdm2,	Steal a brdm2
+STR_WCSHORT_MISSION37,	Steal a btr60,	Steal a btr60
+STR_WCSHORT_MISSION38,	Steal an ural,	Steal an ural
+STR_WCSHORT_MISSION39,	Capture a takistani commander, Capture a takistani commander
+STR_WCSHORT_MISSION40,	Capture a takistani officer,	Capture a takistani officer
 STR_WCSHORT_MISSION41,	Capture a war lord,	Capture a war lord
 STR_WCSHORT_MISSION42,	Capture a civilian,	Capture a civilian
 STR_WCSHORT_MISSION43,	Retrieve an ah64,	Retrieve an ah64
@@ -142,43 +142,46 @@ STR_WCSHORT_MISSION45,	Retrieve an m1,	Retrieve an m1
 STR_WCSHORT_MISSION46,	Retrieve a mh6, Retrieve a mh6
 STR_WCSHORT_MISSION47,	Destroy an ammo cache, Destroy an ammo cache
 STR_WCSHORT_MISSION48,	Destroy a repair center, Destroy a repair center
-STR_WCSHORT_MISSION49	Retrieve a chinook,	Retrieve a chinook
-STR_WCSHORT_MISSION50,	Kill a takistan woman civil,	Kill a takistan woman civil
+STR_WCSHORT_MISSION49,	Retrieve a chinook,	Retrieve a chinook
+STR_WCSHORT_MISSION50,	Kill a takistani woman civil,	Kill a takistani woman civil
 STR_WCSHORT_MISSION51,	Destroy a vehicle,	Destroy a vehicle
 STR_WCSHORT_MISSION52,	Rob a vehicle,	Rob a vehicle
 STR_WCSHORT_MISSION53,	Sabotage a vehicle,	Sabotage a vehicle
 STR_WCSHORT_MISSION54,	Rescue a pilot,	Rescue a pilot
 STR_WCSHORT_MISSION55,	Defend an area,	Defend an area
-STR_WCSHORT_MISSION56,	Defend some barracks,	Defend some barracks,
+STR_WCSHORT_MISSION56,	Defend the barracks,	Defend the barracks,
 STR_WCSHORT_MISSION57,	Rescue a c130 pilot, Rescue a c130 pilot
-STR_WCSHORT_MISSION58,	Retrieve an a10 plane, Retrieve an a10 plane
-STR_WCSHORT_MISSION59,	Retrieve an AH6X plane, Retrieve an AH6X plane
-STR_WCSHORT_MISSION60,	Retrieve a AH64 plane, Retrieve a AH64 plane
+STR_WCSHORT_MISSION58,	Retrieve an a10 aircraft, Retrieve an a10 aircraft
+STR_WCSHORT_MISSION59,	Retrieve an AH6X aircraft, Retrieve an AH6X aircraft
+STR_WCSHORT_MISSION60,	Retrieve a AH64 aicraft, Retrieve a AH64 aircraft
 STR_WCSHORT_MISSION61,	Destroy a su25,	Destroy a su25
 STR_WCSHORT_MISSION62,	Destroy a l39,	Destroy a l39
 STR_WCSHORT_MISSION63,	Defend an oil pump,	Defend an oil pump
-STR_WCSHORT_MISSION64,	Heal a civil,	Heal a civil
+STR_WCSHORT_MISSION64,	Heal a civilian,	Heal a civilian
 STR_WCSHORT_MISSION65,	Destroy a fuel location,	Destroy a fuel location
-STR_WCSHORT_MISSION66,	Build a mash hospital,	Build a mash hospital
+STR_WCSHORT_MISSION66,	Build a MASH,	Build a MASH
 STR_WCSHORT_MISSION67,	Build a military hospital,	Build a military hospital
 STR_WCSHORT_MISSION68,	Build a radar,	Build a radar
 STR_WCSHORT_MISSION69,	Build a service point,	Build a service point
-STR_WCSHORT_MISSION70,	Rescue 10 civils,	Rescue 10 civils
+STR_WCSHORT_MISSION70,	Rescue 10 civilians,	Rescue 10 civilians
 STR_WCSHORT_MISSION71,	Secure an airfield zone,	Secure an airfield zone
 STR_WCSHORT_MISSION72,	Secure an oil pump zone,	Secure an oil pump zone
 STR_WCSHORT_MISSION73,	Bring an ammo truck,	Bring an ammo truck
 STR_WCSHORT_MISSION74,	Build a bunker,	Build a bunker
 STR_WCSHORT_MISSION100,	Final: Kill the leader,	Final: Kill the leader
 STR_WC_TITLE_MISSION, War in Takistan: Operations Iron Rains, War in Takistan: Operations pluies d'acier
-STR_WC_CALLREINFORCEMENT, Incoming reinforcement, Des renforts attaquent
+STR_WC_CALLREINFORCEMENT, Incoming reinforcements, Des renforts attaquent
+STR_WC_BUTTONBUILD,	Build,	Construire
+STR_WC_BUTTONCLOSE,	Close,	Fermer
 STR_WC_MENUBUILDTRENCH, Dig trench, Creuser une tranchee
 STR_WC_MENUREPAIRVEHICLE, Repair Vehicle, Reparer le vehicule
 STR_WC_MENUREPAIRVEHICLE2, Repair Vehicle: %1, Reparer le vehicule: %1
 STR_WC_MENUUNLOCKVEHICLE, Lock/Unlock Vehicle, Verrouiller/Deverouiller le vehicule
 STR_WC_MENUUNFLIPVEHICLE, Unflip Vehicle, Retourner le vehicule
 STR_WC_MENUCHOOSEMISSION, Check operation plan, Check operation plan
+STR_WC_MENUBUILD, Building, Construction
 STR_WC_MENURECRUITMENT, Recruitment, Recrutement
-STR_WC_MENURECRUITASTEAMMENBER,	You have been recruit as team member,	Vous avez ete recrute comme membre de l equipe
+STR_WC_MENURECRUITASTEAMMENBER,	You have been recruited as team member,	Vous avez ete recrute comme membre de l equipe
 STR_WC_MENUFOLLOWTHELEADER,	Follow the team leader instructions as your acts impact the teamscore now,	Suivez les instructions du leader car vos actes impactent le score de l equipe maintenant
 STR_WC_MENUTEAMMANAGEMENT, Manage team, Manage team
 STR_WC_MENUSPECTATOR, Spectator Mode, Mode spectateur
@@ -197,8 +200,8 @@ STR_WC_MESSAGEBUILDINGFINISHED,	Building is finished, Construction terminee
 STR_WC_MESSAGESABOTING,	Saboting,	Sabotage en cours
 STR_WC_MESSAGESABOTINGFINISHED,	Saboting is finished,	Sabotage termine
 STR_WC_MESSAGEBUILDING,	Building,	En cours de construction
-STR_WC_MESSAGEBUILDINGINFORMATION, During building time you can not move, Durant la construction, vous ne pouvez pas bouger.
-STR_WC_MESSAGESABOTINGINFORMATION, During saboting time you can not move, Durant le sabotage, vous ne pouvez pas bouger.
+STR_WC_MESSAGEBUILDINGINFORMATION, While building time you can not move, Durant la construction, vous ne pouvez pas bouger.
+STR_WC_MESSAGESABOTINGINFORMATION, While saboting time you can not move, Durant le sabotage, vous ne pouvez pas bouger.
 STR_WC_MESSAGECANBUILDTENT,	A tent already exist. ,	Une tente existe deja.
 STR_WC_MESSAGEREMOVETENT,	You must remove your tent to build a new one.,	Vous devez demonter votre tente existante avant d'en construire une nouvelle.
 STR_WC_MESSAGEDIGATRENCH, Dig a trench,	Creuser une tranchee
@@ -236,7 +239,7 @@ STR_WC_MESSAGEUNLOCKING,	unlocking %1, deverouillage de %1
 STR_WC_MESSAGELOCKING,	locking %1, verouillage de %1
 STR_WC_MESSAGEISUNLOCKED,	%1 is unlocked,	%1 est deverouille
 STR_WC_MESSAGECANNOTREPAIR,	You can't repair Vehicle. Too much dammage.,	Le vehicule est trop endommage. Vous ne pouvez pas le reparer.
-STR_WC_MESSAGEANBOMBERMANEXPLOSION,	A bomber man exploded near %1,	Un homme bombe a explose a cote de %1
+STR_WC_MESSAGEANBOMBERMANEXPLOSION,	A suicide bomber blew himself up near %1,	Un homme bombe a explose a cote de %1
 STR_WC_MESSAGEMHQDEPLOYED,	The MHQ has been deployed near insertion zone,	Le MHQ a ete deploye pres de la zone d insertion
 STR_WC_MESSAGEANIEDEXPLOSION,	An IED exploded near %1,	Un ied a explose a pres de %1
 STR_WC_MESSAGEANIEDEXPLOSIONNEARVEHICLE,	An IED exploded near friendly vehicle,	Un ied a explose a cote d un vehicle allie
