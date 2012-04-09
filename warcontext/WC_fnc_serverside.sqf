@@ -29,8 +29,14 @@
 		wcgarbage = [] spawn WC_fnc_createseapatrol;
 	};
 
-	flagusa setvehicleinit 'this addAction ["Teleport to TENT", "warcontext\WC_fnc_createteleporttohq.sqf",[],-1,false]'; 
-	flagusa setvehicleinit 'this addAction ["Teleport to HQ", "warcontext\WC_fnc_createteleporttohq2.sqf",[],-1,false]';
+	if(wcwithteleporttent == 1) then {
+		flagusa setvehicleinit 'this addAction ["Teleport to TENT", "warcontext\WC_fnc_createteleporttohq.sqf",[],-1,false]'; 
+	};
+
+	if(wcwithteleporthq == 1) then {
+		flagusa setvehicleinit 'this addAction ["Teleport to HQ", "warcontext\WC_fnc_createteleporttohq2.sqf",[],-1,false]';
+	};
+
 	processinitcommands;
 
 	// create mortuary
