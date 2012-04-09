@@ -340,7 +340,7 @@ class RscTitles
 
 		class Titrecredits_texte1: RscText
 		{
-			text = "=[A*C]= code34";
+			text = "Code34";
 			x = 0.05;
 			y = 0.4;
 			w = 0.9;
@@ -580,6 +580,14 @@ class CfgSounds
 
 class Params
 { 
+	class wckindofserver
+	{
+		title = "KIND OF SERVER";
+		values[] = {1,2,3};
+		texts[] = {"TEAM - Admin chooses team members", "OPEN SERVER - All players are team members", "No team - All players are mercenaries"};
+		default = 2;
+	};
+
 	class wckindofgame
 	{
 		title = "KIND OF GAME";
@@ -588,22 +596,264 @@ class Params
 		default = 1;
 	};
 
-	class wcviewdistance
-	{		
-		title = "VIEW DISTANCE";
-		values[]={2500,3000,3500,4000,5000,7500,10000};
-		texts[]={"2500","3000","3500","4000","5000","7500","10000"};
-		default=3000;
+	class wclevelmax
+	{
+		title = "NUMBER OF MISSIONS TO COMPLETE CAMPAIGN";
+		values[] = {3, 5, 7, 9, 11, 21, 41, 61};
+		texts[] = {"2", "4", "6", "8", "10", "20", "40", "60"};
+		default = 9;
+	};
+
+	class wcwithhq
+	{
+		title = "3 BEST PLAYERS CHOOSE MISSIONS OF PLAYERS";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 0;
 	};
 
 	class wcskiptime
 	{
-		title = "FAST TIME";
+		title = "TIME";
+		values[] = {0,1};
+		texts[] = {"REAL TIME", "FAST TIME BETWEEN MISSION"};
+		default = 1;
+	};
+
+
+	class wcopposingforce
+	{
+		title = "ENEMIES FORCE ON ZONE";
+		values[] = {1, 2, 3, 4, 5};
+		texts[] = {"WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
+		default = 3;
+	};
+
+	class wcairopposingforce
+	{
+		title = "ENEMIES AIR FORCE ON ZONE";
+		values[] = {0, 1, 2, 3, 4, 5};
+		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
+		default = 0;
+	};
+
+
+	class wcreinforcmentlevel
+	{
+		title = "ENEMIES REINFORCMENT FORCE";
+		values[] = {2, 4, 6};
+		texts[] = {"WEAK", "NORMAL", "STRONG"};
+		default = 2;
+	};
+
+	class wcconvoylevel
+	{
+		title = "ENEMIES VEHICLES PATROL ON MAP";
+		values[] = {0, 10, 20, 30};
+		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG"};
+		default = 10;
+	};
+
+	class wcrecruitberanked
+	{
+		title = "PLAYERS MUST BE RANKED TO RECRUIT SOME IA";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 1;
 	};
 
+	class wcwithlight
+	{
+		title = "SOLAR LIGHT DEPENDING OF WEATHER";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcviewdistance
+	{		
+		title = "MAX VIEW DISTANCE";
+		values[]={2500,3000,3500,4000,5000,7500,10000};
+		texts[]={"2500","3000","3500","4000","5000","7500","10000"};
+		default=3000;
+	};
+
+	class wcwithcam
+	{
+		title = "DISTANCE OF CAMERA FOR GOAL OPERATION";
+		values[] = {1, 2, 3};
+		texts[] = {"NO CAMERA","NEAR","FAR"};
+		default = 3;
+	};
+
+
+	class wcwithhalojump
+	{
+		title = "PLAYERS CAN DO HALO JUMP FROM THE FLAG";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithteleporthq
+	{
+		title = "PLAYERS CAN TELEPORT AT HQ NEAR ENEMY ZONE";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithteleporttent
+	{
+		title = "PLAYERS CAN TELEPORT AT HIS OWN TENT";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithonelife
+	{
+		title = "PLAYER HAS ONLY 1 LIFE";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 0;
+	};
+
+	class wcwithmarkers
+	{
+		title = "PLAYERS HAVE MARKERS ON MAP";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithradiomarkers
+	{
+		title = "ENEMY RADIO MARKER ON MAP";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithmarkerongoal
+	{
+		title = "SHOW A GOAL MARKER";
+		values[] = {0, 1, 2};
+		texts[] = {"NONE", "FOCUS MIDDLE OF RED ZONE", "FOCUS ON GOAL"};
+		default = 2;
+	};
+
+	class wcwithrandomfuel
+	{
+		title = "RANDOM AMOUNT OF FUEL AND AMMOS IN VEHICLES";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 0;
+	};
+
+	class wceverybodymedic
+	{
+		title = "EVERYBODY IS MEDIC";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithteleportflagatend
+	{
+		title = "TELEPORT FLAG APPEAR ON ZONE AT END OF OPERATIONS";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithenvironment
+	{
+		title = "ENVIRONMENT SOUNDS";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithcivilian
+	{
+		title = "CIVILIAN IN TOWNS";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithvehicles
+	{
+		title = "PLAYER CAN BUILD AT HQ";
+		values[] = {1, 2, 3};
+		texts[] = {"NONE", "ATV", "ALL VEHICLES"};
+		default = 2;
+	};
+
+	class wcwithinjuredeffect
+	{
+		title = "RED EFFECT WHEN PLAYER IS INJURED ";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithrussian
+	{
+		title = "ENEMIES USE RUSSIAN FORCES";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 0;
+	};
+
+	class wcwithtakistan
+	{
+		title = "ENEMIES USE TAKISTAN FORCES";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithenemyvehicle
+	{
+		title = "ENEMIES USE VEHICLES";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithreinforcment
+	{
+		title = "ENEMIES USE REINFORCMENT";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithantiairsite
+	{
+		title = "ENEMIES USE ANTI AIR SITE";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithnuclear
+	{
+		title = "ENEMIES USE NUCLEAR BOMB";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithseapatrol
+	{
+		title = "ENEMIES USE SEA PATROL";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 0;
+	};
 
 	class wcautoloadweapons
 	{
@@ -627,237 +877,5 @@ class Params
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 0;
-	};
-
-	class wckindofserver
-	{
-		title = "KIND OF SERVER";
-		values[] = {1,2,3};
-		texts[] = {"TEAM - Admin chooses team members", "OPEN SERVER - All players are team members", "No team - All players are mercenaries"};
-		default = 2;
-	};
-
-	class wcwithnuclear
-	{
-		title = "ENEMIES USE NUCLEAR BOMB";
-		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcopposingforce
-	{
-		title = "ENEMIES FORCE ON ZONE";
-		values[] = {1, 2, 3, 4, 5};
-		texts[] = {"WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
-		default = 3;
-	};
-
-	class wcairopposingforce
-	{
-		title = "ENEMIES AIR FORCE ON ZONE";
-		values[] = {0, 1, 2, 3, 4, 5};
-		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
-		default = 0;
-	};
-
-	class wcrecruitberanked
-	{
-		title = "PLAYERS MUST BE RANKED TO RECRUIT SOME IA";
-		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wclevelmax
-	{
-		title = "NUMBER OF OPERATIONS TO COMPLETE CAMPAIGN";
-		values[] = {3, 5, 7, 9, 11, 21, 41, 61};
-		texts[] = {"2", "4", "6", "8", "10", "20", "40", "60"};
-		default = 9;
-	};
-
-	class wcwithlight
-	{
-		title = "LIGHT DEPENDING OF WEATHER";
-		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithreinforcment
-	{
-		title = "ENEMIES USE REINFORCMENT";
-		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcreinforcmentlevel
-	{
-		title = "ENEMIES REINFORCMENT FORCE";
-		values[] = {2, 4, 6};
-		texts[] = {"WEAK", "NORMAL", "STRONG"};
-		default = 2;
-	};
-
-	class wcconvoylevel
-	{
-		title = "ENEMIES VEHICLES PATROL ON MAP";
-		values[] = {0, 10, 20, 30};
-		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG"};
-		default = 10;
-	};
-
-	class wcwithrussian
-	{
-		title = "ENEMIES USE RUSSIAN FORCES";
-		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 0;
-	};
-
-	class wcwithtakistan
-	{
-		title = "ENEMIES USE TAKISTAN FORCES";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithcam
-	{
-		title = "DISTANCE OF CAMERA FOR GOAL OPERATION";
-		values[] = {1, 2, 3};
-		texts[] = {"NO CAMERA","NEAR","FAR"};
-		default = 3;
-	};
-
-	class wcwithhq
-	{
-		title = "3 BEST PLAYERS CHOOSE MISSIONS OF PLAYERS";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 0;
-	};
-
-	class wcwithhalojump
-	{
-		title = "PLAYERS CAN DO HALO JUMP FROM THE FLAG";
-		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithteleporthq
-	{
-		title = "PLAYERS CAN TELEPORT AT HQ NEAR ENEMY ZONE";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithonelife
-	{
-		title = "PLAYER HAS ONLY 1 LIFE";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 0;
-	};
-
-	class wcwithmarkers
-	{
-		title = "PLAYERS HAVE MARKERS ON MAP";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithrandomfuel
-	{
-		title = "VEHICLES USE RANDOM FUEL AND AMMOS";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 0;
-	};
-
-	class wceverybodymedic
-	{
-		title = "EVERYBODY IS MEDIC";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithteleportflagatend
-	{
-		title = "TELEPORT FLAG APPEAR ON ZONE AT END OF OPERATIONS";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithenemyvehicle
-	{
-		title = "ENEMIES USE VEHICLES";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithenvironment
-	{
-		title = "ENVIRONMENT SOUNDS";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithcivilian
-	{
-		title = "CIVILIAN IN TOWNS";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithseapatrol
-	{
-		title = "ENEMIES USE SEA PATROL";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 0;
-	};
-
-	class wcwithvehicles
-	{
-		title = "PLAYER CAN BUILD AT HQ";
-		values[] = {1, 2, 3};
-		texts[] = {"NONE", "ATV", "ALL VEHICLES"};
-		default = 2;
-	};
-
-	class wcwithinjuredeffect
-	{
-		title = "RED EFFECT WHEN PLAYER IS INJURED ";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithmarkerongoal
-	{
-		title = "SHOW A MARKER";
-		values[] = {0, 1, 2};
-		texts[] = {"NONE", "FOCUS MIDDLE OF ZONE", "FOCUS ON GOAL"};
-		default = 2;
-	};
-
-	class wcwithantiairsite
-	{
-		title = "ENEMY USE ANTI AIR SITE";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
 	};
 };
