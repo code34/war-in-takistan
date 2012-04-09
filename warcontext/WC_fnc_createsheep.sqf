@@ -44,9 +44,17 @@
 
 	for "_x" from 1 to (random 4) step 1 do {
 		_road = _roads call BIS_fnc_selectRandom;
+
+		if(random 1 > 0.1) then {
+			_position = ((selectBestPlaces [position _road, 100, "hills",1,10] select 0) select 0);
+		} else {
+			_position = position _road;
+		};
+
+
 		for "_x" from 1 to (random 30) step 1 do {
 			_type = ["Sheep01_EP1", "Sheep02_EP1"] call BIS_fnc_selectRandom;
-			_back = _back + [[_type, position _road]];
+			_back = _back + [[_type, _position]];
 		};
 	};
 
