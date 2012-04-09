@@ -181,14 +181,14 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 				R3F_REV_effet_video_flou ppEffectCommit 0;
 					
 				player playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
-				R3F_REV_effet_video_couleur ppEffectAdjust [0.3+random 0.4, 0.4+random 0.2, 0, [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0]];
+				R3F_REV_effet_video_couleur ppEffectAdjust [random 0.3, random 0.2, 0, [random 1, 0, 0, 0.1], [1, 0, 0, 0], [1, 0, 0, 0]];
 				R3F_REV_effet_video_couleur ppEffectCommit (2.2+random 0.4);
-				sleep 4.2+random 0.7;
+				sleep random 4;
 					
 				player playMoveNow "AmovPpneMstpSnonWnonDnon_injured";
 				R3F_REV_effet_video_couleur ppEffectAdjust [0.25, 1, 0, [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 				R3F_REV_effet_video_couleur ppEffectCommit (1.7+random 0.2);
-				sleep (6+random 8);
+				sleep random 4;
 			};
 		};
 
