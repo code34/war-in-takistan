@@ -303,8 +303,8 @@ class RscDisplayvehicles
 		class control7003: RscButton
 		{
 			idc = 7003;
-			text = "Build";
-			x = 0.2 * safezoneW + safezoneX;
+			text = $STR_WC_BUTTONBUILD;
+			x = 0.24 * safezoneW + safezoneX;
 			y = 0.862 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
 			h = 0.052 * safezoneH;
@@ -313,7 +313,7 @@ class RscDisplayvehicles
 		class control7004: RscText
 		{
 			idc = 7004;
-			text = $STR_WC_MENURECRUITMENT;
+			text = $STR_WC_MENUBUILD;
 			x = 0.22 * safezoneW + safezoneX;
 			y = 0.094 * safezoneH + safezoneY;
 			w = 0.22 * safezoneW;
@@ -322,8 +322,8 @@ class RscDisplayvehicles
 		class control7005: RscButton
 		{
 			idc = 7005;
-			text = "Close";
-			x = 0.32 * safezoneW + safezoneX;
+			text = $STR_WC_BUTTONCLOSE;
+			x = 0.36 * safezoneW + safezoneX;
 			y = 0.862 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
 			h = 0.052 * safezoneH;
