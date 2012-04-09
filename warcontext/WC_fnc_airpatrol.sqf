@@ -1,6 +1,6 @@
 	// -----------------------------------------------
 	// Author:  =[A*C]= code34 nicolas_boiteux@yahoo.fr
-	// WARCONTEXT - Nasty seek & destroy patrol script from scratch
+	// WARCONTEXT - Seek & destroy air patrol script
 
 	private [
 		"_unit", 
