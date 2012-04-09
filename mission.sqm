@@ -3,50 +3,16 @@ class Mission
 {
 	addOns[]=
 	{
-		"takistan",
-		"ca_modules_functions",
-		"cacharacters_e",
-		"caweapons_e",
-		"cawheeled_e_hmmwv",
-		"CAWheeled_E_stryker",
-		"cawheeled_e_suv",
-		"CAWheeled_E",
-		"camisc_e_wf",
-		"CATracked_E_M2A2_Bradley",
-		"camisc3",
-		"CAAir_E_UH60M",
-		"camisc_e",
-		"caweapons_e_ammoboxes",
-		"CAWheeled_E_LandRover",
-		"CAWheeled_E_ATV",
-		"caweapons_pmc",
-		"warfarebuildings"
+		"takistan"
 	};
 	addOnsAuto[]=
 	{
-		"ca_modules_functions",
-		"cacharacters_e",
-		"caweapons_e",
-		"cawheeled_e_hmmwv",
-		"CAWheeled_E_stryker",
-		"cawheeled_e_suv",
-		"CAWheeled_E",
-		"camisc_e_wf",
-		"CATracked_E_M2A2_Bradley",
-		"camisc3",
-		"CAAir_E_UH60M",
-		"camisc_e",
-		"caweapons_e_ammoboxes",
-		"CAWheeled_E_LandRover",
-		"CAWheeled_E_ATV",
-		"caweapons_pmc",
-		"warfarebuildings",
 		"takistan"
 	};
 	randomSeed=4546277;
 	class Intel
 	{
-		briefingName="WAR IN TAKISTAN 1.40";
+		briefingName="WAR IN TAKISTAN 1.45";
 		briefingDescription="by =[A*C]= code34";
 		resistanceWest=0;
 		resistanceEast=1;
@@ -11890,7 +11856,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=5;
+		items=4;
 		class Item0
 		{
 			position[]={7133.7046,333.00479,4881.752};
@@ -11942,23 +11908,6 @@ class Mission
 			};
 		};
 		class Item3
-		{
-			position[]={7099.8115,331.81674,4889.085};
-			a=100;
-			b=100;
-			angle=193.1832;
-			rectangular=1;
-			activationBy="EAST";
-			activationType="WEST D";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			class Effects
-			{
-				soundDet="AirAlarmSfx";
-			};
-		};
-		class Item4
 		{
 			position[]={7042.0752,331.10776,4919.5879};
 			a=1;
