@@ -319,16 +319,21 @@
 	}foreach wcrespawnablevehicles;
 	wcrespawnablevehicles = [];
 
-	_wctownlocations = nearestLocations [[7000,7000], ["NameCityCapital", "NameCity","NameVillage", "Name"], 20000];   
-	wcadd = ([_wctownlocations, []] call bis_fnc_locations);
-
 	{
-		wcgarbage = [_x] spawn WC_fnc_popcivilian;
-		if(random 1> 0.80) then {
-			wcgarbage = [position _x] spawn WC_fnc_createsheep;
+		if(wcwithcivilian > 0) then {
+			wcgarbage = [_x] spawn WC_fnc_popcivilian;
 		};
-	}foreach _wctownlocations;
-	wcgarbage = [] spawn WC_fnc_civilianinit;
+
+		if(wcwithsheeps == 1) then {
+			if(random 1> 0.9) then {
+				wcgarbage = [position _x] spawn WC_fnc_createsheep;
+			};
+		};
+	}foreach wctownlocations;
+
+	if(wcwithcivilian > 0) then {
+		wcgarbage = [] spawn WC_fnc_civilianinit;
+	};
 
 
 	_bunker = nearestObjects [getmarkerpos "respawn_west", ["Land_fortified_nest_small_EP1"], 20000];
