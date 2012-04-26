@@ -632,8 +632,8 @@ class Params
 	class wcairopposingforce
 	{
 		title = "ENEMIES AIR FORCE ON ZONE";
-		values[] = {0, 1, 2, 3, 4, 5};
-		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
+		values[] = {0, 1, 2, 4};
+		texts[] = {"OFF", "WEAK: 1 PLANE", "NORMAL: 2 PLANES", "STRONG: 4 PLANES"};
 		default = 0;
 	};
 
@@ -641,25 +641,17 @@ class Params
 	class wcreinforcmentlevel
 	{
 		title = "ENEMIES REINFORCMENT FORCE";
-		values[] = {2, 4, 6};
-		texts[] = {"WEAK", "NORMAL", "STRONG"};
+		values[] = {0, 2, 4, 6};
+		texts[] = {"OFF", "WEAK: 2 GROUPS", "NORMAL: 4 GROUPS", "STRONG: 6 GROUPS"};
 		default = 2;
 	};
 
 	class wcconvoylevel
 	{
 		title = "ENEMIES VEHICLES PATROL ON MAP";
-		values[] = {0, 10, 20, 30};
-		texts[] = {"OFF", "WEAK", "NORMAL", "STRONG"};
-		default = 10;
-	};
-
-	class wcrecruitberanked
-	{
-		title = "PLAYERS MUST BE RANKED TO RECRUIT SOME IA";
-		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 1;
+		values[] = {0, 5, 10, 15};
+		texts[] = {"OFF", "WEAK: 5 VEHICLES", "NORMAL: 10 VEHICLES", "STRONG: 15 VEHICLES"};
+		default = 5;
 	};
 
 	class wcwithlight
@@ -686,10 +678,17 @@ class Params
 		default = 3;
 	};
 
+	class wcrecruitberanked
+	{
+		title = "PLAYERS MUST BE RANKED TO RECRUIT SOME IA";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
 
 	class wcwithhalojump
 	{
-		title = "PLAYERS CAN DO HALO JUMP FROM THE FLAG";
+		title = "PLAYERS CAN DO HALO JUMP FROM THE BASE";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -697,7 +696,7 @@ class Params
 
 	class wcwithteleporthq
 	{
-		title = "PLAYERS CAN TELEPORT AT HQ NEAR ENEMY ZONE";
+		title = "PLAYERS CAN TELEPORT AT MHQ NEAR ENEMY ZONE";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -721,7 +720,31 @@ class Params
 
 	class wcwithmarkers
 	{
-		title = "PLAYERS HAVE MARKERS ON MAP";
+		title = "PLAYERS NAME MARKERS ON MAP";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithvehicles
+	{
+		title = "PLAYERS CAN BUILD AT MHQ";
+		values[] = {1, 2, 3};
+		texts[] = {"NONE", "ATV", "ALL VEHICLES"};
+		default = 2;
+	};
+
+	class wceverybodymedic
+	{
+		title = "PLAYERS ARE MEDICS";
+		values[] = {0, 1};
+		texts[] = {"NO (ONLY MEDICS)", "YES (EVERYBODY)"};
+		default = 1;
+	};
+
+	class wcwithinjuredeffect
+	{
+		title = "PLAYERS INJURED SEE RED EFFECT";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -729,7 +752,7 @@ class Params
 
 	class wcwithradiomarkers
 	{
-		title = "ENEMY RADIO MARKER ON MAP";
+		title = "ENEMY RADIO SITE MARKER ON MAP";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -751,14 +774,6 @@ class Params
 		default = 0;
 	};
 
-	class wceverybodymedic
-	{
-		title = "EVERYBODY IS MEDIC";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
 	class wcwithteleportflagatend
 	{
 		title = "TELEPORT FLAG APPEAR ON ZONE AT END OF OPERATIONS";
@@ -775,25 +790,58 @@ class Params
 		default = 1;
 	};
 
+
+	class wcminimunbuildings
+	{
+		title = "SIZE OF TOWNS FOR MISSION ZONE";
+		values[] = {5, 25, 50};
+		texts[] = {"ALL (VILLAGE, TOWN, BIG TOWN)", "TOWN: (TOWN, BIG TOWN)", "BIG TOWN"};
+		default = 25;
+	};
+
+	class wccomputedvillages
+	{
+		title = "BUILD VILLAGES FOR EMPTY MAP";
+		values[] = {0, 10, 20, 30};
+		texts[] = {"OFF", "POOR: 10 VILLAGES", "NORMAL: 20 VILLAGES", "A LOT: 30 VILLAGES"};
+		default = 0;
+	};
+
+	class wccomputedzones
+	{
+		title = "MAX NUMBER OF TOWNS (TO AVOID PERFORMANCE LEAK)";
+		values[] = {20, 30, 40};
+		texts[] = {"POOR: 20 ZONES", "NORMAL: 30 ZONES", "A LOT: 40 ZONES"};
+		default = 30;
+	};
+
 	class wcwithcivilian
 	{
-		title = "CIVILIAN IN TOWNS";
-		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
+		title = "MAX CIVILIANS PER TOWN";
+		values[] = {0, 3, 5, 10};
+		texts[] = {"OFF", "POOR: 3 CIVILIANS", "NORMAL: 5 CIVILIANS", "A LOT: 10 CIVILIANS"};
+		default = 5;
+	};
+
+	class wcwithcivilcar
+	{
+		title = "MAX CIVIL VEHICLES PER TOWN";
+		values[] = {0, 1, 3, 5};
+		texts[] = {"OFF", "POOR: 1 VEHICLE", "NORMAL: 3 VEHICLES", "A LOT: 5 VEHICLES"};
 		default = 1;
 	};
 
-	class wcwithvehicles
+	class wcwithied
 	{
-		title = "PLAYER CAN BUILD AT HQ";
-		values[] = {1, 2, 3};
-		texts[] = {"NONE", "ATV", "ALL VEHICLES"};
-		default = 2;
+		title = "MAX IED PER TOWN";
+		values[] = {0, 1, 3};
+		texts[] = {"OFF", "NORMAL: 1 IED", "A LOT: 3 IED"};
+		default = 1;
 	};
 
-	class wcwithinjuredeffect
+	class wcwithsheeps
 	{
-		title = "RED EFFECT WHEN PLAYER IS INJURED ";
+		title = "SHEEPS IN HILLS";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -819,14 +867,6 @@ class Params
 	{
 		title = "ENEMIES USE VEHICLES";
 		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithreinforcment
-	{
-		title = "ENEMIES USE REINFORCMENT";
-		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 1;
 	};
