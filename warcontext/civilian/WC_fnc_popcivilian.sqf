@@ -27,18 +27,8 @@
 	_allunits = [];
 	_back = [];
 
-	_name = format["civiltown%1", wcciviltownindex];
-	wcciviltownindex  = wcciviltownindex + 1;
-	_marker = [_name, 500, _position, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
-
-	_active = createTrigger["EmptyDetector", _position];
-	_active setTriggerArea[1000, 1000, 0, false];
-	_active setTriggerActivation["WEST", "PRESENT", TRUE];
-	_active setTriggerStatements["", "", ""];
-
 	_buildings = nearestObjects[_position,["Building"], 500];
 	sleep 1;
-	_number = random 10;
 
 	{
 		_index = 0;
@@ -49,13 +39,22 @@
 		};
 	}foreach _buildings;
 
+	if(count _buildings == 0) exitwith {};
+
+	_name = format["civiltown%1", wcciviltownindex];
+	wcciviltownindex  = wcciviltownindex + 1;
+	_marker = [_name, 500, _position, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
+
+	_active = createTrigger["EmptyDetector", _position];
+	_active setTriggerArea[1000, 1000, 0, false];
+	_active setTriggerActivation["WEST", "PRESENT", TRUE];
+	_active setTriggerStatements["", "", ""];
+
+	_number = random wcwithcivilian;
 	_group = creategroup civilian;
 	for "_x" from 0 to _number do {
 		_civiltype = wccivilclass call BIS_fnc_selectRandom;
-		//_civil = _group createUnit [_civiltype, _position, [], 0, "FORM"];
-		//_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
 		_position = _positions call BIS_fnc_selectRandom;
-		//_civil domove _position;
 		_back = _back + [[_civiltype, _position]];
 
 	};
@@ -117,7 +116,6 @@
 			_civil domove _position;
 			_civil setvariable ["moveretry", 0, false];
 		};
-
 		sleep 5;
 	};
 
