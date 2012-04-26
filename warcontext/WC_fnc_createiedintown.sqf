@@ -2,7 +2,7 @@
 	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - IED in town 
 	
-	private ["_position", "_iedobject", "_object", "_position", "_iedtype", "_positions", "_count", "_index"];
+	private ["_position", "_iedobject", "_object", "_position", "_iedtype", "_positions", "_count", "_index", "_max"];
 
 	_iedobject = [
 		"Land_transport_crates_EP1",
@@ -29,26 +29,32 @@
 		};
 	}foreach _building;
 
-	{
-		_name = format["mrkied%1", wciedindex];
-		wciedindex = wciedindex + 1;
-		_position = _x findEmptyPosition [1,5];
-		if(count _position > 0) then {
+	_max = random wcwithied;
+	_count = 0;
 
-			if(random 1 > 0.5) then {
-				_iedtype = _iedobject call BIS_fnc_selectRandom;
-				_iedobject = _iedobject - [_iedtype];
-				_object = _iedtype createVehicle _position;
-				_object setpos _position;
-				_object setdir (random 360);
-			} else {
-				_object = (nearestObjects[_position,["All"], 200]) call BIS_fnc_selectRandom;
+	{
+		if(_count < _max) then {
+			_name = format["mrkied%1", wciedindex];
+			wciedindex = wciedindex + 1;
+			_position = _x findEmptyPosition [1,5];
+			if(count _position > 0) then {
+	
+				if(random 1 > 0.5) then {
+					_iedtype = _iedobject call BIS_fnc_selectRandom;
+					_iedobject = _iedobject - [_iedtype];
+					_object = _iedtype createVehicle _position;
+					_object setpos _position;
+					_object setdir (random 360);
+				} else {
+					_object = (nearestObjects[_position,["All"], 200]) call BIS_fnc_selectRandom;
+				};
+				if(random 1 > 0.7) then {
+					_marker = [_name, 0.5, _position, 'ColorRed', 'ICON', 'FDIAGONAL', 'dot', 0, '', false] call WC_fnc_createmarkerlocal;
+					wcgarbage = [_object] spawn WC_fnc_createied;
+				};
+				wcobjecttodelete = wcobjecttodelete + [_object];
+				_count = _count + 1;
 			};
-			if(random 1 > 0.7) then {
-				_marker = [_name, 0.5, _position, 'ColorRed', 'ICON', 'FDIAGONAL', 'dot', 0, '', false] call WC_fnc_createmarkerlocal;
-				wcgarbage = [_object] spawn WC_fnc_createied;
-			};
-			wcobjecttodelete = wcobjecttodelete + [_object];
 		};
 		sleep 0.05;
 	}foreach _positions;
