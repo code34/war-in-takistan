@@ -21,18 +21,6 @@
 	_position = _this select 0;
 	_back = [];
 
-	_active = createTrigger["EmptyDetector", _position];
-	_active setTriggerArea[1000, 1000, 0, false];
-	_active setTriggerActivation["WEST", "PRESENT", TRUE];
-	_active setTriggerStatements["", "", ""];
-
-	WC_fnc_PDB = {
-		_pos = _this select 0;
-		_bearing = _this select 1;
-		_distance = _this select 2;
-		[ (_pos select 0) + (_distance*(sin _bearing)) ,(_pos select 1)+(_distance*(cos _bearing))];
-	};
-
 	_roads = _position nearRoads 400;
 	{
 		if!((count (roadsConnectedTo _x) > 1) and (count (nearestObjects [_x,["house"], 20]) > 0))then{
@@ -40,8 +28,14 @@
 		};
 	}forEach _roads;
 
-	_group = creategroup civilian;
+	if(count _roads == 0) exitwith {};
 
+	_active = createTrigger["EmptyDetector", _position];
+	_active setTriggerArea[1000, 1000, 0, false];
+	_active setTriggerActivation["WEST", "PRESENT", TRUE];
+	_active setTriggerStatements["", "", ""];
+
+	_group = creategroup civilian;
 	for "_x" from 1 to (random 4) step 1 do {
 		_road = _roads call BIS_fnc_selectRandom;
 
