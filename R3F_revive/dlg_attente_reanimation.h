@@ -107,7 +107,7 @@ class R3F_REV_dlg_attente_reanimation
 		style = 0x02;
 		w = 0.27; x = 0.73;
 		h = 0.05; y = 1;
-		text = "Respawn at HQ";
+		text = "Respawn at MHQ";
 		action = "['hq'] spawn R3F_REV_FNCT_reapparaitre_camp;";
 		colorText[] = {0.65, 0.89, 0.52, 1};
 		font = "BitStream";

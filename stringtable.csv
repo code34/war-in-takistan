@@ -193,7 +193,7 @@ STR_WC_MESSAGEWASKILLED,	Soldier %1 was killed: -1 point,	Le soldat %1 a ete tue
 STR_WC_MESSAGEMISSIONINITIALIZED,	Mission Initialized,	Mission Initialisee
 STR_WC_MESSAGERESPAWNTOBASE,	%1 has respawned to base!,	%1 a respawn a la base!
 STR_WC_MESSAGERESPAWNTOTENT,	%1 has respawned to his tent !,	%1 a respawn a sa tente!
-STR_WC_MESSAGERESPAWNTOHQ,	%1 has respawned to HQ!,	%1 a respawn au HQ!
+STR_WC_MESSAGERESPAWNTOHQ,	%1 has respawned to MHQ!,	%1 a respawn au MHQ!
 STR_WC_MESSAGEGOTABLAME,	%1 has got a blame !,	%1 a recu un blame !
 STR_WC_MESSAGEMISSINGADDONS,	MISSING ADDON: %1,	ADDON MANQUANT: %1
 STR_WC_MESSAGEBUILDINGFINISHED,	Building is finished, Construction terminee
@@ -271,8 +271,8 @@ STR_ACGUI_VM_TXT_TG,	Ground texture %1,	Texture du sol %1
 STR_ACGUI_VM_BTN_CLOSE,	Ok,	Valider
 STR_ACGUI_MM_BTN_TRANSFERT,	Transfer,	Transferer
 STR_R3F_REV_dontrespawnatbase,	"You should not respawn at base. This game is played with medics who can revive you. You should wait for them.", "Vous ne devez pas respawn a la base. Cette mission se joue avec des medecins qui peuvent vous soigner, vous devez les attendre."
-STR_R3F_REV_btn_reapparition,	Respawn at camp,	Reapparaitre au camp
-STR_R3F_REV_reapparition_camp_en_cours,	Respawn at camp in progress...,	Reapparition au camp en cours...
+STR_R3F_REV_btn_reapparition,	Respawn at base,	Reapparaitre a la base
+STR_R3F_REV_reapparition_camp_en_cours,	Respawn at base in progress...,	Reapparition a la base en cours...
 STR_R3F_REV_attente_reanimation,	You're waiting for a medic...,	Vous etes en attente d'un medecin...
 STR_R3F_REV_marqueur_attente_reanimation,	%1 unconscious,	%1 inconscient
 STR_R3F_REV_nb_reanimations_plusieurs,	You've been healed... You still have %1 possibilities of healing.,	Vous avez ete soigne... Il vous reste %1 possibilites de reanimation.
@@ -280,7 +280,7 @@ STR_R3F_REV_nb_reanimations_une,	You've been healed... You only have one possibi
 STR_R3F_REV_nb_reanimations_zero,	You've been healed... It was your last possibility of healing.,	Vous avez ete soigne...C'etait votre dernière possibilite de reanimation.
 STR_R3F_REV_plus_de_reanimation,You've reached the limit of healing...,Vous avez atteint le nombre limite de reanimations...
 STR_R3F_REV_hors_jeu,You're now out of the game...,Vous etes à present hors jeu...
-STR_R3F_REV_respawn_camp,You respawn at camp...,Vous reapparaissez au camp...
+STR_R3F_REV_respawn_camp,You respawn at base...,Vous reapparaissez a la base...
 STR_R3F_REV_ne_pas_se_reanimer_soi_meme,You can't revive yourself.,Vous ne pouvez pas vous reanimer vous-meme.
 #include "extern\TeamStatusDialog\stringtable.csv"
 #include "R3F_DEBUG\Scripts\stringtable_R3F_DEBUG.csv"
