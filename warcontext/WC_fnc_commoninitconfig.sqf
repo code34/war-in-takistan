@@ -19,22 +19,26 @@
 
 	// limit of playable map
 	switch (tolower(worldname)) do {
+		case "clafghan": {
+			wcmaptopright 	= [20500, 20500];
+			wcmapbottomleft = [0, 0];
+		};
+
 		case "hellskitchen": {
-			wcmaptopright 	= [4795, 5050];
-			wcmapbottomleft = [129, 455];
+			wcmaptopright 	= [5050, 5050];
+			wcmapbottomleft = [0, 0];
 		};
 
 		case "isoladicapraia" : {
-			wcmaptopright 	= [7695.45,9788.42];
-			wcmapbottomleft = [2264.97,544.557];
+			wcmaptopright 	= [10000,10000];
+			wcmapbottomleft = [0,0];
 		};
 
 		default {
-			wcmaptopright 	= [12700, 12700];
+			wcmaptopright 	= [12800, 12800];
 			wcmapbottomleft = [0, 0];
 		};
 	};
-
 	// Kind of engineer
 	wcengineerclass = ["AFR_Soldier_Engineer", "ACE_USMC_SoldierS_Engineer_D", "HEXA_Soldier_ISAf", "US_Soldier_Engineer_EP1", "BWMod_EngineerG", "BWMod_EngineerG_Desert", "BWMod_EngineerG_ISAF", "US_Soldier_Engineer_EP1_retex_ger_des", "US_Soldier_Engineer_EP1_retex_ger_wdl", "FR_Sykes", "US_Delta_Force_Night_EP1"];
 
@@ -50,6 +54,8 @@
 	// blacklist of vehicles that can pop dynamicly (exclude mission)
 	wcblacklistenemyvehicleclass = ["BRDM2_ATGM_TK_EP1","GRAD_TK_EP1", "BMP2_HQ_TK_EP1"];
 	
+	// kind of houses - compute village
+	wcvillagehouses = ["Land_House_C_5_V3_EP1", "Land_House_C_5_EP1", "Land_House_L_8_EP1", "Land_House_K_3_EP1", "Land_House_C_5_V1_EP1", "Land_A_Mosque_small_2_EP1", "Land_Wall_L_Mosque_1_EP1", "Land_A_Mosque_small_1_EP1", "Land_House_L_7_EP1", "Land_House_K_5_EP1", "Land_House_K_1_EP1", "Land_House_L_6_EP1", "Land_House_L_9_EP1", "Land_House_L_4_EP1", "Land_House_L_3_EP1", "Land_Wall_L3_5m_EP1"];
 
 	// Simulation mode has a harder scoring system
 	if(wckindofgame == 1) then {
