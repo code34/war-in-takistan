@@ -127,15 +127,15 @@
 		if((_time select 3) == (date select 3)) then { if((_time select 4) < (date select 4)) then { wcday = wcday + 1; wcfame = wcfame - 0.15; };};
 
 		// Delete zones for next mission near this zone
-		{
-			if((position _x) distance (position _location) < 1500) then {
-				wctownlocations = wctownlocations - [_x];
-			};
-		}foreach wctownlocations;
+		//{
+		//	if((position _x) distance (position _location) < 1500) then {
+		//		wctownlocations = wctownlocations - [_x];
+		//	};
+		//}foreach wctownlocations;
 
 		// Check if we are in town or not
 		_buildings = nearestObjects [position _location, ["house"] , wcdistance];
-		if (count _buildings < 20) then { 
+		if (count _buildings < wcminimunbuildings) then { 
 			_intown = false;
 			wcgarbage = [_location] call WC_fnc_computeavillage;
 		} else {
@@ -265,19 +265,27 @@
 		// CREATE SIDE MISSION
 		wcgarbage = [_missionnumber, _name] spawn WC_fnc_createsidemission;
 		wcgarbage = [_location] spawn WC_fnc_ambiantlife;
-		if(wcwithreinforcment == 1) then { 
+		if(wcreinforcmentlevel > 0) then { 
 			wcgarbage = [_location, _marker] spawn WC_fnc_support;
 		};
+
 		wcgarbage = [_location] spawn WC_fnc_createbunker;
 		wcgarbage = [_position] spawn WC_fnc_createstatic;
-		wcgarbage = [_position] spawn WC_fnc_createiedintown;
+
+		if(wcwithied > 0) then {
+			wcgarbage = [_position] spawn WC_fnc_createiedintown;
+		};
 
 		// create civils car
 		_civillocation = nearestLocations [_position, ["NameCityCapital", "NameCity","NameVillage", "Name"], 8000];
 		sleep 2;
-		{		
-			wcgarbage = [_x] spawn WC_fnc_createcivilcar;
-			wcgarbage = [position _x] spawn WC_fnc_createiedintown;
+		{	
+			if(wcwithcivilcar > 0) then {
+				wcgarbage = [_x] spawn WC_fnc_createcivilcar;
+			};
+			if(wcwithied > 0) then {
+				wcgarbage = [position _x] spawn WC_fnc_createiedintown;
+			};
 		}foreach _civillocation;
 
 		if(wcwithteleporthq == 1) then {
