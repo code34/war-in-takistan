@@ -40,7 +40,7 @@
 	execVM "R3F_ARTY_AND_LOG\init.sqf";
 	presetDialogUpdate = compile preprocessFile "bon_loadoutpresets\bon_func_presetdlgUpdate.sqf";
 
-	wcterraingrid = 50;
+	wcterraingrid = 0;
 	wcviewDist = 1500;
 	setViewDistance wcviewDist;
 	setTerrainGrid wcterraingrid;
