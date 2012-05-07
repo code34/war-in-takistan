@@ -32,7 +32,8 @@
 		"_unitsoftype",
 		"_building",
 		"_list",
-		"_dontkeep"
+		"_dontkeep",
+		"_localalert"
 		];
 
 	_parameters = [
@@ -66,6 +67,10 @@
 		_group 		= _arrayofvehicle select 2;
 
 		diag_log format ["WARCONTEXT: CREATING VEHICLE %2 IN ZONE %1", _marker, _typeofgroup];
+
+		_driver = driver _vehicle;
+		_gunner = gunner _vehicle;
+		_commander = commander _vehicle;
 
 		_vehicle setVehicleInit "this lock true;[this] spawn EXT_fnc_atot;";
 		processInitCommands;
@@ -115,10 +120,16 @@
 		if(_vehicle isKindOf "Air") then {
 			wcgarbage = [_vehicle, _position] spawn WC_fnc_createairpatrol2;
 		} else {
-			//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _marker];
+			// by default, all vehicles are in depot mode :)
+			if(random 1 > 0.05) then {
+				_localalert = 20 + (random 70);
+				(units _group) orderGetIn false;
+				waituntil {(wcalert > _localalert)};
+				(units _group) orderGetIn true;
+				waituntil { (count(crew _vehicle)) == (count(units _group)) };
+			};
 			wcgarbage = [_vehicle, _marker, 'showmarker'] execVM 'extern\ups.sqf';
 		};
-		//_vehicle setVehicleInit _scriptinit;
 		if((typeof _vehicle) in wcsabotagelist) then {
 			_vehicle setdamage 1;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", format["%1 sabotaged explosed", (typeof _vehicle)]];
@@ -138,10 +149,8 @@
 			//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
 			wcgarbage = [(leader _group), _marker, 'showmarker'] execVM 'extern\upsmon.sqf';
 		};
-		//(leader _group) setVehicleInit _scriptinit;
 	};
 
-	//processInitCommands;
 
 	if (count (units _group) < 1) then {
 		if (_motorized) then {
