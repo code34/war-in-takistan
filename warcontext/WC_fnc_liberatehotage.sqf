@@ -52,8 +52,8 @@
 	_unit setvariable ["wchostage", true, true];
 
 	_group = createGroup east;
-	_vehicle = _group createUnit ["TK_Special_Forces_EP1", position _unit, [], 1, "NONE"];
-	_vehicle2 = _group createUnit ["TK_Special_Forces_EP1", position _unit, [], 8, "NONE"];
+	_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), position _unit, [], 1, "NONE"];
+	_vehicle2 = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), position _unit, [], 8, "NONE"];
 
 
 	_vehicle allowdammage false;
