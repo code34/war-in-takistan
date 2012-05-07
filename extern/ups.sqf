@@ -84,7 +84,7 @@ if (isNil("WC_KRON_UPS_INIT")) then {
 		_np;
 	};
 	// Misc
-	WC_KRON_getArg = {private["_cmd","_arg","_list","_a","_v"]; _cmd=_this select 0; _arg=_this select 1; _list=_this select 2; _a=-1; {_a=_a+1; _v=format["%1",_list select _a]; if (_v==_cmd) then {_arg=(_list select _a+1)}; sleep 0.5;} foreach _list; _arg};
+	WC_KRON_getArg = {private["_cmd","_arg","_list","_a","_v"]; _cmd=_this select 0; _arg=_this select 1; _list=_this select 2; _a=-1; {_a=_a+1; _v=format["%1",_list select _a]; if (_v==_cmd) then {_arg=(_list select _a+1)}; sleep 0.1;} foreach _list; _arg};
 	WC_KRON_deleteDead = {private["_u","_s"];_u=_this select 0; _s= _this select 1; _u removeAllEventHandlers "killed"; sleep _s; deletevehicle _u};
 	
 	WC_KRON_AllWest=[];
@@ -103,7 +103,7 @@ if (isNil("WC_KRON_UPS_INIT")) then {
 			case resistance: 
 				{ WC_KRON_AllRes=WC_KRON_AllRes+[_x]; };
 		};
-		sleep 0.5;
+		sleep 0.1;
 	}forEach allUnits;
 
 	if (isNil("WC_KRON_UPS_Debug")) then {WC_KRON_UPS_Debug=0};
@@ -121,7 +121,6 @@ _onroof = false;
 
 // ---------------------------------------------------------------------------------------------------------
 waitUntil {WC_KRON_UPS_INIT==1};
-sleep (random 1);
 
 WC_KRON_UPS_Instances =	WC_KRON_UPS_Instances + 1;
 
@@ -180,7 +179,6 @@ _getAreaInfo = {
 	};
 };
 [] call _getAreaInfo;
-sleep .01;
 
 // unit that's moving
 _obj = _this select 0;		
@@ -191,7 +189,7 @@ if (typename _obj=="OBJECT") then {
 	if (alive _npc) then {_exit = false;}		
 } else {
 	if (count _obj>0) then {
-		{if (alive _x) then {_npc = _x; _exit = false;}; sleep 0.5;} forEach _obj;
+		{if (alive _x) then {_npc = _x; _exit = false;}; sleep 0.1;} forEach _obj;
 	};
 };
 
@@ -230,10 +228,9 @@ if (_issoldier) then {
 	{
 		_friends=_friends-[_x];
 		_x disableAI "autotarget";
-		sleep 0.5;
+		sleep 0.1;
 	} forEach _members;
 };
-sleep .01;
 
 // global unit variable to externally influence script 
 _named = false;
@@ -299,7 +296,6 @@ _sin270=-1; _cos270=0;
 _WCUPSCLOSEENOUGH=WCUPSCLOSEENOUGH*WCUPSCLOSEENOUGH;
 if (_isplane) then {_WCUPSCLOSEENOUGH=5000};
 
-sleep .01;
 // ***************************************** optional arguments *****************************************
 
 // wait at patrol end points
@@ -353,7 +349,7 @@ if (_initpos!="ORIGINAL") then {
 	};
 	if (_bldpos==0) then {
 		if (_isman) then {
-			{_x setPos _currPos; sleep 0.5;} foreach units _npc; 
+			{_x setPos _currPos; sleep 0.1;} foreach units _npc; 
 		} else {
 			_npc setPos _currPos;
 		};
@@ -366,7 +362,6 @@ if (_initpos!="ORIGINAL") then {
 		_exit=true; // don't patrol if on roof
 	};
 };
-sleep .01;
 
 // track unit
 _track = 	if (("TRACK" in _UCthis) || (WC_KRON_UPS_Debug>0)) then {"TRACK"} else {"NOTRACK"};
@@ -399,12 +394,11 @@ if (_track=="TRACK") then {
 	_destname setMarkerText format["%1",_grpidx];
 	_destname setMarkerSize [.5,.5];
 };	
-sleep .01;
 
 // delete dead units
 _deletedead = ["DELETE:",0,_UCthis] call WC_KRON_getArg;
 if (_deletedead>0) then {
-	{_x addEventHandler['killed',format["[_this select 0,%1] spawn WC_KRON_deleteDead",_deletedead]]; sleep 0.5;}forEach _members;
+	{_x addEventHandler['killed',format["[_this select 0,%1] spawn WC_KRON_deleteDead",_deletedead]]; sleep 0.1;}forEach _members;
 };
 
 // how many group clones?
@@ -460,14 +454,13 @@ _nameprefix = ["PREFIX:","UPSCLONE",_UCthis] call WC_KRON_getArg;
 				_newunit setVehicleInit _initstr;
 				[_newunit] join _grp;
 			};
-			sleep 0.5;
+			sleep 0.1;
 		} foreach _members;
 		_nul=[_lead,_areamarker,_pause,_noslow,_nomove,_nofollow,_initpos,_track,_showmarker,_shareinfo,"DELETE:",_deletedead] execVM "ups.sqf";
-		sleep .05;
+		sleep 0.1;
 	};	
 	processInitCommands;
 };
-sleep 1;
 
 
 // units that can be left for area to be "cleared"
@@ -478,6 +471,9 @@ if (_usetrigger!="NOTRIGGER") then {
 	_trgside = switch (side _npc) do { case west: {"WEST"}; case east: {"EAST"}; case resistance: {"GUER"}; case civilian: {"CIV"};};
 	_trgname="WC_KRON_Trig_"+_trgside+"_"+_areaname;
 	_flgname="WC_KRON_Cleared_"+_areaname;
+
+	diag_log format["AREANAME: %1 %2", _trgname, _flgname];
+
 	// has the trigger been created already?
 	WC_KRON_TRGFlag=-1;
 	call compile format["%1=false",_flgname];
@@ -501,7 +497,6 @@ if (_usetrigger!="NOTRIGGER") then {
 			call compile format["%1 setTriggerStatements['count thislist<=%3', '%2=true;', '%2=false;']", _trgname,_flgname,_zoneempty];
 		};
 	};
-	sleep 1;
 };
 
 // init done
@@ -521,7 +516,6 @@ if (_exit) exitWith {
 _loop=true;
 _currcycle=_cycle;
 while {_loop} do {
-	sleep 1;
 	// keep track of how long we've been moving towards a destination
 	_timeontarget=_timeontarget+_currcycle;
 	_react=_react+_currcycle;
@@ -542,10 +536,8 @@ while {_loop} do {
 				_friends=_friends-[_x]; 
 			};
 		};
-	sleep 0.5;
+	sleep 0.1;
 	} foreach _members;
-
-	sleep 1;
 
 	// nobody left alive, exit routine
 	if (count _members==0) then {
@@ -579,10 +571,9 @@ while {_loop} do {
 						if (alive _x) then {_npc reveal (WC_KRON_KnownEnemy select _sharedenemy)}; 
 					};
 				};
-			sleep 0.5;
+			sleep 0.1;
 			}forEach _others;
 		};
-		sleep 1;
 			
 		// did the group spot an enemy?
 		_lastknown=_opfknowval;
@@ -597,9 +588,8 @@ while {_loop} do {
 				_maxknowledge=_knows;
 			};
 			if (_maxknowledge==4) exitWith {};
-			sleep 0.5;
+			sleep 0.1;
 		}forEach _enemies;
-		sleep 1;
 		
 		_pursue=false;
 		_accuracy=100;
@@ -624,8 +614,7 @@ while {_loop} do {
 			_targetPos = getpos (WC_KRON_KnownEnemy select _sharedenemy);
 			_targetPos = [(_targetPos select 0) + _offsX, (_targetPos select 1) + _offsY];
 			_targetX = _targetPos select 0; _targetY = _targetPos select 1;
-			{_x dowatch _targetPos; sleep 0.5;} foreach units _npc;
-			sleep 1;			
+			{_x dowatch _targetPos; sleep 0.1;} foreach units _npc;
 
 			// also go into "combat mode"
 			_npc setSpeedMode "full"; 
@@ -682,7 +671,6 @@ while {_loop} do {
 			if (_currcycle>=_cycle) then {_currcycle=1};
 		};
 	}; 
-	sleep 1;
 
 	if !(_newpos) then {
 		// calculate new distance
@@ -717,7 +705,7 @@ while {_loop} do {
 					};
 				};
 			};
-			sleep .01;
+			sleep 0.1;
 
 			// make new target
 			if (_makenewtarget) then {
@@ -749,7 +737,7 @@ while {_loop} do {
 								_tries=99;
 							};
 							//_road=[_targetPos,(_isplane||_isboat),_road] call WC_KRON_OnRoad;
-							sleep .01;			
+							sleep 0.1;			
 						};
 					};
 				};
@@ -765,7 +753,6 @@ while {_loop} do {
 			};
 		};
 	};
-	sleep .01;
 
 	// if in water, get right back out of it again
 	if (surfaceIsWater _currPos) then {
@@ -794,12 +781,12 @@ while {_loop} do {
 				{
 					_x setSpeedMode _speedmode;
 					_x setBehaviour _orgMode;
-					sleep 0.5;
+					sleep 0.1;
 				}forEach _members;
 			};
 			// use individual doMoves if pursuing enemy, 
 			// as otherwise the group breaks up too much
-			{_x doMove _targetPos; sleep 0.5;}forEach _members;
+			{_x doMove _targetPos; sleep 0.1;}forEach _members;
 		} else {
 			(group _npc) move _targetPos;
 			(group _npc) setSpeedMode _speedmode;
@@ -842,7 +829,7 @@ while {_loop} do {
 };
 
 if !(isNil("_npc")) then {
-	{doStop _x; _x domove getPos _x; _x move getPos _x; sleep 0.5;} forEach _members;
+	{doStop _x; _x domove getPos _x; _x move getPos _x; sleep 0.1;} forEach _members;
 };
 
 WC_KRON_UPS_Exited=WC_KRON_UPS_Exited+1;
