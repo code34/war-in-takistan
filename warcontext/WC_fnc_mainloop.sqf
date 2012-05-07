@@ -132,12 +132,14 @@
 		//		wctownlocations = wctownlocations - [_x];
 		//	};
 		//}foreach wctownlocations;
+		wclastmissionposition = _position;
 
 		// Check if we are in town or not
 		_buildings = nearestObjects [position _location, ["house"] , wcdistance];
 		if (count _buildings < wcminimunbuildings) then { 
 			_intown = false;
 			wcgarbage = [_location] call WC_fnc_computeavillage;
+			wcgarbage = [_location] spawn WC_fnc_popcivilian;
 		} else {
 			_intown = true;
 		};
@@ -147,7 +149,7 @@
 		600 setfog (wcweather select 1);
 		600 setOvercast (wcweather select 2);
 
-		if(wcskiptime == 1) then {
+		if(wcskiptime > 0) then {
 			wcdate = _time;
 			if(isdedicated) then {
 				setdate wcdate;
@@ -288,7 +290,7 @@
 			};
 		}foreach _civillocation;
 
-		if(wcwithteleporthq == 1) then {
+		if(wcwithmhq == 1) then {
 			wcgarbage = [_position] spawn WC_fnc_createteleporthq;
 		};
 
