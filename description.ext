@@ -614,9 +614,9 @@ class Params
 
 	class wcskiptime
 	{
-		title = "TIME";
-		values[] = {0,1};
-		texts[] = {"REAL TIME", "FAST TIME BETWEEN MISSION"};
+		title = "DYNAMIC TIME";
+		values[] = {0,1,2};
+		texts[] = {"NO FAST FORWARD", "FAST FORWARD", "INSTANT FAST FORWARD"};
 		default = 1;
 	};
 
@@ -678,6 +678,14 @@ class Params
 		default = 3;
 	};
 
+	class wcwithmhq
+	{
+		title = "MHQ IS AVALAIBLE";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
 	class wcrecruitberanked
 	{
 		title = "PLAYERS MUST BE RANKED TO RECRUIT SOME IA";
@@ -690,14 +698,6 @@ class Params
 	{
 		title = "PLAYERS CAN DO HALO JUMP FROM THE BASE";
 		values[] = {0,1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithteleporthq
-	{
-		title = "PLAYERS CAN TELEPORT AT MHQ NEAR ENEMY ZONE";
-		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
 	};
@@ -794,16 +794,16 @@ class Params
 	class wcminimunbuildings
 	{
 		title = "SIZE OF TOWNS FOR MISSION ZONE";
-		values[] = {5, 25, 50};
-		texts[] = {"ALL (VILLAGE, TOWN, BIG TOWN)", "TOWN: (TOWN, BIG TOWN)", "BIG TOWN"};
+		values[] = {5, 25, 50, 1000};
+		texts[] = {"ALL (VILLAGE, TOWN, BIG TOWN)", "TOWN: (TOWN, BIG TOWN)", "BIG TOWN", "NONE (ONLY COMPUTED VILLAGE)"};
 		default = 25;
 	};
 
 	class wccomputedvillages
 	{
-		title = "BUILD VILLAGES FOR EMPTY MAP";
+		title = "BUILD ADDITIONAL VILLAGES FOR EMPTY MAP";
 		values[] = {0, 10, 20, 30};
-		texts[] = {"OFF", "POOR: 10 VILLAGES", "NORMAL: 20 VILLAGES", "A LOT: 30 VILLAGES"};
+		texts[] = {"OFF", "POOR: +10 VILLAGES", "NORMAL: +20 VILLAGES", "A LOT: +30 VILLAGES"};
 		default = 0;
 	};
 
