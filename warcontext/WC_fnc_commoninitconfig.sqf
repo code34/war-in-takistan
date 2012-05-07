@@ -19,6 +19,26 @@
 
 	// limit of playable map
 	switch (tolower(worldname)) do {
+		case "gsep_zernovo": {
+			wcmaptopright 	= [4100, 4100];
+			wcmapbottomleft = [0, 0];
+		};
+
+		case "mbg_celle2": {
+			wcmaptopright 	= [12800, 12800];
+			wcmapbottomleft = [0, 0];
+		};
+
+		case "nogova2010": {
+			wcmaptopright 	= [12800, 12800];
+			wcmapbottomleft = [0, 0];
+		};
+
+		case "tropica": {
+			wcmaptopright 	= [20500, 20500];
+			wcmapbottomleft = [0, 0];
+		};
+
 		case "clafghan": {
 			wcmaptopright 	= [20500, 20500];
 			wcmapbottomleft = [0, 0];
@@ -31,6 +51,16 @@
 
 		case "isoladicapraia" : {
 			wcmaptopright 	= [10000,10000];
+			wcmapbottomleft = [0,0];
+		};
+
+		case "torabora" : {
+			wcmaptopright 	= [10250,10250];
+			wcmapbottomleft = [0,0];
+		};
+
+		case "everon2010" : {
+			wcmaptopright 	= [12800,12800];
 			wcmapbottomleft = [0,0];
 		};
 
@@ -56,6 +86,12 @@
 	
 	// kind of houses - compute village
 	wcvillagehouses = ["Land_House_C_5_V3_EP1", "Land_House_C_5_EP1", "Land_House_L_8_EP1", "Land_House_K_3_EP1", "Land_House_C_5_V1_EP1", "Land_A_Mosque_small_2_EP1", "Land_Wall_L_Mosque_1_EP1", "Land_A_Mosque_small_1_EP1", "Land_House_L_7_EP1", "Land_House_K_5_EP1", "Land_House_K_1_EP1", "Land_House_L_6_EP1", "Land_House_L_9_EP1", "Land_House_L_4_EP1", "Land_House_L_3_EP1", "Land_Wall_L3_5m_EP1"];
+
+	// special forces
+	wcspecialforces = ["TK_Special_Forces_EP1"];
+
+	// change clothes - player can be
+	wcchangeclothes = ["TK_CIV_Takistani01_EP1", "TK_CIV_Takistani02_EP1", "TK_CIV_Takistani03_EP1", "TK_CIV_Takistani04_EP1", "TK_CIV_Takistani05_EP1", "TK_CIV_Takistani06_EP1", "Dr_Hladik_EP1", "Pilot_EP1", "Haris_Press_EP1"];
 
 	// Simulation mode has a harder scoring system
 	if(wckindofgame == 1) then {
