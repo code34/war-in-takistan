@@ -18,7 +18,8 @@
 		"_positions", 
 		"_index", 
 		"_active", 
-		"_back"
+		"_back",
+		"_count"
 	];
 
 	_position = position (_this select 0);
@@ -59,7 +60,11 @@
 
 	};
 
-	while { true } do {
+	waituntil { (count (nearestObjects [_position, ["House"] , 150])) > 4 };
+
+	_count = count (nearestObjects [_position, ["House"] , 150]);
+
+	while { _count > 4 } do {
 		if(count _allunits < 1) then {
 			_allunits = units _group;
 		};
@@ -116,8 +121,16 @@
 			_civil domove _position;
 			_civil setvariable ["moveretry", 0, false];
 		};
+
+		_count = count (nearestObjects [_position, ["House"] , 150]);
 		sleep 5;
 	};
 
+	{
+		_x removeAllEventHandlers "Killed";
+		_x setdammage 1;
+		deletevehicle _x;
+	}foreach (units _group);
 
+	deletevehicle _active;
 
