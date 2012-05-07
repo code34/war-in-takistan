@@ -11,7 +11,9 @@
 			_this spawn WC_fnc_garbagecollector; 
 		}];
 
-		_vehicle removeAllEventHandlers "HandleDamage";
+		if(isnil "mando_missile_init_done") then {
+			_vehicle removeAllEventHandlers "HandleDamage";
+		};
 
 		_vehicle addeventhandler ['HandleDamage', {
 			if(side(_this select 3) in [west, civilian]) then {
