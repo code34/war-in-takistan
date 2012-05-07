@@ -160,6 +160,9 @@
 	wcsecurezone = [getmarkerpos "respawn_west"];
 	wcsecurezoneindex = 0;
 
+	// contain last mission position
+	wclastmissionposition = [0,0,0];
+
 	// contains all town locations
 	wcmissionlocations = [];
 	wczonelocations = [];
