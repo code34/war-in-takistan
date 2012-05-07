@@ -49,7 +49,7 @@
 	disableSerialization;
 	_textbox = (uiNamespace getVariable 'wcdisplay') displayCtrl 5001;
 
-	_civil = ["TK_CIV_Takistani01_EP1", "TK_CIV_Takistani02_EP1", "TK_CIV_Takistani03_EP1", "TK_CIV_Takistani04_EP1", "TK_CIV_Takistani05_EP1", "TK_CIV_Takistani06_EP1", "Dr_Hladik_EP1", "Pilot_EP1", "Haris_Press_EP1"];
+	_civil = wcchangeclothes;
 	{
 		lbAdd [5002, _x];
 	}foreach _civil;
