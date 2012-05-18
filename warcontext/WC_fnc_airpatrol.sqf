@@ -3,6 +3,8 @@
 	// WARCONTEXT - Seek & destroy air patrol script
 
 	private [
+		"_destposition",
+		"_bucket",
 		"_unit", 
 		"_group", 
 		"_cible", 
@@ -20,11 +22,13 @@
 		"_marker",
 		"_vehicle",
 		"_exit",
-		"_time"
+		"_time",
+		"_flag"
 	];
 
 	_unit = _this select 0;
 	_vehicle = vehicle _unit;
+	_group = group _unit;
 
 	_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
 
@@ -43,32 +47,57 @@
 		group (driver (_this select 0)) setCombatMode "RED";
 	'];
 
+	_position = ["airzone"] call WC_fnc_createpositioninmarker;
+	_group setBehaviour "COMBAT";
+	_unit domove [_position select 0, _position select 1, 300];
+	(vehicle _unit) flyInHeight 300;
 
-	while {alive _unit} do {
-		_position = ["airzone"] call WC_fnc_createpositioninmarker;
-		_group setBehaviour "COMBAT";
-		_unit domove [_position select 0, _position select 1, 300];
-		(vehicle _unit) flyInHeight 300;
-		waituntil { (_unit distance [_position select 0, _position select 1, 150] < 100)};
+	_bucket = 0;
+	_lastposition = [0,0];
+
+	_flag = true; 
+
+	while {_flag} do {
+		if(_lastposition distance (position _vehicle) < 5) then {
+			_bucket = _bucket + 1;
+		};
+
+		_lastposition = position _vehicle;
+
+		if(_bucket > 5) then {
+			_position = ["airzone"] call WC_fnc_createpositioninmarker;
+			_group setBehaviour "COMBAT";
+			(driver _vehicle) domove [_position select 0, _position select 1, 300];
+			(vehicle _unit) flyInHeight 300;
+			_bucket = 0;
+		};
+
+		_destposition = (expectedDestination (driver _vehicle)) select 0;
+		_destposition = [_destposition select 0, _destposition select 1];
+
+		if(format["%1", _destposition] == "[0,0]") then {
+			_position = ["airzone"] call WC_fnc_createpositioninmarker;
+			_group setBehaviour "COMBAT";
+			(driver _vehicle) domove [_position select 0, _position select 1, 300];
+		};
+
+		if((getdammage _vehicle > 0.6) or (count(units _group) == 0)) then {
+			_flag = false;
+		};
+	
+		sleep 1;
 	};
 
-	_exit = false;
-	while {!_exit} do {
-		if((position _unit) distance [0,0,0] < 1000) then {
-			_exit = true;
-		};
-		if (alive _unit) then {
-			_unit domove [0,0,0];
-		} else {
-			_exit = true;
-		};
-		sleep 10;
-	};
+	{
+		_x domove [0,0];
+	} foreach (units _group);
+
+	sleep 120;
 
 	{
 		_x setdammage 1;
 		deletevehicle _x;
-	} foreach (crew _vehicle);
+	} foreach (units _group);
 
 	_vehicle setdammage 1;
 	deletevehicle _vehicle;
