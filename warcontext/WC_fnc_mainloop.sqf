@@ -201,30 +201,10 @@
 			};
 		};
 
-		wcradio = createVehicle ["TK_WarfareBUAVterminal_EP1", ["rescuezone", "onground", "onflat"] call WC_fnc_createpositioninmarker, [], 0, "NONE"];
-
-		if(wcwithradiomarkers == 1) then {
-			_markerradio = ['radiotower', 0.5, position wcradio, 'ColorRED', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, 'Radio site', false] call WC_fnc_createmarker;
-		};
-
-		wcradio setVectorUp [0,0,1];
-		wcradio addeventhandler ['HandleDamage', {
-			if (_this select 2 > wcdammagethreshold) then {
-				wcradio removeAllEventHandlers "HandleDamage";
-				wcradioalive = false;
-				["wcradioalive", "client"] call WC_fnc_publicvariable;
-				wcradio setdamage 1;
-				wcmessageW = ["Radio tower", localize "STR_WC_MESSAGEHASBEENDESTROYED"];
-				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
-				diag_log "WARCONTEXT: RADIO TOWER HAS BEEN DESTROYED";
-			};
-		}];
-
 		if(_intown) then {
 			_temp = (["rescuezone", "onground", "onflat"] call WC_fnc_createpositioninmarker) findEmptyPosition [2, 80];
 			_generator = "PowerGenerator_EP1" createvehicle _temp;
 			_generator setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\WC_fnc_dosabotage.sqf',[true],-1,false];";
-			_generator setdir ((getdir wcradio) + 180);
 			processInitCommands;
 		};
 		
