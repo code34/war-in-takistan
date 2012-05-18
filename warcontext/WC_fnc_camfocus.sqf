@@ -48,10 +48,12 @@
 
 	if(_exit) exitwith {};
 
-	wccameffect = PPEffectCreate ["ColorCorrections", 1999];
-	wccameffect PPEffectEnable true;
-	wccameffect PPEffectAdjust [0.5, 0.7, 0.0, [1.0, 1.0, 1.0, 0.0], [1.0, 1.0, 1.0, 0.0], [1.0, 1.0, 1.0, 1.0]];
-	wccameffect PPEffectCommit 0;
+	if!(wccamgoalwithcolor) then {
+		wccameffect = PPEffectCreate ["ColorCorrections", 1999];
+		wccameffect PPEffectEnable true;
+		wccameffect PPEffectAdjust [0.5, 0.7, 0.0, [1.0, 1.0, 1.0, 0.0], [1.0, 1.0, 1.0, 0.0], [1.0, 1.0, 1.0, 1.0]];
+		wccameffect PPEffectCommit 0;
+	};
 
 	_sleep = 0;
 
@@ -97,8 +99,12 @@
 	};
 
 	"FilmGrain" ppEffectEnable true;
+
+	// print mission text
+	_missiontext spawn WC_fnc_infotext;
+
 	while { (format["%1", wcanim] != "" and _sleep < 60)} do {
-		_missiontext spawn WC_fnc_infotext;
+
 		_x = random _distance;
 		_y = random _distance;
 		if(random 1 > 0.5) then { _xsign = 1; } else { _xsign = -1;};
