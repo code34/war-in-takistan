@@ -19,14 +19,32 @@
 		"_index", 
 		"_active", 
 		"_back",
-		"_count"
+		"_count",
+		"_location"
 	];
 
+	_location = (_this select 0);
 	_position = position (_this select 0);
+
 
 	_positions = [];
 	_allunits = [];
 	_back = [];
+
+	_name = format["civiltown%1", wcciviltownindex];
+	wcciviltownindex  = wcciviltownindex + 1;
+	_marker = [_name, 500, _position, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
+
+	_active = createTrigger["EmptyDetector", _position];
+	_active setTriggerArea[1000, 1000, 0, false];
+	_active setTriggerActivation["WEST", "PRESENT", TRUE];
+	_active setTriggerStatements["", "", ""];
+
+	_count = count (nearestObjects [_position, ["House"] , 150]);
+	while { _count < 4 } do {
+		_count = count (nearestObjects [_position, ["House"] , 150]);
+		sleep 1;
+	};
 
 	_buildings = nearestObjects[_position,["Building"], 500];
 	sleep 1;
@@ -40,17 +58,6 @@
 		};
 	}foreach _buildings;
 
-	if(count _buildings == 0) exitwith {};
-
-	_name = format["civiltown%1", wcciviltownindex];
-	wcciviltownindex  = wcciviltownindex + 1;
-	_marker = [_name, 500, _position, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
-
-	_active = createTrigger["EmptyDetector", _position];
-	_active setTriggerArea[1000, 1000, 0, false];
-	_active setTriggerActivation["WEST", "PRESENT", TRUE];
-	_active setTriggerStatements["", "", ""];
-
 	_number = random wcwithcivilian;
 	_group = creategroup civilian;
 	for "_x" from 0 to _number do {
@@ -59,10 +66,6 @@
 		_back = _back + [[_civiltype, _position]];
 
 	};
-
-	waituntil { (count (nearestObjects [_position, ["House"] , 150])) > 4 };
-
-	_count = count (nearestObjects [_position, ["House"] , 150]);
 
 	while { _count > 4 } do {
 		if(count _allunits < 1) then {
