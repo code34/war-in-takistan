@@ -23,7 +23,8 @@
 		"_missionnumber",
 		"_missiontext",
 		"_marker",
-		"_count"
+		"_count",
+		"_watersafeposition"
 		];
 
 	_missionnumber	= _this select 0;
@@ -35,10 +36,8 @@
 
 	_position = [1,1,0];
 	while { format ["%1", _position] ==  "[1,1,0]"} do {
-		_position = ["sidezone", "onground", "onflat"] call WC_fnc_createpositioninmarker;
+		_position = ["sidezone", "onground", "onflat", "empty"] call WC_fnc_createpositioninmarker;
 	};
-
-	_position = _position findemptyposition [10, 300];
 
 	wcbonusfame = 0;
 	wcbonusfuel = 0;
@@ -492,7 +491,8 @@
 
 		case 24: {
 			_missiontext = [_missionname,"Destroy","a radio tower"];
-			_vehicle = wcradio;
+			_type = wcradiotype call BIS_fnc_selectRandom;
+			_vehicle = createVehicle [_type, _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "destroy";
 			wcbonusfame = 0;
