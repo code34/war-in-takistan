@@ -31,13 +31,15 @@
 		"_onflatforbase",
 		"_count",
 		"_invalidate",
-		"_empty"
+		"_empty",
+		"_emptysizezone"
 		];
 
 	_markername = _this select 0;
 	_markersize = (getmarkersize _markername) select 0;
 	_type = _this select 1;
 	_count = 0;
+	_emptysizezone = 10;
 
 	if ( "onmountain" in _this) then { _onmountain = true; } else { _onmountain = false;};
 	if ( "onflat" in _this) then { _onflat = true; } else {_onflat = false;};
@@ -84,7 +86,7 @@
 			_position = [_position] call WC_fnc_getterraformvariance;
 		};
 		if(_empty) then {
-			_position = _position findEmptyPosition [3, 100];
+			_position = _position findEmptyPosition [_emptysizezone, 300];
 		};
 		if (_onflat) then {
 			_isflat = [];
@@ -122,8 +124,8 @@
 			} foreach _gridofposition;
 		};
 		_count = _count + 1;
-		if(_count > 300) then { _onflat = false;};
-		if(_count > 600) then { _position = [1,1,0]; _invalidate = false;};
+		if(_count > 100) then { _onflat = false; _emptysizezone = 3; diag_log "WARCONTEXT: POSITION LOOP exit over 100";};
+		if(_count > 300) then { _position = [1,1,0]; _invalidate = false; diag_log "WARCONTEXT: POSITION LOOP exit over 100";};
 		sleep 0.05;
 	};
 
