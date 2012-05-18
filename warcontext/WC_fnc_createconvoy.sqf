@@ -8,7 +8,6 @@
 		"_arrayofvehicle",
 		"_bucket",
 		"_group",
-		"_unit", 
 		"_target",
 		"_lastposition",
 		"_nearestenemy",
@@ -16,13 +15,14 @@
 		"_vehicle",
 		"_vehicles",
 		"_find",
-		"_typeof"
+		"_typeof",
+		"_position"
 		];
 
 	diag_log "WARCONTEXT: BUILD 1 CONVOY";
 
-	_target = position (wctownlocations call BIS_fnc_selectRandom);
-	_position = _target findemptyposition [10, 300];
+	_target = wctownlocations call BIS_fnc_selectRandom;
+	_position = (position _target) findEmptyPosition [10, 500];
 	_bucket = 0;
 
 	_arrayofvehicle = [_position, 0, (wcvehicleslistE call BIS_fnc_selectRandom), east] call BIS_fnc_spawnVehicle;
@@ -33,14 +33,13 @@
 	_arrayofpilot 	= _arrayofvehicle select 1;
 	_group 		= _arrayofvehicle select 2;
 
-
 	_vehicle setVehicleLock "LOCKED";
-	_unit = driver _vehicle;
 
 	wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;	
 
 	_target = wctownlocations call BIS_fnc_selectRandom;
+	_position = (position _target) findEmptyPosition [10, 500];
 
 	_group setBehaviour "SAFE";
 	_group setSpeedMode "FULL";
@@ -49,12 +48,13 @@
 
 	[_group] spawn {
 		private ["_group", "_list", "_cibles"];
+		_group = _this select 0;
 
 		while { (count (units _group) > 0) } do {
 			_cibles = [];
-			_list = (position (leader _group)) nearEntities [["All"], 300];
+			_list = (position (leader _group)) nearEntities [["AllVehicles"], 300];
 			{
-				if(driver _x == west) then {
+				if((side (driver _x) == west) or (side _x == west)) then {
 					_cibles = _cibles + [_x];
 				};
 				sleep 0.01;
@@ -62,29 +62,27 @@
 
 			{
 				_group reveal _x;
-				gunner _group dowatch position _x;
+				(gunner _vehicle) dowatch position _x;
+				sleep (random 10);
 			} foreach _cibles;
-			sleep 4;
+			sleep (random 10);
 		};
 	};
 
 	while { count (crew _vehicle) > 0 } do {
-		if(position (driver _vehicle) distance position _target > 150) then {
-			driver _vehicle domove ((position _target) findEmptyPosition [10,300]);
-		} else {
-			_target = wctownlocations call BIS_fnc_selectRandom;
-		};
-
 		if(format["%1", _lastposition] == format["%1", position _vehicle]) then {
 			_bucket = _bucket + 1;
 		};
+
 		_lastposition = position _vehicle;
 
-		if(_bucket > 10) then {
+		if(_bucket > 6) then {
 			_target = wctownlocations call BIS_fnc_selectRandom;
+			_position = (position _target) findEmptyPosition [10, 500];
+			(driver _vehicle) domove _position;
+			_vehicle setFuel 1;
 			_bucket = 0;
 		};
 
-		_vehicle setFuel 1;
-		sleep 5;
+		sleep 10;
 	};
