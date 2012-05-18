@@ -22,10 +22,10 @@
 	
 	while {((getdammage _unit < 0.7) and (_nuclearammo > 0))} do {
 
-		_position = wczonelocations call BIS_fnc_selectRandom;
+		_position = position (wctownlocations call BIS_fnc_selectRandom);
 		_position = [_position] call WC_fnc_relocateposition;
 		while { _position distance getmarkerpos "respawn_west" < 2000} do {
-			_position = wczonelocations call BIS_fnc_selectRandom;
+			_position = position (wctownlocations call BIS_fnc_selectRandom);
 			_position = [_position] call WC_fnc_relocateposition;
 			sleep 0.05;
 		};	
