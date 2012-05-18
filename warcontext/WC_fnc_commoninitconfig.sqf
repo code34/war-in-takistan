@@ -64,8 +64,31 @@
 			wcmapbottomleft = [0,0];
 		};
 
+		case "fallujah" : {
+			wcmaptopright 	= [10250,10250];
+			wcmapbottomleft = [0,0];
+		};
+
+		case "mcn_hazarkot" : {
+			wcmaptopright 	= [4800,4800];
+			wcmapbottomleft = [0,0];
+		};
+
+		case "mcn_aliabad" : {
+			wcmaptopright 	= [4800,4800];
+			wcmapbottomleft = [0,0];
+		};
+
 		default {
-			wcmaptopright 	= [12800, 12800];
+			// retrieve map ressource
+			_x = getNumber (configfile >> "cfgWorlds" >> worldname >> "Grid" >> "offsetX");
+			_y = getNumber (configfile >> "cfgWorlds" >> worldname >> "Grid" >> "offsetY");
+
+			if((_x == 0) or (_y ==0)) then {
+				wcmaptopright 	= [12800, 12800];
+			} else {
+				wcmaptopright = [_x, _y];
+			};
 			wcmapbottomleft = [0, 0];
 		};
 	};
@@ -93,6 +116,9 @@
 	// change clothes - player can be
 	wcchangeclothes = ["TK_CIV_Takistani01_EP1", "TK_CIV_Takistani02_EP1", "TK_CIV_Takistani03_EP1", "TK_CIV_Takistani04_EP1", "TK_CIV_Takistani05_EP1", "TK_CIV_Takistani06_EP1", "Dr_Hladik_EP1", "Pilot_EP1", "Haris_Press_EP1"];
 
+	// kind of radio tower
+	wcradiotype = ["TK_WarfareBUAVterminal_EP1"];
+
 	// Simulation mode has a harder scoring system
 	if(wckindofgame == 1) then {
 		wcscorelimitmin = -80; 
@@ -101,6 +127,9 @@
 		wcscorelimitmin = -20; 
 		wcscorelimitmax = 25;
 	};
+
+	// color cam
+	wccamgoalwithcolor = true;
 
 	// contain all nuclear zone
 	wcnuclearzone = [];
