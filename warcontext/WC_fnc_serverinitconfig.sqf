@@ -165,7 +165,6 @@
 
 	// contains all town locations
 	wcmissionlocations = [];
-	wczonelocations = [];
 	wctownlocations = [];
 	wcemptylocations = [];
 	_lastpos = [0,0];
@@ -179,12 +178,13 @@
 
 			if((_temp distance getmarkerpos "respawn_west" > (_sizeofzone * 2)) && (_lastpos distance _temp > (_sizeofzone * 2))) then {
 				if (_countofobject > wcminimunbuildings) then {
-					wctownlocations = wctownlocations + [createLocation ["NameCity", _temp, (_sizeofzone / 2), (_sizeofzone / 2)]];
-					wczonelocations = wczonelocations + [_temp];
+					wctownlocations = wctownlocations + [createLocation ["NameVillage", _temp, (_sizeofzone / 2), (_sizeofzone / 2)]];
 					_lastpos = _temp;
 				} else {
-					if!(surfaceIsWater _temp) then {
-						wcemptylocations = wcemptylocations + [_temp];
+					if (_countofobject == 0) then {
+						if!(surfaceIsWater _temp) then {
+							wcemptylocations = wcemptylocations + [_temp];
+						};
 					};
 				};
 			};
@@ -197,7 +197,6 @@
 			_temp = wcemptylocations call BIS_fnc_selectRandom;
 			wcemptylocations = wcemptylocations - [_temp];
 			wctownlocations = wctownlocations + [createLocation ["NameCity", _temp, (_sizeofzone / 2), (_sizeofzone / 2)]];
-			wczonelocations = wczonelocations + [_temp];
 		};
 	};
 
@@ -206,7 +205,6 @@
 		while { count wctownlocations > wccomputedzones } do {
 			_temp = wctownlocations call BIS_fnc_selectRandom;
 			wctownlocations = wctownlocations - [_temp];
-			wczonelocations = wczonelocations - [_temp];
 		};
 	};
 
