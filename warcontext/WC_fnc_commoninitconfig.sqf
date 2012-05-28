@@ -2,9 +2,8 @@
 	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - Description: init configuration file
 	// -----------------------------------------------
-	#include "common.hpp"
 
-	wcversion	= 1.40;
+	wcversion	= 1.60;
 
 	wcside 		=  [west];
 	
@@ -79,6 +78,22 @@
 			wcmapbottomleft = [0,0];
 		};
 
+		case "chernarus" : {
+			wcmaptopright 	= [14800,15000];
+			wcmapbottomleft = [0,0];
+		};
+
+		case "zargabad" : {
+			wcmaptopright 	= [5500,8200];
+			wcmapbottomleft = [0,0];
+		};
+
+		case "panthera2" : {
+			wcmaptopright 	= [10200,10200];
+			wcmapbottomleft = [0,0];
+		};
+
+
 		default {
 			// retrieve map ressource
 			_x = getNumber (configfile >> "cfgWorlds" >> worldname >> "Grid" >> "offsetX");
@@ -107,17 +122,31 @@
 	// blacklist of vehicles that can pop dynamicly (exclude mission)
 	wcblacklistenemyvehicleclass = ["BRDM2_ATGM_TK_EP1","GRAD_TK_EP1", "BMP2_HQ_TK_EP1"];
 	
-	// kind of houses - compute village
+	// kind of houses - computed village
 	wcvillagehouses = ["Land_House_C_5_V3_EP1", "Land_House_C_5_EP1", "Land_House_L_8_EP1", "Land_House_K_3_EP1", "Land_House_C_5_V1_EP1", "Land_A_Mosque_small_2_EP1", "Land_Wall_L_Mosque_1_EP1", "Land_A_Mosque_small_1_EP1", "Land_House_L_7_EP1", "Land_House_K_5_EP1", "Land_House_K_1_EP1", "Land_House_L_6_EP1", "Land_House_L_9_EP1", "Land_House_L_4_EP1", "Land_House_L_3_EP1", "Land_Wall_L3_5m_EP1"];
 
 	// special forces
 	wcspecialforces = ["TK_Special_Forces_EP1"];
+
+	// anti air vehicles
+	wcaavehicles = ["ZU23_TK_GUE_EP1", "Ural_ZU23_TK_GUE_EP1"];
 
 	// change clothes - player can be
 	wcchangeclothes = ["TK_CIV_Takistani01_EP1", "TK_CIV_Takistani02_EP1", "TK_CIV_Takistani03_EP1", "TK_CIV_Takistani04_EP1", "TK_CIV_Takistani05_EP1", "TK_CIV_Takistani06_EP1", "Dr_Hladik_EP1", "Pilot_EP1", "Haris_Press_EP1"];
 
 	// kind of radio tower
 	wcradiotype = ["TK_WarfareBUAVterminal_EP1"];
+
+	// Radio appear at distance of goal (min & max)
+	wcradiodistminofgoal = 150;
+	wcradiodistmaxofgoal = 300;
+
+	// kind of generator
+	wcgeneratortype = ["PowerGenerator_EP1"];
+
+	// Generator appear at distance of goal (min & max)
+	wcgeneratordistminofgoal = 150;
+	wcgeneratordistmaxofgoal = 300;
 
 	// Simulation mode has a harder scoring system
 	if(wckindofgame == 1) then {
@@ -128,7 +157,7 @@
 		wcscorelimitmax = 25;
 	};
 
-	// color cam
+	// Goal cam uses color
 	wccamgoalwithcolor = true;
 
 	// contain all nuclear zone
