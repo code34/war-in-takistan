@@ -57,8 +57,4 @@
 		sleep 2;
 	}foreach _locations;
 
-	_marker = wcambiantmarker call BIS_fnc_selectRandom;
-	_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
-	wcgarbage = [_position] spawn WC_fnc_createradio;
-
 	diag_log format["WARCONTEXT: COMPUTE %1 AMBIANT GROUPS", _count];
