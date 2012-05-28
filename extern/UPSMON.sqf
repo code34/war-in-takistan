@@ -981,8 +981,10 @@ while {_loop && (count (units _group) > 0)} do {
 			};				
 
 			_npc = leader _group;
-			_npc setBehaviour "STEALTH";	
-			_group setFormation "LINE";
+			_npc setBehaviour "STEALTH";
+
+			_wctemp = ["COLUMN", "STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "LINE"] call BIS_fnc_selectRandom;
+			_group setFormation _wctemp;
 			
 			sleep random(10);
 			{		
@@ -1322,7 +1324,8 @@ while {_loop && (count (units _group) > 0)} do {
 				if ( _dist <= _closeenough/2 ) then {	
 					//Modo combate cerrado
 					_speedmode = "LIMITED";	
-					_wpformation = "LINE";	
+					_wctemp = ["COLUMN", "STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "LINE"] call BIS_fnc_selectRandom;
+					_wpformation = _wctemp;	
 					_unitpos = "Middle";	
 					_react = _react + KRON_UPS_react / 2;
 					_minreact = KRON_UPS_minreact / 2;
