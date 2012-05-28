@@ -72,7 +72,7 @@
 		_countdead = _countdead + 1;
 		if(_timer < 1) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
 				_missioncomplete = true;
@@ -80,7 +80,7 @@
 		};
 		if((wcnumberofkilledofmissionW - _delta) > (playersNumber west)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much died"];
-			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
@@ -91,21 +91,21 @@
 		};
 		if((_count == 60) or (_count == 120))then {
 			wcmessageW = ["Commandement", "All players must stay in AREA!"];
-			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 		};
 		if (_count > 180) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much players out of area"];
-			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcmessageW spawn WC_fnc_infotext;
+			wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 		};
 		if (_countdead > 60) then {
 			_countdead = 0;
 
 			wcmessageW = [format["Still %1 minutes", floor(_timer / 60)], format["%1/%2 players died", (wcnumberofkilledofmissionW - _delta), (playersNumber west)]];
-			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 			_location = _locations call BIS_fnc_selectRandom;
 			if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) < ((playersNumber west) * 5 * wclevel))) then {

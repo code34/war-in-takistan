@@ -79,7 +79,7 @@
 			};
 			if((getmarkerpos "jail") distance _unit < 100) then {
 				wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
 				_missioncomplete = true;
@@ -88,7 +88,7 @@
 			};
 			if((!alive _unit) or (damage _unit > 0.9)) then {
 				wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
 				_missioncomplete = true;
