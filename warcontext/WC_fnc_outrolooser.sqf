@@ -19,9 +19,7 @@
 	ShowCinemaBorder true;
 
 	player setpos [0,0,0];
-
 	playMusic "outro";
-	playsound "ALL_HAHA";
 
 	while { true } do {	
 		_grave = nearestObjects[getmarkerpos "mortuary",[["gravecross2", "GraveCrossHelmet"] call BIS_fnc_selectRandom], 200];
