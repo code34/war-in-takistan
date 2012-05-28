@@ -3,7 +3,6 @@
 	// warcontext - restore loadout
 	// -----------------------------------------------
 
-	#include "common.hpp"
 
 	if (isDedicated) exitWith {};
 
@@ -30,27 +29,24 @@
 	{player addMagazine _x;} forEach wcmagazines;
 	{player addWeapon _x;} forEach wcweapons;
 
-	#ifdef _ACE_
-	if (wchasruckace) then {
-		[player, "ALL"] call ACE_fnc_RemoveGear;
-		if (!isNil "wcruckmags") then {
-			player setvariable ["ACE_RuckMagContents", wcruckmags];
+	if(wcwithACE == 1) then {
+		if (wchasruckace) then {
+			[player, "ALL"] call ACE_fnc_RemoveGear;
+			if (!isNil "wcruckmags") then {
+				player setvariable ["ACE_RuckMagContents", wcruckmags];
+			};
+			if (!isNil "wcruckweapons") then {
+				player setvariable ["ACE_RuckWepContents", wcruckweapons];
+			};
 		};
-		if (!isNil "wcruckweapons") then {
-			player setvariable ["ACE_RuckWepContents", wcruckweapons];
+		if (!isNil "wcweapononback") then {
+			[player, "WOB"] call ACE_fnc_RemoveGear;
+			player setvariable ["ACE_weapononback", wcweapononback];
 		};
+		player addweapon "ACE_Earplugs";
 	};
-	if (!isNil "wcweapononback") then {
-		[player, "WOB"] call ACE_fnc_RemoveGear;
-		player setvariable ["ACE_weapononback", wcweapononback];
-	};
-	#endif
 	if (wchasruck) then {
 		[player, [wcrucktype, wcruckweapons, wcruckmags]] call R3F_REV_FNCT_assigner_sacados;
 	};
-
-	#ifdef _ACE_
-	player addweapon "ACE_Earplugs";
-	#endif
 
 	player selectWeapon (primaryWeapon player);

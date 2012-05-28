@@ -3,8 +3,6 @@
 	// warcontext - camera focus around on object
 	// -----------------------------------------------
 
-	#include "common.hpp"
-
 	private [
 		"_alt",
 		"_object", 
@@ -101,7 +99,7 @@
 	"FilmGrain" ppEffectEnable true;
 
 	// print mission text
-	_missiontext spawn WC_fnc_infotext;
+	_missiontext spawn EXT_fnc_infotext;
 
 	while { (format["%1", wcanim] != "" and _sleep < 60)} do {
 

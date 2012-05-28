@@ -3,8 +3,6 @@
 	// warcontext 
 	// -----------------------------------------------
 
-	#include "common.hpp"
-
 	private ["_civillocation"];
 
 	if (!isServer) exitWith{};

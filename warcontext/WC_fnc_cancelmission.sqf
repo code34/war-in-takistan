@@ -4,7 +4,7 @@
 	// -----------------------------------------------
 
 	wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_MISSIONCANCELED"];
-	if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; };
+	if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; };
 	["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 	wcmissionsuccess = true;

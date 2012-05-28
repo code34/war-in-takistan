@@ -117,7 +117,7 @@
 			if((wcteamplayaddscore select 0) == name player) then {
 				_text = format["%1", (wcteamplayaddscore select 1)];
 				_text2 = format["Transfer: %1 points", (wcteamplayaddscore select 2)];
-				[_text, _text2] spawn WC_fnc_infotext;
+				[_text, _text2] spawn EXT_fnc_infotext;
 				_message = format["%1 give you : %2 personnal points", (wcteamplayaddscore select 1), (wcteamplayaddscore select 2)];
 				wcclientlogs = wcclientlogs + [_message];
 			};
@@ -160,7 +160,7 @@
 		wcchoosemission = _this select 0;
 		if(wcchoosemission) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", "Combat operation plan"];
-			wcmessageW spawn WC_fnc_infotext;
+			wcmessageW spawn EXT_fnc_infotext;
 			if(isnil "wcchoosemissionmenu") then {
 				wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\WC_fnc_openmission.sqf",[],6,false];
 			};
@@ -177,7 +177,7 @@
 
 	WC_fnc_netcode_wcmessageW = {
 		wcmessageW = _this select 0;
-		wcmessageW spawn WC_fnc_infotext;
+		wcmessageW spawn EXT_fnc_infotext;
 	};
 
 	WC_fnc_netcode_wcbombingavalaible = {

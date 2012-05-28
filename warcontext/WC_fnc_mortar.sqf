@@ -2,8 +2,6 @@
 	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// warcontext - create mortar bombing
 
-	#include "common.hpp"
-
 	private [
 		"_arrayofpilot",
 		"_arrayofvehicle",
@@ -69,17 +67,17 @@
 							sleep 0.05;
 						};
 						if(random 1 > 0.3) then {
-							#ifdef _ACE_
-							"ACE_ARTY_Sh_82_HE" createVehicle _position;
-							#else
-							"ARTY_Sh_82_HE" createVehicle _position;
-							#endif
+							if(wcwithACE == 1) then {
+								"ACE_ARTY_Sh_82_HE" createVehicle _position;
+							} else {
+								"ARTY_Sh_82_HE" createVehicle _position;
+							};
 						} else {
-							#ifdef _ACE_
-							"ACE_ARTY_SmokeShellWhite" createVehicle position _enemy;
-							#else
-							"ARTY_SmokeShellWhite" createVehicle position _enemy;
-							#endif						
+							if(wcwithACE == 1) then {
+								"ACE_ARTY_SmokeShellWhite" createVehicle position _enemy;
+							} else {
+								"ARTY_SmokeShellWhite" createVehicle position _enemy;
+							};					
 						};
 						sleep (15 + random 20);
 					};

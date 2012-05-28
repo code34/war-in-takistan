@@ -4,8 +4,6 @@
 	// -----------------------------------------------
 	if (!isServer) exitWith{};
 
-	#include "common.hpp"
-
 	private [
 		"_count",
 		"_location", 
@@ -86,7 +84,7 @@
 				if!(isDedicated) then {
 					if(wcchoosemission) then {
 						wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_MENUCHOOSEMISSION"];
-						if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+						if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 						if(isnil "wcchoosemissionmenu") then {
 							wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\WC_fnc_openmission.sqf",[],6,false];
 						};
@@ -127,21 +125,13 @@
 		if((_time select 3) == (date select 3)) then { if((_time select 4) < (date select 4)) then { wcday = wcday + 1; wcfame = wcfame - 0.15; };};
 
 		// Delete zones for next mission near this zone
-		//{
-		//	if((position _x) distance (position _location) < 1500) then {
-		//		wctownlocations = wctownlocations - [_x];
-		//	};
-		//}foreach wctownlocations;
 		wclastmissionposition = _position;
 
 		// Check if we are in town or not
 		_buildings = nearestObjects [position _location, ["house"] , wcdistance];
 		if (count _buildings < wcminimunbuildings) then { 
-			_intown = false;
 			wcgarbage = [_location] call WC_fnc_computeavillage;
 			wcgarbage = [_location] spawn WC_fnc_popcivilian;
-		} else {
-			_intown = true;
 		};
 
 		wcweather = [_rain, _fog, _overcast];
@@ -176,6 +166,7 @@
 		wcselectedzone = _position;
 		["wcselectedzone", "client"] call WC_fnc_publicvariable;
 
+		// build bombing mortar
 		if (random 1 > 0.80) then {
 			wcgarbage = [_marker] spawn WC_fnc_mortar;
 		};
@@ -186,66 +177,41 @@
 				wcgarbage = [] spawn WC_fnc_antiair;
 			};
 		};
-
-		if(random 1 > 0.95) then {
-			_position = [[8000,8000],[0,0],"onmount"] call WC_fnc_createposition;
-			_position = [_position select 0, _position select 1, 500];
-			if(random 1 > 0.5) then {
-				_plane = ["AV8B2", "A10_US_EP1"] call BIS_fnc_selectRandom;
-				_arrayofvehicle =[_position, 0, _plane , west] call BIS_fnc_spawnVehicle;
-				diag_log "WARCONTEXT: CREATE A FRIENDLY PLANE";
-			} else {
-				_plane = ["Su39","Su25_TK_EP1"] call BIS_fnc_selectRandom;
-				_arrayofvehicle =[_position, 0, _plane , east] call BIS_fnc_spawnVehicle;
-				diag_log "WARCONTEXT: CREATE AN ENEMY PLANE";
-			};
-		};
-
-		if(_intown) then {
-			_temp = (["rescuezone", "onground", "onflat"] call WC_fnc_createpositioninmarker) findEmptyPosition [2, 80];
-			_generator = "PowerGenerator_EP1" createvehicle _temp;
-			_generator setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\WC_fnc_dosabotage.sqf',[true],-1,false];";
-			processInitCommands;
-		};
-		
-		if(random 1 < wcenemyglobalelectrical) then {
-			wcradioalive = true;
-			["wcradioalive", "client"] call WC_fnc_publicvariable;
-		} else {
-			wcmessageW = ["Radio tower", "Electrical outage"];
-			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
-			wcradio setdamage 1;
-		};
-		
+	
 		// CREATE ENEMIES ON TARGET
 		for "_x" from 1 to _numberofgroup step 1 do {
 			_handle = [_marker, wcfactions call BIS_fnc_selectRandom, false] spawn WC_fnc_creategroup;
 			sleep 2;
 		};
 
+		// CREATE ENEMIES VEHICLES ON TARGET
 		for "_x" from 1 to _numberofvehicle step 1 do {
 			_handle = [_marker, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroup;
 			sleep 2;
 		};
 
+		// CREATE x CONVOY ON MAP
 		for "_x" from 1 to wcconvoylevel step 1 do {
 			_handle = [] spawn WC_fnc_createconvoy;
 			sleep 2;
 		};
 
+		// SEND MISSION TEXT TO PLAYER
 		if(isnil text _location) then {
 			_city = nearestLocation [position _location, "NameCity"];
 			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGENEAR", text _city], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
 		} else {
 			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGEGOTO", text _location], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
 		};
-		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW","client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW","client"] call WC_fnc_publicvariable;};
 
 		//wait for all initialisation
 		sleep 10;
 
 		// CREATE SIDE MISSION
 		wcgarbage = [_missionnumber, _name] spawn WC_fnc_createsidemission;
+
+		// CREATE ENEMIES ON OTHER ZONE NEAR SIDE MISSION
 		wcgarbage = [_location] spawn WC_fnc_ambiantlife;
 		if(wcreinforcmentlevel > 0) then { 
 			wcgarbage = [_location, _marker] spawn WC_fnc_support;
@@ -254,8 +220,11 @@
 		wcgarbage = [_location] spawn WC_fnc_createbunker;
 		wcgarbage = [_position] spawn WC_fnc_createstatic;
 
+		// Create ied in towns
 		if(wcwithied > 0) then {
-			wcgarbage = [_position] spawn WC_fnc_createiedintown;
+			if(random 1 > 0.9) then {
+				wcgarbage = [_position] spawn WC_fnc_createiedintown;
+			};
 		};
 
 		// create civils car
@@ -266,7 +235,9 @@
 				wcgarbage = [_x] spawn WC_fnc_createcivilcar;
 			};
 			if(wcwithied > 0) then {
-				wcgarbage = [position _x] spawn WC_fnc_createiedintown;
+				if(random 1 > 0.9) then {
+					wcgarbage = [position _x] spawn WC_fnc_createiedintown;
+				};
 			};
 		}foreach _civillocation;
 
@@ -305,7 +276,7 @@
 				if(_count > 10) then {
 					_count = 0;
 					wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", wclevel], localize "STR_WC_MESSAGELEAVEZONE"];
-					if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+					if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				};
 			};
 		};
@@ -332,28 +303,28 @@
 		deletemarkerlocal "airzone";
 
 		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONFINISHED", wclevel], localize "STR_WC_MESSAGNEXTSTEP"];
-		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 		sleep 0.5;
 
 		// PRINT STATS BEFORE SANITING MAP
 		wcmessageW = ["Casualty", format["%1 East soldiers killed", wcnumberofkilledofmissionE]];
-		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 West soldiers killed", wcnumberofkilledofmissionW]];
-		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 Civils killed", wcnumberofkilledofmissionC]];
-		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 Vehicles destroyed", wcnumberofkilledofmissionV]];
-		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 		sleep 0.5;
 
@@ -371,7 +342,7 @@
 			};
 		};
 		wcmessageW = ["Military intervention", format["%1 fame", _fame]];
-		if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 		sleep 0.5;
 

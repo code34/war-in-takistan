@@ -10,8 +10,6 @@
 		"_count"
 	];
 
-	#include "common.hpp"
-
 	_unit = _this select 0;
 	_unit setvariable ["wciedactivate", true, true];
 

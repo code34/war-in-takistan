@@ -7,8 +7,6 @@
 		"_unit",
 		"_men"
 	];
-
-	#include "common.hpp"
 	
 	_unit = _this select 0;
 

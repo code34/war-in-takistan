@@ -4,8 +4,6 @@
 	// create an US ammobox on local client side
 	// -----------------------------------------------
 
-	#include "common.hpp"
-
 	 private [
 		"_base",
 		"_crate",

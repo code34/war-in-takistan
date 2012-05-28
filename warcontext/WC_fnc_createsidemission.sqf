@@ -4,8 +4,6 @@
 	// -----------------------------------------------
 	if (!isServer) exitWith{};
 
-	#include "common.hpp"
-
 	private [
 		"_vehicle", 
 		"_location", 
@@ -1073,6 +1071,7 @@
 
 	diag_log format ["WARCONTEXT: MISSION:%1 TYPE:%2 DESCRIPTION: %3", _missionnumber, _missiontype, _missiontext];
 
+	
 	sleep 30;
 
 	// for debug purpose 
@@ -1098,7 +1097,7 @@
 				if (_this select 2 > wcdammagethreshold) then {
 					(_this select 0) removeAllEventHandlers "HandleDamage";
 					wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-					if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; };
+					if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; };
 					["wcmessageW", "client"] call WC_fnc_publicvariable;
 					wcmissionsuccess = true;
 					wcobjectiveindex = wcobjectiveindex + 1;
@@ -1122,7 +1121,7 @@
 			}];
 			_vehicle addeventhandler ['killed', {
 				wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
 				wcleveltoadd = 1;
@@ -1138,7 +1137,7 @@
 			sleep 10;
 			waituntil {!(_vehicle getvariable "wciedactivate")};
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			wcleveltoadd = 1;
@@ -1195,3 +1194,11 @@
 
 		};
 	};
+
+	// create radio tower near side goal
+	_position = [_position, wcradiodistminofgoal, wcradiodistmaxofgoal] call WC_fnc_createpositionaround;
+	wcgarbage = [_position] spawn WC_fnc_createradio;
+
+	// create an electrical generator
+	_position = [_position, wcgeneratordistminofgoal, wcgeneratordistmaxofgoal] call WC_fnc_createpositionaround;
+	wcgarbage = [_position] spawn WC_fnc_creategenerator;

@@ -2,7 +2,6 @@
 	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - Description: init configuration file
 	// -----------------------------------------------
-	#include "common.hpp"
 
 	if (!isServer) exitWith{};
 
@@ -123,11 +122,11 @@
 	wcnumberofkilledofmissionV = 0;
 
 	// threshold of dammage to do, for enemy vehicle explose
-	#ifdef _ACE_
+	if(wcwithACE == 1) then {
 		wcdammagethreshold = 0.3;
-	#else
+	} else {
 		wcdammagethreshold = 0.5;
-	#endif
+	};
 
 	// initialise the index composition
 	wccompositionindex = 0;
@@ -174,9 +173,17 @@
 	while { _y < (wcmaptopright select 1) } do {
 		for "_x" from (wcmapbottomleft select 0) to (wcmaptopright select 0) step _sizeofzone do {
 			_temp = [_x, _y];
-			_countofobject = count (nearestObjects [_temp, ["House"] , (_sizeofzone / 2)]);
 
-			if((_temp distance getmarkerpos "respawn_west" > (_sizeofzone * 2)) && (_lastpos distance _temp > (_sizeofzone * 2))) then {
+			_array = nearestObjects [_temp, ["House"] , (_sizeofzone / 2)];
+			{
+				if(format["%1", typeof _x] == "Land_runway_edgelight") then {
+					_array = _array - [_x];
+				};
+			}foreach _array;
+
+			_countofobject = count _array;
+
+			if((_temp distance getmarkerpos "respawn_west" > (_sizeofzone * 2)) && (_lastpos distance _temp > (_sizeofzone * 2)) && !(surfaceiswater _temp)) then {
 				if (_countofobject > wcminimunbuildings) then {
 					wctownlocations = wctownlocations + [createLocation ["NameVillage", _temp, (_sizeofzone / 2), (_sizeofzone / 2)]];
 					_lastpos = _temp;

@@ -2,8 +2,6 @@
 	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - Description: on killed player event
 
-	#include "common.hpp"
-
 	_this spawn WC_fnc_garbagecollector;
 	
 	[] call WC_fnc_saveloadout;

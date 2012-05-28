@@ -3,7 +3,6 @@
 	// warcontext - save loadout
 	// -----------------------------------------------
 
-	#include "common.hpp"
 
 	if (isDedicated) exitWith {};
 
@@ -39,12 +38,12 @@
 	wcruckweapons = [];
 	wcweapononback = [];
 	
-	#ifdef _ACE_
-	wcweapononback = player getvariable "ACE_weapononback";
-	if (player call ace_sys_ruck_fnc_hasRuck) then {
-		wcrucktype = player call ACE_Sys_Ruck_fnc_FindRuck;
-		wcruckmags = player getvariable "ACE_RuckMagContents";
-		wcruckweapons = player getvariable "ACE_RuckWepContents";
-		wchasruckace = true;
+	if(wcwithACE == 1) then {
+		wcweapononback = player getvariable "ACE_weapononback";
+		if (player call ace_sys_ruck_fnc_hasRuck) then {
+			wcrucktype = player call ACE_Sys_Ruck_fnc_FindRuck;
+			wcruckmags = player getvariable "ACE_RuckMagContents";
+			wcruckweapons = player getvariable "ACE_RuckWepContents";
+			wchasruckace = true;
+		};
 	};
-	#endif

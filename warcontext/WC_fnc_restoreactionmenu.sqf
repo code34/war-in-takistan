@@ -3,8 +3,6 @@
 	// warcontext - restore menu action when player died
 	// -----------------------------------------------
 
-	#include "common.hpp"
-
 	if (isDedicated) exitWith {};
 
 	// Default menu

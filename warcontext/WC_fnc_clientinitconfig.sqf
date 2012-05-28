@@ -2,7 +2,6 @@
 	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - Description: init configuration file
 	// -----------------------------------------------
-	#include "common.hpp"
 
 	if (!local player) exitWith{};
 
