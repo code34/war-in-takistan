@@ -9,14 +9,15 @@
 		"_original", 
 		"_player", 
 		"_mydir", 
-		"_creditsend"
+		"_creditsend",
+		"_position"
 	];
 
 	waituntil {isnull wccam};
 	waituntil {!(player getvariable "deadmarker")};
 
-	player setVehicleInit "this allowdammage true;";
-	processInitCommands;
+	_position = (getmarkerpos "respawn_west") findEmptyPosition [10, 200];
+	player setpos _position;
 
 	disableSerialization;
 
