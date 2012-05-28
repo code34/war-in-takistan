@@ -15,8 +15,6 @@
 		"_arrayplayers"
 		];
 
-	#include "common.hpp"
-
 	// Init global variables
 	wcgarbage = [] call WC_fnc_commoninitconfig;
 	wcgarbage = [] call WC_fnc_clientinitconfig;
@@ -171,13 +169,13 @@
 					playsound "drum";
 					_teampromote = localize format["STR_WC_TEAM%1", wcteamlevel];
 					_message =[localize "STR_WC_MESSAGETEAMPROMOTED", format["to %1 !", _teampromote]];
-					_message spawn WC_fnc_infotext;
+					_message spawn EXT_fnc_infotext;
 				} else {
 					_oldlevel = wcteamlevel;
 					playsound "drum";
 					_teampromote = localize format["STR_WC_TEAM%1", wcteamlevel];
 					_message =[localize "STR_WC_MESSAGETEAMDEGRADED", format["to %1 !", _teampromote]];
-					_message spawn WC_fnc_infotext;
+					_message spawn EXT_fnc_infotext;
 				};
 			};
 			sleep 5;
@@ -194,9 +192,9 @@
 	player addweapon "Binocular";
 	player addweapon "ItemRadio";
 
-	#ifdef _ACE_
-	player addweapon "ACE_Earplugs";
-	#endif
+	if(wcwithACE == 1) then {
+		player addweapon "ACE_Earplugs";
+	};
 
 	wcgarbage = [(getmarkerpos "crate1"), "base"] spawn WC_fnc_createammobox;
 	if(wcautoloadweapons == 1) then {
@@ -273,7 +271,7 @@
 							["wcdegrade", "all"] call WC_fnc_publicvariable;
 							_message =[localize "STR_WC_MESSAGEDEGRADED", format[localize "STR_WC_MESSAGETORANK", rank player]];
 						};
-						_message spawn WC_fnc_infotext;
+						_message spawn EXT_fnc_infotext;
 						playsound "drum";
 						wcrankchanged = true;
 						_count = 0;
@@ -290,7 +288,7 @@
 		while { true } do {
 			if((position player) distance (getmarkerpos "hospital") < 5) then {
 				_message =["You retrieve","all your revives"];
-				_message spawn WC_fnc_infotext;
+				_message spawn EXT_fnc_infotext;
 				R3F_REV_nb_reanimations = R3F_REV_CFG_nb_reanimations;
 				player setdamage 0;
 			};
@@ -310,7 +308,7 @@
 			}foreach playableUnits;
 			if(wcbonus > 10000) then {
 				_message =["You have win", "10 points Teamplay bonus"];
-				_message spawn WC_fnc_infotext;
+				_message spawn EXT_fnc_infotext;
 				wcbonus = 0;
 				wcplayeraddscore = [player, 10];
 				["wcplayeraddscore", "server"] call WC_fnc_publicvariable;
