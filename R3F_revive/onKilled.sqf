@@ -17,8 +17,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-	#include "common.hpp"
-
 if (_this select 0 != player) exitWith {};
 
 if(vehicle (_this select 1) == (_this select 1)) then {
@@ -57,15 +55,15 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 	_ruckweapons = [];
 	_weapononback = [];
 	
-	#ifdef _ACE_
-	_weapononback = R3F_REV_corps_avant_mort getvariable "ACE_weapononback";
-	if (R3F_REV_corps_avant_mort call ace_sys_ruck_fnc_hasRuck) then {
-		_rucktype = R3F_REV_corps_avant_mort call ACE_Sys_Ruck_fnc_FindRuck;
-		_ruckmags = R3F_REV_corps_avant_mort getvariable "ACE_RuckMagContents";
-		_ruckweapons = R3F_REV_corps_avant_mort getvariable "ACE_RuckWepContents";
-		_hasruckace = true;
+	if(wcwithACE == 1) then {
+		_weapononback = R3F_REV_corps_avant_mort getvariable "ACE_weapononback";
+		if (R3F_REV_corps_avant_mort call ace_sys_ruck_fnc_hasRuck) then {
+			_rucktype = R3F_REV_corps_avant_mort call ACE_Sys_Ruck_fnc_FindRuck;
+			_ruckmags = R3F_REV_corps_avant_mort getvariable "ACE_RuckMagContents";
+			_ruckweapons = R3F_REV_corps_avant_mort getvariable "ACE_RuckWepContents";
+			_hasruckace = true;
+		};
 	};
-	#endif
 	
 	closeDialog 0;
 	
@@ -125,21 +123,21 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 		{player addMagazine _x;} forEach _chargeurs_avant_mort;
 		{player addWeapon _x;} forEach _armes_avant_mort;
 
-		#ifdef _ACE_
-		if (_hasruckace) then {
-			[player, "ALL"] call ACE_fnc_RemoveGear;
-			if (!isNil "_ruckmags") then {
-				player setvariable ["ACE_RuckMagContents", _ruckmags];
+		if(wcwithACE == 1) then {
+			if (_hasruckace) then {
+				[player, "ALL"] call ACE_fnc_RemoveGear;
+				if (!isNil "_ruckmags") then {
+					player setvariable ["ACE_RuckMagContents", _ruckmags];
+				};
+				if (!isNil "_ruckweapons") then {
+					player setvariable ["ACE_RuckWepContents", _ruckweapons];
+				};
 			};
-			if (!isNil "_ruckweapons") then {
-				player setvariable ["ACE_RuckWepContents", _ruckweapons];
+			if (!isNil "_weapononback") then {
+				[player, "WOB"] call ACE_fnc_RemoveGear;
+				player setvariable ["ACE_weapononback", _weapononback];
 			};
 		};
-		if (!isNil "_weapononback") then {
-			[player, "WOB"] call ACE_fnc_RemoveGear;
-			player setvariable ["ACE_weapononback", _weapononback];
-		};
-		#endif
 		if (_hasruck) then {
 			[player, [_rucktype, _ruckweapons, _ruckmags]] call R3F_REV_FNCT_assigner_sacados;
 		};
@@ -251,9 +249,9 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 
 		wcgarbage = [] spawn WC_fnc_restoreactionmenu;
 
-		#ifdef _ACE_
-		player addweapon "ACE_Earplugs";
-		#endif
+		if(wcwithACE == 1) then {
+			player addweapon "ACE_Earplugs";
+		};
 	} else {
 		wcrespawntobase = name player;
 		["wcrespawntobase", "server"] call WC_fnc_publicvariable;
@@ -294,23 +292,22 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 		{player addWeapon _x;} forEach _armes_avant_mort;
 		player selectWeapon (primaryWeapon player);
 
-		#ifdef _ACE_
-		if (_hasruck) then {
-			removeBackpack player;
-			player addweapon _rucktype;
-			if (!isNil "_ruckmags") then {
-				player setvariable ["ACE_RuckMagContents", _ruckmags];
+		if(wcwithACE == 1) then {
+			if (_hasruck) then {
+				removeBackpack player;
+				player addweapon _rucktype;
+				if (!isNil "_ruckmags") then {
+					player setvariable ["ACE_RuckMagContents", _ruckmags];
+				};
+				if (!isNil "_ruckweapons") then {
+					player setvariable ["ACE_RuckWepContents", _ruckweapons];
+				};
 			};
-			if (!isNil "_ruckweapons") then {
-				player setvariable ["ACE_RuckWepContents", _ruckweapons];
+		} else {
+			if !(isNil "R3F_REV_FNCT_assigner_sacados") then {
+				[player, _sacados_avant_mort] call R3F_REV_FNCT_assigner_sacados;
 			};
 		};
-		#else
-		if !(isNil "R3F_REV_FNCT_assigner_sacados") then
-		{
-			[player, _sacados_avant_mort] call R3F_REV_FNCT_assigner_sacados;
-		};
-		#endif
 
 		if (R3F_REV_CFG_afficher_marqueur) then {
 			player setvariable ["deadmarker", false, true];

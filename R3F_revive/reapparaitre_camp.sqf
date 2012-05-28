@@ -19,8 +19,6 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-	#include "common.hpp"
-
 	// On ferme tout les fils d'exécution éventuels
 	terminate R3F_REV_fil_exec_attente_reanimation;
 	terminate R3F_REV_fil_exec_reapparaitre_camp;
@@ -135,9 +133,9 @@ R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 
 	wcgarbage = [] spawn WC_fnc_restoreactionmenu;
 
-	#ifdef _ACE_
-	player addweapon "ACE_Earplugs";
-	#endif
+	if(wcwithACE == 1) then {
+		player addweapon "ACE_Earplugs";
+	};
 	
 	ppEffectDestroy R3F_REV_effet_video_flou;
 	ppEffectDestroy R3F_REV_effet_video_couleur;
