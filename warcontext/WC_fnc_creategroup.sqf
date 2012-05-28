@@ -137,16 +137,13 @@
 		};
 	} else {
 		if(random 1 > 0.4) then {
-			_list = nearestObjects [_position, ["house","building"] , 70];
+			_list = nearestObjects [_position, ["house"] , 70];
 			if(count _list > 10) then {
-				//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker', 'fortify'] execVM 'extern\upsmon.sqf';", _marker];
 				wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] execVM 'extern\upsmon.sqf';
 			} else {
-				//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
 				wcgarbage = [(leader _group), _marker, 'showmarker'] execVM 'extern\upsmon.sqf';
 			};
 		} else {
-			//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\upsmon.sqf';", _marker];
 			wcgarbage = [(leader _group), _marker, 'showmarker'] execVM 'extern\upsmon.sqf';
 		};
 	};
