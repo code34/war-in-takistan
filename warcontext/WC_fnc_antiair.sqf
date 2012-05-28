@@ -10,7 +10,7 @@
 	
 	_position = (position (_hill call BIS_fnc_selectRandom)) findEmptyPosition [2, 20];
 
-	_type = ["ZU23_TK_GUE_EP1", "Ural_ZU23_TK_GUE_EP1"] call BIS_fnc_selectRandom;
+	_type = wcaavehicles call BIS_fnc_selectRandom;
 	_arrayofvehicle = [_position, 0, _type, resistance] call BIS_fnc_spawnVehicle;
 
 	_vehicle 	= _arrayofvehicle select 0;
