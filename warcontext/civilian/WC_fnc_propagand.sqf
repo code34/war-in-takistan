@@ -91,7 +91,7 @@
 		};
 		if((getmarkerpos "respawn_west") distance _unit < 100) then {
 			wcmessageW = ["Propagand", "A prisonner is in jail"];
-			if!(isDedicated) then { wcmessageW spawn WC_fnc_infotext; };
+			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; };
 			_unit setpos getmarkerpos "jail";
 			[_unit] joinSilent group prisoner;
 			_unit allowdammage false;
