@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: team  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - Description:
 	// Restore building / compositions that have been backup from Merlin
 	// Position is the center of composition

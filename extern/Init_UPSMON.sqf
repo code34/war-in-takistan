@@ -1,6 +1,6 @@
 	// =========================================================================================================
 	// Based on UPSMON - Urban Patrol Script  Mon
- 	// Author: =[A*C]= code34 (nicolas_boiteux@yahoo.fr)
+ 	// Author:  code34 (nicolas_boiteux@yahoo.fr)
 	// Version x 
 	// delete surrended option and publicvariable
 	// ---------------------------------------------------------------------------------------------------------

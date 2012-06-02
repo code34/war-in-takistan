@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: team  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - Description:
 	// create a grid of 9 positions NW,N,NE,W,C,E,SW,S,SE
 	// around a position

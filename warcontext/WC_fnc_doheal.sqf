@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext : heal other player when not medic
 	// -----------------------------------------------
 

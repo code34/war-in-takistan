@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: team  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - Description:
 	// respawn vehicle at their original position
 	// Context: server side

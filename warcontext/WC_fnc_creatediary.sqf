@@ -1,11 +1,11 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - Description: init
 	// -----------------------------------------------
 
 	if (isdedicated) exitWith{};
 
-	_diary = player createDiaryRecord ["Diary", ["Author", "The main mission was developped by =[A*C]= code34"]];
+	_diary = player createDiaryRecord ["Diary", ["Author", "The main mission was developped by  code34"]];
 	_diary = player createDiaryRecord ["Diary", ["Tent", "You can build tent. Tent can be used as personnal respawn."]];
 	_diary = player createDiaryRecord ["Diary", ["Repair\Unlock\Unflip vehicles", "Only engineers can repair, unflip, unlock vehicles."]];
 	_diary = player createDiaryRecord ["Diary", ["Points", "At the end of each mission, the players have to distribute some points to other players to evaluate their contribution to the successfull of the mission. Thoses points affects the players ranking. More the rank of the player is higher, more the game is hardier for him (less revive)"]];

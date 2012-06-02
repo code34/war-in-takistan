@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: MH6 - rework =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: MH6 - rework  code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - create a positions circle of x points around position
 	// -----------------------------------------------
 

@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - camera focus on object
 	// -----------------------------------------------
 
@@ -47,7 +47,7 @@
 	setDate [1986, 2, 25, 17, 0];
 
 	_texts = [
-		"This mission was designed by =[A*C]= code34",
+		"This mission was designed by  code34",
 		"There was more than 120 versions ...",
 		"During this development time, there was an anormal number of IA killings",
 		"that were due to nuclear and carpet bombing.",

@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author:  =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:   code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - create an antiair site
 
 	private ["_position", "_mount", "_vehicle", "_arrayofpilot", "_group", "_pilot", "_type"];

@@ -1,5 +1,5 @@
 ﻿	// -----------------------------------------------
-	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: team  code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - Description: on killed player event
 
 	_this spawn WC_fnc_garbagecollector;

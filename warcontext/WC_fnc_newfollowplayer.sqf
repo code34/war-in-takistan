@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - radio marker
 	// -----------------------------------------------
 	private ["_arrayofplayer", "_radio", "_markersize", "_position", "_markerradio", "_marker", "_marker2", "_arrayofmarker", "_side", "_trg", "_list", "_countscream"];

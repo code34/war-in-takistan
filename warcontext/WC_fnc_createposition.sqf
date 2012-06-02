@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext 
 	// units & vehicles class
 	// http://community.bistudio.com/wiki/ArmA:_CfgVehicles

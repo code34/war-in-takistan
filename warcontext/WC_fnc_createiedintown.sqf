@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - IED in town 
 	
 	private ["_position", "_iedobject", "_object", "_position", "_iedtype", "_positions", "_count", "_index", "_max"];

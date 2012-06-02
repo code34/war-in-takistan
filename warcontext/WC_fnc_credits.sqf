@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - camera focus on object
 	// -----------------------------------------------
 
@@ -85,7 +85,7 @@
 	};
 
 
-	_text = "A mission designed by =[A*C]= code34";
+	_text = "A mission designed by  code34";
 	titleText [_text, "BLACK FADED"];
 	sleep 2;		
 	titleText ["", "PLAIN"];

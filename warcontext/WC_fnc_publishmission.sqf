@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: team =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: team  code34 nicolas_boiteux@yahoo.fr
 
 	if (!isServer) exitWith {};
 	private ["_ok", "_name", "_count", "_variables"];

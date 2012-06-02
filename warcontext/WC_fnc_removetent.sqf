@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// Remove a personnal respawn tent
 
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";

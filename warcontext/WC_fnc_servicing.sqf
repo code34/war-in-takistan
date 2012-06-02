@@ -1,5 +1,5 @@
 	// -----------------------------------------------
-	// Author: Xeno rework by =[A*C]= code34 nicolas_boiteux@yahoo.fr
+	// Author: Xeno rework by  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - Repair vehicle
 	// -----------------------------------------------
 	if!(isserver) exitwith {};
