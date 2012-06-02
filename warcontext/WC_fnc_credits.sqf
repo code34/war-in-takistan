@@ -32,7 +32,6 @@
 		"Revive, Artillery, Debug by R3F Team,",
 		"Domination by Xeno: global informations",
 		"Atot By Miguel Rodriguez, FOB by Ei8ght,",
-		"fn_location by Wolffy.au",
 		"Nuclear Nuke by Benny Warfare",
 		"ACE: Magic Box",
 		"Spectator by Kegetys",
@@ -41,10 +40,9 @@
 		"FlashpointChernarus107 mission: civil cars idea",
 		"and all others that i can forgot (..)",
 		"Thanks to Fruity Rudy for his english translation",
-		"Thanks to Air Commando Team for theirs intensives tests",
-		"and all theirs advices, and courage against ied bomberman",
-		"Thanks to all of our friends that came and play with us",
-		"You can find more information on www.air-commando.fr"
+		"Thanks to Ei8ght",
+		"Thanks to Air Commando Team",
+		"You can find more information in the official thread of WIT at BIS FORUM"
 		];
 
 	2 cutRsc ["warcontextlabel","PLAIN"]; 
