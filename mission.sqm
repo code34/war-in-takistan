@@ -12,8 +12,8 @@ class Mission
 	randomSeed=4546277;
 	class Intel
 	{
-		briefingName="WAR IN TAKISTAN 1.45";
-		briefingDescription="by =[A*C]= code34";
+		briefingName="WAR IN TAKISTAN 1.6";
+		briefingDescription="code34";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.0099999905;
@@ -61,7 +61,7 @@ class Mission
 					vehicle="FunctionsManager";
 					leader=1;
 					skill=0.60000002;
-					init="BIS_fnc_locations = compile preprocessFileLineNumbers ""extern\fn_locations.sqf""; BIS_fnc_RESPECT = compile preprocessFileLineNumbers ""extern\fn_RESPECT.sqf"";";
+					init="";
 				};
 			};
 		};
