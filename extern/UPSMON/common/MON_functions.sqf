@@ -55,7 +55,7 @@ MON_deleteDeadDist = {private["_u","_s","_dist","_OCercanos","_cicle","_deleted"
 		_OCercanos = nearestObjects [_u, ["Man"] , _dist];		
 		
 		//Validamos si alguno de los soldados cerca es un jugador y está vivo
-		{if (isplayer _x && alive _x) exitwith {_isplayer = true;}}foreach _OCercanos;
+		{if (isplayer _x && alive _x) exitwith {_isplayer = true;}; sleep 0.05;}foreach _OCercanos;
 	
 		if (!_isplayer) then {		
 			deletevehicle _u;	
@@ -71,7 +71,7 @@ MON_deleteDeadDist = {private["_u","_s","_dist","_OCercanos","_cicle","_deleted"
 //param3: array con los comandos
 //Retorna valor del comando encontrado o valor por defecto
 MON_getArg = {private["_cmd","_arg","_list","_a","_v"]; _cmd=_this select 0; _arg=_this select 1; _list=_this select 2; _a=-1; {_a=_a+1; _v=format["%1",_list select _a]; 
-if (_v==_cmd) then {_arg=(_list select _a+1)}} foreach _list; _arg};
+if (_v==_cmd) then {_arg=(_list select _a+1)};sleep 0.05;} foreach _list; _arg};
 
 // ---------------------------------------------------------------------------------------------------------
 //Función que devuelve una posición en 3D a partir de otra, una dirección y una distancia
@@ -127,7 +127,7 @@ MON_GetPos2D =
 //Retorna numero de posiciones que tiene el edificio
 MON_BldPos = {private ["_bld","_bldpos"];
 					_bld=_this; _bldpos = 1;
-					while {format ["%1", _bld buildingPos _bldpos] != "[0,0,0]"}  do {_bldpos = _bldpos + 1;};
+					while {format ["%1", _bld buildingPos _bldpos] != "[0,0,0]"}  do {_bldpos = _bldpos + 1;sleep 0.05;};
 				_bldpos = _bldpos - 1; _bldpos;};
 				
 // ---------------------------------------------------------------------------------------------------------				
@@ -223,6 +223,7 @@ MON_GetIn_NearestVehicles = {
 	
 	{
 		if ( (_x!= vehicle _x && !((vehicle _x) iskindof "StaticWeapon" )) || !(_x iskindof "Man") || !alive _x || !canmove _x || !canstand _x) then {_units = _units-[_x];};
+		sleep 0.05;
 	}foreach _units;
 	
 	_unitsIn = _units;
@@ -231,20 +232,20 @@ MON_GetIn_NearestVehicles = {
 	//First catch combat vehicles
 	if ( (count _units) > 0) then {	
 		_air = [_npc,200] call MON_NearestsAirTransports;
-		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _air = _air - [_x]};}foreach _air;
+		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _air = _air - [_x]}; sleep 0.05;}foreach _air;
 		_units = [_grpid, _units, _air, false] call MON_selectvehicles;				
 	};	
 	sleep 0.05;
 	if ( (count _units) > 1) then {	
 		_vehicles = [_npc,200,true] call MON_NearestsLandCombat;
-		{if (_npc knowsabout(_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};}foreach _vehicles;
+		{if (_npc knowsabout(_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]}; sleep 0.05;}foreach _vehicles;
 		_units = [_grpid, _units, _vehicles, false] call MON_selectvehicles;		
 	};		
 	sleep 0.05;
 	
 	if ( (count _units) > 0) then {	
 		_vehicles = [_npc,200] call MON_NearestsLandTransports;
-		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};}foreach _vehicles;
+		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]}; sleep 0.05;}foreach _vehicles;
 		_units = [_grpid, _units, _vehicles, false] call MON_selectvehicles;		
 	};	
 	sleep 5;
@@ -286,6 +287,7 @@ MON_GetIn_NearestCombat = {
 	
 	{
 		if ( (_x!= vehicle _x && !((vehicle _x) iskindof "StaticWeapon" )) || !(_x iskindof "Man") || !alive _x || !canmove _x || !canstand _x) then {_units = _units-[_x];};
+		sleep 0.05;
 	}foreach _units;
 	
 	//If suficient units leader will not get in
@@ -298,14 +300,14 @@ MON_GetIn_NearestCombat = {
 	//We need 2 units available if not any leave vehicle to another squad	
 	if ( (count _units) > 1) then {	
 		_vehicles = [_npc,_dist,_all] call MON_NearestsAirCombat;
-		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};}foreach _vehicles;
+		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};sleep 0.05;}foreach _vehicles;
 		_units = [_grpid, _units, _vehicles, false] call MON_selectvehicles;				
 	};
 	sleep 0.05;
 	
 	if ( (count _units) > 1) then {	
 		_vehicles = [_npc,_dist,_all] call MON_NearestsLandCombat;
-		{if (_npc knowsabout(_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};}foreach _vehicles;
+		{if (_npc knowsabout(_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};sleep 0.05;}foreach _vehicles;
 		_units = [_grpid, _units, _vehicles, false] call MON_selectvehicles;		
 	};
 	
@@ -339,6 +341,7 @@ MON_GetIn_NearestBoat = {
 	
 	{
 		if ( (_x!= vehicle _x && !((vehicle _x) iskindof "StaticWeapon" )) || !(_x iskindof "Man") || !alive _x || !canmove _x || !canstand _x) then {_units = _units-[_x];};
+		sleep 0.05;
 	}foreach _units;
 	
 	_unitsIn = _units;
@@ -346,7 +349,7 @@ MON_GetIn_NearestBoat = {
 	//We need 2 units available if not any leave vehicle to another squad	
 	if ( (count _units) > 0) then {			
 		_vehicles = [_npc,_dist] call MON_Nearestsboats;
-		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};}foreach _vehicles;
+		{if (_npc knowsabout (_x select 0) <= 0.5) then{ _vehicles = _vehicles - [_x]};sleep 0.05;}foreach _vehicles;
 		_units = [_grpid, _units, _vehicles, false] call MON_selectvehicles;			
 	};
 	
@@ -396,6 +399,7 @@ MON_GetIn_NearestStatic = {
 		if ( (_x iskindof "Man") && _x == vehicle _x && alive _x && canmove _x && canstand _x) then {
 			_unitsIn = _unitsIn + [_x];			
 		};
+		sleep 0.05;
 	}foreach _units;
 	
 	// Retrieve units ready
@@ -404,6 +408,7 @@ MON_GetIn_NearestStatic = {
 		if (unitready _x) then {
 			_units = _units + [_x];			
 		};
+		sleep 0.05;
 	}foreach _unitsin;	
 	
 	//Si hay unidades disponibles las usamos
@@ -469,6 +474,7 @@ MON_selectvehicles = {
 		
 		{
 			if (!alive _x || !canmove _x) then {_cargo = _cargo - [_x]; };
+			sleep 0.05;
 		}foreach _cargo;
 		
 		_emptypositions = _emptypositions - (count _cargo - count ( crew _vehicle) );		
@@ -482,10 +488,12 @@ MON_selectvehicles = {
 				_unit = _units select _i;		
 				_unitsIn = _unitsIn + [_unit];				
 				_i = _i + 1;
+				sleep 0.05;
 			};
 			
 			{
 				_units = _units - [_x];
+				sleep 0.05;
 			}foreach _unitsIn;
 			
 			if ( (count _unitsIn) > 0) then {			
@@ -1421,10 +1429,8 @@ MON_Gunnercontrol = {
 				(_crew select 0) spawn MON_movetogunner;
 			};
 		};
-		sleep 20;		
-		//if (KRON_UPS_Debug>0 ) then {player globalchat format["%1 crew=%2",typeof _vehicle, count _crew];};		
+		sleep (10 + (random 10));
 	};	
-	//if (KRON_UPS_Debug>0 ) then {player globalchat format["%1 exits from gunner control",typeof _vehicle];};
 	_vehicle setVariable ["UPSMON_gunnercontrol", false, false];
 };
 
