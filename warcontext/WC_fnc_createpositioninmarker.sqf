@@ -6,6 +6,7 @@
 	// generate a random position in a marker
 	// -----------------------------------------------
 	private [
+		"_countsleep",
 		"_position", 
 		"_x", 
 		"_y", 
@@ -39,6 +40,7 @@
 	_markersize = (getmarkersize _markername) select 0;
 	_type = _this select 1;
 	_count = 0;
+	_countsleep = 0;
 	_emptysizezone = 10;
 
 	if ( "onmountain" in _this) then { _onmountain = true; } else { _onmountain = false;};
@@ -124,6 +126,8 @@
 			} foreach _gridofposition;
 		};
 		_count = _count + 1;
+		_countsleep = _countsleep + 1;
+		if(_countsleep > 5) then { _countsleep = 0; sleep 0.5;};
 		if(_count > 100) then { _onflat = false; _emptysizezone = 3; diag_log "WARCONTEXT: POSITION LOOP exit over 100";};
 		if(_count > 300) then { _position = [1,1,0]; _invalidate = false; diag_log "WARCONTEXT: POSITION LOOP exit over 100";};
 		sleep 0.05;
