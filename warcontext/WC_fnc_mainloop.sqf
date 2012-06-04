@@ -175,6 +175,7 @@
 		if(wcwithantiairsite > 0) then {
 			for "_x" from 1 to floor (random (3)) step 1 do {
 				wcgarbage = [] spawn WC_fnc_antiair;
+				sleep 0.05;
 			};
 		};
 	
@@ -239,6 +240,7 @@
 					wcgarbage = [position _x] spawn WC_fnc_createiedintown;
 				};
 			};
+			sleep 1;
 		}foreach _civillocation;
 
 		if(wcwithmhq == 1) then {
@@ -268,6 +270,7 @@
 				if !(isplayer _x) then { 
 					_list = _list - [_x];
 				};
+				sleep 0.05;
 			}foreach _list;
 			_numberofplayers = count _list;
 			sleep 10;
@@ -293,6 +296,7 @@
 		wcbarrack setdamage 1;
 		wcradio setdamage 1;
 		deletevehicle wcradio;
+		deletevehicle wcgenerator;
 
 		deletemarker "rescuezone";
 		deletemarker "operationtext";
@@ -300,6 +304,7 @@
 		deletemarker "bombzone";
 		deletemarker "iedzone";
 		deletemarker "radiotower";
+		deletemarker "generator";
 		deletemarkerlocal "airzone";
 
 		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONFINISHED", wclevel], localize "STR_WC_MESSAGNEXTSTEP"];
@@ -374,6 +379,7 @@
 				_vehicle setdamage 1; 
 				deletevehicle _vehicle;
 			};
+			sleep 0.1;
 		} foreach wcvehicles;
 
 		_list = list _sanity;
@@ -387,6 +393,7 @@
 					sleep 0.05;
 				};
 			};
+			sleep 0.05;
 		}foreach _list;
 
 		_list = list _sanity2;
@@ -402,6 +409,7 @@
 					};
 				};
 			};
+			sleep 0.05;
 		}foreach _list;
 
 		_list = list _sanity3;
@@ -417,6 +425,7 @@
 					};
 				};
 			};
+			sleep 0.05;
 		}foreach _list;
 
 		{
@@ -427,6 +436,7 @@
 					deletevehicle _x;
 				};
 			};
+			sleep 0.05;
 		}foreach wcblinde;
 
 		{
@@ -437,22 +447,27 @@
 					deletevehicle _x;
 				};
 			};
+			sleep 0.05;
 		}foreach wcunits;
 
 		for "_x" from 1 to wcambiantindex step 1 do {
 			call compile format["deletemarkerlocal ambiant%1;", _x];
+			sleep 0.05;
 		};
 
 		for "_x" from 0 to _index step 1 do {
 			call compile format ["deletevehicle trgambush%1;",_x]; 
+			sleep 0.05;
 		};
 
 		{
 			deleteMarkerLocal _x;
+			sleep 0.05;
 		}foreach wcambiantmarker;
 
 		{
 			deletevehicle _x;
+			sleep 0.05;
 		}foreach wcammobox;
 
 		{
@@ -463,12 +478,14 @@
 					deletevehicle _x;
 				};
 			};
+			sleep 0.05;
 		}foreach wcobjecttodelete;
 
 		{
 			if(count(units _x) == 0) then {
 				deletegroup _x;
 			};
+			sleep 0.05;
 		}foreach allgroups;
 	
 		wcambiantindex = 0;
