@@ -34,8 +34,8 @@
 	if(wcwithmhq == 1) then {
 		flagusa setvehicleinit 'this addAction ["Teleport to HQ", "warcontext\WC_fnc_createteleporttohq2.sqf",[],-1,false]';
 	};
-
 	processinitcommands;
+
 
 	// create mortuary
 	wcgarbage = [] spawn WC_fnc_createmortuary;
@@ -262,7 +262,7 @@
 
 
 	// put light around chopper landing zone
-	if(tolower(worldName) == "takistan") then {
+	if!(isnull tower2) then {
 		_positions = [position tower2, 7, 360, getdir tower2, 7] call WC_fnc_docircle;
 		{
 			_light = "Land_runway_edgelight" createVehicle _x;
@@ -271,7 +271,9 @@
 			processInitCommands;
 			sleep 0.01;
 		}foreach _positions;
-	
+	};
+
+	if!(isnull tower3) then {	
 		_positions = [position tower3, 7, 360, getdir tower3, 7] call WC_fnc_docircle;
 		{
 			_light = "Land_runway_edgelight" createVehicle _x;
@@ -280,7 +282,9 @@
 			processInitCommands;
 			sleep 0.01;
 		}foreach _positions;
+	};
 	
+	if!(isnull tower4) then {
 		_positions = [position tower4, 7, 360, getdir tower3, 7] call WC_fnc_docircle;
 		{
 			_light = "Land_runway_edgelight" createVehicle _x;
@@ -289,16 +293,16 @@
 			processInitCommands;
 			sleep 0.01;
 		}foreach _positions;
-	
-		_positions = [getmarkerpos "repair", 7, 360, getdir tower3, 7] call WC_fnc_docircle;
-		{
-			_light = "Land_runway_edgelight" createVehicle _x;
-			_light setpos _x;
-			_light setVehicleInit "this allowdammage false;";
-			processInitCommands;
-			sleep 0.01;
-		}foreach _positions;
 	};
+
+	_positions = [getmarkerpos "repair", 7, 360, getdir tower3, 7] call WC_fnc_docircle;
+	{
+		_light = "Land_runway_edgelight" createVehicle _x;
+		_light setpos _x;
+		_light setVehicleInit "this allowdammage false;";
+		processInitCommands;
+		sleep 0.01;
+	}foreach _positions;
 
 	[defender1, wcenemyside] spawn WC_fnc_sentinelle;
 	[defender2, wcenemyside] spawn WC_fnc_sentinelle;
