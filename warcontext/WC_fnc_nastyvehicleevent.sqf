@@ -18,10 +18,10 @@
 	switch (_sabotage) do {
 		case "fuel": {
 			_unit setdamage 0.05;
-			while { getdammage _unit > 0 } do {
+			while { damage _unit > 0 } do {
 				if(speed _unit > 1) then {
-					if(count crew _unit > 0) then {
-						_unit setfuel (fuel _unit - 0.01);
+					if(count (crew _unit) > 0) then {
+						_unit setfuel ((fuel _unit) - 0.01);
 					};
 				};
 				sleep 1;
@@ -35,7 +35,7 @@
 				if(count (crew _unit) > 2) then {		
 					if(speed _unit > (30 + random 30)) then {
 						{
-							_x setdamage 1;
+							_x setdamage (0.9 + (random 0.5));
 						}foreach crew _unit;
 						_unit setVehicleInit "this setdamage 1; this vehicleChat ""VEHICLE WAS SABOTED""; ";
 						processInitCommands;
