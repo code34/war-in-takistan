@@ -94,6 +94,16 @@
 		};
 
 
+		case "dingor" : {
+			wcmaptopright 	= [10240,10240];
+			wcmapbottomleft = [0,0];
+		};
+
+		case "lingor" : {
+			wcmaptopright 	= [10240,10240];
+			wcmapbottomleft = [0,0];
+		};
+
 		default {
 			// retrieve map ressource
 			_x = getNumber (configfile >> "cfgWorlds" >> worldname >> "Grid" >> "offsetX");
