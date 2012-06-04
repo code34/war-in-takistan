@@ -44,5 +44,6 @@
 		call compile format["wcgarbage = [_variable] spawn WC_fnc_netcode_%1;", _variablename];
 		wcqueue set [0,-1]; 
 		wcqueue = wcqueue - [-1];
+		sleep 0.1;
 	};
 
