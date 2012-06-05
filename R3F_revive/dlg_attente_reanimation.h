@@ -22,8 +22,8 @@ class R3F_REV_dlg_attente_reanimation
 {
 	idd = 89453;
 	
-	// Masquer le bouton reapparaitre_camp si l'option n'est pas activée
-	onLoad = "if !(R3F_REV_CFG_autoriser_reapparaitre_camp) then {_this select 0 displayCtrl 89454 ctrlShow false;} else {_this select 0 displayCtrl 89454 ctrlSetText STR_R3F_REV_btn_reapparition};";
+	// Masquer les boutons reapparaitre_camp MHQ ou Tente si l'option n'est pas activée
+	onLoad = "if !(R3F_REV_CFG_autoriser_reapparaitre_camp) then {_this select 0 displayCtrl 89454 ctrlShow false;} else {_this select 0 displayCtrl 89454 ctrlSetText STR_R3F_REV_btn_reapparition};if !(wcwithmhq == 1) then {_this select 0 displayCtrl 89456 ctrlShow false;} else {_this select 0 displayCtrl 89456 ctrlSetText STR_R3F_REV_btn_reapparition_mhq};if !(wcwithteleporttent == 1) then {_this select 0 displayCtrl 89455 ctrlShow false;} else {_this select 0 displayCtrl 89455 ctrlSetText STR_R3F_REV_btn_reapparition_tente};";
 	
 	// Si on ferme la fenêtre avec échap, on la rouvre un peu plus tard (on laisse le temps de quitter la partie si voulu, sinon on remet le menu)
 	onKeyDown = "if (_this select 1 == 1) then {[] spawn {sleep 2; if (damage player > 0.7 && isNull (findDisplay 89453)) then {createDialog ""R3F_REV_dlg_attente_reanimation"";};};}; false";
@@ -32,11 +32,44 @@ class R3F_REV_dlg_attente_reanimation
 	objects[] = {};
 	controls[] =
 	{
+		R3F_REV_dlg_AR_btn_focus,
 		R3F_REV_dlg_AR_btn_reapparaitre_hq,
 		R3F_REV_dlg_AR_btn_reapparaitre_camp,
 		R3F_REV_dlg_AR_btn_reapparaitre_tent
 	};
-
+	
+	// Bouton invisible capturant le focus, afin d'éviter que les touches entrée et espace active par accident le respawn au camp
+	class R3F_REV_dlg_AR_btn_focus
+	{
+		idc = -1;
+		
+		type = 1;
+		style = 0x02;
+		w = 0.0; x = 0.0;
+		h = 0.0; y = 0.0;
+		text = "";
+		action = "";
+		colorText[] = {0.0, 0.0, 0.0, 0.0};
+		font = "BitStream";
+		sizeEx = 0.0;
+		colorBackground[] = {0.0, 0.0, 0.0, 0.0};
+		colorFocused[] = {0.0, 0.0, 0.0, 0.0};
+		colorDisabled[] = {0.0, 0.0, 0.0, 0.0};
+		colorBackgroundDisabled[] = {0.0, 0.0, 0.0, 0.0};
+		colorBackgroundActive[] = {0.0, 0.0, 0.0, 0.0};
+		offsetX = 0.0;
+		offsetY = 0.0;
+		offsetPressedX = 0.0;
+		offsetPressedY = 0.0;
+		colorShadow[] = {0.0, 0.0, 0.0, 0.0};
+		colorBorder[] = {0.0, 0.0, 0.0, 0.0};
+		borderSize = 0.0;
+		soundEnter[] = {"", 0.0, 1.0};
+		soundPush[] = {"", 0.1, 1.0};
+		soundClick[] = {"", 0.0, 1.0};
+		soundEscape[] = {"", 0.0, 1.0};
+	};
+	
 	class R3F_REV_dlg_AR_btn_reapparaitre_camp
 	{
 		idc = 89454;
