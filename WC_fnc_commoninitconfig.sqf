@@ -104,6 +104,11 @@
 			wcmapbottomleft = [0,0];
 		};
 
+		case "fayshkhabur" : {
+			wcmaptopright 	= [20400,20400];
+			wcmapbottomleft = [0,0];
+		};
+
 		default {
 			// retrieve map ressource
 			_x = getNumber (configfile >> "cfgWorlds" >> worldname >> "Grid" >> "offsetX");
