@@ -67,8 +67,7 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 	
 	closeDialog 0;
 	
-	if (R3F_REV_CFG_afficher_marqueur) then
-	{
+	if (R3F_REV_CFG_afficher_marqueur) then {
 		player setvariable ["deadmarker", false, true];
 		deleteMarker R3F_REV_mark;
 	};
@@ -143,8 +142,7 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 		};
 
 		// Marqueur sur la position du joueur, si l'option est activée
-		if (R3F_REV_CFG_afficher_marqueur) then
-		{
+		if (R3F_REV_CFG_afficher_marqueur) then {
 			player setvariable ["deadmarker", true, true];
 		};
 		
@@ -193,23 +191,9 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 		// Attente d'un soin par medic
 		while {((damage player > 0.7) and !(wcteamscore < wcscorelimitmin) and !(wcteamscore > wcscorelimitmax))} do {
 			sleep 1;
-			//_enemys = nearestObjects[player,["Man"], 5];
-			//if(count _enemys > 0) then {
-			//	_prisonneer = false;
-			//	{
-			//		if((side _x == east) or (side _x == resistance)) then {
-			//			_prisonneer = true;
-			//		};
-			//	}foreach _enemys;
-			//	if(_prisonneer) then {
-			//		player setdamage 0;
-			//		removeallweapons player;
-			//	};
-			//};
 		};
 	
-		if (R3F_REV_CFG_afficher_marqueur) then
-		{
+		if (R3F_REV_CFG_afficher_marqueur) then {
 			player setvariable ["deadmarker", false, true];
 		};
 
@@ -235,8 +219,7 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 		// Il est de retour au combat, donc il n'est plus ignoré par l'IA
 		player setCaptive false;
 		
-		if (R3F_REV_nb_reanimations > 0) then
-		{
+		if (R3F_REV_nb_reanimations > 0) then {
 			if (R3F_REV_nb_reanimations > 1) then {
 				wcgarbage = [format [localize "STR_R3F_REV_nb_reanimations_plusieurs", R3F_REV_nb_reanimations]] call BIS_fnc_dynamicText;
 			} else {

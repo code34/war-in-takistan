@@ -21,9 +21,6 @@
 
 if !(isServer && isDedicated) then
 {
-	// Chargement du fichier de langage
-	call compile preprocessFile format ["extern\R3F_revive\%1_strings_lang.sqf", R3F_REV_CFG_langage];
-	
 	[] spawn
 	{
 		// Attente d'initialisation du joueur
@@ -64,11 +61,6 @@ if !(isServer && isDedicated) then
 			if ((player getvariable "deadmarker") && (_this select 0 == _this select 1)) then {
 				R3F_REV_nb_reanimations = 0;
 				player setdamage 1;
-			} else {
-				if (_this select 0 != _this select 1) then {
-					//wcaddscore = [(_this select 1), 1];
-					//["wcaddscore", "server"] call WC_fnc_publicvariable;
-				}; 
 			};
 		}];
 	};

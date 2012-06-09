@@ -3,10 +3,7 @@
  * Fichier de configuration - Traduit en anglais et en français
  */
 
-/**
- * Language selection ("en" for english, "fr" for french, other if you create your own "XX_strings_lang.sqf")
- * Sélection de la langue ("en" pour anglais, "fr" pour français, autre si vous créez votre propre "XX_strings_lang.sqf")
- */
+/** No more used in warcontext - use stringtable.csv */
 R3F_REV_CFG_langage = "en";
 
 /**
