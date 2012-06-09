@@ -44,12 +44,12 @@
 			class dodigtrench
 			{
 				description = "[EN]\nDig a trench";
-				file = "warcontext\WC_fnc_dodigtrench.sqf";
+				file = "warcontext\actions\WC_fnc_dodigtrench.sqf";
 			};
 			class dobuildtent
 			{
 				description = "[EN]\nBuild a tent: personnal respawn point";
-				file = "warcontext\WC_fnc_dobuildtent.sqf";
+				file = "warcontext\actions\WC_fnc_dobuildtent.sqf";
 			};
 			class civilcar
 			{

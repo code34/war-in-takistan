@@ -512,7 +512,7 @@ class acInfoDLG
 			y = 0.69;
 			w = 0.2200;
 			text = $STR_ACGUI_MM_BTN_Logs;
-			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\WC_fnc_doreadlogs.sqf"";";
+			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\dialog\WC_fnc_createmenureadlogs.sqf"";";
 	};
 
 	class MM_BtnCredits  : New_Btn 
@@ -753,7 +753,7 @@ class RscDisplayLogs {
 	objects[] = {};
 	controlsBackground[] = {Logbackground};
 	controls[] = {Logbackground, LogLabel, Logtext, LogClose};
-	onLoad = "  ExecVM ""warcontext\dialog\WC_fnc_menuviewlogs.sqf""; ";
+	onLoad = "  ExecVM ""warcontext\dialog\WC_fnc_menureadlogs.sqf""; ";
 
 	class LogLabel: RscText
 	{

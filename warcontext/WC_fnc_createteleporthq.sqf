@@ -25,7 +25,7 @@
 
 	deletevehicle wcteleport;
 	wcteleport = "M1130_HQ_unfolded_Base_EP1" createVehicle _position;
-	wcteleport setvehicleinit "this allowdammage false; this setfuel 0; wcobject = this addAction ['Teleport to base', 'warcontext\WC_fnc_returntobase.sqf',[],-1,false]; wcplayerbox = this addAction ['Drop an Ammobox', 'warcontext\WC_fnc_docreateammobox.sqf',[],-1,false]; wcobject2 = this addAction ['Build a vehicle', 'warcontext\dialog\WC_fnc_createmenubuildvehicles.sqf',[],-1,false]; ";
+	wcteleport setvehicleinit "this allowdammage false; this setfuel 0; wcobject = this addAction ['Teleport to base', 'warcontext\WC_fnc_returntobase.sqf',[],-1,false]; wcplayerbox = this addAction ['Drop an Ammobox', 'warcontext\actions\WC_fnc_docreateammobox.sqf',[],-1,false]; wcobject2 = this addAction ['Build a vehicle', 'warcontext\dialog\WC_fnc_createmenubuildvehicles.sqf',[],-1,false]; ";
 	processInitCommands;
 
 	["wcteleport", "client"] call WC_fnc_publicvariable;

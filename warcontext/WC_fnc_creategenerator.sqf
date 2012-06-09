@@ -16,7 +16,7 @@
 	_type = wcgeneratortype call BIS_fnc_selectRandom;
 
 	wcgenerator = createVehicle [_type, _position, [], 0, "NONE"];
-	wcgenerator setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\WC_fnc_dosabotage.sqf',[true],-1,false];";
+	wcgenerator setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\actions\WC_fnc_dosabotage.sqf',[true],-1,false];";
 	processInitCommands;
 
 	if(wcwithgeneratormarkers == 1) then {

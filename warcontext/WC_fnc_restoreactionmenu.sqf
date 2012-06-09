@@ -6,15 +6,15 @@
 	if (isDedicated) exitWith {};
 
 	// Default menu
-	player addaction ["<t color='#ff4500'>Mission Info</t>","warcontext\WC_fnc_domissioninfo.sqf",[],-1,false];
-	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUDEPLOYTENT"+"</t>", "warcontext\WC_fnc_dobuildtent.sqf",[],-1,false];
-	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBUILDTRENCH"+"</t>", "warcontext\WC_fnc_dodigtrench.sqf",[],-1,false];
+	player addaction ["<t color='#ff4500'>Mission Info</t>","warcontext\dialog\WC_fnc_createmenumissioninfo.sqf",[],-1,false];
+	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUDEPLOYTENT"+"</t>", "warcontext\actions\WC_fnc_dobuildtent.sqf",[],-1,false];
+	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBUILDTRENCH"+"</t>", "warcontext\actions\WC_fnc_dodigtrench.sqf",[],-1,false];
 
 	// Engineer menu
 	if (typeOf player in wcengineerclass) then {
-		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUREPAIRVEHICLE"+"</t>","warcontext\WC_fnc_repairvehicle.sqf",[],-1,false];
-		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUUNLOCKVEHICLE"+"</t>","warcontext\WC_fnc_unlockvehicle.sqf",[],-1,false];
-		player addaction ["<t color='#dddd00'>Unflip Vehicle</t>","warcontext\WC_fnc_unflipvehicle.sqf",[],-1,false];
+		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUREPAIRVEHICLE"+"</t>","warcontext\actions\WC_fnc_dorepairvehicle.sqf",[],-1,false];
+		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUUNLOCKVEHICLE"+"</t>","warcontext\actions\WC_fnc_dounlockvehicle.sqf",[],-1,false];
+		player addaction ["<t color='#dddd00'>Unflip Vehicle</t>","warcontext\actions\WC_fnc_dounflipvehicle.sqf",[],-1,false];
 	};
 
 	// Admin menu

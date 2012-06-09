@@ -151,7 +151,6 @@
 	WC_fnc_publishmission		= compile preprocessFile "warcontext\WC_fnc_publishmission.sqf";
 	WC_fnc_relocatelocation		= compile preprocessFile "warcontext\WC_fnc_relocatelocation.sqf";
 	WC_fnc_relocateposition		= compile preprocessFile "warcontext\WC_fnc_relocateposition.sqf";
-	WC_fnc_repairvehicle 		= compile preprocessFile "warcontext\WC_fnc_repairvehicle.sqf";
 	WC_fnc_restoreloadout		= compile preprocessFile "warcontext\WC_fnc_restoreloadout.sqf";
 	WC_fnc_restoreactionmenu	= compile preprocessFile "warcontext\WC_fnc_restoreactionmenu.sqf";
 	WC_fnc_restorebuilding 		= compile preprocessFile "warcontext\WC_fnc_restorebuilding.sqf";
@@ -165,8 +164,6 @@
 	WC_fnc_saveloadout		= compile preprocessFile "warcontext\WC_fnc_saveloadout.sqf";
 	WC_fnc_securezone 		= compile preprocessFile "warcontext\WC_fnc_securezone.sqf";
 	WC_fnc_teamstatus		= compile preprocessFile "extern\TeamStatusDialog\TeamStatusDialog.sqf";
-	WC_fnc_unlockvehicle 		= compile preprocessFile "warcontext\WC_fnc_unlockvehicle.sqf";
-	WC_fnc_unflipvehicle 		= compile preprocessFile "warcontext\WC_fnc_unflipvehicle.sqf";
 	WC_fnc_vehiclehandler 		= compile preprocessFile "warcontext\WC_fnc_vehiclehandler.sqf";
 	WC_fnc_weather		 	= compile preprocessFile "warcontext\WC_fnc_weather.sqf";
 
