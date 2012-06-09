@@ -6,5 +6,5 @@
 	private ["_groups"];
 
 	if (local player and isserver) then {
-		execVM "R3F_DEBUG\scripts\functions_R3F_Debug.sqf";
+		execVM "extern\R3F_DEBUG\scripts\functions_R3F_Debug.sqf";
 	};

@@ -884,7 +884,7 @@ class Mission
 			leader=1;
 			skill=0.60000002;
 			text="preset";
-			init="this allowDamage false; this addAction [""<t color='#FFFFFF'>Get Equipment Preset</t>"",""bon_loadoutpresets\bon_loadout_presets.sqf""];";
+			init="this allowDamage false; this addAction [""<t color='#FFFFFF'>Get Equipment Preset</t>"",""extern\bon_loadoutpresets\bon_loadout_presets.sqf""];";
 		};
 		class Item8
 		{
@@ -963,7 +963,7 @@ class Mission
 			leader=1;
 			skill=0.60000002;
 			text="board";
-			init="this setpos [(getpos this) select 0, (getpos this) select 1, 2.6]; this allowdammage false; this addAction [""<t color='#dddd00'>""+localize ""STR_WC_MENUSPECTATOR""+""</t>"", ""spect\specta.sqf"",[],-1,false];";
+			init="this setpos [(getpos this) select 0, (getpos this) select 1, 2.6]; this allowdammage false; this addAction [""<t color='#dddd00'>""+localize ""STR_WC_MENUSPECTATOR""+""</t>"", ""extern\spect\specta.sqf"",[],-1,false];";
 		};
 		class Item15
 		{
@@ -985,7 +985,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SatPhone";
 			skill=0.60000002;
-			init="nul = [this] execVM ""R3F_ARTY_AND_LOG\create_arty_quarter.sqf"";";
+			init="nul = [this] execVM ""extern\R3F_ARTY_AND_LOG\create_arty_quarter.sqf"";";
 		};
 	};
 	class Markers

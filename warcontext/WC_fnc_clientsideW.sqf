@@ -44,7 +44,7 @@
 
 	// By default wc uses R3F revive
 	if(true) then {
-		execVM "R3F_revive\revive_init.sqf";
+		execVM "extern\R3F_revive\revive_init.sqf";
 	} else {
 		R3F_REV_nb_reanimations = 0;
 		player addEventHandler ["killed", { wcgarbage = [] spawn WC_fnc_onkilled}];
@@ -355,7 +355,7 @@
 			wcadmin = serverCommandAvailable "#kick";
 			if (wcadmin) then {
 				if(isnil "wcspectate") then {
-					wcspectate = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUSPECTATOR"+"</t>", "spect\specta.sqf",[],-1,false];
+					wcspectate = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUSPECTATOR"+"</t>", "extern\spect\specta.sqf",[],-1,false];
 				};
 				if(isnil "wccancelmission") then {
 					wccancelmission = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCANCELMISSION"+"</t>", "warcontext\WC_fnc_cancelmission.sqf",[],-1,false];

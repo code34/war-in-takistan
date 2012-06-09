@@ -283,4 +283,4 @@ STR_R3F_REV_hors_jeu,You're now out of the game...,Vous etes à present hors jeu
 STR_R3F_REV_respawn_camp,You respawn at base...,Vous reapparaissez a la base...
 STR_R3F_REV_ne_pas_se_reanimer_soi_meme,You can't revive yourself.,Vous ne pouvez pas vous reanimer vous-meme.
 #include "extern\TeamStatusDialog\stringtable.csv"
-#include "R3F_DEBUG\Scripts\stringtable_R3F_DEBUG.csv"
+#include "extern\R3F_DEBUG\Scripts\stringtable_R3F_DEBUG.csv"

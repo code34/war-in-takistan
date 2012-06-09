@@ -36,8 +36,8 @@
 		};
 	};
 
-	execVM "R3F_ARTY_AND_LOG\init.sqf";
-	presetDialogUpdate = compile preprocessFile "bon_loadoutpresets\bon_func_presetdlgUpdate.sqf";
+	execVM "extern\R3F_ARTY_AND_LOG\init.sqf";
+	presetDialogUpdate = compile preprocessFile "extern\bon_loadoutpresets\bon_func_presetdlgUpdate.sqf";
 
 	wcterraingrid = 0;
 	wcviewDist = 1500;
