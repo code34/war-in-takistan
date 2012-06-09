@@ -17,8 +17,8 @@ Respawn = "BASE";
 RespawnDelay = 6;
 RespawnDialog = 0;
 
-#include "warcontext\dialog\Dlg\define.hpp"
-#include "warcontext\dialog\Dlg\mission.hpp"
+#include "warcontext\dialog\define.hpp"
+#include "warcontext\dialog\mission.hpp"
 
 #include "extern\R3F_DEBUG\Scripts\R3F_DEBUG_Configuration.h"
 #include "extern\R3F_DEBUG\scripts\map_dlg.h"
