@@ -862,7 +862,7 @@ class Mission
 			vehicle="Land_Barrack2_EP1";
 			skill=0.60000002;
 			text="clothes";
-			init="this addAction [""<t color='#dddd00'>Change clothes</t>"", ""warcontext\WC_fnc_clothes.sqf"",[],6,false];this allowDamage false;";
+			init="this addAction [""<t color='#dddd00'>Change clothes</t>"", ""warcontext\dialog\WC_fnc_createmenuchangeclothes.sqf"",[],6,false];this allowDamage false;";
 		};
 		class Item6
 		{
@@ -908,7 +908,7 @@ class Mission
 			vehicle="Land_Barrack2_EP1";
 			skill=0.60000002;
 			text="teammanage";
-			init="this addAction [""<t color='#dddd00'>Hall of fames</t>"", ""warcontext\WC_fnc_manageteam.sqf"",[],6,false]; this allowDamage false;";
+			init="this addAction [""<t color='#dddd00'>Hall of fames</t>"", ""warcontext\dialog\WC_fnc_createmenumanageteam.sqf"",[],6,false]; this allowDamage false;";
 		};
 		class Item10
 		{

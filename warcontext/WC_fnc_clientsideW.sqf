@@ -364,7 +364,7 @@
 					wcbombingsupport = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBOMBING"+"</t>", "warcontext\WC_fnc_bombingsupport.sqf",[],-1,false];
 				};
 				if((isnil "wcmanageteam") and (wckindofserver != 3)) then {
-					wcmanageteam = player addAction ["<t color='#dddd00'>Manage team</t>", "warcontext\WC_fnc_manageteam.sqf",[],6,false];
+					wcmanageteam = player addAction ["<t color='#dddd00'>Manage team</t>", "warcontext\dialog\WC_fnc_createmenumanageteam.sqf",[],6,false];
 				};
 			} else {
 				if!(isnil "wcspectate") then { player removeAction wcspectate;};
