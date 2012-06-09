@@ -280,7 +280,7 @@ class RscDisplayvehicles
 	movingenable = 0;
 	controlsBackground[] = {"control7001", "control7002","control7003","control7004","control7005"};
 
-	onLoad = "ExecVM ""warcontext\WC_fnc_loadvehicles.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
+	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menubuildvehicles.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
 
 		class control7001: RscStructuredText
 		{
