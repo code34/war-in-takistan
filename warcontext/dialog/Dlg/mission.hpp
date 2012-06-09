@@ -345,7 +345,7 @@ class acInfoDLG
 	objects[] = {};
 	controls[] = { MM_MENU1, MM_MENU2, MM_MENU3, MM_MENU4, MM_MENU5, MM_MENU6, MM_BtnTransfert, MM_TAG, infomainmission, infosidemission, MM_BtnOk, MM_BtnOpt, MM_BtnLogs, MM_BtnCredits, MM_Label, MM_PLAYERROLE, MM_BtnObj, MM_BtnTEAMSTATUS, MM_PLAYERLIST, MM_SLIDER_TRANSFER};
 
-	onLoad = "ExecVM ""dialog\GUI\optionmenu.sqf""; uiNamespace setVariable [""ac_INFO_DLG"", _this select 0];";
+	onLoad = "ExecVM ""warcontext\dialog\GUI\optionmenu.sqf""; uiNamespace setVariable [""ac_INFO_DLG"", _this select 0];";
 	
 	class New_BackGround : RscPicture
 	{
@@ -493,7 +493,7 @@ class acInfoDLG
 			y = 0.59;
 			w = 0.2200;
 			text = $STR_ACGUI_MM_BTN_Opt;
-			action = "CloseDialog 0; _handle = [] execVM ""dialog\GUI\createsettingsdialog.sqf""";
+			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialog\GUI\createsettingsdialog.sqf""";
 		};
 
 	class MM_BtnTEAMSTATUS  : New_Btn {
@@ -558,7 +558,7 @@ class SettingsDialog {
 	objects[] = {};
 	controlsBackground[] = {New_BackGround};
 	controls[] = {VM_VD_TXT, VM_VD_SDR, VM_TG_TXT, VM_TG_SDR, VM_BtnClose, VM_GAMESETTINGS, VM_TG_VAL, VM_LABEL, VM_WELMSG, MM_BtnWeapons, MM_BtnHBfix};
-	onLoad = "ExecVM ""dialog\GUI\settingsdialog.sqf""";
+	onLoad = "ExecVM ""warcontext\dialog\GUI\settingsdialog.sqf""";
 	
 	class New_BackGround : RscPicture
 	{
@@ -753,7 +753,7 @@ class RscDisplayLogs {
 	objects[] = {};
 	controlsBackground[] = {Logbackground};
 	controls[] = {Logbackground, LogLabel, Logtext, LogClose};
-	onLoad = "  ExecVM ""dialog\GUI\logsdialog.sqf""; ";
+	onLoad = "  ExecVM ""warcontext\dialog\GUI\logsdialog.sqf""; ";
 
 	class LogLabel: RscText
 	{
