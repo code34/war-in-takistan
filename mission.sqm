@@ -11514,7 +11514,7 @@ class Mission
 			side="EMPTY";
 			vehicle="SatPhone";
 			skill=0.60000002;
-			init="nul = [this] execVM ""extern\R3F_ARTY_AND_LOG\create_arty_quarter.sqf"";";
+			init="wcgarbage = [this] execVM ""extern\R3F_ARTY_AND_LOG\create_arty_quarter.sqf"";";
 		};
 		class Item1061
 		{
