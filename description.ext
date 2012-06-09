@@ -599,8 +599,8 @@ class Params
 	class wckindofgame
 	{
 		title = "KIND OF GAME";
-		values[] = {1, 2};
-		texts[] = {"ARCADE", "SIMULATION"};
+		values[] = {1, 2, 3};
+		texts[] = {"ARCADE", "SIMULATION", "CHEATED"};
 		default = 1;
 	};
 

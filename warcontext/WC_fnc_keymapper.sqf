@@ -114,7 +114,7 @@
 			{
 				player addmagazine _x;
 			}foreach _magazines;
-			reload player;
+			reload player;			
 		};
 	};
 

@@ -40,20 +40,17 @@
 		_vehicle = _this select 0;
 
 	
-		//if(wckindofgame == 1) then {
-			_vehicle removeAllEventHandlers "HandleDamage";
-			_vehicle addEventHandler ['HandleDamage', {
-				if (_this select 2 > wcdammagethreshold) then {
-					(_this select 0) removeAllEventHandlers "HandleDamage";
-					if((_this select 2) + (getdammage (_this select 0)) > 0.9) then {
-						(_this select 0) setdamage 1;
-					} else {
-						(_this select 0) setdamage ((getdammage(_this select 0)) + (_this select 2));
-					};
-				}
-				//(_this select 0) setdamage ( (getdammage(_this select 0)) + ((_this select 2)/50) );
-			}];
-		//};
+		_vehicle removeAllEventHandlers "HandleDamage";
+		_vehicle addEventHandler ['HandleDamage', {
+			if (_this select 2 > wcdammagethreshold) then {
+				(_this select 0) removeAllEventHandlers "HandleDamage";
+				if((_this select 2) + (getdammage (_this select 0)) > 0.9) then {
+					(_this select 0) setdamage 1;
+				} else {
+					(_this select 0) setdamage ((getdammage(_this select 0)) + (_this select 2));
+				};
+			}
+		}];
 
 		_vehicle addEventHandler ['Fired', '
 			private ["_name"];

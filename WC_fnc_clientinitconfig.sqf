@@ -70,6 +70,7 @@
 
 	wclistofweaponsindex = 0;
 
+	// flag use for arcade jump
 	wcplayjumpmove = 0;
 
 	// flag to go through fast time

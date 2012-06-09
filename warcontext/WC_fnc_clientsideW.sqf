@@ -545,7 +545,20 @@
 
 	sleep 5;
 
-	_kindofgame = if (wckindofgame == 1) then { "arcade"; } else { "simulation";};
+	switch (wckindofgame) do {
+		case 1: {
+			_kindofgame = "arcade";
+		};
+
+		case 2: {
+			_kindofgame = "simulation";	
+		};
+
+		case 3: {
+			_kindofgame = "cheated";
+		};
+	};
+
 	["Welcome to base", "Take some weapons at ammobox and wait for orders.", format["This mission is currently played as %1 game.", _kindofgame], 10] spawn WC_fnc_playerhint;
 
 
