@@ -404,7 +404,7 @@
 
 		while { true } do {
 			if!(_attached) then { 
-				_units = nearestObjects[player,["Man"], 1.5];
+				_units = nearestObjects[player,["Man"], 2];
 				if(count _units == 2) then {
 					{
 						if((_x != player) and ((animationState _x) in _animation)) then {
