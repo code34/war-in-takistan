@@ -1,6 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext - create a mission dialog box
+	// warcontext - create a building vehicles dialog box
 	// locality : client side
 
 	private [

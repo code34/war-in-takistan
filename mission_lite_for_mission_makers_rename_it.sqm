@@ -3,26 +3,10 @@ class Mission
 {
 	addOns[]=
 	{
-		"takistan",
-		"ca_modules_functions",
-		"cacharacters_e",
-		"camisc3",
-		"caweapons_e_ammoboxes",
-		"camisc_e",
-		"caweapons_pmc",
-		"caweapons_e",
-		"warfarebuildings"
+		"takistan"
 	};
 	addOnsAuto[]=
 	{
-		"ca_modules_functions",
-		"cacharacters_e",
-		"camisc3",
-		"caweapons_e_ammoboxes",
-		"camisc_e",
-		"caweapons_pmc",
-		"caweapons_e",
-		"warfarebuildings",
 		"takistan"
 	};
 	randomSeed=4546277;
@@ -791,7 +775,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=17;
+		items=18;
 		class Item0
 		{
 			position[]={7054.748,331.43716,4926.9531};
@@ -985,7 +969,17 @@ class Mission
 			side="EMPTY";
 			vehicle="SatPhone";
 			skill=0.60000002;
-			init="nul = [this] execVM ""extern\R3F_ARTY_AND_LOG\create_arty_quarter.sqf"";";
+			init="wcgarbage = [this] execVM ""extern\R3F_ARTY_AND_LOG\create_arty_quarter.sqf"";";
+		};
+		class Item17
+		{
+			position[]={7043.6992,330.41068,4879.2075};
+			azimut=105;
+			id=64;
+			side="EMPTY";
+			vehicle="USMC_WarfareBVehicleServicePoint";
+			skill=0.60000002;
+			init="wcgarbage = this addAction ['Build a vehicle', 'warcontext\dialog\WC_fnc_createmenubuildvehicles.sqf'];";
 		};
 	};
 	class Markers
