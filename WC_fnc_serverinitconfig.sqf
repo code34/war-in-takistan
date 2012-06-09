@@ -100,6 +100,7 @@
 	// probability of nuclear attack at begining of a mission - default 25%
 	wcnuclearprobability = 0.85;
 
+	// civilian are friends of everybody at begining
 	civilian setFriend [west, 1];
 	civilian setFriend [east, 1];
 	civilian setFriend [resistance, 1];
@@ -196,18 +197,11 @@
 
 	wcobjectiveindex = 0;
 
-	// civilian are enemy
-	//civilian setFriend [west, 0];
-
 	// detection
 	wcalert = 0;
 	wcindexpropagande = 0;
 	
-
 	// number of grave at begining
 	wcgrave = 0;
-
-	civilian setFriend [east, 1];
-	civilian setFriend [resistance, 1];
 
 	true;

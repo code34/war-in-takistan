@@ -17,7 +17,7 @@
 		"_group"
 	];
 
-	if!(side player in wcside) exitwith {
+	if(wcoriginalclothes != typeof player) exitwith {
 		_lastbody = player;
 		[_lastbody] spawn WC_fnc_garbagecollector;
 		_lastbody removeAllEventHandlers "killed";
@@ -71,7 +71,18 @@
 
 			[] call WC_fnc_saveloadout;
 
-			_group = creategroup civilian;
+			if(_type in wcchangeclothescivil) then {
+				_group = creategroup civilian;
+			};
+
+			if(_type in wcchangeclotheswest) then {
+				_group = creategroup west;
+			};
+
+			if(_type in wcchangeclotheseast) then {
+				_group = creategroup east;
+			};
+
 			_unit = _group createUnit [_type, position player, [], 0, "FORM"];
 			_unit disableAI "AUTOTARGET";
 			_unit disableAI "TARGET";
