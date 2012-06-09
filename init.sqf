@@ -93,7 +93,7 @@
 	WC_fnc_createseapatrol		= compile preprocessFile "warcontext\WC_fnc_createseapatrol.sqf";
 	WC_fnc_createsheep		= compile preprocessFile "warcontext\WC_fnc_createsheep.sqf";
 	WC_fnc_createammobox 		= compile preprocessFile "warcontext\WC_fnc_createammobox.sqf";
-	WC_fnc_createbunker 		= compile preprocessFile "warcontext\WC_fnc_createbunker.sqf";
+	WC_fnc_createcomposition	= compile preprocessFile "warcontext\WC_fnc_createcomposition.sqf";
 	WC_fnc_createcivilcar 		= compile preprocessFile "warcontext\WC_fnc_createcivilcar.sqf";
 	WC_fnc_createconvoy 		= compile preprocessFile "warcontext\WC_fnc_createconvoy.sqf";
 	WC_fnc_creategenerator 		= compile preprocessFile "warcontext\WC_fnc_creategenerator.sqf";

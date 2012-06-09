@@ -44,7 +44,9 @@
 	};
 
 	{
-		wcgarbage = [_x] spawn WC_fnc_createbunker;
+		if(wcwithcomposition == 1) then {
+			wcgarbage = [_x] spawn WC_fnc_createcomposition;
+		};
 		wcambiantindex = wcambiantindex + 1;
 		_count = _count + 1;
 		_marker = [format["ambiant%1", wcambiantindex], (wcdistance * 2), position _x, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;

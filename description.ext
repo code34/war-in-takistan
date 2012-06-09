@@ -662,6 +662,22 @@ class Params
 		default = 5;
 	};
 
+	class wcwithcomposition
+	{
+		title = "ENEMIES BUILDING COMPOSITION ON MAP";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
+	class wcwithstaticweapons
+	{
+		title = "ENEMIES USE STATIC WEAPONS";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
 	class wcwithlight
 	{
 		title = "SOLAR LIGHT DEPENDING OF WEATHER";

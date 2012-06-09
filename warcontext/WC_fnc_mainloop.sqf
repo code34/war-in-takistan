@@ -218,8 +218,13 @@
 			wcgarbage = [_location, _marker] spawn WC_fnc_support;
 		};
 
-		wcgarbage = [_location] spawn WC_fnc_createbunker;
-		wcgarbage = [_position] spawn WC_fnc_createstatic;
+		if(wcwithcomposition == 1) then {
+			wcgarbage = [_location] spawn WC_fnc_createcomposition;
+		};
+
+		if(wcwithstaticweapons == 1) then {
+			wcgarbage = [_position] spawn WC_fnc_createstatic;
+		};
 
 		// Create ied in towns
 		if(wcwithied > 0) then {
