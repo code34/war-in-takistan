@@ -4,6 +4,7 @@
 	// locality : client side
 
 	private [
+		"_array",
 		"_count",
 		"_lastbody",
 		"_missionnumber", 
@@ -49,9 +50,13 @@
 	disableSerialization;
 	_textbox = (uiNamespace getVariable 'wcdisplay') displayCtrl 5001;
 
+	_array = [];
+	
 	_civil = wcchangeclothes;
 	{
-		lbAdd [5002, _x];
+		_name = gettext (configfile >> "cfgVehicles" >> _x >> "Displayname");
+		_index = lbAdd [5002, _name];
+		_array set [_index, _x];
 	}foreach _civil;
 
 	lbSetCurSel [5002, 0];
@@ -60,7 +65,7 @@
 
 	while {alive player && dialog} do {
 		_index = lbCurSel 5002;
-		_type = lbText [5002, _index];
+		_type = _array select _index;
 		if(menuaction == 1) then {
 			ppEffectDestroy wccameffect;
 			wccam cameraEffect ["terminate","back"];

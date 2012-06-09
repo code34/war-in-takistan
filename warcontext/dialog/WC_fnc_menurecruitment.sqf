@@ -4,6 +4,7 @@
 	// locality : client side
 
 	private [
+		"_array",
 		"_missionnumber", 
 		"_name", 
 		"_textbox", 
@@ -40,9 +41,12 @@
 	disableSerialization;
 	_textbox = (uiNamespace getVariable 'wcdisplay') displayCtrl 4001;
 
+	_array = [];
 	{
 		if ((_x select 0) == faction player) then {
-			lbAdd [4002, (_x select 1)];
+			_name = gettext (configfile >> "cfgVehicles" >> (_x select 1) >> "Displayname");
+			_index = lbAdd [4002, _name];
+			_array set [_index, (_x select 1)];
 		};
 	}foreach (wcwestside select 1);
 	lbSetCurSel [4002, 0];
@@ -51,7 +55,7 @@
 
 	while {alive player && dialog} do {
 		_index = lbCurSel 4002;
-		_type = lbText [4002, _index];
+		_type = _array select _index;
 		if(menuaction == 1) then {
 			if(count(units (group player)) < _maxsize) then {
 				_unit = (group player) createUnit [_type, position player, [], 0, "FORM"];

@@ -4,6 +4,7 @@
 	// locality : client side
 
 	private [
+		"_array",
 		"_missionnumber", 
 		"_name", 
 		"_textbox", 
@@ -37,14 +38,19 @@
 		};
 	};
 
+	_array = [];
+
 	{
-		lbAdd [7002, _x];
+		_name = gettext (configfile >> "cfgVehicles" >> _x >> "Displayname");
+		_index = lbAdd [7002, _name];
+		_array set [_index, _x];
 	}foreach _vehicles;
+
 	lbSetCurSel [7002, 0];
 
 	while {alive player && dialog} do {
 		_index = lbCurSel 7002;
-		_type = lbText [7002, _index];
+		_type = _array select _index;
 
 		if(menuaction == 1) then {
 			["Build a vehicle", "Wait while the building of your vehicle", "The vehicle will appear near you in few seconds. Older one will be delete.", 3] spawn WC_fnc_playerhint;
