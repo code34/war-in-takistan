@@ -493,7 +493,7 @@ class acInfoDLG
 			y = 0.59;
 			w = 0.2200;
 			text = $STR_ACGUI_MM_BTN_Opt;
-			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialog\WC_fnc_createsettings.sqf""";
+			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialog\WC_fnc_createmenusettings.sqf""";
 		};
 
 	class MM_BtnTEAMSTATUS  : New_Btn {
