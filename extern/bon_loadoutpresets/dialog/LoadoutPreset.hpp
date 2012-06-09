@@ -4,7 +4,7 @@ class PresetDialog {
 	idd = BON_PRESET_DIALOG;
 	movingEnable = true;
 	enableSimulation = true;
-	onLoad = "[_this] execVM 'bon_loadoutpresets\bon_buildlistbox.sqf'";
+	onLoad = "[_this] execVM 'extern\bon_loadoutpresets\bon_buildlistbox.sqf'";
 
 	__EXEC( _xSpacing = 0.0075;  _ySpacing = 0.01;)
 	__EXEC( _xInit = 12 * _xSpacing; _yInit = 18 * _ySpacing;)
@@ -50,7 +50,7 @@ class PresetDialog {
 			w = 0.44; h = 0.5;
 			//lineSpacing = 0;
 			onLBSelChanged = "['weapons'] call presetDialogUpdate";
-			onLBDblClick = "[player,currentpreset] execVM 'bon_loadoutpresets\bon_equip.sqf';";
+			onLBDblClick = "[player,currentpreset] execVM 'extern\bon_loadoutpresets\bon_equip.sqf';";
 			rowHeight = 0.04;
 			soundSelect[] = {"\ca\ui\data\sound\mouse2", 0.09, 1};
 			maxHistoryDelay = 10;
@@ -100,23 +100,11 @@ class PresetDialog {
 			text = "magazines";
 			onButtonClick = "['magazines'] call presetDialogUpdate";
 		};
-//		class RuckWepButton : WeaponsButton {
-//			x = 0.219; y = 0.16;
-//			w = 0.26;
-//			text = "weapons in rucksack";
-//			onButtonClick = "['ruckweps'] call presetDialogUpdate";
-//		};
-//		class RuckMagsButton : WeaponsButton {
-//			x = 0.219; y = 0.22;
-//			w = 0.26;
-//			text = "magazines in rucksack";
-//			onButtonClick = "['ruckmags'] call presetDialogUpdate";
-//		};
 		class EquipButton: HW_RscGUIShortcutButton {
 			x = 0.8; //0.695;
 			y = 0.867;
 			text = "Equip";
-			onButtonClick = "[player,currentpreset] execVM 'bon_loadoutpresets\bon_equip.sqf';";
+			onButtonClick = "[player,currentpreset] execVM 'extern\bon_loadoutpresets\bon_equip.sqf';";
 		};
 		class CloseButton: EquipButton {
 			x = 0.6;
