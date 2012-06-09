@@ -16,6 +16,11 @@
 	// Adress of teamspeak server
 	wcteamspeak = "Join me on BIS forum: Code34";
 
+	// put name of your team members 
+	// will give same rights as the admin
+	// uncomment line below
+	// wcteammembers = ["code34", "code64"];
+
 	// limit of playable map
 	switch (tolower(worldname)) do {
 		case "gsep_zernovo": {

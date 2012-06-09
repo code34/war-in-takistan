@@ -42,7 +42,7 @@
 		"Thanks to Fruity Rudy for his english translation",
 		"Thanks to Ei8ght",
 		"Thanks to Air Commando Team",
-		"You can find more information in the official thread of WIT at BIS FORUM"
+		"You can find more information about WIT at BIS FORUM"
 		];
 
 	2 cutRsc ["warcontextlabel","PLAIN"]; 
@@ -85,7 +85,7 @@
 	};
 
 
-	_text = "A mission designed by  code34";
+	_text = "A mission designed by code34";
 	titleText [_text, "BLACK FADED"];
 	sleep 2;		
 	titleText ["", "PLAIN"];

@@ -353,6 +353,16 @@
 		_count = 0;
 		while { true } do {
 			wcadmin = serverCommandAvailable "#kick";
+			if(serverCommandAvailable "#kick") then {
+				wcadmin = true;
+			} else {
+				if((name player) in wcteammembers) then {
+					wcadmin = true;
+				} else {
+					wcadmin = false;
+				};
+			};
+
 			if (wcadmin) then {
 				if(isnil "wcspectate") then {
 					wcspectate = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUSPECTATOR"+"</t>", "extern\spect\specta.sqf",[],-1,false];

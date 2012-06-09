@@ -18,7 +18,6 @@
 	};
 
 	// Admin menu
-	wcadmin = serverCommandAvailable "#kick";
 	if (wcadmin) then {
 		wcbombingsupport = nil;
 		wccancelmission = nil;
