@@ -1,286 +1,286 @@
-﻿Language,	English,	French
-STR_WC_TEAM0,		"Mercenary",	"Mercenaire"
-STR_WC_TEAM1,		"Hero team",	"Heroe team"
-STR_WC_TEAM2,		"Elite team",	"Elite team"
-STR_WC_TEAM3,		"Experienced team",	"Experienced team"
-STR_WC_TEAM4,		"Confirmed team",	"Confirmed team"
-STR_WC_TEAM5,		"Noob team",	"Noobs team"
-STR_WC_TEAM6,		"Calamity team",	"Calamity team"
-STR_WC_TEAM7,		"Bastard team",	"Bastard team"
-STR_WC_TEAM8,		"Asshole team",	"Asshole team"
-STR_WC_ASSHOLETEAM,	"Asshole team means that the players are not cooperative.They do what they want and surely they do nasty things like destroying what they see. You should disconnect from this server because there may be a lot of teamkillers around.",	"Asshole team signifie que cette partie n est pas cooperative. Les joueurs font ce qu ils veulent et certainement pas ce qu il faut. Ils detruisent tout ce qu ils voient. Vous devriez vous deconnecter de ce serveur car il y a certainement plein de team killers"
+Language,	"English",	"French" 
+STR_WC_TEAM0,	"Mercenary",	"Mercenaire" 
+STR_WC_TEAM1,	"Hero team",	"Heroe team" 
+STR_WC_TEAM2,	"Elite team",	"Elite team" 
+STR_WC_TEAM3,	"Experienced team",	"Experienced team" 
+STR_WC_TEAM4,	"Confirmed team",	"Confirmed team" 
+STR_WC_TEAM5,	"Noob team",	"Noobs team" 
+STR_WC_TEAM6,	"Calamity team",	"Calamity team" 
+STR_WC_TEAM7,	"Bastard team",	"Bastard team" 
+STR_WC_TEAM8,	"Asshole team",	"Asshole team" 
+STR_WC_ASSHOLETEAM,	"Asshole team means that the players are not cooperating. They do what they want and surely they do nasty things like destroying what they see. You should disconnect from this server because there may be a lot of teamkillers around.",	"Asshole team signifie que cette partie n est pas cooperative. Les joueurs font ce qu ils veulent et certainement pas ce qu il faut. Ils detruisent tout ce qu ils voient. Vous devriez vous deconnecter de ce serveur car il y a certainement plein de team killers"
 STR_WC_BASTARDTEAM,	"Bastard team means that the team is not acting very smart. Players do what they want, and even if there is not really a team, they win few points by killing enemies.",	"Bastard team signifie que les actions des joueurs sont stupides. Les joueurs font ce qu ils veulent et meme si ca n est pas vraiment une equipe ils gagnent des points"
 STR_WC_CALAMITYTEAM,	"Calamity team means that the team is actually a bunch of fools. Players respawn in base too often, rush to objectives, or do bad strategic actions.",	"Calamity team signifie que les actions de l equipe sont peines perdues. Les joueurs respawnent souvent a la base, rush sur les objectifs, ou on une mauvaise strategie d equipe"
-STR_WC_NOOBTEAM,	"Noob team means that a team begins the game, and tries to organize itself. Try to follow and support team because then you will be promoted.",	"Noob team signifie que la team commence le jeu ou essaie de se maintenir au niveau. Essayez de suivre les actions de l'equipe, et de soutenir les actions de groupe pour atteindre le rang au dessus."
+STR_WC_NOOBTEAM,	"Noob team means that a team has only just begun the session, and tries to organize itself. Try to follow and support team because then you will be promoted.",	"Noob team signifie que la team commence le jeu ou essaie de se maintenir au niveau. Essayez de suivre les actions de l'equipe, et de soutenir les actions de groupe pour atteindre le rang au dessus."
 STR_WC_CONFIRMEDTEAM,	"Members of the team are confirmed. They try to complete the mission, do strategic actions, but they still have to train for better skill.",	"Les membres de l'equipe sont confirmes. Ils essaient de terminer la mission, font des actions strategiques, mais doivent s entrainer pour atteindre un rang superieur."
-STR_WC_EXPERIENCEDTEAM,	"Members of the team play together and well. They complete the mission, but they don't kill enough enemy to be a very great team.",	"Les membres de l'equipe jouent ensemble et bien. Ils terminent les missions, mais ne tuent pas assez d enemis pour etre une grande equipe."
-STR_WC_ELITETEAM,	"Members of the team are elites. They play together and they are very skilled. If you have this level, your team is very good",	"Les membres de l'equipe sont des elites. Ils jouent ensemble et ont un tres haut niveau. Si vous avez ce niveau, votre equipe est tres bonne."
-STR_WC_HEROETEAM,	"Members of the team are heroes. Your team is one of the best teams of the arma community. There aren't many teams with this rank out there!", "Les membres de l'equipe sont des heros. Votre equipe est l une des meilleurs de la communaute arma. Il y a peu d equipes qui ont votre niveau!"
+STR_WC_EXPERIENCEDTEAM,	"Members of the team play together and well. They complete missions well, but they don't kill enough enemy to be a very great team.",	"Les membres de l'equipe jouent ensemble et bien. Ils terminent les missions, mais ne tuent pas assez d enemis pour etre une grande equipe."
+STR_WC_ELITETEAM,	"Members of the team are elites. They play together and they are very skilled. If you have this level, your team is very good.",	"Les membres de l'equipe sont des elites. Ils jouent ensemble et ont un tres haut niveau. Si vous avez ce niveau, votre equipe est tres bonne."
+STR_WC_HEROETEAM,	"Members of the team are heroes. Your team is one of the best teams of the Arma community. There aren't many teams with this rank out there!",	"Les membres de l'equipe sont des heros. Votre equipe est l une des meilleurs de la communaute arma. Il y a peu d equipes qui ont votre niveau!"
 STR_WC_TRANSFERTPOINT,	"You have to transfer %1 points to other players!",	"Vous devez transferer %1 points aux autres joueurs!"
-STR_WC_MISSION0,	"A nuclear scud launcher has been dectected in enemy territory. Destroy it.",	"Un lanceur de scud a ete detecte en territoire enemi. Detruisez le."
-STR_WC_MISSION1,	"A gold trafficant is know to support enemy power by giving it retribution. This guy employ a lot of workers in these area and have the credit of poor people working for him. Eliminate him",	"Un trafficant est connu pour cooperer avec l enemi en lui reversant des contributions. Cet homme emploi de nombreux ouvriers dans la region, et a tout leur soutien. Vous devez l eliminer."
-STR_WC_MISSION2,	"A famous russian scientist is working on a secret project. We assume that it could be a nuclear bomb. During this week, this scientist is going to his house. Eliminate him.",	"Un scientifique renome travaille sur un projet secret. Durant cette semaine, ce scientifique est en deplacement dans sa maison de famille. Eliminez le."
-STR_WC_MISSION3,	"Intel reports an enemy special camp on this position. It seems like these guys love booze and when they're drunk they do bad things to the local civilians.Sneak in and destroy the barracks.",	"Nous avons localises des barraquements des forces speciales enemies. Comme ces hommes aiment boire, ils ont causes des histoires dans les villages alentours.  Detruisez les baraquements."
-STR_WC_MISSION4,	"Enemy is waiting for a fuel delivery. Destroy the truck which is transporting it!",	"Les enemis attendent un reapprovisionnement de carburant. Detruisez le camion."
-STR_WC_MISSION5,	"Enemy is waiting for an ammo delivery. Destroy the ural which is transporting it!", "Les enemis attendent un reapprovisionnement de munitions. Detruisez l'ural."
-STR_WC_MISSION6,	"A takistani commander is visiting this place. He wants to set up a new military base in this area. The local citizens are worried about it. Eliminate him!",	"Un commandant Takistanais est en deplacement. Cet endroit sera utilise pour construire une nouvelle base. La population locale est tres inquiete. Eliminez le."
-STR_WC_MISSION7,	"We have localized an enemy mobile base. Enemy uses it to transmit information about our armor movement. Destroy the Bmp2",	"Nous avons localise une base enemie mobile. Cette petite base donne des informations sur le deplacement de nos blindes. Detruisez le Bmp2."
-STR_WC_MISSION8,	"A fuel location is near of this village. Destroy it.",	"Un depot de carburant est proche de ce village. Detruisez le."
-STR_WC_MISSION9,	"A fuel location is near of this village. Destroy it.",	"Un depot de carburant est proche de ce village. Detruisez le."
-STR_WC_MISSION10,	"There is smuggled cargo in this village. Destroy it.",	"Il y a un contenaire de contrebande dans ce village. Detruisez le."
+STR_WC_MISSION0,	"A nuclear scud launcher has been detected in enemy territory. Destroy it.",	"Un lanceur de scud a ete detecte en territoire enemi. Detruisez le."
+STR_WC_MISSION1,	"A gold trafficker is running his smuggling operation through here. He employs virtual slave labour with the tacit support of the enemy. Eliminate him",	"Un trafficant est connu pour cooperer avec l enemi en lui reversant des contributions. Cet homme emploi de nombreux ouvriers dans la region, et a tout leur soutien. Vous devez l eliminer." 
+STR_WC_MISSION2,	"The enemy are employing a famous Russian scientist to work on a secret project. Intel indicates that it could be a nuclear bomb. During this week, this scientist is going to his house. Eliminate him.",	"Un scientifique renome travaille sur un projet secret. Durant cette semaine, ce scientifique est en deplacement dans sa maison de famille. Eliminez le."
+STR_WC_MISSION3,	"Intel reports a special enemy at the marked position. It seems like these guys love booze and when they're drunk they do bad things to the local civilians. Sneak in and destroy the barracks.",	"Nous avons localises des barraquements des forces speciales enemies. Comme ces hommes aiment boire, ils ont causes des histoires dans les villages alentours.  Detruisez les baraquements."
+STR_WC_MISSION4,	"Enemy is waiting for a fuel delivery. Destroy the truck transporting it!",	"Les enemis attendent un reapprovisionnement de carburant. Detruisez le camion."
+STR_WC_MISSION5,	"Enemy is waiting for an ammo delivery. Destroy the Ural transporting it!",	"Les enemis attendent un reapprovisionnement de munitions. Detruisez l'ural."
+STR_WC_MISSION6,	"A Takistani commander is visiting the marked location. He wants to set up a new military base in this area. The local citizens are worried about it. Eliminate him!",	"Un commandant Takistanais est en deplacement. Cet endroit sera utilise pour construire une nouvelle base. La population locale est tres inquiete. Eliminez le."
+STR_WC_MISSION7,	"We have localized an enemy mobile base. The enemy use it to transmit information about our armor movement. Destroy the BMP2.",	"Nous avons localise une base enemie mobile. Cette petite base donne des informations sur le deplacement de nos blindes. Detruisez le Bmp2."
+STR_WC_MISSION8,	"A fuel cache is near of this village. Destroy it.",	"Un depot de carburant est proche de ce village. Detruisez le."
+STR_WC_MISSION9,	"A fuel cache is near of this village. Destroy it.",	"Un depot de carburant est proche de ce village. Detruisez le."
+STR_WC_MISSION10,	"There is contraband cargo in this village. Destroy it.",	"Il y a un contenaire de contrebande dans ce village. Detruisez le."
 STR_WC_MISSION11,	"A power generator provides energy for enemy structures around this location. Turn it off.",	"Il y a un generateur d eletricite qui donne de l energie a toutes les installations aux alentours. Detruisez le."
 STR_WC_MISSION12,	"An enemy commando chopper is near and is going to take off. Destroy it!",	"Un commando heliporte enemi est proche et va bientot decoller. Detruisez le."
 STR_WC_MISSION13,	"A transport chopper needs to be destroyed!",	"Un helicoptere enemi doit etre detruit."
-STR_WC_MISSION14,	"A spy will give information. Find him and kill him!",	"Un traite va livrer des informations. Trouvez le et tuez le."
-STR_WC_MISSION15,	"An enemy radar is localizing all our planes. Neutralize it",	"Un radar enemi localise tous nos avions. Neutralisez le."
-STR_WC_MISSION16,	"There is a hospital in this village. We know that place was used by civillians but now the enemy soldiers took control over it. Destroy it!",	"Il y a un hopital dans ce village. Nous savons qu il est utilise par les civils et egalement par les soldats enemis. Detruisez le."
+STR_WC_MISSION14,	"A spy is going to leak classified intelligence to the enemy. Find him and kill him!",	"Un traite va livrer des informations. Trouvez le et tuez le."
+STR_WC_MISSION15,	"An enemy radar is tracking all of our planes. Neutralize it!",	"Un radar enemi localise tous nos avions. Neutralisez le."
+STR_WC_MISSION16,	"There is a hospital in this village. We know that place was previously a civilian hospital but now the enemy have taken control of it. Destroy it!",	"Il y a un hopital dans ce village. Nous savons qu il est utilise par les civils et egalement par les soldats enemis. Detruisez le."
 STR_WC_MISSION17,	"There is an heavy factory in this village. Destroy it!",	"Il y a une usine d'armement lourd dans ce village. Detruisez la."
-STR_WC_MISSION18,	"A suicide bomber  has been localized near a village by civillians. Find him and stop him!",	"Un homme bombe a ete localise dans un village par la population. Trouvez le et neutralisez le."
+STR_WC_MISSION18,	"A suicide bomber has been identified near a village by locals. Find him and stop him!",	"Un homme bombe a ete localise dans un village par la population. Trouvez le et neutralisez le."
 STR_WC_MISSION19,	"A warlord who is terrorizing the country has been localized. Eliminate him!",	"Un seigneur de guerre qui propage la terreur dans le pays a ete localise. Eliminez le."
-STR_WC_MISSION20,	"A takistani officer visit this village to talk about peace in the country. Eliminate him!",	"Un officier takistanais visite cet endroit pour organiser une reunion au sujet de la paix dans le pays. Eliminez le."
-STR_WC_MISSION21,	"An AA pod has been spotted. This AA artillery is very strong and caused a lot of damage to our planes. Find it and destroy it!",	"Un piece d artillerie AA a ete localise. Cette piece d artillerie AA cause de nombreux degats a nos avions. Detruisez la."
+STR_WC_MISSION20,	"A Takistani political officer is visiting this village to talk about peace in the country. Eliminate him!",	"Un officier takistanais visite cet endroit pour organiser une reunion au sujet de la paix dans le pays. Eliminez le."
+STR_WC_MISSION21,	"An AA artillery position has been spotted. This AA artillery is very strong and has caused a lot of damage to our planes. Find it and destroy it!",	"Un piece d artillerie AA a ete localise. Cette piece d artillerie AA cause de nombreux degats a nos avions. Detruisez la."
 STR_WC_MISSION22,	"A nuclear launcher has been spotted. We don't know if it's armed or not. Find out and destroy it!",	"Un lanceur de missile nucleaire a ete localise. Nous ne savons pas s il est arme ou pas. Trouvez le et detruisez le."
 STR_WC_MISSION23,	"An IED has been found in the village by locals. An engineer must find it and defuse it!",	"Un ied a ete trouve par les habitants locaux. Un ingenieur doit le desamorcer"
-STR_WC_MISSION24,	"The radio tower allows the enemy to call in reinforcements.It will take few minutes before the first soldiers arrive. You must destroy the radio tower as soon as possible before enemy alert!",	"Cette tour radio permet a l'enemi d appeler des renforts. Quand l enemi appelle du renfort cela peut prendre plusieurs minutes avant l arrivee des premiers soldats. Vous devez detruire l antenne le plus tot possible avant que l enemi sonne l alerte!"
+STR_WC_MISSION24,	"The radio tower allows the enemy to call in reinforcements. It will take few minutes before the first soldiers arrive. You must destroy the radio tower as soon as possible before enemy are alerted!",	"Cette tour radio permet a l'enemi d appeler des renforts. Quand l enemi appelle du renfort cela peut prendre plusieurs minutes avant l arrivee des premiers soldats. Vous devez detruire l antenne le plus tot possible avant que l enemi sonne l alerte!"
 STR_WC_MISSION25,	"An electrical station has been built. This electricity is only used for military buildings. Destroy it!",	"Une station electrique vient d etre construite. Cette station sert pour l ensemble des batiments civils et militaires. Detruisez la!"
 STR_WC_MISSION26,	"The enemy just finished their brand new ZSU. Find it and destroy it!",	"Un nouveau type de ZSU a ete construit. Trouvez le et detruisez le!"
 STR_WC_MISSION27,	"A new kind of T72 has been built. Find it and destroy it!",	"Un nouveau type de T72 a ete construit. Trouvez le et detruisez le!"
-STR_WC_MISSION28,	"A jailed press member has been located. Find him and escort him back to base!",	"Un membre de la presse emprisonne a ete localise. Liberez le!"
+STR_WC_MISSION28,	"A kidnapped journalist has been located. Find him and escort him back to base!",	"Un membre de la presse emprisonne a ete localise. Liberez le!"
 STR_WC_MISSION29,	"A terminal was installed by the enemy. Find it and destroy it!",	"Un terminal a ete installe par l'enemi. Trouvez le et detruisez le."
 STR_WC_MISSION30,	"A friendly officer has been captured. Liberate him!",	"Un officier ami a ete capture. Liberez le."
-STR_WC_MISSION31,	"A female tourist that traveled in the country was captured by an enemy group. Liberate her!",	"Une touriste qui voyageait dans le pays a ete capture par l'enemi. Liberez la!"
-STR_WC_MISSION32,	"The enemy is planning an attack with one of their ZSU. An engineer have to infiltrate without to be discovered by enemy and sabotage it!",	"Un nouveau type de ZSU a ete construit. Un ingenieur doit s infiltrer sans etre decouvert et le saboter!"
+STR_WC_MISSION31,	"A female tourist that travelled in the country was kidnapped by an enemy group. Liberate her!",	"Une touriste qui voyageait dans le pays a ete capture par l'enemi. Liberez la!"
+STR_WC_MISSION32,	"The enemy is planning an attack with one of their ZSU. An engineer needs to infiltrate without to be discovered by enemy and sabotage it!",	"Un nouveau type de ZSU a ete construit. Un ingenieur doit s infiltrer sans etre decouvert et le saboter!"
 STR_WC_MISSION33,	"A new kind of T72 has been built. An engineer has to infiltrate and sabotage it without being discovered by the enemy!",	"Un nouveau type de ZSU a ete construit. Un ingenieur doit s infiltrer sans etre decouvert et le saboter!"
-STR_WC_MISSION34,	"A radio tower allows the enemy to call in reinforcement. An engineer has to infiltrate and sabotage it without being discovered by the enemy!", "Une tour radio permet d appeller des renforts. Un ingenieur doit s infiltrer sans etre decouvert et la saboter!"
-STR_WC_MISSION35,	"Infiltrate and find the secret document. You have to steal it without being discovered by enemies.", "Infiltrez vous et trouvez les documents sans etre decouvert par l'enemi."
+STR_WC_MISSION34,	"A radio tower allows the enemy to call in reinforcement. An engineer has to infiltrate and sabotage it without being discovered by the enemy!",	"Une tour radio permet d appeller des renforts. Un ingenieur doit s infiltrer sans etre decouvert et la saboter!"
+STR_WC_MISSION35,	"Infiltrate and find the intelligence documents. You have to steal it without being detected by enemies.",	"Infiltrez vous et trouvez les documents sans etre decouvert par l'enemi."
 STR_WC_MISSION36,	"We need to steal a BRDM2 for an insertion in enemy zone!",	"Volez un BRDM2 pour une insertion en zone enemi!"
 STR_WC_MISSION37,	"We need to steal a BTR60 for an insertion in enemy zone!",	"Volez un BTR60 pour une insertion en zone enemi!"
-STR_WC_MISSION38,	"We need some fuel. We know about an enemy fuel cargo. Steal it!",	Nous avons besoin de carburant. Nous savons connaissance d'une cargaison. Volez la!
-STR_WC_MISSION39,	"A takistani commander is visiting this place. This guy has a very important role in this war. Capture him!",	"Un commandant Takistanais visite cet endroit. Cette homme a un role tres important dans cette guerre. Capturez le!"
-STR_WC_MISSION40,	"A takistani officer visit this village. Capture him!",	"Un officier takistanais visite cet endroit. Capturez le!"
+STR_WC_MISSION38,	"We need some fuel. We know about an enemy fuel cache. Steal it!",	"Nous avons besoin de carburant. Nous savons connaissance d'une cargaison. Volez la!"
+STR_WC_MISSION39,	"A Takistani commander is visiting this place. This officer has a very important role in this war. Capture him!",	"Un commandant Takistanais visite cet endroit. Cette homme a un role tres important dans cette guerre. Capturez le!"
+STR_WC_MISSION40,	"A Takistani officer is visiting this village. Capture him!",	"Un officier takistanais visite cet endroit. Capturez le!"
 STR_WC_MISSION41,	"A warlord who is terrorizing the country has been localized. Capture him!",	"Un seigneur de guerre qui provoque la terreur dans le pays a ete localise. Capturez le!"
-STR_WC_MISSION42,	"A resistant civilian has been identified contributing terrorist activities and training  enemy forces. Capture him.",	"Un civil resistant a ete identifie comme participant a des actes terroristes et a l entrainement des enemies. Capturez le!"
-STR_WC_MISSION43,	"Enemy has stolen one of our AH64 fighting choppers. Retrieve it!",	"Les enemis ont vole un de nos helicopteres de combat AH61, recuperez le!"
-STR_WC_MISSION44,	"Enemy has stolen one of our UH1 transport choppers. Retrieve it!",	"Les enemis ont vole un de nos helicopteres de transport UH1, recuperez le!"	
-STR_WC_MISSION45,	"Enemy has stolen one of our M1 armor. Retrieve it!",	"Les enemis ont vole un de nos blindes M1, recuperez le!"
-STR_WC_MISSION46,	"Enemy has stolen one of our MH6 chopper. Retrieve it!",	"Les enemis ont vole un de nos helicopteres MH6, recuperez le!"
+STR_WC_MISSION42,	"A resistant civilian has been identified contributing terrorist activities and training enemy forces. Capture him.",	"Un civil resistant a ete identifie comme participant a des actes terroristes et a l entrainement des enemies. Capturez le!"
+STR_WC_MISSION43,	"The enemy has stolen one of our AH64 attack helos. Retrieve it!",	"Les enemis ont vole un de nos helicopteres de combat AH61, recuperez le!"
+STR_WC_MISSION44,	"The enemy has stolen one of our UH1 transport helos. Retrieve it!",	"Les enemis ont vole un de nos helicopteres de transport UH1, recuperez le!"
+STR_WC_MISSION45,	"The enemy has stolen one of our M1A1 tanks. Retrieve it!",	"Les enemis ont vole un de nos blindes M1, recuperez le!"
+STR_WC_MISSION46,	"The enemy has stolen one of our MH6 helos. Retrieve it!",	"Les enemis ont vole un de nos helicopteres MH6, recuperez le!"
 STR_WC_MISSION47,	"There is an ammo cache in this village. Destroy it!",	"Il y a une cache de munitions a cet endroit, detruisez la!"
 STR_WC_MISSION48,	"This is a service and repair center. The enemy uses it to repair their armored and light vehicles when they are back in the north. You must destroy it at all cost.",	"Il y a un centre de reparation qui sert aux enemis pour reparer leurs blindes ainsi que les vehicules legers quand ils sont de retour du nord du pays. Vous devez le detruire."
-STR_WC_MISSION49,	"Enemy has stolen one of our choppers. Retrieve it!",	"Les enemis ont vole un de nos helicopteres de transport, recuperez le!"
-STR_WC_MISSION50,	"It s a secret mission. You must kill a civilian woman. Everybody must think it s terrorist act.",	"Vous avez pour mission secrete de tuer une femme civil. Tout le monde doit penser que cet un acte terroriste!"
+STR_WC_MISSION49,	"The enemy has stolen one of our helos. Retrieve it!",	"Les enemis ont vole un de nos helicopteres de transport, recuperez le!"
+STR_WC_MISSION50,	"This is a secret mission. You must kill a civilian female collaborator with the enemy. Everybody must think it is a terrorist act.",	"Vous avez pour mission secrete de tuer une femme civil. Tout le monde doit penser que cet un acte terroriste!"
 STR_WC_MISSION51,	"A new kind of %1 has been built. Find it and destroy it!",	"Un nouveau type de %1 a ete construit. Trouvez le et detruisez le."
 STR_WC_MISSION52,	"We need a new %1 to infiltrate . Steal it!",	"Nous avons besoin d un nouveau %1 pour nous infiltrer. Volez le!"
 STR_WC_MISSION53,	"We need to stop a %1. An engineer has to infiltrate and sabotage it without being discovered by the enemy!",	"Nous devons stopper un %1. Un ingenieur doit s infiltrer et le saboter!"
-STR_WC_MISSION54,	"A pilot was on a reconnaissance mission over the Takistan. We haven't heard from him for several hours and we know that his aircraft is crashed. Find him and rescue him!",	"un pilote etait en mission de reconnaissance au dessus du takistan. Nous n avons plus de nouvelles de lui depuis plusieurs heures, et nous savons que son appareil s est ecrase. Retrouvez le."
+STR_WC_MISSION54,	"A pilot was on a reconnaissance mission over Takistan. He was shot down and we haven't heard from him for several hours. Find him and rescue him!",	"un pilote etait en mission de reconnaissance au dessus du takistan. Nous n avons plus de nouvelles de lui depuis plusieurs heures, et nous savons que son appareil s est ecrase. Retrouvez le!"
 STR_WC_MISSION55,	"A friendly area is under attack. Defend it! To activate the mission, soldiers must go to the flag and protect the zone during a time.",	"Une zone amie est attaque. Defendez la! Pour activer la mission, les soldats doivent se rendre au drapeau et proteger la zone pendant un certains temps."
 STR_WC_MISSION56,	"A friendly area is under attack. Defend it! To activate the mission, soldiers must go to the flag and protect the zone during a time",	"Une zone amie est attaque. Defendez la! Pour activer la mission, les soldats doivent se rendre au drapeau et proteger la zone pendant un certains temps."
 STR_WC_MISSION57,	"A C130 was on a flight over Takistan when it was shot down by enemies. The pilot is still alive, but in the hands of enemy soldiers. Get your boys together for this rescue mission!",	"Un C130 etait en mission au dessus du Takistan quand il a ete descendu par la DCA enemie. Un de nos pilotes est encore vivant, mais a ete capture. Recuperez le."
-STR_WC_MISSION58,	"Enemy has stolen one of our A10 plane. Retrieve it!",	"Les enemis ont vole un de nos A10, recuperez le!"
-STR_WC_MISSION59,	"Enemy has stolen one of our AH6X plane. Retrieve it!",	"Les enemis ont vole un de nos AH6X, recuperez le!"
-STR_WC_MISSION60,	"Enemy has stolen one of our AH64 plane. Retrieve it!",	"Les enemis ont vole un de nos AH64, recuperez le!"
-STR_WC_MISSION61,	"We know that enemy will use a su 25 to strike our armors. Find it at airport base and destroy it!",	"Nous savons que les enemis vont utiliser un su 25 pour frapper nos blindes. Trouvez le a l aeroport et detruisez le!"
-STR_WC_MISSION62,	"We know that enemy pilots train to flight witha L39. To stop them, you have to find it at airport base and destroy it!",	"Nous savons que les pilotes enemis s entrainent avec un L39. Trouvez le a l aeroport et detruisez le!"
+STR_WC_MISSION58,	"The enemy has stolen one of our A10 planes. Retrieve it!",	"Les enemis ont vole un de nos A10, recuperez le!"
+STR_WC_MISSION59,	"The enemy has stolen one of our AH6X helos. Retrieve it!",	"Les enemis ont vole un de nos AH6X, recuperez le!"
+STR_WC_MISSION60,	"The enemy has stolen one of our AH64 helos. Retrieve it!",	"Les enemis ont vole un de nos AH64, recuperez le!
+STR_WC_MISSION61,	"We know that enemy will use a SU25 to strike our armor. Raid the airbase and destroy it!",	"Nous savons que les enemis vont utiliser un su 25 pour frapper nos blindes. Trouvez le a l aeroport et detruisez le!"
+STR_WC_MISSION62,	"We know that enemy pilots train with an L39. To stop them, you have to find it at airport base and destroy it!",	"Nous savons que les pilotes enemis s entrainent avec un L39. Trouvez le a l aeroport et detruisez le!"
 STR_WC_MISSION63,	"We have informations about an attack on an oil pump. Do your best to defend the oil pump!",	"Nous avons eu des informations sur une attaque enemie sur un forage petrolier! Protegez le!"
-STR_WC_MISSION64,	"An influent civilian was hurt recently. We need to help him. Send a medic and heal him.",	"Un civil influent a recement ete blessee. Nous devons lui porter secours. Envoyez un medic et soignez le!"
-STR_WC_MISSION65,	"We know that some enemy spg9's are heading for this fuel station to take some fuel. Destroy it!",	"Une station d essence sert au reapprovisonnement des vehicules enemis. Detruisez la!"
-STR_WC_MISSION66,	"We need to build a mash hospital in this area to support local population. Build it!",	"Nous avons besoin de construire un hopital a cet endroit pour aider la population locale. Allez y!"
+STR_WC_MISSION64,	"An influential civilian was hurt recently. We need to help him. Send a medic and heal him!",	"Un civil influent a recement ete blessee. Nous devons lui porter secours. Envoyez un medic et soignez le!"
+STR_WC_MISSION65,	"We know that some enemy SPG9's are heading for this fuel station to refuel. Destroy it!",	"Une station d essence sert au reapprovisonnement des vehicules enemis. Detruisez la!"
+STR_WC_MISSION66,	"We need to build a Mobile Army Surgical Hospital in this area to support the local population. Build it!",	"Nous avons besoin de construire un hopital mobile chirurgical a cet endroit pour aider la population locale. Allez y!"
 STR_WC_MISSION67,	"We need to build a military hospital in this area to support our local troops. Build it!",	"Nous avons besoin de construire un hopital militaire a cet endroit pour aider nos troupes. Allez y!"
-STR_WC_MISSION68,	"We need to deploy a radar to totaly control the air zone. Build it!",	"Nous avons besoin de deployer un radar pour controler completement la zone aerienne. Allez y!"
+STR_WC_MISSION68,	"We need to deploy a radar to dominate control the air zone. Build it!",	"Nous avons besoin de deployer un radar pour controler completement la zone aerienne. Allez y!"
 STR_WC_MISSION69,	"We need to deploy a service point to support our vehicles. Build it!",	"Nous avons besoin de deployer un point de service pour aider la progression de nos vehicules. Allez y!"
-STR_WC_MISSION70,	"We need to extract a part of population to mash at base. Extract them!",	"Nous avons besoin d extraire une population locale jusqu a l hopital de la base! Extractez les!"
+STR_WC_MISSION70,	"We need to extract injured civilians to the MASH on base. Extract them!",	"Nous avons besoin d extraire une population locale jusqu a l hopital de la base! Extractez les!"
 STR_WC_MISSION71,	"We need to secure an airfield zone for next operation. Go over there and clean the zone!",	"Nous avons besoin de securiser un aeroport pour les prochaines operations. Allez la bas et securisez la zone!"
 STR_WC_MISSION72,	"We need to secure an Oil Pump zone, to much takistans go around. Go over there and clean the zone!",	"Nous avons besoin de securisez une zone autour du forage car il y a trop de takistanais. Allez la bas et securisez la zone!"
-STR_WC_MISSION73,	"A little base required ammo. Bring an ammo truck from base to this little base!",	"Une petite base a besoin d un camion de munitions. Apportez ce camion de munitions!"
-STR_WC_MISSION74,	"We need an advanced base. Build a bunker here",	"Nous avons besoin d un poste avance, construisez un bunker ici"
+STR_WC_MISSION73,	"A Forward Operating Base requires ammo. Bring an ammo truck from base to this FOB!",	"Une petite base a besoin d un camion de munitions. Apportez ce camion de munitions!"
+STR_WC_MISSION74,	"We need an advanced Forward Operating Base. Build a bunker here!",	"Nous avons besoin d un poste avance, construisez un bunker ici"
 STR_WC_MISSION100,	"Final mission: You have found the place where the enemy leader is. You have to kill him to stop the war. Good luck!",	"Final mission: Vous avez decouvert l endroit ou se cache le leader enemi. Vous devez le tuer pour arreter la guerre. Bonne chance !"
-STR_WCSHORT_MISSION0,	Destroy a scud launcher,	Destroy a scud launcher
-STR_WCSHORT_MISSION1,	Kill gold trafficant,	Kill gold trafficant
-STR_WCSHORT_MISSION2,	Kill a nuclear scientist,	Kill a nuclear scientist
-STR_WCSHORT_MISSION3,	Destroy the barrack,	Destroy the barrack
-STR_WCSHORT_MISSION4,	Destroy the refuel ural,	Destroy the refuel ural
-STR_WCSHORT_MISSION5,	Destroy the ural,	Destroy an ural
-STR_WCSHORT_MISSION6,	Kill a takistani commander,	Kill a takistani commander
-STR_WCSHORT_MISSION7,	Destroy a bmp2 hq,	Destroy a bmp2 hq
-STR_WCSHORT_MISSION8,	Destroy a small fuel location,	Destroy a small fuel location
-STR_WCSHORT_MISSION9,	Destroy a big fuel location,	Destroy a big fuel location
-STR_WCSHORT_MISSION10,	Destroy a smuggled cargo,	Destroy a smuggled cargo
-STR_WCSHORT_MISSION11,	Destroy enemy airfac,	Destroy a enemy airfac
-STR_WCSHORT_MISSION12,	Destroy a commando group,	Destroy a commando group
-STR_WCSHORT_MISSION13,	Destroy a transport chopper,	Destroy a transport chopper
-STR_WCSHORT_MISSION14,	Kill the spy,	Kill the spy
-STR_WCSHORT_MISSION15,	Destroy the radar,	Destroy the radar,
-STR_WCSHORT_MISSION16,	Destroy the hospital,	Destroy the hospital
-STR_WCSHORT_MISSION17,	Destroy the heavy factory,	Destroy the heavy factory
-STR_WCSHORT_MISSION18,	Eliminate the suicide bomber,	Eliminate the suicide bomber
-STR_WCSHORT_MISSION19,	Kill a war lord,	Kill a war lord
-STR_WCSHORT_MISSION20,	Kill a takistani officer,	Kill a takistani officer
-STR_WCSHORT_MISSION21,	Destroy an aa artillery,	Destroy an aa artillery
-STR_WCSHORT_MISSION22,	Destroy a missile launcher,	Destroy a missile launcher
-STR_WCSHORT_MISSION23,	Defuse an IED,	Defuse an IED
-STR_WCSHORT_MISSION24,	Destroy a radio tower,	Destroy a radio tower
-STR_WCSHORT_MISSION25,	Destroy an electical station,	Destroy an electrical station
-STR_WCSHORT_MISSION26,	Destroy a ZSU,	Destroy a ZSU
-STR_WCSHORT_MISSION27,	Destroy a T72,	Destroy a T72
-STR_WCSHORT_MISSION28,	Liberate the hostage,	Liberate the hostage
-STR_WCSHORT_MISSION29,	Destroy UAV terminal,	Destroy UAV terminal
-STR_WCSHORT_MISSION30,	Liberate an officer,	Liberate an officer,
-STR_WCSHORT_MISSION31,	Liberate a tourist,	Liberate a tourist
-STR_WCSHORT_MISSION32,	Sabotage a ZSU,	Sabotage a ZSU
-STR_WCSHORT_MISSION33,	Sabotage a T72,	Sabotage a T72
-STR_WCSHORT_MISSION34,	Sabotage a radio tower, Sabotage a radio tower
-STR_WCSHORT_MISSION35,	Steal secret document,	Steal secret document
-STR_WCSHORT_MISSION36,	Steal a brdm2,	Steal a brdm2
-STR_WCSHORT_MISSION37,	Steal a btr60,	Steal a btr60
-STR_WCSHORT_MISSION38,	Steal an ural,	Steal an ural
-STR_WCSHORT_MISSION39,	Capture a takistani commander, Capture a takistani commander
-STR_WCSHORT_MISSION40,	Capture a takistani officer,	Capture a takistani officer
-STR_WCSHORT_MISSION41,	Capture a war lord,	Capture a war lord
-STR_WCSHORT_MISSION42,	Capture a civilian,	Capture a civilian
-STR_WCSHORT_MISSION43,	Retrieve an ah64,	Retrieve an ah64
-STR_WCSHORT_MISSION44,	Retrieve an uh1,	Retrieve an uh1
-STR_WCSHORT_MISSION45,	Retrieve an m1,	Retrieve an m1
-STR_WCSHORT_MISSION46,	Retrieve a mh6, Retrieve a mh6
-STR_WCSHORT_MISSION47,	Destroy an ammo cache, Destroy an ammo cache
-STR_WCSHORT_MISSION48,	Destroy a repair center, Destroy a repair center
-STR_WCSHORT_MISSION49,	Retrieve a chinook,	Retrieve a chinook
-STR_WCSHORT_MISSION50,	Kill a takistani woman civil,	Kill a takistani woman civil
-STR_WCSHORT_MISSION51,	Destroy a vehicle,	Destroy a vehicle
-STR_WCSHORT_MISSION52,	Rob a vehicle,	Rob a vehicle
-STR_WCSHORT_MISSION53,	Sabotage a vehicle,	Sabotage a vehicle
-STR_WCSHORT_MISSION54,	Rescue a pilot,	Rescue a pilot
-STR_WCSHORT_MISSION55,	Defend an area,	Defend an area
-STR_WCSHORT_MISSION56,	Defend the barracks,	Defend the barracks,
-STR_WCSHORT_MISSION57,	Rescue a c130 pilot, Rescue a c130 pilot
-STR_WCSHORT_MISSION58,	Retrieve an a10 aircraft, Retrieve an a10 aircraft
-STR_WCSHORT_MISSION59,	Retrieve an AH6X aircraft, Retrieve an AH6X aircraft
-STR_WCSHORT_MISSION60,	Retrieve a AH64 aicraft, Retrieve a AH64 aircraft
-STR_WCSHORT_MISSION61,	Destroy a su25,	Destroy a su25
-STR_WCSHORT_MISSION62,	Destroy a l39,	Destroy a l39
-STR_WCSHORT_MISSION63,	Defend an oil pump,	Defend an oil pump
-STR_WCSHORT_MISSION64,	Heal a civilian,	Heal a civilian
-STR_WCSHORT_MISSION65,	Destroy a fuel location,	Destroy a fuel location
-STR_WCSHORT_MISSION66,	Build a MASH,	Build a MASH
-STR_WCSHORT_MISSION67,	Build a military hospital,	Build a military hospital
-STR_WCSHORT_MISSION68,	Build a radar,	Build a radar
-STR_WCSHORT_MISSION69,	Build a service point,	Build a service point
-STR_WCSHORT_MISSION70,	Rescue 10 civilians,	Rescue 10 civilians
-STR_WCSHORT_MISSION71,	Secure an airfield zone,	Secure an airfield zone
-STR_WCSHORT_MISSION72,	Secure an oil pump zone,	Secure an oil pump zone
-STR_WCSHORT_MISSION73,	Bring an ammo truck,	Bring an ammo truck
-STR_WCSHORT_MISSION74,	Build a bunker,	Build a bunker
-STR_WCSHORT_MISSION100,	Final: Kill the leader,	Final: Kill the leader
-STR_WC_TITLE_MISSION, War in Takistan: Operations Iron Rains, War in Takistan: Operations pluies d'acier
-STR_WC_CALLREINFORCEMENT, Incoming reinforcements, Des renforts attaquent
-STR_WC_BUTTONBUILD,	Build,	Construire
-STR_WC_BUTTONCLOSE,	Close,	Fermer
-STR_WC_MENUBUILDTRENCH, Dig trench, Creuser une tranchee
-STR_WC_MENUREPAIRVEHICLE, Repair Vehicle, Reparer le vehicule
-STR_WC_MENUREPAIRVEHICLE2, Repair Vehicle: %1, Reparer le vehicule: %1
-STR_WC_MENUUNLOCKVEHICLE, Lock/Unlock Vehicle, Verrouiller/Deverouiller le vehicule
-STR_WC_MENUUNFLIPVEHICLE, Unflip Vehicle, Retourner le vehicule
-STR_WC_MENUCHOOSEMISSION, Check operation plan, Check operation plan
-STR_WC_MENUBUILD, Building, Construction
-STR_WC_MENURECRUITMENT, Recruitment, Recrutement
-STR_WC_MENURECRUITASTEAMMENBER,	You have been recruited as team member,	Vous avez ete recrute comme membre de l equipe
-STR_WC_MENUFOLLOWTHELEADER,	Follow the team leader instructions as your acts impact the teamscore now,	Suivez les instructions du leader car vos actes impactent le score de l equipe maintenant
-STR_WC_MENUTEAMMANAGEMENT, Manage team, Manage team
-STR_WC_MENUSPECTATOR, Spectator Mode, Mode spectateur
-STR_WC_MENUCANCELMISSION, Cancel Mission, Cancel Mission
-STR_WC_MENUDEPLOYTENT, Deploy a tent, Deployer une tente
-STR_WC_MENUBOMBING,	Bombing support,	Bombardement
-STR_WC_MENULOADOUTPRESET,	Choose your custom preset,	Choisissez votre equipement
-STR_WC_MESSAGEWASKILLED,	Soldier %1 was killed: -1 point,	Le soldat %1 a ete tue: -1 point
-STR_WC_MESSAGEMISSIONINITIALIZED,	Mission Initialized,	Mission Initialisee
-STR_WC_MESSAGERESPAWNTOBASE,	%1 has respawned to base!,	%1 a respawn a la base!
-STR_WC_MESSAGERESPAWNTOTENT,	%1 has respawned to his tent !,	%1 a respawn a sa tente!
-STR_WC_MESSAGERESPAWNTOHQ,	%1 has respawned to MHQ!,	%1 a respawn au MHQ!
-STR_WC_MESSAGEGOTABLAME,	%1 has got a blame !,	%1 a recu un blame !
-STR_WC_MESSAGEMISSINGADDONS,	MISSING ADDON: %1,	ADDON MANQUANT: %1
-STR_WC_MESSAGEBUILDINGFINISHED,	Building is finished, Construction terminee
-STR_WC_MESSAGESABOTING,	Saboting,	Sabotage en cours
-STR_WC_MESSAGESABOTINGFINISHED,	Saboting is finished,	Sabotage termine
-STR_WC_MESSAGEBUILDING,	Building,	En cours de construction
-STR_WC_MESSAGEBUILDINGINFORMATION, While building time you can not move, Durant la construction, vous ne pouvez pas bouger.
-STR_WC_MESSAGESABOTINGINFORMATION, While saboting time you can not move, Durant le sabotage, vous ne pouvez pas bouger.
-STR_WC_MESSAGECANBUILDTENT,	A tent already exist. ,	Une tente existe deja.
-STR_WC_MESSAGEREMOVETENT,	You must remove your tent to build a new one.,	Vous devez demonter votre tente existante avant d'en construire une nouvelle.
-STR_WC_MESSAGEDIGATRENCH, Dig a trench,	Creuser une tranchee
-STR_WC_MESSAGECANDIG,	Can't dig trench here.,	Vous ne pouvez pas creuser ici.
-STR_WC_MESSAGEDEPLOYATENT, Deploy a tent,	Deployer une tente
-STR_WC_MESSAGETRYTOMOVEOUT,	Try to move out of base,	Eloignez vous de la base
-STR_WC_MESSAGECANCREATETENT,	Can't deploy tent here.,	Vous ne pouvez pas deployer de tente ici.
-STR_WC_MESSAGEGOCLOSERUNFLIP,	Go closer of the vehicle you want to unflip,	Rapprochez vous du vehicule que vous voulez retourner
-STR_WC_MESSAGEGOCLOSERREPAIR,	Go closer of the vehicle you want to repair,	Rapprochez vous du vehicule que vous voulez reparer
-STR_WC_MESSAGENOVEHICLENEARYOU,	There is no vehicle near your position,	Il n y a pas de vehicules pres de vous
-STR_WC_MESSAGENEAR,	Near %1,	Pres de %1
-STR_WC_MESSAGEGOTO,	Go to %1,	Allez a %1
-STR_WC_MESSAGEWARNING,	Warning,	Attention
-STR_WC_MESSAGERESTARTGAME,	Restart your game and load the good addons,	Redemarrez votre jeu et chargez les bons addons
-STR_WC_MESSAGENOTSYNC,	Your game is not synchronized with the addons used by the server and may cause instability. Check the settings section in mission info.,	Votre jeu n est pas synchonise avec les addons utilises par le serveur et cause des instabilites. Verifier les settings dans le menu mission info.
-STR_WC_MESSAGEINITIALIZING,	INITIALIZING MISSION,	MISSION EN COURS D'INITIALISATION
-STR_WC_MESSAGEHASBEENDESTROYED,	has been destroyed,	a ete detruit
-STR_WC_MESSAGETAKISTANLOCALISED,	Takistanis are localized,	Takistanais localises
-STR_WC_MISSIONCANCELED, Mission Cancelled, Mission abandonnee
-STR_WC_MESSAGELEAVEZONE,	Leave the zone,	Quittez la zone
-STR_WC_MESSAGEMISSIONCOMPLETED,	Mission completed,	Mission completed
-STR_WC_MESSAGEMISSIONFAILED,	Mission failed,	Mission failed
-STR_WC_MESSAGEMISSIONFINISHED,	Mission %1 Finished,	Mission %1 terminee
-STR_WC_MESSAGEMISSIONCOMMANDEMENT,	Headquarter,	Etat major
-STR_WC_MESSAGNEXTSTEP,	Next step in a few seconds,	En attente d'ordres
-STR_WC_MESSAGEPROMOTED,	You got promoted, Vous avez ete promu
-STR_WC_MESSAGEDEGRADED,	You got degraded, Vous avez ete degrade
-STR_WC_MESSAGETORANK,	to %1 rank, au rang de %1
-STR_WC_MESSAGETEAMPROMOTED,	"Your team got promoted",	"Votre equipe a ete promu"
-STR_WC_MESSAGETEAMDEGRADED,	"Your team got degraded",	"Votre equipe a ete degrade"
-STR_WC_MESSAGEPLAYERPROMOTED,	%1 got promoted to %2 rank !, %1 a ete promu au rang de %2 !
-STR_WC_MESSAGEPLAYERDEGRADED,	%1 got degraded to %2 rank !, %1 a ete degrade au rang de %2 !
-STR_WC_MESSAGEISLOCKED,	%1 is locked,	%1 est verouille
-STR_WC_MESSAGEUNLOCKING,	unlocking %1, deverouillage de %1
-STR_WC_MESSAGELOCKING,	locking %1, verouillage de %1
-STR_WC_MESSAGEISUNLOCKED,	%1 is unlocked,	%1 est deverouille
-STR_WC_MESSAGECANNOTREPAIR,	You can't repair Vehicle. Too much dammage.,	Le vehicule est trop endommage. Vous ne pouvez pas le reparer.
-STR_WC_MESSAGEANBOMBERMANEXPLOSION,	A suicide bomber blew himself up near %1,	Un homme bombe a explose a cote de %1
-STR_WC_MESSAGEMHQDEPLOYED,	The MHQ has been deployed near insertion zone,	Le MHQ a ete deploye pres de la zone d insertion
-STR_WC_MESSAGEANIEDEXPLOSION,	An IED exploded near %1,	Un ied a explose a pres de %1
-STR_WC_MESSAGEANIEDEXPLOSIONNEARVEHICLE,	An IED exploded near friendly vehicle,	Un ied a explose a cote d un vehicle allie
-STR_WC_MESSAGEABEENDETECTED,	You have been detected,	Vous avez ete reconnu
-STR_WC_INFOPOINTSTOSHARE,	Points to share,	Points a partager
-STR_WC_WIN_MISSION, "War is won", "La guerre est gagnee"
-STR_WC_LOOSE_MISSION, "War is lost", "La guerre est perdue"
-STR_WC_BRIEFING, "Briefing:\nYou have to complete the %1 operations.", "Briefing:\nVous devez accomplir %1 missions."
-STR_WC_IASKILL, IA Skill: %1, Niveau de l'IA: %1
-STR_WC_TEAMSCORE, Team score: %1, Score de l'equipe: %1
-STR_WC_ENNEMYKILLED, "Global enemies killed: %1", "Enemis tues: %1"
-STR_WC_AMMOUSED, Ammo used: %1, Munitions utilisees: %1
-STR_WC_REVIVELEFT, Revives left: %1, Reapparitions possibles: %1
-STR_WC_POINTSTOTRANSFERT, Transfer Points: %1/%2, Points a transferer: %1/%2
-STR_WC_OPERATIONGOAL, Operation goal: \n%1,Objectif de la mission: \n%1
-STR_WC_NOTYETDEFINE,	Not definded yet,	Pas encore defini
-STR_WC_ACTUALLYYOURTEAMRANK,	Actually your team rank is,	Votre score d'equipe est
-STR_ACGUI_MM_BTN_CLOSE,	Close,	Fermer
-STR_ACGUI_MM_BTN_Opt,	Settings,	Parametres
-STR_ACGUI_MM_BTN_Obj,	Operation goal ,	Objectif
-STR_ACGUI_MM_LABEL,	War in Takistan,	War in Takistan
-STR_ACGUI_MM_BTN_LOGS,	Logs,	Logs
-STR_ACGUI_MM_BTN_CREDITS,	Credits,	Credits
-STR_ACGUI_MM_BTN_HBFIX,	Fix Headbug,	Fix Headbug
-STR_ACGUI_MM_BTN_WEAPONS,	Export Weapons,	Exporter armes
-STR_ACGUI_MM_BTN_TEAMSTATUS,	Team status,	Team status
-STR_ACGUI_VM_TXT_VD,	View distance %1,	Distance de vue %1
-STR_ACGUI_VM_TXT_TG,	Ground texture %1,	Texture du sol %1
-STR_ACGUI_VM_BTN_CLOSE,	Ok,	Valider
-STR_ACGUI_MM_BTN_TRANSFERT,	Transfer,	Transferer
-STR_R3F_REV_dontrespawnatbase,	"You should not respawn at base. This game is played with medics who can revive you. You should wait for them.", "Vous ne devez pas respawn a la base. Cette mission se joue avec des medecins qui peuvent vous soigner, vous devez les attendre."
-STR_R3F_REV_btn_reapparition,	Respawn at base,	Reapparaitre a la base
-STR_R3F_REV_reapparition_camp_en_cours,	Respawn at base in progress...,	Reapparition a la base en cours...
-STR_R3F_REV_attente_reanimation,	You're waiting for a medic...,	Vous etes en attente d'un medecin...
-STR_R3F_REV_marqueur_attente_reanimation,	%1 unconscious,	%1 inconscient
-STR_R3F_REV_nb_reanimations_plusieurs,	You've been healed... You still have %1 possibilities of healing.,	Vous avez ete soigne... Il vous reste %1 possibilites de reanimation.
-STR_R3F_REV_nb_reanimations_une,	You've been healed... You only have one possibility of healing before returning to base.,	Vous avez ete soigne... Il ne vous reste plus qu'une reanimation possible avant retour au camp.
-STR_R3F_REV_nb_reanimations_zero,	You've been healed... It was your last possibility of healing.,	Vous avez ete soigne...C'etait votre dernière possibilite de reanimation.
-STR_R3F_REV_plus_de_reanimation,You've reached the limit of healing...,Vous avez atteint le nombre limite de reanimations...
-STR_R3F_REV_hors_jeu,You're now out of the game...,Vous etes à present hors jeu...
-STR_R3F_REV_respawn_camp,You respawn at base...,Vous reapparaissez a la base...
-STR_R3F_REV_ne_pas_se_reanimer_soi_meme,You can't revive yourself.,Vous ne pouvez pas vous reanimer vous-meme.
-#include "extern\TeamStatusDialog\stringtable.csv"
-#include "extern\R3F_DEBUG\Scripts\stringtable_R3F_DEBUG.csv"
+STR_WCSHORT_MISSION0,	"Destroy a SCUD launcher",	"Destroy a SCUD launcher"
+STR_WCSHORT_MISSION1,	"Kill a gold trafficker",	"Kill a gold trafficant"
+STR_WCSHORT_MISSION2,	"Kill a nuclear scientist",	"Kill a nuclear scientist"
+STR_WCSHORT_MISSION3,	"Destroy a barracks",	"Destroy a barrack"
+STR_WCSHORT_MISSION4,	"Destroy a Ural refuel",	"Destroy an ural refuel"
+STR_WCSHORT_MISSION5,	"Destroy a Ural ",	"Destroy an ural"
+STR_WCSHORT_MISSION6,	"Kill a Takistani commander",	"Kill a takistan commander"
+STR_WCSHORT_MISSION7,	"Destroy a BMP2 HQ",	"Destroy a BMP2 hq"
+STR_WCSHORT_MISSION8,	"Destroy a small fuel location",	"Destroy a small fuel location"
+STR_WCSHORT_MISSION9,	"Destroy a big fuel location",	"Destroy a big fuel location"
+STR_WCSHORT_MISSION10,	"Destroy a cargo smuggling",	"Destroy a cargo smuggling"
+STR_WCSHORT_MISSION11,	"Destroy a power generator",	"Destroy a power generator"
+STR_WCSHORT_MISSION12,	"Destroy a commando group",	"Destroy a commando group"
+STR_WCSHORT_MISSION13,	"Destroy a transport chopper",	"Destroy a transport chopper"
+STR_WCSHORT_MISSION14,	"Kill the treat",	"Kill the treat"
+STR_WCSHORT_MISSION15,	"Destroy the radar",	"Destroy the radar"
+STR_WCSHORT_MISSION16,	"Destroy the hospital",	"Destroy the hospital"
+STR_WCSHORT_MISSION17,	"Destroy the heavy factory",	"Destroy the heavy factory"
+STR_WCSHORT_MISSION18,	"Eliminate the suicide bomber",	"Eliminate the bomber man"
+STR_WCSHORT_MISSION19,	"Kill a war lord",	"Kill a war lord"
+STR_WCSHORT_MISSION20,	"Kill a Takistani officer",	"Kill a takistan officer"
+STR_WCSHORT_MISSION21,	"Destroy an the AA artillery",	"Destroy an aa artillery"
+STR_WCSHORT_MISSION22,	"Destroy a missile launcher",	"Destroy a missile launcher"
+STR_WCSHORT_MISSION23,	"Destroy an IED",	"Destroy an IED"
+STR_WCSHORT_MISSION24,	"Destroy a radio tower",	"Destroy a radio tower"
+STR_WCSHORT_MISSION25,	"Destroy an electrical station",	"Destroy an electrical station"
+STR_WCSHORT_MISSION26,	"Destroy a ZSU",	"Destroy a ZSU"
+STR_WCSHORT_MISSION27,	"Destroy a T72",	"Destroy a T72"
+STR_WCSHORT_MISSION28,	"Rescue a hostage",	"Liberate an hostage"
+STR_WCSHORT_MISSION29,	"Destroy a terminal installation",	"Destroy a terminal installation"
+STR_WCSHORT_MISSION30,	"Rescue an officer",	"Liberate an officer"
+STR_WCSHORT_MISSION31,	"Rescue a tourist",	"Liberate a tourist"
+STR_WCSHORT_MISSION32,	"Sabotage a ZSU",	"Sabotage a ZSU"
+STR_WCSHORT_MISSION33,	"Sabotage a T72",	"Sabotage a T72"
+STR_WCSHORT_MISSION34,	"Sabotage a radio tower",	"Sabotage a radio tower"
+STR_WCSHORT_MISSION35,	"Steal secret document",	"Steal secret document"
+STR_WCSHORT_MISSION36,	"Rob a BDRM2",	"Rob a BRDM2"
+STR_WCSHORT_MISSION37,	"Rob a BTR60",	"Rob a BTR60"
+STR_WCSHORT_MISSION38,	"Rob an Ural",	"Rob an Ural"
+STR_WCSHORT_MISSION39,	"Capture a Takistani commander",	"Capture a takistan commander"
+STR_WCSHORT_MISSION40,	"Capture a Takistani officer",	"Capture a takistan officer"
+STR_WCSHORT_MISSION41,	"Capture a war lord",	"Capture a war lord"
+STR_WCSHORT_MISSION42,	"Capture a civilian",	"Capture a civilian"
+STR_WCSHORT_MISSION43,	"Retrieve an AH64",	"Retrieve an AH64"
+STR_WCSHORT_MISSION44,	"Retrieve a UH1",	"Retrieve an UH1"
+STR_WCSHORT_MISSION45,	"Retrieve an M1A1",	"Retrieve an M1A1"
+STR_WCSHORT_MISSION46,	"Retrieve an MH6",	"Retrieve a MH6"
+STR_WCSHORT_MISSION47,	"Destroy an ammo cache",	"Destroy an ammo cache"
+STR_WCSHORT_MISSION48,	"Destroy a repair center",	"Destroy a repair center"
+STR_WCSHORT_MISSION49,	"Retrieve a Chinook",	"Retrieve a Chinook"
+STR_WCSHORT_MISSION50,	"Kill a civilian Takistani woman ",	"Kill a civilian Takistani woman"
+STR_WCSHORT_MISSION51,	"Destroy a vehicle",	"Destroy a vehicle"
+STR_WCSHORT_MISSION52,	"Rob a vehicle",	"Rob a vehicle"
+STR_WCSHORT_MISSION53,	"Sabotage a vehicle",	"Sabotage a vehicle"
+STR_WCSHORT_MISSION54,	"Rescue a pilot",	"Rescue a pilot"
+STR_WCSHORT_MISSION55,	"Defend an area",	"Defend an area"
+STR_WCSHORT_MISSION56,	"Defend some barracks",	"Defend some barracks"
+STR_WCSHORT_MISSION57,	"Rescue a C130 pilot",	"Rescue a C130 pilot"
+STR_WCSHORT_MISSION58,	"Retrieve an A10 plane",	"Retrieve an A10 plane"
+STR_WCSHORT_MISSION59,	"Retrieve an AH6X helo",	"Retrieve an AH6X helo"
+STR_WCSHORT_MISSION60,	"Retrieve a AH64 helo",	"Retrieve a AH64 helo"
+STR_WCSHORT_MISSION61,	"Destroy a SU25 plane",	"Destroy a SU25 plane"
+STR_WCSHORT_MISSION62,	"Destroy a L39 plane",	"Destroy a L39 plane"
+STR_WCSHORT_MISSION63,	"Defend an oil pump",	"Defend an oil pump"
+STR_WCSHORT_MISSION64,	"Heal a civilian",	"Heal a civilian" 
+STR_WCSHORT_MISSION65,	"Destroy a fuel location",	"Destroy a fuel location" 
+STR_WCSHORT_MISSION66,	"Build a MASH",	"Build a MASH" 
+STR_WCSHORT_MISSION67,	"Build a military hospital",	"Build a military hospital" 
+STR_WCSHORT_MISSION68,	"Build a radar",	"Build a radar" 
+STR_WCSHORT_MISSION69,	"Build a service point",	"Build a service point" 
+STR_WCSHORT_MISSION70,	"Rescue 10 civilians",	"Rescue 10 civilians" 
+STR_WCSHORT_MISSION71,	"Secure an airfield zone",	"Secure an airfield zone" 
+STR_WCSHORT_MISSION72,	"Secure an oil pump zone",	"Secure an oil pump zone" 
+STR_WCSHORT_MISSION73,	"Bring an ammo truck",	"Bring an ammo truck" 
+STR_WCSHORT_MISSION74,	"Build a bunker",	"Build a bunker" 
+STR_WCSHORT_MISSION100,	"Final: Kill the leader",	"Final: Kill the leader" 
+STR_WC_TITLE_MISSION,	"War in Takistan: Operations Iron Rains",	"War in Takistan: Operations pluies d'acier" 
+STR_WC_CALLREINFORCEMENT,	"Incoming reinforcements",	"Des renforts attaquent" 
+STR_WC_BUTTONBUILD,	"Build",	"Construire"
+STR_WC_BUTTONCLOSE,	"Close",	"Fermer"
+STR_WC_MENUBUILDTRENCH,	"Dig trench",	"Creuser une tranchee" 
+STR_WC_MENUREPAIRVEHICLE,	"Repair Vehicle",	"Reparer le vehicule" 
+STR_WC_MENUREPAIRVEHICLE2,	"Repair Vehicle: %1",	"Reparer le vehicule: %1" 
+STR_WC_MENUUNLOCKVEHICLE,	"Lock/Unlock Vehicle",	"Verrouiller/Deverouiller le vehicule" 
+STR_WC_MENUUNFLIPVEHICLE,	"Unflip Vehicle",	"Retourner le vehicule" 
+STR_WC_MENUCHOOSEMISSION,	"Check operation plan",	"Check operation plan" 
+STR_WC_MENUBUILD,	"Building",	"Construction"
+STR_WC_MENURECRUITMENT,	"Recruitment",	"Recrutement" 
+STR_WC_MENURECRUITASTEAMMENBER,	"You have been recruited as team member",	"Vous avez ete recrute comme membre de l equipe" 
+STR_WC_MENUFOLLOWTHELEADER,	"Follow the team leader's instructions as your actions impact the team score",	"Suivez les instructions du leader car vos actes impactent le score de l equipe maintenant" 
+STR_WC_MENUTEAMMANAGEMENT,	"Manage team",	"Manage team" 
+STR_WC_MENUSPECTATOR,	"Spectator Mode",	"Mode spectateur" 
+STR_WC_MENUCANCELMISSION,	"Cancel Mission",	"Cancel Mission" 
+STR_WC_MENUDEPLOYTENT,	"Deploy a tent",	"Deployer une tente" 
+STR_WC_MENUBOMBING,	"Bombing support",	"Bombardement" 
+STR_WC_MENULOADOUTPRESET,	"Choose your custom preset",	"Choisissez votre equipement" 
+STR_WC_MESSAGEWASKILLED,	"Soldier %1 was killed: -1 point",	"Le soldat %1 a ete tue: -1 point" 
+STR_WC_MESSAGEMISSIONINITIALIZED,	"Mission Initialized",	"Mission Initialisee" 
+STR_WC_MESSAGERESPAWNTOBASE,	"%1 has respawned to main base!",	"%1 a respawn a la base!" 
+STR_WC_MESSAGERESPAWNTOTENT,	"%1 has respawned to his tent !",	"%1 a respawn a sa tente!" 
+STR_WC_MESSAGERESPAWNTOHQ,	"%1 has respawned to Mobile HQ!",	"%1 a respawn au HQ!" 
+STR_WC_MESSAGEGOTABLAME,	"%1 has received blame !",	"%1 a recu un blame !" 
+STR_WC_MESSAGEMISSINGADDONS,	"MISSING ADDON: %1",	"ADDON MANQUANT: %1" 
+STR_WC_MESSAGEBUILDINGFINISHED,	"Building is finished",	"Construction terminee" 
+STR_WC_MESSAGESABOTING,	"Sabotaging",	"Sabotage en cours" 
+STR_WC_MESSAGESABOTINGFINISHED,	"Sabotaging is finished",	"Sabotage termine" 
+STR_WC_MESSAGEBUILDING,	"Building",	"En cours de construction" 
+STR_WC_MESSAGEBUILDINGINFORMATION,	"During building time you can not move",	"Durant la construction, vous ne pouvez pas bouger." 
+STR_WC_MESSAGESABOTINGINFORMATION,	"During sabotaging time you can not move",	"Durant le sabotage, vous ne pouvez pas bouger." 
+STR_WC_MESSAGECANBUILDTENT,	"A tent already exists. ",	"Une tente existe deja." 
+STR_WC_MESSAGEREMOVETENT,	"You must remove your tent to build a new one.",	"Vous devez demonter votre tente existante avant d'en construire une nouvelle." 
+STR_WC_MESSAGEDIGATRENCH,	"Dig a trench",	"Creuser une tranchee" 
+STR_WC_MESSAGECANDIG,	"Can't dig a trench here.",	"Vous ne pouvez pas creuser ici." 
+STR_WC_MESSAGEDEPLOYATENT,	"Deploy a tent",	"Deployer une tente" 
+STR_WC_MESSAGETRYTOMOVEOUT,	"Try to move out of base",	"Eloignez vous de la base" 
+STR_WC_MESSAGECANCREATETENT,	"Can't deploy a tent here.",	"Vous ne pouvez pas deployer de tente ici." 
+STR_WC_MESSAGEGOCLOSERUNFLIP,	"Get closer to the vehicle you want to unflip",	"Rapprochez vous du vehicule que vous voulez retourner" 
+STR_WC_MESSAGEGOCLOSERREPAIR,	"Get closer to the vehicle you want to repair",	"Rapprochez vous du vehicule que vous voulez reparer" 
+STR_WC_MESSAGENOVEHICLENEARYOU,	"There is no vehicle near your position",	"Il n y a pas de vehicules pres de vous" 
+STR_WC_MESSAGENEAR,	"Near %1",	"Pres de %1" 
+STR_WC_MESSAGEGOTO,	"Go to %1",	"Allez a %1" 
+STR_WC_MESSAGEWARNING,	"Warning",	"Attention" 
+STR_WC_MESSAGERESTARTGAME,	"Restart your game and load the good addons",	"Redemarrez votre jeu et chargez les bons addons" 
+STR_WC_MESSAGENOTSYNC,	"Your game is not synchronized with the addons used by the server and may cause instability. Check the settings section in mission info.",	"Votre jeu n est pas synchonise avec les addons utilises par le serveur et cause des instabilites. Verifier les settings dans le menu mission info." 
+STR_WC_MESSAGEINITIALIZING,	"INITIALIZING MISSION",	"MISSION EN COURS D'INITIALISATION" 
+STR_WC_MESSAGEHASBEENDESTROYED,	"has been destroyed",	"a ete detruit" 
+STR_WC_MESSAGETAKISTANLOCALISED,	"Takistanis are localized",	"Takistanais localises" 
+STR_WC_MISSIONCANCELED,	"Mission Cancelled",	"Mission abandonnee" 
+STR_WC_MESSAGELEAVEZONE,	"Leave the zone",	"Quittez la zone" 
+STR_WC_MESSAGEMISSIONCOMPLETED,	"Mission completed",	"Mission completed" 
+STR_WC_MESSAGEMISSIONFAILED,	"Mission failed",	"Mission failed" 
+STR_WC_MESSAGEMISSIONFINISHED,	"Mission %1 Finished",	"Mission %1 terminee" 
+STR_WC_MESSAGEMISSIONCOMMANDEMENT,	"Head Quarters",	"Etat major" 
+STR_WC_MESSAGNEXTSTEP,	"Next step in a few seconds",	"En attente d'ordres" 
+STR_WC_MESSAGEPROMOTED,	"You got promoted",	"Vous avez ete promu" 
+STR_WC_MESSAGEDEGRADED,	"You got demoted",	"Vous avez ete degrade" 
+STR_WC_MESSAGETORANK,	"to %1 rank",	"au rang de %1" 
+STR_WC_MESSAGETEAMPROMOTED,	"Your team got promoted",	"Votre equipe a ete promu" 
+STR_WC_MESSAGETEAMDEGRADED,	"Your team got degraded",	"Votre equipe a ete degrade" 
+STR_WC_MESSAGEPLAYERPROMOTED,	"%1 got promoted to %2 rank !",	"%1 a ete promu au rang de %2 !" 
+STR_WC_MESSAGEPLAYERDEGRADED,	"%1 got degraded to %2 rank !",	"%1 a ete degrade au rang de %2 !" 
+STR_WC_MESSAGEISLOCKED,	"%1 is locked",	"%1 est verouille" 
+STR_WC_MESSAGEUNLOCKING,	"unlocking %1",	"deverouillage de %1" 
+STR_WC_MESSAGELOCKING,	"locking %1",	"verouillage de %1" 
+STR_WC_MESSAGEISUNLOCKED,	"%1 is unlocked",	"%1 est deverouille" 
+STR_WC_MESSAGECANNOTREPAIR,	"You can't repair Vehicle. Too much damage.",	"Le vehicule est trop endommage. Vous ne pouvez pas le reparer." 
+STR_WC_MESSAGEANBOMBERMANEXPLOSION,	"A suicide bomber exploded near %1",	"Un homme bombe a explose a cote de %1" 
+STR_WC_MESSAGEMHQDEPLOYED,	"The MHQ has been deployed near mission zone",	"Le MHQ a ete deploye pres de la zone d insertion" 
+STR_WC_MESSAGEANIEDEXPLOSION,	"An IED exploded near %1",	"Un ied a explose a pres de %1" 
+STR_WC_MESSAGEANIEDEXPLOSIONNEARVEHICLE,	"An IED exploded near friendly vehicle",	"Un ied a explose a cote d un vehicle allie" 
+STR_WC_MESSAGEABEENDETECTED,	"You have been detected",	"Vous avez ete reconnu" 
+STR_WC_INFOPOINTSTOSHARE,	"Points to share",	"Points a partager" 
+STR_WC_WIN_MISSION,	"War is won",	"La guerre est gagnee" 
+STR_WC_LOOSE_MISSION,	"War is lost",	"La guerre est perdue" 
+STR_WC_BRIEFING,	"Briefing:\nYou have to complete the %1 operations.",	"Briefing:\nVous devez accomplir %1 missions." 
+STR_WC_IASKILL,	"IA Skill: %1",	"Niveau de l'IA: %1" 
+STR_WC_TEAMSCORE,	"Team score: %1",	"Score de l'equipe: %1" 
+STR_WC_ENNEMYKILLED,	"Global enemies killed: %1",	"Enemis tues: %1" 
+STR_WC_AMMOUSED,	"Ammo used: %1",	"Munitions utilisees: %1" 
+STR_WC_REVIVELEFT,	"Revives left: %1",	"Reapparitions possibles: %1" 
+STR_WC_POINTSTOTRANSFERT,	"Transfer Points: %1/%2",	"Points a transferer: %1/%2" 
+STR_WC_OPERATIONGOAL,	"Operation goal: \n%1",	"Objectif de la mission: \n%1" 
+STR_WC_NOTYETDEFINE,	"Not defined yet",	"Pas encore defini" 
+STR_WC_ACTUALLYYOURTEAMRANK,	"Actually your team rank is",	"Votre score d'equipe est" 
+STR_ACGUI_MM_BTN_CLOSE,	"Close",	"Fermer" 
+STR_ACGUI_MM_BTN_Opt,	"Settings",	"Parametres" 
+STR_ACGUI_MM_BTN_Obj,	"Operation goal ",	"Objectif" 
+STR_ACGUI_MM_LABEL,	"War in Takistan",	"War in Takistan" 
+STR_ACGUI_MM_BTN_LOGS,	"Logs",	"Logs" 
+STR_ACGUI_MM_BTN_CREDITS,	"Credits",	"Credits" 
+STR_ACGUI_MM_BTN_HBFIX,	"Fix Headbug",	"Fix Headbug" 
+STR_ACGUI_MM_BTN_WEAPONS,	"Export Weapons",	"Exporter armes" 
+STR_ACGUI_MM_BTN_TEAMSTATUS,	"Team status",	"Team status" 
+STR_ACGUI_VM_TXT_VD,	"View distance %1",	"Distance de vue %1" 
+STR_ACGUI_VM_TXT_TG,	"Ground texture %1",	"Texture du sol %1" 
+STR_ACGUI_VM_BTN_CLOSE,	"Ok",	"Valider" 
+STR_ACGUI_MM_BTN_TRANSFERT,	"Transfer",	"Transferer" 
+STR_R3F_REV_dontrespawnatbase,	"Only respawn if you have to! This game is played with medics who can revive you. If you can you should wait for them.",	"Vous ne devez pas respawn a la base. Cette mission se joue avec des medecins qui peuvent vous soigner, vous devez les attendre." 
+STR_R3F_REV_btn_reapparition,	"Respawn at camp",	"Reapparaitre au camp" 
+STR_R3F_REV_reapparition_camp_en_cours,	"Respawn at camp in progress...",	"Reapparition au camp en cours..." 
+STR_R3F_REV_attente_reanimation,	"You're waiting for a medic...",	"Vous etes en attente d'un medecin..." 
+STR_R3F_REV_marqueur_attente_reanimation,	"%1 unconscious",	"%1 inconscient" 
+STR_R3F_REV_nb_reanimations_plusieurs,	"You've been healed... You still have %1 possibilities of healing.",	"Vous avez ete soigne... Il vous reste %1 possibilites de reanimation." 
+STR_R3F_REV_nb_reanimations_une,	"You've been healed... You only have one possibility of healing before returning to base.",	"Vous avez ete soigne... Il ne vous reste plus qu'une reanimation possible avant retour au camp." 
+STR_R3F_REV_nb_reanimations_zero,	"You've been healed... It was your last possibility of healing.",	"Vous avez ete soigne...C'etait votre dernière possibilite de reanimation." 
+STR_R3F_REV_plus_de_reanimation,	"You've reached the limit of healing...",	"Vous avez atteint le nombre limite de reanimations..." 
+STR_R3F_REV_hors_jeu,	"You're now out of the game...",	"Vous etes à present hors jeu..." 
+STR_R3F_REV_respawn_camp,	"You respawn at camp...",	"Vous reapparaissez au camp..." 
+STR_R3F_REV_ne_pas_se_reanimer_soi_meme,	"You can't revive yourself.",	"Vous ne pouvez pas vous reanimer vous-meme." 
+#include extern\TeamStatusDialog\stringtable.csv
+#include R3F_DEBUG\Scripts\stringtable_R3F_DEBUG.csv
