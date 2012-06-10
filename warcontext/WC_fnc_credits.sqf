@@ -40,7 +40,8 @@
 		"FlashpointChernarus107 mission: civil cars idea",
 		"and all others that i can forgot (..)",
 		"Thanks to Fruity Rudy for his english translation",
-		"Thanks to Ei8ght",
+		"Thanks to Slerbal for his english translation",
+		"Thanks to Ei8ght, Mario",
 		"Thanks to Air Commando Team",
 		"You can find more information about WIT at BIS FORUM"
 		];
