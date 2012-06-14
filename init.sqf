@@ -116,7 +116,7 @@
 	WC_fnc_createradio	 	= compile preprocessFile "warcontext\WC_fnc_createradio.sqf";
 	WC_fnc_createsidemission 	= compile preprocessFile "warcontext\WC_fnc_createsidemission.sqf";
 	WC_fnc_createstatic	 	= compile preprocessFile "warcontext\WC_fnc_createstatic.sqf";
-	WC_fnc_createteleporthq	 	= compile preprocessFile "warcontext\WC_fnc_createteleporthq.sqf";
+	WC_fnc_createmhq	 	= compile preprocessFile "warcontext\WC_fnc_createmhq.sqf";
 	WC_fnc_debug			= compile preprocessFile "warcontext\WC_fnc_debug.sqf";
 	WC_fnc_dosillything		= compile preprocessFile "warcontext\WC_fnc_dosillything.sqf";
 	WC_fnc_deletemarker		= compile preprocessFile "warcontext\WC_fnc_deletemarker.sqf";
