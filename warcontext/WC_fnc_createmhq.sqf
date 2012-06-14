@@ -1,7 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext -  Create a teleport hq near zone
-	// -----------------------------------------------
+	// warcontext -  Create a Mobil HQ near zone
 	
 	private [
 		"_position",
