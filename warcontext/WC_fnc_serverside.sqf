@@ -235,6 +235,7 @@
 
 	// recompute the list of missions when admin asks
 	WC_fnc_netcode_wcrecomputemission = {
+		wclistofmissions = [];
 		wcgarbage = [] spawn WC_fnc_createlistofmissions;
 	};
 
