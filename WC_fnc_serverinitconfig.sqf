@@ -195,7 +195,9 @@
 	// contains all buildin mission
 	wclistofmissions = [];
 
+	// objective informations
 	wcobjectiveindex = 0;
+	wcobjective = [-1, objnull, 0, "", ""];	
 
 	// detection
 	wcalert = 0;
