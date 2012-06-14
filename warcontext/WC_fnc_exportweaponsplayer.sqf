@@ -1,8 +1,13 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// load ammo
+	// export players weapons & ammo into clipboard
 
-	private ["_weapons", "_magazines", "_text", "_newtext"];
+	private [
+		"_weapons",
+		"_magazines",
+		"_text",
+		"_newtext"
+	];
 
 	_weapons = weapons player;
 	_magazines = magazines player;

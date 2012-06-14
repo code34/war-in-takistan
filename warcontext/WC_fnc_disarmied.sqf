@@ -1,9 +1,19 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext -  ied keyboard numpad challenge
+	// warcontext -  ied keypad challenge
 	// -----------------------------------------------
 
-	private ["_letters", "_letter", "_time", "_count", "_object", "_lastcount", "_lastletter", "_training", "_param"];
+	private [
+		"_letters",
+		"_letter",
+		"_time",
+		"_count",
+		"_object",
+		"_lastcount",
+		"_lastletter",
+		"_training",
+		"_param"
+	];
 
 	_letters = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 

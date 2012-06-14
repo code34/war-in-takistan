@@ -2,7 +2,7 @@
 	// Author: =[A*C]= code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT INTERFACE
 
-	class WC
+	class WARCONTEXT
 	{
 		class AMBIANTS
 		{
@@ -11,10 +11,15 @@
 				description = "[EN]\nCreate ambiant life in a location";
 				file = "warcontext\WC_fnc_ambiantlife.sqf";
 			};
-			class createbunker
+			class antiair
 			{
-				description = "[EN]\nCreate bunker in a location";
-				file = "warcontext\WC_fnc_createbunker.sqf";
+				description = "[EN]\nCreate an antiair site at random position on map";
+				file = "warcontext\WC_fnc_antiair.sqf";
+			};
+			class createcomposition
+			{
+				description = "[EN]\nCreate composition in a location";
+				file = "warcontext\WC_fnc_createcomposition.sqf";
 			};
 			class creategroup
 			{
@@ -26,11 +31,11 @@
 				description = "[EN]\nCreate a mortuary at a position";
 				file = "warcontext\WC_fnc_createmortuary.sqf";
 			};
-			//class createnuclearfire
-			//{
-			//	description = "[EN]\nCreate a nuclear fire at a position";
-			// file = "warcontext\WC_fnc_createnuclearfire.sqf";
-			//};
+			class createnuclearfire
+			{
+				description = "[EN]\nCreate a nuclear fire from a vehicle with x ammo";
+				file = "warcontext\WC_fnc_createnuclearfire.sqf";
+			};
 			class createsidemission
 			{
 				description = "[EN]\nGenerate a side mission";
@@ -51,13 +56,13 @@
 				description = "[EN]\nBuild a tent: personnal respawn point";
 				file = "warcontext\actions\WC_fnc_dobuildtent.sqf";
 			};
-			class civilcar
+			class createcivilcars
 			{
 				description = "[EN]\nCreate civil cars in a location";
-				file = "warcontext\WC_fnc_createbunker.sqf";
+				file = "warcontext\WC_fnc_createcivilcar.sqf";
 			};
 		};
-		class LOGICS
+		class FUNCTIONS
 		{
 			class attachmarker
 			{
@@ -86,6 +91,46 @@
 			{
 				description = "[EN]\nGenerate the GUI";
 				file = "warcontext\WC_fnc_lifeslider.sqf";
+			};
+			class menubuildvehicles
+			{
+				description = "[EN]\nOpen a dialog box to build a vehicle";
+				file = "warcontext\dialog\WC_fnc_menubuildvehicles.sqf";
+			};
+			class menuchangeclothes
+			{
+				description = "[EN]\nOpen a dialog box to change players clothes";
+				file = "warcontext\dialog\WC_fnc_menuchangeclothes.sqf";
+			};
+			class menuchoosemission
+			{
+				description = "[EN]\nOpen a dialog box for choose a mission";
+				file = "warcontext\dialog\WC_fnc_menuchoosemission.sqf";
+			};
+			class menumanagementteam
+			{
+				description = "[EN]\nOpen a dialog box manage team members";
+				file = "warcontext\dialog\WC_fnc_menumanagementteam.sqf";
+			};
+			class menummissioninfo
+			{
+				description = "[EN]\nOpen a dialog box: main mission info";
+				file = "warcontext\dialog\WC_fnc_menumissioninfo.sqf";
+			};
+			class menureadlogs
+			{
+				description = "[EN]\nOpen a dialog box with game logs";
+				file = "warcontext\dialog\WC_fnc_menureadlogs.sqf";
+			};
+			class menurecruitment
+			{
+				description = "[EN]\nOpen a dialog box to recruit some AI";
+				file = "warcontext\dialog\WC_fnc_menurecruitment.sqf";
+			};
+			class menusettings
+			{
+				description = "[EN]\nOpen a dialog box with game settings";
+				file = "warcontext\dialog\WC_fnc_menusettings.sqf";
 			};
 		};
 		class CAMERA

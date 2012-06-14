@@ -4,7 +4,17 @@
 
 	#include "dik_codes.h"
 	
-	private ["_handled", "_ctrl", "_dikCode", "_shift", "_ctrl", "_alt", "_optionValueIndex", "_propertyValueChanged", "_maxValueCount"];
+	private [
+		"_handled",
+		"_ctrl",
+		"_dikCode",
+		"_shift",
+		"_ctrl",
+		"_alt",
+		"_optionValueIndex",
+		"_propertyValueChanged",
+		"_maxValueCount"
+	];
 
 	_ctrl	= _this select 0;
 	_dikCode= _this select 1;

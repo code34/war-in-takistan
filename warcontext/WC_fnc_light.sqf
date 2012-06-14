@@ -3,7 +3,10 @@
 		// warcontext - Do light depending overcast
 		// -----------------------------------------------	
 	
-		private ["_density", "_light"];
+		private [
+			"_density", 
+			"_light"
+		];
 
 		while { true } do {
 			_density = overcast;

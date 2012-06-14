@@ -1,9 +1,17 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext -  Client Side logic
-	// -----------------------------------------------
+	// warcontext -  fast time effect
 
-	private ["_hour", "_minute", "_currenthour", "_currentminute", "_done", "_original", "_cible", "_cibleclockformat"];
+	private [
+		"_hour",
+		"_minute",
+		"_currenthour",
+		"_currentminute",
+		"_done",
+		"_original",
+		"_cible",
+		"_cibleclockformat"
+	];
 
 	_hour = wcdate select 3;
 	_minute = wcdate select 4;

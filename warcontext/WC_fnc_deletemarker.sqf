@@ -1,7 +1,7 @@
 	// -----------------------------------------------
 	// Author: team  code34 nicolas_boiteux@yahoo.fr
-	// warcontext 
-	// -----------------------------------------------
+	// warcontext - delete marker if they are not protected
+
 	if (!isServer) exitWith{};
 
 	private ["_tmparray"];

@@ -5,7 +5,15 @@
 
 	if (!local player) exitWith {};
 
-	private ["_crew", "_text", "_vehicle", "_role", "_name", "_rank", "_name", "_teampromote"];
+	private [
+		"_crew",
+		"_text",
+		"_vehicle",
+		"_role",
+		"_name",
+		"_rank",
+		"_teampromote"
+	];
 	
 	disableSerialization;
 

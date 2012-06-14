@@ -1,3 +1,8 @@
+	// -----------------------------------------------
+	// Author:  code34 nicolas_boiteux@yahoo.fr, Xeno - domination
+	// warcontext - create a mission info dialog box
+	// locality : client side
+
 	private [
 		"_location", 
 		"_mainmission", 

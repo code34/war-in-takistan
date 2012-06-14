@@ -3,7 +3,7 @@
 	// warcontext - Main intro over the base
 	// -----------------------------------------------
 
-	private ["_soldier", "_unitsoftype", "_group", "_vehicle"];
+	private ["_vehicle"];
 
 	_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Ind_Oil_Pump_EP1"], 15000]) call BIS_fnc_selectRandom;
 	if(isnull _vehicle) then {

@@ -1,4 +1,15 @@
-	private ["_text", "_kindofgame", "_kindofserver", "_autoload", "_combined"];
+	// -----------------------------------------------
+	// Author:  code34 nicolas_boiteux@yahoo.fr, Xeno - domination
+	// warcontext - create a settings dialog box
+	// locality : client side
+
+	private [
+		"_text", 
+		"_kindofgame", 
+		"_kindofserver", 
+		"_autoload", 
+		"_combined"
+	];
 
 	MenuAction = -1;
 	

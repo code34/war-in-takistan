@@ -1,6 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext - follow me script
+	// warcontext - follow me - action script for AI follow players
 
 	private [
 		"_unit", 

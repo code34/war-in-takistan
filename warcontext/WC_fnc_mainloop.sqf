@@ -249,7 +249,7 @@
 		}foreach _civillocation;
 
 		if(wcwithmhq == 1) then {
-			wcgarbage = [_position] spawn WC_fnc_createteleporthq;
+			wcgarbage = [_position] spawn WC_fnc_createmhq;
 		};
 
 		// Wait until the end of Mission

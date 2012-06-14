@@ -1,7 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext -  Know if can flare, with wich mag, muzzles
-	// -----------------------------------------------
+	// warcontext -  check if weapon can use flare, with wich mag, muzzles
 
 	private [
 		"_muzzle", 

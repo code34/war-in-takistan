@@ -1,7 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext -  Fire flare
-	// -----------------------------------------------
 
 	private ["_unit", "_mags", "_enemys", "_target"];
 

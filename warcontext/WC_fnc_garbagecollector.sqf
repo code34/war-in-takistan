@@ -1,6 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext - garbage collector
+	// warcontext - garbage collector - delete units when are die
 	// -----------------------------------------------
 	
 	if (!isServer) exitWith{};

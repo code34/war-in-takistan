@@ -1,6 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext - follow vehicle on map which have a name
+	// warcontext - map markers for vehicles with a name
 
 	private [
 		"_arrayofmarker",

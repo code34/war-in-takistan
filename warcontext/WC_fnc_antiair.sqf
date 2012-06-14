@@ -1,8 +1,16 @@
 	// -----------------------------------------------
 	// Author:   code34 nicolas_boiteux@yahoo.fr
-	// WARCONTEXT - create an antiair site
+	// WARCONTEXT - create an antiair site at random position on map
 
-	private ["_position", "_mount", "_vehicle", "_arrayofpilot", "_group", "_pilot", "_type"];
+	private [
+		"_position", 
+		"_mount", 
+		"_vehicle", 
+		"_arrayofpilot", 
+		"_group", 
+		"_pilot", 
+		"_type"
+	];
 
 	_hill = nearestLocations [getmarkerpos "respawn_west", ["hill"], 20000];
 
