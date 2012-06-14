@@ -61,7 +61,7 @@
 
 		if (_withmen) then {
 			if (_building emptyPositions "driver" > 0) then {
-				_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [100,100,0], [], 0, "NONE"];
+				_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [100,100,0], [], 0, "NONE"];
 				_soldier assignAsDriver _building;
 				_soldier moveindriver _building;
 				[_soldier, wcside] spawn WC_fnc_sentinelle;
@@ -79,7 +79,7 @@
 				wcblinde = wcblinde + [_soldier];
 			};
 			if (_building emptyPositions "gunner" > 0) then {
-				_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [100,100,0], [], 0, "NONE"];
+				_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [100,100,0], [], 0, "NONE"];
 				_soldier assignAsgunner _building;
 				_soldier moveingunner _building;
 				[_soldier, wcside] spawn WC_fnc_sentinelle;
@@ -99,7 +99,7 @@
 				wcblinde = wcblinde + [_soldier];
 			};
 			if (_building emptyPositions "commander" > 0) then {
-				_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [100,100,0], [], 0, "NONE"];
+				_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [100,100,0], [], 0, "NONE"];
 				_soldier assignAscommander _building;
 				_soldier moveincommander _building;
 				[_soldier, wcside] spawn WC_fnc_sentinelle;

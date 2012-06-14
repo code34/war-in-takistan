@@ -148,8 +148,17 @@
 	// special forces
 	wcspecialforces = ["TK_Special_Forces_EP1"];
 
+	// kind of civil for rescue missions
+	wcrescuecivils = ["TK_CIV_Takistani01_EP1", "TK_CIV_Takistani02_EP1", "TK_CIV_Takistani03_EP1", "TK_CIV_Takistani04_EP1", "TK_CIV_Takistani05_EP1", "TK_CIV_Takistani06_EP1", "TK_CIV_Worker01_EP1", "TK_CIV_Worker02_EP1"];
+
+	// kind of units crew of enemies vehicles
+	wccrewforces = ["TK_Soldier_Crew_EP1"];
+
 	// anti air vehicles
 	wcaavehicles = ["ZU23_TK_GUE_EP1", "Ural_ZU23_TK_GUE_EP1"];
+
+	// kind of enemies backpack
+	wcenemybackpack = ["TK_ALICE_Pack_EP1", "TK_RPG_Backpack_EP1", "TK_ALICE_Pack_Explosives_EP1", "TK_ALICE_Pack_AmmoMG_EP1", "TKG_ALICE_Pack_AmmoAK47_EP1", "TKG_ALICE_Pack_AmmoAK74_EP1"];
 
 	// change clothes - player can be civil
 	wcchangeclothescivil = ["TK_CIV_Takistani01_EP1", "TK_CIV_Takistani02_EP1", "TK_CIV_Takistani03_EP1", "TK_CIV_Takistani04_EP1", "TK_CIV_Takistani05_EP1", "TK_CIV_Takistani06_EP1", "Dr_Hladik_EP1", "Pilot_EP1", "Haris_Press_EP1"];

@@ -21,8 +21,8 @@
 	processInitCommands;
 
 	_group = createGroup east;
-	_vehicle = _group createUnit ["TK_Soldier_Crew_EP1", position _unit, [], 2, "NONE"];
-	_vehicle2 = _group createUnit ["TK_Soldier_Crew_EP1", position _unit, [], 4, "NONE"];
+	_vehicle = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), position _unit, [], 2, "NONE"];
+	_vehicle2 = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), position _unit, [], 4, "NONE"];
 
 	_vehicle allowdammage false;
 	_vehicle2 allowdammage false;

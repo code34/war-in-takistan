@@ -221,13 +221,13 @@
 
 			// after group leave vehicle, a new group drive the vehicle
 			_group = creategroup east;
-			_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [0,0], [], 0, 'FORM'];
+			_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [0,0], [], 0, 'FORM'];
 			_soldier moveindriver _vehicle;
 
-			_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [0,0], [], 0, 'FORM'];
+			_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [0,0], [], 0, 'FORM'];
 			_soldier moveingunner _vehicle;
 
-			_soldier = _group createUnit ["TK_Soldier_Crew_EP1", [0,0], [], 0, 'FORM'];
+			_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [0,0], [], 0, 'FORM'];
 			_soldier moveincommander _vehicle;
 			_group addvehicle _vehicle;
 

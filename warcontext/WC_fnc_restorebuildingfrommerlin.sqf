@@ -100,21 +100,21 @@
 					if (_withmen) then {
 						_group = creategroup east;
 						if (_building emptyPositions "driver" > 0) then {
-							_soldier = _group createUnit ["TK_Soldier_Crew_EP1", _position, [], 0, "NONE"];
+							_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
 							_soldier assignAsDriver _building;
 							_soldier moveindriver _building;
 							wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
 							_soldier addeventhandler ['killed', {_this spawn WC_fnc_garbagecollector}];
 						};
 						if (_building emptyPositions "gunner" > 0) then {
-							_soldier = _group createUnit ["TK_Soldier_Crew_EP1", _position, [], 0, "NONE"];
+							_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
 							_soldier assignAsgunner _building;
 							_soldier moveingunner _building;
 							wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
 							_soldier addeventhandler ['killed', {_this spawn WC_fnc_garbagecollector}];
 						};
 						if (_building emptyPositions "commander" > 0) then {
-							_soldier = _group createUnit ["TK_Soldier_Crew_EP1", _position, [], 0, "NONE"];
+							_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
 							_soldier assignAscommander _building;
 							_soldier moveincommander _building;
 							wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;

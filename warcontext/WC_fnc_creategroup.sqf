@@ -102,7 +102,7 @@
 		{
 			_soldier = _group createUnit [_x, _position, [], 0, 'FORM'];
 			if(random 1 > 0.3) then {
-				_backpack = ["TK_ALICE_Pack_EP1", "TK_RPG_Backpack_EP1", "TK_ALICE_Pack_Explosives_EP1", "TK_ALICE_Pack_AmmoMG_EP1", "TKG_ALICE_Pack_AmmoAK47_EP1", "TKG_ALICE_Pack_AmmoAK74_EP1"] call BIS_fnc_selectRandom;
+				_backpack = wcenemybackpack call BIS_fnc_selectRandom;
 				_soldier addbackpack _backpack;
 			};
 			sleep 0.05;
