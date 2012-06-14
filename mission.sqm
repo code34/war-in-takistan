@@ -9528,7 +9528,7 @@ class Mission
 			side="EMPTY";
 			vehicle="FlagCarrierUSA_EP1";
 			skill=0.60000002;
-			init="this allowDamage false; wcflagoption = this addAction ['<t color=''#dddd00''>Teleport to tent</t>', 'warcontext\WC_fnc_createteleporttohq.sqf',[],-1,false]; this setFlagTexture ""pics\warcontext.paa"";";
+			init="this allowDamage false; this setFlagTexture ""pics\warcontext.paa"";";
 		};
 		class Item857
 		{
@@ -9547,7 +9547,7 @@ class Mission
 			side="EMPTY";
 			vehicle="FlagCarrierUSA_EP1";
 			skill=0.60000002;
-			init="this allowDamage false; wcflagoption = this addAction ['<t color=''#dddd00''>Teleport to tent</t>', 'warcontext\WC_fnc_createteleporttohq.sqf',[],-1,false]; this setFlagTexture ""pics\warcontext.paa"";";
+			init="this allowDamage false; this setFlagTexture ""pics\warcontext.paa"";";
 		};
 		class Item859
 		{
