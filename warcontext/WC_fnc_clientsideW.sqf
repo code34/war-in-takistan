@@ -1,7 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext -  Client Side logic
-	// -----------------------------------------------
 
 	if (isDedicated) exitWith {};
 	if (side player != west) exitWith {};
@@ -40,6 +39,7 @@
 	waitUntil {!isNull player};
 	waituntil {format ["%1", typeof player] != 'any'}; 
 	player setpos getmarkerpos "respawn_west";
+
 	if (format ["%1", wcselectedzone] == "any") then {wcselectedzone = [0,0,0];};
 
 	// By default wc uses R3F revive
@@ -50,10 +50,12 @@
 		player addEventHandler ["killed", { wcgarbage = [] spawn WC_fnc_onkilled}];
 	};
 
-	//Init variables
+	// Load player HUD
 	wcgarbage = [] spawn WC_fnc_lifeslider;
 
 	_marker = ['rescue', 0.01, [0,0,0], 'ColorRed', 'ICON', 'FDIAGONAL', 'Selector_selectedMission', 0, '', false] call WC_fnc_createmarkerlocal;
+	wcgarbage = [_marker] spawn WC_fnc_markerhintlocal;
+
 	wcrespawnmarker = ['respawn', 0.5, [0,0,0], 'ColorRed', 'ICON', 'FDIAGONAL', 'Camp', 0, format["%1 Camp", name player], false] call WC_fnc_createmarkerlocal;
 	wcrespawnmarker setmarkersize [0,0];
 
@@ -74,13 +76,14 @@
 		wcgarbage = ["Ied training", getpos iedtraining] spawn BIS_fnc_3dcredits;
 	};
 
-	wcgarbage = [_marker] spawn WC_fnc_markerhintlocal;
-
-	_light = "#lightpoint" createVehiclelocal position tower1; 
-	_light setLightBrightness 0.4; 
-	_light setLightAmbient[0.0, 0.0, 0.0]; 
-	_light setLightColor[1.0, 1.0, 1.0]; 
-	_light lightAttachObject [tower1, [0,0,15]];
+	// create a light in takistan base
+	if!(isnull tower1) then {
+		_light = "#lightpoint" createVehiclelocal (position tower1); 
+		_light setLightBrightness 0.4; 
+		_light setLightAmbient[0.0, 0.0, 0.0]; 
+		_light setLightColor[1.0, 1.0, 1.0]; 
+		_light lightAttachObject [tower1, [0,0,15]];
+	};
 
 	_end = createTrigger["EmptyDetector", [4000,4000,0]];
 	_end setTriggerArea[10, 10, 0, false];
@@ -230,58 +233,7 @@
 	};
 
 	// PERSONNAL RANK
-	[] spawn {
-		private ["_oldscore", "_score", "_rank", "_oldrank", "_ranked", "_message", "_count"];
-		_count = 0;
-		_oldscore = score player;
-
-		_ranked = [
-			15, // Corporal
-			30, // Sergeant
-			45, // Lieutenant
-			60, // Captain
-			75, // Major
-			90 // Colonel
-		];
-
-		while { true } do {
-			if((name player) in wcinteam) then {
-				_score = score player;
-				_rank = rank player;
-				_oldrank = _rank;
-				_rank = "Private"; WC_reanimations= 6;
-				if((_score > (_ranked select 0)) && (_rank != "Corporal")) then { _rank = "Corporal"; WC_reanimations= 5;};
-				if((_score > (_ranked select 1)) && (_rank != "Sergeant")) then { _rank = "Sergeant"; WC_reanimations= 4;};
-				if((_score > (_ranked select 2)) && (_rank != "Lieutenant")) then { _rank = "Lieutenant"; WC_nb_reanimations= 3;};
-				if((_score > (_ranked select 3)) && (_rank != "Captain")) then { _rank = "Captain"; WC_reanimations= 2;};
-				if((_score > (_ranked select 4)) && (_rank != "Major")) then { _rank = "Major"; WC_reanimations= 1;};
-				if((_score > (_ranked select 5)) && (_rank != "Colonel")) then { _rank = "Colonel"; WC_reanimations= 0;};
-				if (_rank != _oldrank) then {
-					_count = _count + 1;
-					if(_count > 3) then {
-						R3F_REV_CFG_nb_reanimations = WC_reanimations;
-						R3F_REV_nb_reanimations = R3F_REV_CFG_nb_reanimations;
-						player setrank _rank;
-						if(_score > _oldscore) then {
-							wcpromote = [player, _rank];			
-							["wcpromote", "all"] call WC_fnc_publicvariable;
-							_message =[localize "STR_WC_MESSAGEPROMOTED", format[localize "STR_WC_MESSAGETORANK", rank player]];
-						} else {
-							wcdegrade = [player, _rank];
-							["wcdegrade", "all"] call WC_fnc_publicvariable;
-							_message =[localize "STR_WC_MESSAGEDEGRADED", format[localize "STR_WC_MESSAGETORANK", rank player]];
-						};
-						_message spawn EXT_fnc_infotext;
-						playsound "drum";
-						wcrankchanged = true;
-						_count = 0;
-						_oldscore = _score;
-					};
-				};
-			};
-			sleep 5;
-		};
-	};
+	wcgarbage = [] spawn WC_fnc_playerranking;
 
 	// BASE HOSPITAL
 	[] spawn {
