@@ -1,7 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext -  call BIS HINT SYSTEM
-	// -----------------------------------------------	
 
 	private [
 		"_title", 

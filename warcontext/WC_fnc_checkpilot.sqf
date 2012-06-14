@@ -1,9 +1,12 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext : check if pilot is team member
-	// -----------------------------------------------
 
-	private ["_vehicle", "_fuel", "_text"];
+	private [
+		"_vehicle",
+		"_fuel",
+		"_text"
+	];
 
 	// kindofserver 1 = team
 	if(wckindofserver != 1) exitwith {};

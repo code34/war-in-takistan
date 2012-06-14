@@ -1,6 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// Warcontext - async event handler
+	// Warcontext - async event handler - receive messages from server
 
 	wcclientqueue = [];
 

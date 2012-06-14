@@ -1,7 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// warcontext - camera focus around on object
-	// -----------------------------------------------
 
 	private [
 		"_alt",
