@@ -16,7 +16,7 @@
 
 	// add halo jump option at flag
 	if(wcwithhalojump == 1) then {
-		flagusa setvehicleinit 'this addAction ["Halo Jump", "warcontext\WC_fnc_halo.sqf",[],-1,false]';
+		flagusa setvehicleinit 'this addAction ["Halo Jump", "warcontext\actions\WC_fnc_dohalojump.sqf",[],-1,false]';
 	};
 
 	if(wcairopposingforce > 0) then {

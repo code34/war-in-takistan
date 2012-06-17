@@ -219,42 +219,42 @@
 			class menubuildvehicles
 			{
 				description = "[EN]\nOpen a dialog box to build a vehicle";
-				file = "warcontext\dialog\WC_fnc_menubuildvehicles.sqf";
+				file = "warcontext\dialogs\WC_fnc_menubuildvehicles.sqf";
 			};
 			class menuchangeclothes
 			{
 				description = "[EN]\nOpen a dialog box to change players clothes";
-				file = "warcontext\dialog\WC_fnc_menuchangeclothes.sqf";
+				file = "warcontext\dialogs\WC_fnc_menuchangeclothes.sqf";
 			};
 			class menuchoosemission
 			{
 				description = "[EN]\nOpen a dialog box for choose a mission";
-				file = "warcontext\dialog\WC_fnc_menuchoosemission.sqf";
+				file = "warcontext\dialogs\WC_fnc_menuchoosemission.sqf";
 			};
 			class menumanagementteam
 			{
 				description = "[EN]\nOpen a dialog box manage team members";
-				file = "warcontext\dialog\WC_fnc_menumanagementteam.sqf";
+				file = "warcontext\dialogs\WC_fnc_menumanagementteam.sqf";
 			};
 			class menummissioninfo
 			{
 				description = "[EN]\nOpen a dialog box: main mission info";
-				file = "warcontext\dialog\WC_fnc_menumissioninfo.sqf";
+				file = "warcontext\dialogs\WC_fnc_menumissioninfo.sqf";
 			};
 			class menureadlogs
 			{
 				description = "[EN]\nOpen a dialog box with game logs";
-				file = "warcontext\dialog\WC_fnc_menureadlogs.sqf";
+				file = "warcontext\dialogs\WC_fnc_menureadlogs.sqf";
 			};
 			class menurecruitment
 			{
 				description = "[EN]\nOpen a dialog box to recruit some AI";
-				file = "warcontext\dialog\WC_fnc_menurecruitment.sqf";
+				file = "warcontext\dialogs\WC_fnc_menurecruitment.sqf";
 			};
 			class menusettings
 			{
 				description = "[EN]\nOpen a dialog box with game settings";
-				file = "warcontext\dialog\WC_fnc_menusettings.sqf";
+				file = "warcontext\dialogs\WC_fnc_menusettings.sqf";
 			};
 		};
 		class CAMERA

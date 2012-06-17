@@ -86,7 +86,7 @@
 						wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_MENUCHOOSEMISSION"];
 						if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 						if(isnil "wcchoosemissionmenu") then {
-							wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\WC_fnc_openmission.sqf",[],6,false];
+							wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\WC_fnc_createmenuchoosemission.sqf",[],6,false];
 						};
 					} else {
 						player removeaction wcchoosemissionmenu;

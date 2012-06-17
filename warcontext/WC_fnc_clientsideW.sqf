@@ -115,11 +115,11 @@
 	_trgmenuoption setTriggerStatements[
 	"vehicle player != player", 
 	"wcvehicle = vehicle player; 
-	wcactionmenuoption = wcvehicle addAction ['<t color=''#ff4500''>Mission Info</t>', 'warcontext\dialog\WC_fnc_createmenumissioninfo.sqf',[],-1,false]; wcgarbage = [] spawn WC_fnc_checkpilot; enableEnvironment false;", 
+	wcactionmenuoption = wcvehicle addAction ['<t color=''#ff4500''>Mission Info</t>', 'warcontext\dialogs\WC_fnc_createmenumissioninfo.sqf',[],-1,false]; wcgarbage = [] spawn WC_fnc_checkpilot; enableEnvironment false;", 
 	"wcvehicle removeAction wcactionmenuoption; if(wcwithenvironment == 1) then { enableEnvironment true;};"];
 
 	// Init GUI
-	player addaction ["<t color='#ff4500'>Mission Info</t>","warcontext\dialog\WC_fnc_createmenumissioninfo.sqf",[],-1,false];
+	player addaction ["<t color='#ff4500'>Mission Info</t>","warcontext\dialogs\WC_fnc_createmenumissioninfo.sqf",[],-1,false];
 	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUDEPLOYTENT"+"</t>", "warcontext\actions\WC_fnc_dobuildtent.sqf",[],-1,false];
 	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBUILDTRENCH"+"</t>", "warcontext\actions\WC_fnc_dodigtrench.sqf",[],-1,false];
 
@@ -326,7 +326,7 @@
 					wcbombingsupport = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBOMBING"+"</t>", "warcontext\WC_fnc_bombingsupport.sqf",[],-1,false];
 				};
 				if((isnil "wcmanageteam") and (wckindofserver != 3)) then {
-					wcmanageteam = player addAction ["<t color='#dddd00'>Manage team</t>", "warcontext\dialog\WC_fnc_createmenumanageteam.sqf",[],6,false];
+					wcmanageteam = player addAction ["<t color='#dddd00'>Manage team</t>", "warcontext\dialogs\WC_fnc_createmenumanageteam.sqf",[],6,false];
 				};
 			} else {
 				if!(isnil "wcspectate") then { player removeAction wcspectate;};

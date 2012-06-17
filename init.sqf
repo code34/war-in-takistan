@@ -52,6 +52,7 @@
 	EXT_fnc_createcomposition	= compile preprocessFile "extern\EXT_fnc_createcomposition.sqf";
 	EXT_fnc_SortByDistance		= compile preprocessFile "extern\EXT_fnc_Common_SortByDistance.sqf";
 	EXT_fnc_infotext		= compile preprocessFile "extern\EXT_fnc_infoText.sqf";
+	WC_fnc_teamstatus		= compile preprocessFile "extern\TeamStatusDialog\TeamStatusDialog.sqf";
 
 	// warcontext config files
 	WC_fnc_clientinitconfig 	= compile preprocessFile "WC_fnc_clientinitconfig.sqf";
@@ -167,7 +168,6 @@
 	WC_fnc_sentinelle	 	= compile preprocessFile "warcontext\WC_fnc_sentinelle.sqf";
 	WC_fnc_support	 		= compile preprocessFile "warcontext\WC_fnc_support.sqf";
 	WC_fnc_saveloadout		= compile preprocessFile "warcontext\WC_fnc_saveloadout.sqf";
-	WC_fnc_teamstatus		= compile preprocessFile "extern\TeamStatusDialog\TeamStatusDialog.sqf";
 	WC_fnc_vehiclehandler 		= compile preprocessFile "warcontext\WC_fnc_vehiclehandler.sqf";
 
 	// wit civilians script

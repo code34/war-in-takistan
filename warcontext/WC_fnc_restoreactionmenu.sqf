@@ -6,7 +6,7 @@
 	if (isDedicated) exitWith {};
 
 	// Default menu
-	player addaction ["<t color='#ff4500'>Mission Info</t>","warcontext\dialog\WC_fnc_createmenumissioninfo.sqf",[],-1,false];
+	player addaction ["<t color='#ff4500'>Mission Info</t>","warcontext\dialogs\WC_fnc_createmenumissioninfo.sqf",[],-1,false];
 	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUDEPLOYTENT"+"</t>", "warcontext\actions\WC_fnc_dobuildtent.sqf",[],-1,false];
 	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBUILDTRENCH"+"</t>", "warcontext\actions\WC_fnc_dodigtrench.sqf",[],-1,false];
 
@@ -27,5 +27,5 @@
 
 	// Check operation Plan
 	if(wcchoosemission) then {
-		wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\WC_fnc_openmission.sqf",[],6,false];
+		wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\dialogs\WC_fnc_createmenuchoosemission.sqf",[],6,false];
 	};

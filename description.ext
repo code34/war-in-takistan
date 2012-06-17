@@ -17,8 +17,8 @@ Respawn = "BASE";
 RespawnDelay = 6;
 RespawnDialog = 0;
 
-#include "warcontext\dialog\define.hpp"
-#include "warcontext\dialog\mission.hpp"
+#include "warcontext\dialogs\define.hpp"
+#include "warcontext\dialogs\mission.hpp"
 
 #include "extern\R3F_DEBUG\Scripts\R3F_DEBUG_Configuration.h"
 #include "extern\R3F_DEBUG\scripts\map_dlg.h"
@@ -27,7 +27,7 @@ RespawnDialog = 0;
 #include "extern\R3F_ARTY_AND_LOG\desc_include.h"
 #include "extern\R3F_revive\dlg_attente_reanimation.h"
 #include "extern\spect\spectating.hpp"
-#include "extern\TeamStatusDialog\TeamStatusDialog.hpp"
+#include "extern\TeamStatusdialog\TeamStatusDialog.hpp"
 #include "extern\bon_loadoutpresets\dialog\Common.hpp"
 #include "extern\bon_loadoutpresets\dialog\LoadoutPreset.hpp"
 
