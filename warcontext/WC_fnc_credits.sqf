@@ -39,7 +39,6 @@
 		"ValHalla mission: crew informations", 
 		"FlashpointChernarus107 mission: civil cars idea",
 		"and all others that i can forgot (..)",
-		"Thanks to Fruity Rudy for his english translation",
 		"Thanks to Slerbal for his english translation",
 		"Thanks to Ei8ght, Mario",
 		"Thanks to Air Commando Team",
