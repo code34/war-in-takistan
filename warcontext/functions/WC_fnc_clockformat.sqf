@@ -1,9 +1,12 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext -  clock format
+	// warcontext -  clock format - feel empty string with 0
 	// -----------------------------------------------
 
-	private ["_hour", "_minute"];
+	private [
+		"_hour",
+		"_minute"
+	];
 
 	_hour = _this select 0;
 	_minute = _this select 1;

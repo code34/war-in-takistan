@@ -4,6 +4,20 @@
 
 	class WARCONTEXT
 	{
+		class ACTIONS
+		{
+			class dodigtrench
+			{
+				description = "[EN]\nDig a trench";
+				file = "warcontext\actions\WC_fnc_dodigtrench.sqf";
+			};
+			class dobuildtent
+			{
+				description = "[EN]\nBuild a tent: personnal respawn point";
+				file = "warcontext\actions\WC_fnc_dobuildtent.sqf";
+			};
+		}
+
 		class AMBIANTS
 		{
 			class ambiantLife
@@ -46,20 +60,15 @@
 				description = "[EN]\nGenerate statics in a location";
 				file = "warcontext\WC_fnc_createsidemission.sqf";
 			};
-			class dodigtrench
-			{
-				description = "[EN]\nDig a trench";
-				file = "warcontext\actions\WC_fnc_dodigtrench.sqf";
-			};
-			class dobuildtent
-			{
-				description = "[EN]\nBuild a tent: personnal respawn point";
-				file = "warcontext\actions\WC_fnc_dobuildtent.sqf";
-			};
 			class createcivilcars
 			{
 				description = "[EN]\nCreate civil cars in a location";
 				file = "warcontext\WC_fnc_createcivilcar.sqf";
+			};
+			class createammobox
+			{
+				description = "[EN]\nCreate an ammobox at a position";
+				file = "warcontext\ambiants\WC_fnc_createammobox.sqf";
 			};
 		};
 		class FUNCTIONS
@@ -67,22 +76,72 @@
 			class attachmarker
 			{
 				description = "[EN]\nAttach marker to an object";
-				file = "warcontext\WC_fnc_attachmarker.sqf";
+				file = "warcontext\functions\WC_fnc_attachmarker.sqf";
+			};
+			class backupbuilding
+			{
+				description = "[EN]\nBackup building, compositions in clipboard";
+				file = "warcontext\functions\WC_fnc_backupbuilding.sqf";
+			};
+			class checkpilot
+			{
+				description = "[EN]\nCheck if pilot is a team member";
+				file = "warcontext\functions\WC_fnc_checkpilot.sqf";
+			};
+			class clockformat
+			{
+				description = "[EN]\nClock format - feel empty string with 0";
+				file = "warcontext\functions\WC_fnc_clockformat.sqf";
 			};
 			class copymarker
 			{
 				description = "[EN]\ncopy a marker from an existing marker";
-				file = "warcontext\WC_fnc_copymarker.sqf";
+				file = "warcontext\functions\WC_fnc_copymarker.sqf";
+			};
+			class copymarkerlocal
+			{
+				description = "[EN]\ncopy a marker from an existing marker on local client only";
+				file = "warcontext\functions\WC_fnc_copymarkerlocal.sqf";
+			};
+			class creategridofposition
+			{
+				description = "[EN]\nCreate a grid of 9 positions NW,N,NE,W,C,E,SW,S,SE around a position";
+				file = "warcontext\functions\WC_fnc_creategridofposition.sqf";
+			};
+			class createcircleposition
+			{
+				description = "[EN]\nCreate a positions circle of x points around position";
+				file = "warcontext\functions\WC_fnc_createcircleposition.sqf";
+			};
+			class createposition
+			{
+				description = "[EN]\nCreate a position in a square x,y";
+				file = "warcontext\functions\WC_fnc_createposition.sqf";
+			};
+			class createpositionaround
+			{
+				description = "[EN]\nCreate a position around a position at x distance";
+				file = "warcontext\functions\WC_fnc_createpositionaround.sqf";
+			};
+			class createpositioninmarker
+			{
+				description = "[EN]\nCreate a position in a marker";
+				file = "warcontext\functions\WC_fnc_createpositioninmarker.sqf";
 			};
 			class createmarker
 			{
 				description = "[EN]\nCreate a public marker";
-				file = "warcontext\WC_fnc_attachmarker.sqf";
+				file = "warcontext\functions\WC_fnc_createmarker.sqf";
 			};
-			class createposition
+			class createmarkerlocal
 			{
-				description = "[EN]\nCreate a position on map";
-				file = "warcontext\WC_fnc_createposition.sqf";
+				description = "[EN]\nCreate a local marker client only";
+				file = "warcontext\functions\WC_fnc_createmarkerlocal.sqf";
+			};
+			class deletemarker
+			{
+				description = "[EN]\nDelete all public markers";
+				file = "warcontext\functions\WC_fnc_deletemarker.sqf";
 			};
 		};
 		class GUI
@@ -138,7 +197,7 @@
 			class camfocus
 			{
 				description = "[EN]\nCreate a random camera on goal";
-				file = "warcontext\WC_fnc_camfocus.sqf";
+				file = "warcontext\functions\WC_fnc_camfocus.sqf";
 			};
 		};
 	};

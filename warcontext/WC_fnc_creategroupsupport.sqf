@@ -197,7 +197,7 @@
 					_unit dotarget _cible;
 					_unit dofire _cible;
 					_unit reveal _cible;
-					_enemyposition = ([position _cible, 10, 360, getdir _cible, 5] call WC_fnc_docircle) call BIS_fnc_selectRandom;
+					_enemyposition = ([position _cible, 10, 360, getdir _cible, 5] call WC_fnc_createcircleposition) call BIS_fnc_selectRandom;
 					_unit domove _enemyposition;
 				};
 				sleep 0.05;

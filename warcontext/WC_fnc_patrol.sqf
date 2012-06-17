@@ -57,7 +57,7 @@
 					_cible = ([_unit, _list] call EXT_fnc_SortByDistance) select 0;
 					if!(isnull _cible) then {
 						_unit dotarget _cible;
-						_position = ([position _cible, 3, 360, getdir _cible, 5] call WC_fnc_docircle) call BIS_fnc_selectRandom;
+						_position = ([position _cible, 3, 360, getdir _cible, 5] call WC_fnc_createcircleposition) call BIS_fnc_selectRandom;
 						_unit domove _position;
 					};
 					_count = 2;

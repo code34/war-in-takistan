@@ -27,7 +27,7 @@
 	_count = 0;
 	_counter = 0;
 	_position = position _unit;
-	_gridofposition = [_position, 100, 360, getdir _unit, 10] call WC_fnc_docircle;
+	_gridofposition = [_position, 100, 360, getdir _unit, 10] call WC_fnc_createcircleposition;
 
 	_initialposition = getposatl _unit;
 

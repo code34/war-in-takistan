@@ -63,7 +63,7 @@
 				_men = nearestObjects[_unit,["Man"], _circle];
 				_circle = 100;
 				if(count _men > 1) then {
-					_positions = [position _unit, 5, 360, getdir _unit, 5] call WC_fnc_docircle;
+					_positions = [position _unit, 5, 360, getdir _unit, 5] call WC_fnc_createcircleposition;
 					dostop _unit;
 					{
 						if(format["%1", _x getvariable "wchostage"] == "<null>") then {

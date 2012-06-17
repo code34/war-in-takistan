@@ -72,7 +72,7 @@
 		_position = position _target;
 		_men = nearestObjects[_target,["Man"], 30];
 		if(count _men < 10) then {
-			_positions = [_position, 5, 360, getdir _target, 5] call WC_fnc_docircle;
+			_positions = [_position, 5, 360, getdir _target, 5] call WC_fnc_createcircleposition;
 			_men = nearestObjects[_target,["Man"], 400];
 			{
 				if(side _x == civilian) then {
