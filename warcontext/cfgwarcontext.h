@@ -68,7 +68,7 @@
 			class createammobox
 			{
 				description = "[EN]\nCreate an ammobox at a position";
-				file = "warcontext\ambiants\WC_fnc_createammobox.sqf";
+				file = "warcontext\WC_fnc_createammobox.sqf";
 			};
 		};
 		class FUNCTIONS
@@ -186,7 +186,7 @@
 			class relocatelocation
 			{
 				description = "[EN]\nRelocate location to a better place";
-				file = "warcontext\functions\WC_fnc_relocationlocation.sqf";
+				file = "warcontext\functions\WC_fnc_relocatelocation.sqf";
 			};
 			class relocateposition
 			{
