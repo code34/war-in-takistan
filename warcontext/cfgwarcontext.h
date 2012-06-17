@@ -209,11 +209,11 @@
 				file = "warcontext\functions\WC_fnc_weather.sqf";
 			};
 		};
-		class GUI
+		class DIALOGS
 		{
 			class lifeslider
 			{
-				description = "[EN]\nGenerate the GUI";
+				description = "[EN]\nGenerate the ranking player HUD";
 				file = "warcontext\WC_fnc_lifeslider.sqf";
 			};
 			class menubuildvehicles
