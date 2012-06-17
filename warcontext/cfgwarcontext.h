@@ -143,6 +143,61 @@
 				description = "[EN]\nDelete all public markers";
 				file = "warcontext\functions\WC_fnc_deletemarker.sqf";
 			};
+			class garbagecollector
+			{
+				description = "[EN]\nGarbage unit after die and amount of time";
+				file = "warcontext\functions\WC_fnc_garbagecollector.sqf";
+			};
+			class getobject
+			{
+				description = "[EN]\nGet an object by its editor ID";
+				file = "warcontext\functions\WC_fnc_getobject.sqf";
+			};
+			class WC_fnc_getterraformvariance
+			{
+				description = "[EN]\nGet terran alt variance";
+				file = "warcontext\functions\WC_fnc_getterraformvariance.sqf";
+			};
+			class markerhint
+			{
+				description = "[EN]\nHint a public marker";
+				file = "warcontext\functions\WC_fnc_markerhint.sqf";
+			};
+			class markerhintlocal
+			{
+				description = "[EN]\nHint a local marker on client only";
+				file = "warcontext\functions\WC_fnc_markerhintlocal.sqf";
+			};
+			class playerhint
+			{
+				description = "[EN]\nPrint a message on client";
+				file = "warcontext\functions\WC_fnc_playerhint.sqf";
+			};
+			class sortlocationbydistance
+			{
+				description = "[EN]\nSort locations by distance";
+				file = "warcontext\functions\WC_fnc_sortlocationbydistance.sqf";
+			};
+			class relocatelocation
+			{
+				description = "[EN]\nRelocate location to a better place";
+				file = "warcontext\functions\WC_fnc_relocationlocation.sqf";
+			};
+			class relocateposition
+			{
+				description = "[EN]\nRelocate position to a better place";
+				file = "warcontext\functions\WC_fnc_relocateposition.sqf";
+			};
+			class seed
+			{
+				description = "[EN]\nGenerate a number between x and y (not absolute)";
+				file = "warcontext\functions\WC_fnc_seed.sqf";
+			};
+			class setskill
+			{
+				description = "[EN]\nSet skill of a unit";
+				file = "warcontext\functions\WC_fnc_setskill.sqf";
+			};
 		};
 		class GUI
 		{

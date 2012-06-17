@@ -1,10 +1,11 @@
 	// -----------------------------------------------
 	// Author: team  code34 nicolas_boiteux@yahoo.fr
-	// WARCONTEXT - Description: init configuration file
-	// -----------------------------------------------
+	// WARCONTEXT - Description: init configuration file share between server and client
 
+	// wit version
 	wcversion	= 1.60;
 
+	// friendly side
 	wcside 		=  [west];
 	
 	// enemy side
@@ -16,10 +17,8 @@
 	// Adress of teamspeak server
 	wcteamspeak = "Join me on BIS forum: Code34";
 
-	// put name of your team members 
-	// will give same rights as the admin
-	// uncomment line below
-	// wcteammembers = ["code34", "code64"];
+	// put names of team members will give same rights as the admin, (uncomment line below)
+	/* wcteammembers = ["code34", "tom12"]; */
 
 	// limit of playable map
 	switch (tolower(worldname)) do {
@@ -127,6 +126,10 @@
 			wcmapbottomleft = [0, 0];
 		};
 	};
+	
+	// Position of map center
+	wcmapcenter = [((wcmaptopright select 0) / 2), ((wcmaptopright select 0) / 2)];
+	
 	// Kind of engineer
 	wcengineerclass = ["AFR_Soldier_Engineer", "ACE_USMC_SoldierS_Engineer_D", "HEXA_Soldier_ISAf", "US_Soldier_Engineer_EP1", "BWMod_EngineerG", "BWMod_EngineerG_Desert", "BWMod_EngineerG_ISAF", "US_Soldier_Engineer_EP1_retex_ger_des", "US_Soldier_Engineer_EP1_retex_ger_wdl", "FR_Sykes", "US_Delta_Force_Night_EP1"];
 

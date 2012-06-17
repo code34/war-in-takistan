@@ -141,7 +141,7 @@ class Mission
 					leader=1;
 					rank="LIEUTENANT";
 					skill=0.60000002;
-					init="dostop this; removeAllWeapons this; this allowdammage false; this doWatch getmarkerpos ""respawn_west""; this addAction [""<t color='#dddd00'>Recruit</t>"", ""warcontext\WC_fnc_recruitment.sqf"",[],6,false]; this allowDamage false;";
+					init="dostop this; removeAllWeapons this; this allowdammage false; this doWatch getmarkerpos ""respawn_west""; this addAction [""<t color='#dddd00'>Recruit</t>"", ""warcontext\dialog\WC_fnc_createmenurecruitment.sqf"",[],6,false]; this allowDamage false;";
 				};
 			};
 		};

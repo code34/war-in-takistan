@@ -1,7 +1,7 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext - Description: init
-	// -----------------------------------------------
+	// WARCONTEXT - Description - Init
+
 
 	titleText [localize "STR_WC_MESSAGEINITIALIZING", "BLACK FADED"];
 
@@ -73,26 +73,48 @@
 	WC_fnc_enumweapons 		= compile preprocessFile "warcontext\ressources\WC_fnc_enumweapons.sqf";
 	WC_fnc_enumvillages		= compile preprocessFile "warcontext\ressources\WC_fnc_enumvillages.sqf";
 
-	// warcontext scripts 
+
+	// warcontext functions
+	WC_fnc_attachmarker 		= compile preprocessFile "warcontext\functions\WC_fnc_attachmarker.sqf";
+	WC_fnc_backupbuilding		= compile preprocessFile "warcontext\functions\WC_fnc_backupbuilding.sqf";
+	WC_fnc_camfocus 		= compile preprocessFile "warcontext\functions\WC_fnc_camfocus.sqf";
+	WC_fnc_checkpilot		= compile preprocessFile "warcontext\functions\WC_fnc_checkpilot.sqf";
+	WC_fnc_clockformat 		= compile preprocessFile "warcontext\functions\WC_fnc_clockformat.sqf";
+	WC_fnc_copymarker 		= compile preprocessFile "warcontext\functions\WC_fnc_copymarker.sqf";
+	WC_fnc_copymarkerlocal 		= compile preprocessFile "warcontext\functions\WC_fnc_copymarkerlocal.sqf";
+	WC_fnc_creategridofposition	= compile preprocessFile "warcontext\functions\WC_fnc_creategridofposition.sqf";
+	WC_fnc_createmarker 		= compile preprocessFile "warcontext\functions\WC_fnc_createmarker.sqf";
+	WC_fnc_createmarkerlocal	= compile preprocessFile "warcontext\functions\WC_fnc_createmarkerlocal.sqf";
+	WC_fnc_createcircleposition	= compile preprocessFile "warcontext\functions\WC_fnc_createcircleposition.sqf";
+	WC_fnc_createposition 		= compile preprocessFile "warcontext\functions\WC_fnc_createposition.sqf";
+	WC_fnc_createpositionaround	= compile preprocessFile "warcontext\functions\WC_fnc_createpositionaround.sqf";
+	WC_fnc_createpositioninmarker 	= compile preprocessFile "warcontext\functions\WC_fnc_createpositioninmarker.sqf";
+	WC_fnc_deletemarker		= compile preprocessFile "warcontext\functions\WC_fnc_deletemarker.sqf";
+	WC_fnc_garbagecollector		= compile preprocessFile "warcontext\functions\WC_fnc_garbagecollector.sqf";
+	WC_fnc_getobject		= compile preprocessFile "warcontext\functions\WC_fnc_getobject.sqf";
+	WC_fnc_getterraformvariance	= compile preprocessFile "warcontext\functions\WC_fnc_getterraformvariance.sqf";
+	WC_fnc_markerhint		= compile preprocessFile "warcontext\functions\WC_fnc_markerhint.sqf";
+	WC_fnc_markerhintlocal		= compile preprocessFile "warcontext\functions\WC_fnc_markerhintlocal.sqf";
+	WC_fnc_playerhint		= compile preprocessFile "warcontext\functions\WC_fnc_playerhint.sqf";
+	WC_fnc_sortlocationbydistance	= compile preprocessFile "warcontext\functions\WC_fnc_sortlocationbydistance.sqf";
+	WC_fnc_relocatelocation		= compile preprocessFile "warcontext\functions\WC_fnc_relocatelocation.sqf";
+	WC_fnc_relocateposition		= compile preprocessFile "warcontext\functions\WC_fnc_relocateposition.sqf";
+	WC_fnc_seed	 		= compile preprocessFile "warcontext\functions\WC_fnc_seed.sqf";
+	WC_fnc_setskill 		= compile preprocessFile "warcontext\functions\WC_fnc_setskill.sqf";
+
+	// warcontext ambiant scripts 
 	WC_fnc_antiair 			= compile preprocessFile "warcontext\WC_fnc_antiair.sqf";
 	WC_fnc_airpatrol 		= compile preprocessFile "warcontext\WC_fnc_airpatrol.sqf";
 	WC_fnc_ambiantlife 		= compile preprocessFile "warcontext\WC_fnc_ambiantlife.sqf";
-	WC_fnc_attachmarker 		= compile preprocessFile "warcontext\WC_fnc_attachmarker.sqf";
 	WC_fnc_attachmarkerlocal	= compile preprocessFile "warcontext\WC_fnc_attachmarkerlocal.sqf";
 	WC_fnc_attachmarkerinzone	= compile preprocessFile "warcontext\WC_fnc_attachmarkerinzone.sqf";
-	WC_fnc_backupbuilding		= compile preprocessFile "warcontext\WC_fnc_backupbuilding.sqf";
 	WC_fnc_bomb			= compile preprocessFile "warcontext\WC_fnc_bomb.sqf";
-	WC_fnc_camfocus 		= compile preprocessFile "warcontext\WC_fnc_camfocus.sqf";
-	WC_fnc_checkpilot		= compile preprocessFile "warcontext\WC_fnc_checkpilot.sqf";
-	WC_fnc_clockformat 		= compile preprocessFile "warcontext\WC_fnc_clockformat.sqf";
 	WC_fnc_computeavillage 		= compile preprocessFile "warcontext\WC_fnc_computeavillage.sqf";
-	WC_fnc_copymarker 		= compile preprocessFile "warcontext\WC_fnc_copymarker.sqf";
-	WC_fnc_copymarkerlocal 		= compile preprocessFile "warcontext\WC_fnc_copymarkerlocal.sqf";
+	WC_fnc_createammobox 		= compile preprocessFile "warcontext\WC_fnc_createammobox.sqf";
 	WC_fnc_createairpatrol		= compile preprocessFile "warcontext\WC_fnc_createairpatrol.sqf";
 	WC_fnc_createairpatrol2		= compile preprocessFile "warcontext\WC_fnc_createairpatrol2.sqf";
 	WC_fnc_createseapatrol		= compile preprocessFile "warcontext\WC_fnc_createseapatrol.sqf";
 	WC_fnc_createsheep		= compile preprocessFile "warcontext\WC_fnc_createsheep.sqf";
-	WC_fnc_createammobox 		= compile preprocessFile "warcontext\WC_fnc_createammobox.sqf";
 	WC_fnc_createcomposition	= compile preprocessFile "warcontext\WC_fnc_createcomposition.sqf";
 	WC_fnc_createcivilcar 		= compile preprocessFile "warcontext\WC_fnc_createcivilcar.sqf";
 	WC_fnc_createconvoy 		= compile preprocessFile "warcontext\WC_fnc_createconvoy.sqf";
@@ -102,42 +124,29 @@
 	WC_fnc_creategroupsupport	= compile preprocessFile "warcontext\WC_fnc_creategroupsupport.sqf";
 	WC_fnc_createied 		= compile preprocessFile "warcontext\WC_fnc_createied.sqf";
 	WC_fnc_createiedintown 		= compile preprocessFile "warcontext\WC_fnc_createiedintown.sqf";
-	WC_fnc_creategridofposition	= compile preprocessFile "warcontext\WC_fnc_creategridofposition.sqf";
 	WC_fnc_createlistofmissions	= compile preprocessFile "warcontext\WC_fnc_createlistofmissions.sqf";
-	WC_fnc_createmarker 		= compile preprocessFile "warcontext\WC_fnc_createmarker.sqf";
-	WC_fnc_createmarkerlocal	= compile preprocessFile "warcontext\WC_fnc_createmarkerlocal.sqf";
 	WC_fnc_createmedic 		= compile preprocessFile "warcontext\WC_fnc_createmedic.sqf";
 	WC_fnc_createmortuary		= compile preprocessFile "warcontext\WC_fnc_createmortuary.sqf";
 	WC_fnc_createnuclearfire 	= compile preprocessFile "warcontext\WC_fnc_createnuclearfire.sqf";
 	WC_fnc_createnuclearzone 	= compile preprocessFile "warcontext\WC_fnc_createnuclearzone.sqf";
-	WC_fnc_createposition 		= compile preprocessFile "warcontext\WC_fnc_createposition.sqf";
-	WC_fnc_createpositionaround	= compile preprocessFile "warcontext\WC_fnc_createpositionaround.sqf";
-	WC_fnc_createpositioninmarker 	= compile preprocessFile "warcontext\WC_fnc_createpositioninmarker.sqf";
 	WC_fnc_createradio	 	= compile preprocessFile "warcontext\WC_fnc_createradio.sqf";
 	WC_fnc_createsidemission 	= compile preprocessFile "warcontext\WC_fnc_createsidemission.sqf";
 	WC_fnc_createstatic	 	= compile preprocessFile "warcontext\WC_fnc_createstatic.sqf";
 	WC_fnc_createmhq	 	= compile preprocessFile "warcontext\WC_fnc_createmhq.sqf";
 	WC_fnc_debug			= compile preprocessFile "warcontext\WC_fnc_debug.sqf";
 	WC_fnc_dosillything		= compile preprocessFile "warcontext\WC_fnc_dosillything.sqf";
-	WC_fnc_deletemarker		= compile preprocessFile "warcontext\WC_fnc_deletemarker.sqf";
-	WC_fnc_docircle			= compile preprocessFile "warcontext\WC_fnc_docircle.sqf";
 	WC_fnc_eventhandler 		= compile preprocessFile "warcontext\WC_fnc_eventhandler.sqf";
 	WC_fnc_exportweaponsplayer	= compile preprocessFile "warcontext\WC_fnc_exportweaponsplayer.sqf";
 	WC_fnc_fasttime			= compile preprocessFile "warcontext\WC_fnc_fasttime.sqf";
 	WC_fnc_fireflare 		= compile preprocessFile "warcontext\WC_fnc_fireflare.sqf";
 	WC_fnc_flare	 		= compile preprocessFile "warcontext\WC_fnc_flare.sqf";
 	WC_fnc_followvehicle		= compile preprocessFile "warcontext\WC_fnc_followvehicle.sqf";
-	WC_fnc_garbagecollector		= compile preprocessFile "warcontext\WC_fnc_garbagecollector.sqf";
-	WC_fnc_getterraformvariance	= compile preprocessFile "warcontext\WC_fnc_getterraformvariance.sqf";
 	WC_fnc_grouphandler		= compile preprocessFile "warcontext\WC_fnc_grouphandler.sqf";
-	WC_fnc_getobject		= compile preprocessFile "warcontext\WC_fnc_getobject.sqf";
 	WC_fnc_keymapper		= compile preprocessFile "warcontext\WC_fnc_keymapper.sqf";
 	WC_fnc_lifeslider		= compile preprocessFile "warcontext\WC_fnc_lifeslider.sqf";
 	WC_fnc_light			= compile preprocessFile "warcontext\WC_fnc_light.sqf";
 	WC_fnc_loadweapons 		= compile preprocessFile "warcontext\WC_fnc_loadweapons.sqf";
 	WC_fnc_mainloop 		= compile preprocessFile "warcontext\WC_fnc_mainloop.sqf";
-	WC_fnc_markerhint		= compile preprocessFile "warcontext\WC_fnc_markerhint.sqf";
-	WC_fnc_markerhintlocal		= compile preprocessFile "warcontext\WC_fnc_markerhintlocal.sqf";
 	WC_fnc_mortar		 	= compile preprocessFile "warcontext\WC_fnc_mortar.sqf";
 	WC_fnc_missionname	 	= compile preprocessFile "warcontext\WC_fnc_missionname.sqf";
 	WC_fnc_nastyvehicleevent	= compile preprocessFile "warcontext\WC_fnc_nastyvehicleevent.sqf";
@@ -146,21 +155,15 @@
 	WC_fnc_onkilled			= compile preprocessFile "warcontext\WC_fnc_onkilled.sqf";
 	WC_fnc_patrol			= compile preprocessFile "warcontext\WC_fnc_patrol.sqf";
 	WC_fnc_playerhandler		= compile preprocessFile "warcontext\WC_fnc_playerhandler.sqf";
-	WC_fnc_playerhint		= compile preprocessFile "warcontext\WC_fnc_playerhint.sqf";
 	WC_fnc_playerranking		= compile preprocessFile "warcontext\WC_fnc_playerranking.sqf";
 	WC_fnc_protectobject		= compile preprocessFile "warcontext\WC_fnc_protectobject.sqf";
 	WC_fnc_publishmission		= compile preprocessFile "warcontext\WC_fnc_publishmission.sqf";
-	WC_fnc_relocatelocation		= compile preprocessFile "warcontext\WC_fnc_relocatelocation.sqf";
-	WC_fnc_relocateposition		= compile preprocessFile "warcontext\WC_fnc_relocateposition.sqf";
 	WC_fnc_restoreloadout		= compile preprocessFile "warcontext\WC_fnc_restoreloadout.sqf";
 	WC_fnc_restoreactionmenu	= compile preprocessFile "warcontext\WC_fnc_restoreactionmenu.sqf";
 	WC_fnc_restorebuilding 		= compile preprocessFile "warcontext\WC_fnc_restorebuilding.sqf";
 	WC_fnc_respawnvehicle		= compile preprocessFile "warcontext\WC_fnc_respawnvehicle.sqf";
-	WC_fnc_setskill 		= compile preprocessFile "warcontext\WC_fnc_setskill.sqf";
 	WC_fnc_serverside 		= compile preprocessFile "warcontext\WC_fnc_serverside.sqf";
 	WC_fnc_sentinelle	 	= compile preprocessFile "warcontext\WC_fnc_sentinelle.sqf";
-	WC_fnc_seed	 		= compile preprocessFile "warcontext\WC_fnc_seed.sqf";
-	WC_fnc_sortlocationbydistance	= compile preprocessFile "warcontext\WC_fnc_sortlocationbydistance.sqf";
 	WC_fnc_support	 		= compile preprocessFile "warcontext\WC_fnc_support.sqf";
 	WC_fnc_saveloadout		= compile preprocessFile "warcontext\WC_fnc_saveloadout.sqf";
 	WC_fnc_securezone 		= compile preprocessFile "warcontext\WC_fnc_securezone.sqf";
