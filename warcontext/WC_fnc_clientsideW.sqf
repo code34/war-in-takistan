@@ -85,21 +85,21 @@
 		_light lightAttachObject [tower1, [0,0,15]];
 	};
 
-	_end = createTrigger["EmptyDetector", [4000,4000,0]];
+	_end = createTrigger["EmptyDetector", wcmapcenter];
 	_end setTriggerArea[10, 10, 0, false];
 	_end setTriggerActivation["CIV", "PRESENT", TRUE];
 	_end setTriggerStatements["(wcteamscore < wcscorelimitmin)", "
 		wcanim = [] execVM 'warcontext\camera\WC_fnc_outrolooser.sqf';
 	", ""];
 
-	_end2 = createTrigger["EmptyDetector", [4000,4000,0]];
+	_end2 = createTrigger["EmptyDetector", wcmapcenter];
 	_end2 setTriggerArea[10, 10, 0, false];
 	_end2 setTriggerActivation["CIV", "PRESENT", TRUE];
 	_end2 setTriggerStatements["(wcteamscore > wcscorelimitmax)", "
 		wcanim = [] execVM 'warcontext\camera\WC_fnc_outro.sqf';
 	", ""];
 
-	_end3 = createTrigger["EmptyDetector", [4000,4000,0]];
+	_end3 = createTrigger["EmptyDetector", wcmapcenter];
 	_end3 setTriggerArea[10, 10, 0, false];
 	_end3 setTriggerActivation["CIV", "PRESENT", TRUE];
 	_end3 setTriggerStatements["(wclevel > (wclevelmax - 1))", "

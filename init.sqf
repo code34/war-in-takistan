@@ -59,10 +59,12 @@
 	WC_fnc_commoninitconfig 	= compile preprocessFile "WC_fnc_commoninitconfig.sqf";
 	WC_fnc_serverinitconfig 	= compile preprocessFile "WC_fnc_serverinitconfig.sqf";
 
-	// warcontext anim
-	WC_fnc_intro			= compile preprocessFile "warcontext\WC_fnc_intro.sqf";
-	WC_fnc_outro			= compile preprocessFile "warcontext\WC_fnc_outro.sqf";
-	WC_fnc_outrolooser		= compile preprocessFile "warcontext\WC_fnc_outrolooser.sqf";
+	// warcontext anim - camera
+	WC_fnc_intro			= compile preprocessFile "warcontext\camera\WC_fnc_intro.sqf";
+	WC_fnc_camfocus 		= compile preprocessFile "warcontext\camera\WC_fnc_camfocus.sqf";
+	WC_fnc_credits			= compile preprocessFile "warcontext\camera\WC_fnc_credits.sqf";
+	WC_fnc_outro			= compile preprocessFile "warcontext\camera\WC_fnc_outro.sqf";
+	WC_fnc_outrolooser		= compile preprocessFile "warcontext\camera\WC_fnc_outrolooser.sqf";
 
 	// warcontext ressources
 	WC_fnc_enumcfgpatches 		= compile preprocessFile "warcontext\ressources\WC_fnc_enumcfgpatches.sqf";
@@ -78,7 +80,6 @@
 	// warcontext functions
 	WC_fnc_attachmarker 		= compile preprocessFile "warcontext\functions\WC_fnc_attachmarker.sqf";
 	WC_fnc_backupbuilding		= compile preprocessFile "warcontext\functions\WC_fnc_backupbuilding.sqf";
-	WC_fnc_camfocus 		= compile preprocessFile "warcontext\functions\WC_fnc_camfocus.sqf";
 	WC_fnc_checkpilot		= compile preprocessFile "warcontext\functions\WC_fnc_checkpilot.sqf";
 	WC_fnc_clockformat 		= compile preprocessFile "warcontext\functions\WC_fnc_clockformat.sqf";
 	WC_fnc_copymarker 		= compile preprocessFile "warcontext\functions\WC_fnc_copymarker.sqf";

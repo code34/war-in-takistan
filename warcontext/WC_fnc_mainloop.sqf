@@ -43,17 +43,17 @@
 	_active setTriggerActivation["WEST", "PRESENT", TRUE];
 	_active setTriggerStatements["this", "", ""];
 
-	_sanity = createTrigger["EmptyDetector", [8000,8000,0]];
+	_sanity = createTrigger["EmptyDetector", wcmapcenter];
 	_sanity setTriggerArea[20000, 20000, 0, false];
 	_sanity setTriggerActivation["EAST", "PRESENT", TRUE];
 	_sanity setTriggerStatements["this", "", ""];
 
-	_sanity2 = createTrigger["EmptyDetector", [8000,8000,0]];
+	_sanity2 = createTrigger["EmptyDetector", wcmapcenter];
 	_sanity2 setTriggerArea[20000, 20000, 0, false];
 	_sanity2 setTriggerActivation["GUER", "PRESENT", TRUE];
 	_sanity2 setTriggerStatements["this", "", ""];
 
-	_sanity3 = createTrigger["EmptyDetector", [8000,8000,0]];
+	_sanity3 = createTrigger["EmptyDetector", wcmapcenter];
 	_sanity3 setTriggerArea[20000, 20000, 0, false];
 	_sanity3 setTriggerActivation["CIV", "PRESENT", TRUE];
 	_sanity3 setTriggerStatements["this", "", ""];
