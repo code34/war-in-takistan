@@ -153,7 +153,7 @@
 				description = "[EN]\nGet an object by its editor ID";
 				file = "warcontext\functions\WC_fnc_getobject.sqf";
 			};
-			class WC_fnc_getterraformvariance
+			class getterraformvariance
 			{
 				description = "[EN]\nGet terran alt variance";
 				file = "warcontext\functions\WC_fnc_getterraformvariance.sqf";
@@ -167,6 +167,11 @@
 			{
 				description = "[EN]\nHint a local marker on client only";
 				file = "warcontext\functions\WC_fnc_markerhintlocal.sqf";
+			};
+			class missionname
+			{
+				description = "[EN]\nGenerate a random mission name";
+				file = "warcontext\functions\WC_fnc_missionname.sqf";
 			};
 			class playerhint
 			{
@@ -197,6 +202,11 @@
 			{
 				description = "[EN]\nSet skill of a unit";
 				file = "warcontext\functions\WC_fnc_setskill.sqf";
+			};
+			class weather
+			{
+				description = "[EN]\nGenerate a random weather";
+				file = "warcontext\functions\WC_fnc_weather.sqf";
 			};
 		};
 		class GUI
