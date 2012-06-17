@@ -8,7 +8,7 @@ class RscDisplayMission
 	idd = 3000;
 	movingenable = 0;
 	controlsBackground[] = {"RscStructuredText_1101", "RscListbox_1500", "RscMap_1307", "RscStructuredText_1100", "RscButton_1600","RscText_1000", "RscButton_1601"};
-	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menuchoosemission.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
+	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menuchoosemission.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
 		class RscStructuredText_1101: RscStructuredText
 		{
 			idc = 1101;
@@ -91,7 +91,7 @@ class RscDisplayrecruitment
 	idd = 4000;
 	movingenable = 0;
 	controlsBackground[] = {"control4001", "control4002","control4004","control4005","control4006"};
-	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menurecruitment.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
+	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menurecruitment.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
 		class control4001: RscStructuredText
 		{
 			idc = 4001;
@@ -146,7 +146,7 @@ class RscDisplayclothes
 	idd = 5000;
 	movingenable = 0;
 	controlsBackground[] = {"control5001", "control5002","control5004","control5005"};
-	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menuchangeclothes.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
+	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menuchangeclothes.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
 		class control5001: RscStructuredText
 		{
 			idc = 5001;
@@ -191,7 +191,7 @@ class RscDisplayTeam
 	idd = 6000;
 	movingenable = 0;
 	controlsBackground[] = {"control6001", "control6002","control6003", "control6004","control6005", "control6006", "control6007", "control6008"};
-	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menumanagementteam.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
+	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menumanagementteam.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
 		class control6001: RscStructuredText
 		{
 			idc = 6001;
@@ -280,7 +280,7 @@ class RscDisplayvehicles
 	movingenable = 0;
 	controlsBackground[] = {"control7001", "control7002","control7003","control7004","control7005"};
 
-	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menubuildvehicles.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
+	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menubuildvehicles.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
 
 		class control7001: RscStructuredText
 		{
@@ -345,7 +345,7 @@ class acInfoDLG
 	objects[] = {};
 	controls[] = { MM_MENU1, MM_MENU2, MM_MENU3, MM_MENU4, MM_MENU5, MM_MENU6, MM_BtnTransfert, MM_TAG, infomainmission, infosidemission, MM_BtnOk, MM_BtnOpt, MM_BtnLogs, MM_BtnCredits, MM_Label, MM_PLAYERROLE, MM_BtnObj, MM_BtnTEAMSTATUS, MM_PLAYERLIST, MM_SLIDER_TRANSFER};
 
-	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menumissioninfo.sqf""; uiNamespace setVariable [""ac_INFO_DLG"", _this select 0];";
+	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menumissioninfo.sqf""; uiNamespace setVariable [""ac_INFO_DLG"", _this select 0];";
 	
 	class New_BackGround : RscPicture
 	{
@@ -493,7 +493,7 @@ class acInfoDLG
 			y = 0.59;
 			w = 0.2200;
 			text = $STR_ACGUI_MM_BTN_Opt;
-			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialog\WC_fnc_createmenusettings.sqf""";
+			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialogs\WC_fnc_createmenusettings.sqf""";
 		};
 
 	class MM_BtnTEAMSTATUS  : New_Btn {
@@ -512,7 +512,7 @@ class acInfoDLG
 			y = 0.69;
 			w = 0.2200;
 			text = $STR_ACGUI_MM_BTN_Logs;
-			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\dialog\WC_fnc_createmenureadlogs.sqf"";";
+			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\dialogs\WC_fnc_createmenureadlogs.sqf"";";
 	};
 
 	class MM_BtnCredits  : New_Btn 
@@ -522,7 +522,7 @@ class acInfoDLG
 			y = 0.74;
 			w = 0.2200;
 			text = $STR_ACGUI_MM_BTN_CREDITS;
-			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\WC_fnc_credits.sqf"";";
+			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\camera\WC_fnc_credits.sqf"";";
 	};
 
 	class MM_BtnOk  : New_Btn 
@@ -558,7 +558,7 @@ class SettingsDialog {
 	objects[] = {};
 	controlsBackground[] = {New_BackGround};
 	controls[] = {VM_VD_TXT, VM_VD_SDR, VM_TG_TXT, VM_TG_SDR, VM_BtnClose, VM_GAMESETTINGS, VM_TG_VAL, VM_LABEL, VM_WELMSG, MM_BtnWeapons, MM_BtnHBfix};
-	onLoad = "ExecVM ""warcontext\dialog\WC_fnc_menusettings.sqf""";
+	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menusettings.sqf""";
 	
 	class New_BackGround : RscPicture
 	{
@@ -753,7 +753,7 @@ class RscDisplayLogs {
 	objects[] = {};
 	controlsBackground[] = {Logbackground};
 	controls[] = {Logbackground, LogLabel, Logtext, LogClose};
-	onLoad = "  ExecVM ""warcontext\dialog\WC_fnc_menureadlogs.sqf""; ";
+	onLoad = "  ExecVM ""warcontext\dialogs\WC_fnc_menureadlogs.sqf""; ";
 
 	class LogLabel: RscText
 	{

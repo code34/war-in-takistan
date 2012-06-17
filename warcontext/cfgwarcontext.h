@@ -262,7 +262,7 @@
 			class camfocus
 			{
 				description = "[EN]\nCreate a random camera on goal";
-				file = "warcontext\functions\WC_fnc_camfocus.sqf";
+				file = "warcontext\camera\WC_fnc_camfocus.sqf";
 			};
 		};
 	};
