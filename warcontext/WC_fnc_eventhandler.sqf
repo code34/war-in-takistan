@@ -16,9 +16,8 @@
 		wcaddqueue = [_variablename, _variablevalue, _type];
 		if(isserver and local player) then {
 			wcqueue = wcqueue + [wcaddqueue];
-		} else {
-			publicvariable "wcaddqueue";
 		};
+		publicvariable "wcaddqueue";
 	};
 
 	"wcaddqueue" addPublicVariableEventHandler {
