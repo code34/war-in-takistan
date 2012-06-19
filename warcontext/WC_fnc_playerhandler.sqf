@@ -155,14 +155,14 @@
 			};
 	};
 
-
+	// add combat operation plan action
 	WC_fnc_netcode_wcchoosemission = {
 		wcchoosemission = _this select 0;
 		if(wcchoosemission) then {
-			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", "Combat operation plan"];
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_MENUOPERATIONPLAN"];
 			wcmessageW spawn EXT_fnc_infotext;
 			if(isnil "wcchoosemissionmenu") then {
-				wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\WC_fnc_createmenuchoosemission.sqf",[],6,false];
+				wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\dialogs\WC_fnc_createmenuchoosemission.sqf",[],6,false];
 			};
 		} else {
 			player removeaction wcchoosemissionmenu;

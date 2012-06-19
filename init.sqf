@@ -200,6 +200,11 @@
 
 	waituntil {!isnil "bis_fnc_init"};
 
+	// Init Debugger
+	if((wckindofgame == 3) or (local player and isserver)) then {
+		wcgarbage = [] spawn WC_fnc_debug;
+	};
+
 	//
 	//	CLIENT SIDE
 	//
@@ -218,14 +223,8 @@
 	// Init global variables
 	wcgarbage = [] call WC_fnc_serverinitconfig;
 
-	// Init Debugger
-	wcgarbage = [] spawn WC_fnc_debug;
-
 	// Init Mission - Main loop
 	wcgarbage = [] spawn WC_fnc_mainloop;
-
-	// Init Weather
-	wcgarbage = [] spawn WC_fnc_weather;
 
 	// Init Server SIDE
 	wcgarbage = [] spawn WC_fnc_serverside;

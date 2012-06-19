@@ -173,6 +173,7 @@ STR_WC_TITLE_MISSION,	"War in Takistan: Operations Iron Rains",	"War in Takistan
 STR_WC_CALLREINFORCEMENT,	"Incoming reinforcements",	"Des renforts attaquent"
 STR_WC_BUTTONBUILD,	"Build",	"Construire"
 STR_WC_BUTTONCLOSE,	"Close",	"Fermer"
+STR_WC_MENUOPERATIONPLAN,	"Combat operation plan",	"Combat operation plan"
 STR_WC_MENUBUILDTRENCH,	"Dig trench",	"Creuser une tranchee"
 STR_WC_MENUREPAIRVEHICLE,	"Repair Vehicle",	"Reparer le vehicule"
 STR_WC_MENUREPAIRVEHICLE2,	"Repair Vehicle: %1",	"Reparer le vehicule: %1"

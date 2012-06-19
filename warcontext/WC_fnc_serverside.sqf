@@ -7,8 +7,6 @@
 
 	if (!isServer) exitWith{};
 
-
-
 	// Grab all WC_fnc_publicvariable events
 	if(isdedicated) then {
 		wcgarbage = [] spawn WC_fnc_eventhandler;
@@ -17,6 +15,11 @@
 	// add halo jump option at flag
 	if(wcwithhalojump == 1) then {
 		flagusa setvehicleinit 'this addAction ["Halo Jump", "warcontext\actions\WC_fnc_dohalojump.sqf",[],-1,false]';
+	};
+
+	// Init Weather
+	if(wcwithweather == 1) then {
+		wcgarbage = [] spawn WC_fnc_weather;
 	};
 
 	if(wcairopposingforce > 0) then {
@@ -235,6 +238,7 @@
 
 	// recompute the list of missions when admin asks
 	WC_fnc_netcode_wcrecomputemission = {
+		wcday = wcday + 1;
 		wclistofmissions = [];
 		wcgarbage = [] spawn WC_fnc_createlistofmissions;
 	};
