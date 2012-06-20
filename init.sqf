@@ -4,7 +4,7 @@
 	//
 	// DEVELOPPER - MAP 
 	//
-	// Main script
+	// Main scripts
 	// warcontext\WC_fnc_mainloop : loop concerning environment mission on going. First build a new environment, build the mission, wait mission is done, delete environment, and redo the loop.
 	// warcontext\WC_fnc_clientsideW : contains all the client side script call
 	// warcontext\WC_fnc_serverside : contains all the server side script call
@@ -44,10 +44,10 @@
 	};
 
 	// init R3F arty and logistic script
-	execVM "extern\R3F_ARTY_AND_LOG\init.sqf";
+	[] spawn { execVM "extern\R3F_ARTY_AND_LOG\init.sqf"; };
 
 	// init BON loadout script
-	presetDialogUpdate = compile preprocessFile "extern\bon_loadoutpresets\bon_func_presetdlgUpdate.sqf";
+	[] spawn { presetDialogUpdate = compile preprocessFile "extern\bon_loadoutpresets\bon_func_presetdlgUpdate.sqf"; };
 
 	// external scripts
 	EXT_fnc_atot 			= compile preprocessFile "extern\EXT_fnc_atot.sqf";
