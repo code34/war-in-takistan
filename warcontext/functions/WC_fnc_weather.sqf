@@ -5,10 +5,18 @@
 	// -----------------------------------------------
 	if (!isServer) exitWith{};
 
-	private ["_rain", "_fog", "_overcast", "_datestamp"];
+	private [
+		"_rainrate", 
+		"_rain",
+		"_fog",
+		"_overcast",
+		"_datestamp"
+	];
+
+	_rainrate = _this select 0;
 
 	while {true} do {
-		_rain = random 0.65;
+		_rain = random _rainrate;
 		if((date select 4 > 2) and (date select 4 <7)) then {
 			_fog = 0.6 + (random 0.4);
 		} else {

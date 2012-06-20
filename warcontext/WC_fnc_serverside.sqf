@@ -19,7 +19,7 @@
 
 	// Init Weather
 	if(wcwithweather == 1) then {
-		wcgarbage = [] spawn WC_fnc_weather;
+		wcgarbage = [wcrainrate] spawn WC_fnc_weather;
 	};
 
 	if(wcairopposingforce > 0) then {

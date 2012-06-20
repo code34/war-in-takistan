@@ -20,20 +20,6 @@
 	// put names of team members will give same rights as the admin, (uncomment line below)
 	/* wcteammembers = ["code34", "tom12"]; */
 
-	// terrain ground details 0(low) - 50(full)
-	wcterraingrid = 1;
-	setTerrainGrid wcterraingrid;
-
-	// view distance is set by lobby parameter
-	wcviewDist = wcviewdistance;
-	setViewDistance wcviewDist;
-
-	// turn off ao marker
-	setGroupIconsVisible [false, false];
-
-	// set environment sound with lobby parameter
-	if(wcwithenvironment == 0) then { enableEnvironment false;};
-
 	// limit of playable map
 	switch (tolower(worldname)) do {
 		case "gsep_zernovo": {
@@ -143,6 +129,9 @@
 	
 	// Position of map center
 	wcmapcenter = [((wcmaptopright select 0) / 2), ((wcmaptopright select 0) / 2)];
+
+	// Rain max rate of the country - 0  (low) 1 (full)
+	wcrainrate = 0.65;
 	
 	// Kind of engineer
 	wcengineerclass = ["AFR_Soldier_Engineer", "ACE_USMC_SoldierS_Engineer_D", "HEXA_Soldier_ISAf", "US_Soldier_Engineer_EP1", "BWMod_EngineerG", "BWMod_EngineerG_Desert", "BWMod_EngineerG_ISAF", "US_Soldier_Engineer_EP1_retex_ger_des", "US_Soldier_Engineer_EP1_retex_ger_wdl", "FR_Sykes", "US_Delta_Force_Night_EP1"];
