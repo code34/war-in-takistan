@@ -1,7 +1,14 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - Description - Init
-
+	//
+	// DEVELOPPER - MAP 
+	//
+	// Main script
+	// warcontext\WC_fnc_mainloop : loop concerning environment mission on going. First build a new environment, build the mission, wait mission is done, delete environment, and redo the loop.
+	// warcontext\WC_fnc_clientsideW : contains all the client side script call
+	// warcontext\WC_fnc_serverside : contains all the server side script call
+	// warcontext\WC_fnc_createsidemission : build the mission
 
 	titleText [localize "STR_WC_MESSAGEINITIALIZING", "BLACK FADED"];
 
@@ -36,16 +43,11 @@
 		};
 	};
 
+	// init R3F arty and logistic script
 	execVM "extern\R3F_ARTY_AND_LOG\init.sqf";
+
+	// init BON loadout script
 	presetDialogUpdate = compile preprocessFile "extern\bon_loadoutpresets\bon_func_presetdlgUpdate.sqf";
-
-	wcterraingrid = 0;
-	wcviewDist = 1500;
-	setViewDistance wcviewDist;
-	setTerrainGrid wcterraingrid;
-
-	setGroupIconsVisible [false, false];
-	if(wcwithenvironment == 0) then { enableEnvironment false;};
 
 	// external scripts
 	EXT_fnc_atot 			= compile preprocessFile "extern\EXT_fnc_atot.sqf";
@@ -195,21 +197,14 @@
 	WC_fnc_sabotage	 		= compile preprocessFile "warcontext\missions\WC_fnc_sabotage.sqf";
 	WC_fnc_securezone 		= compile preprocessFile "warcontext\missions\WC_fnc_securezone.sqf";
 
-
 	wcgarbage = [] call WC_fnc_commoninitconfig;
 
 	waituntil {!isnil "bis_fnc_init"};
-
-	// Init Debugger
-	if((wckindofgame == 3) or (local player and isserver)) then {
-		wcgarbage = [] spawn WC_fnc_debug;
-	};
 
 	//
 	//	CLIENT SIDE
 	//
 	if(local player) then { wcgarbage = [] execVM "warcontext\WC_fnc_clientsideW.sqf"; };
-
 
 	//
 	//	SERVER SIDE
@@ -222,6 +217,9 @@
 	
 	// Init global variables
 	wcgarbage = [] call WC_fnc_serverinitconfig;
+
+	// Init Debugger
+	wcgarbage = [] spawn WC_fnc_debug;
 
 	// Init Mission - Main loop
 	wcgarbage = [] spawn WC_fnc_mainloop;

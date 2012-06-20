@@ -20,6 +20,20 @@
 	// put names of team members will give same rights as the admin, (uncomment line below)
 	/* wcteammembers = ["code34", "tom12"]; */
 
+	// terrain ground details 0(low) - 50(full)
+	wcterraingrid = 1;
+	setTerrainGrid wcterraingrid;
+
+	// view distance is set by lobby parameter
+	wcviewDist = wcviewdistance;
+	setViewDistance wcviewDist;
+
+	// turn off ao marker
+	setGroupIconsVisible [false, false];
+
+	// set environment sound with lobby parameter
+	if(wcwithenvironment == 0) then { enableEnvironment false;};
+
 	// limit of playable map
 	switch (tolower(worldname)) do {
 		case "gsep_zernovo": {
