@@ -20,7 +20,7 @@
 		wctent =  "ACamp_EP1" createvehicle _position;
 		wctent setposatl _position;
 		wctent setVariable ["owner", name player, true];
-		_text = format["this addAction [""<t color='#ff4500'>Remove tent of %1</t>"", ""warcontext\WC_fnc_removetent.sqf"",[],-1,false];", name player];
+		_text = format["this addAction [""<t color='#ff4500'>Remove tent of %1</t>"", ""warcontext\actions\WC_fnc_doremovetent.sqf"",[],-1,false];", name player];
 		wctent setVehicleInit _text;
 		processInitCommands;
 		wcrespawnposition = [position player, wctent];
@@ -38,7 +38,7 @@
 			wctent =  "ACamp_EP1" createvehicle _position;
 			wctent setposatl _position;
 			wctent setVariable ["owner", name player, true];
-			_text = format["this addAction [""<t color='#ff4500'>Remove tent of %1</t>"", ""warcontext\WC_fnc_removetent.sqf"",[],-1,false];", name player];
+			_text = format["this addAction [""<t color='#ff4500'>Remove tent of %1</t>"", ""warcontext\actions\WC_fnc_doremovetent.sqf"",[],-1,false];", name player];
 			wctent setVehicleInit _text;
 			processInitCommands;
 			wcrespawnposition = [position player, wctent];
