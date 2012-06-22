@@ -636,6 +636,14 @@ class Params
 		default = 1;
 	};
 
+	class wcwithlight
+	{
+		title = "DYNAMIC LIGHT (SOLAR LIGHT DEPENDING OF OVERCAST)";
+		values[] = {0,1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
 	class wcopposingforce
 	{
 		title = "ENEMIES FORCE ON ZONE";
@@ -681,14 +689,6 @@ class Params
 	{
 		title = "ENEMIES USE STATIC WEAPONS";
 		values[] = {0, 1};
-		texts[] = {"NO", "YES"};
-		default = 1;
-	};
-
-	class wcwithlight
-	{
-		title = "SOLAR LIGHT DEPENDING OF WEATHER";
-		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 1;
 	};

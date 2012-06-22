@@ -34,7 +34,9 @@
 	["wcplayerreadyadd", "server"] call WC_fnc_publicvariable;
 
 	// intialize light depending weather
-	wcgarbage = [] spawn WC_fnc_light;
+	if(wcwithlight == 1) then {
+		wcgarbage = [] spawn WC_fnc_light;
+	};
 
 	waitUntil {!isNull player};
 	waituntil {format ["%1", typeof player] != 'any'}; 
