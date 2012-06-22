@@ -322,7 +322,7 @@
 					wcspectate = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUSPECTATOR"+"</t>", "extern\spect\specta.sqf",[],-1,false];
 				};
 				if(isnil "wccancelmission") then {
-					wccancelmission = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCANCELMISSION"+"</t>", "warcontext\WC_fnc_cancelmission.sqf",[],-1,false];
+					wccancelmission = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCANCELMISSION"+"</t>", "warcontext\actions\WC_fnc_docancelmission.sqf",[],-1,false];
 				};
 				if((isnil "wcbombingsupport") and (wcbombingavalaible == 1)) then {
 					wcbombingsupport = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBOMBING"+"</t>", "warcontext\WC_fnc_bombingsupport.sqf",[],-1,false];
