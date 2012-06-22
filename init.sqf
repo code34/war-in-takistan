@@ -81,6 +81,8 @@
 
 	// warcontext functions
 	WC_fnc_attachmarker 		= compile preprocessFile "warcontext\functions\WC_fnc_attachmarker.sqf";
+	WC_fnc_attachmarkerlocal	= compile preprocessFile "warcontext\functions\WC_fnc_attachmarkerlocal.sqf";
+	WC_fnc_attachmarkerinzone	= compile preprocessFile "warcontext\functions\WC_fnc_attachmarkerinzone.sqf";
 	WC_fnc_backupbuilding		= compile preprocessFile "warcontext\functions\WC_fnc_backupbuilding.sqf";
 	WC_fnc_checkpilot		= compile preprocessFile "warcontext\functions\WC_fnc_checkpilot.sqf";
 	WC_fnc_clockformat 		= compile preprocessFile "warcontext\functions\WC_fnc_clockformat.sqf";
@@ -112,8 +114,6 @@
 	WC_fnc_antiair 			= compile preprocessFile "warcontext\WC_fnc_antiair.sqf";
 	WC_fnc_airpatrol 		= compile preprocessFile "warcontext\WC_fnc_airpatrol.sqf";
 	WC_fnc_ambiantlife 		= compile preprocessFile "warcontext\WC_fnc_ambiantlife.sqf";
-	WC_fnc_attachmarkerlocal	= compile preprocessFile "warcontext\WC_fnc_attachmarkerlocal.sqf";
-	WC_fnc_attachmarkerinzone	= compile preprocessFile "warcontext\WC_fnc_attachmarkerinzone.sqf";
 	WC_fnc_bomb			= compile preprocessFile "warcontext\WC_fnc_bomb.sqf";
 	WC_fnc_computeavillage 		= compile preprocessFile "warcontext\WC_fnc_computeavillage.sqf";
 	WC_fnc_createammobox 		= compile preprocessFile "warcontext\WC_fnc_createammobox.sqf";

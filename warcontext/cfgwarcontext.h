@@ -78,6 +78,16 @@
 				description = "[EN]\nAttach marker to an object";
 				file = "warcontext\functions\WC_fnc_attachmarker.sqf";
 			};
+			class attachmarkerlocal
+			{
+				description = "[EN]\nAttach marker to an object on local client only";
+				file = "warcontext\functions\WC_fnc_attachmarkerlocal.sqf";
+			};
+			class attachmarkerinzone
+			{
+				description = "[EN]\nAttach marker to an object in a marker";
+				file = "warcontext\functions\WC_fnc_attachmarkerinzone.sqf";
+			};
 			class backupbuilding
 			{
 				description = "[EN]\nBackup building, compositions in clipboard";
