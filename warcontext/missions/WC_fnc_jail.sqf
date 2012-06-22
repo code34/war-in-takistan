@@ -16,7 +16,7 @@
 		];
 
 	_unit = _this select 0;
-	_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\WC_fnc_followme.sqf',[],-1,false, true];";
+	_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
 	_unit setvariable ["wcprotected", true];
 
 	processInitCommands;

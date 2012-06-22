@@ -44,7 +44,7 @@
 	_position = (position _unit) findEmptyPosition [8, 100];
 	_unit setpos _position;
 	_unit setvariable ["wcprotected", true];
-	_unit setVehicleInit "this disableAI ""MOVE"";this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\WC_fnc_followme.sqf',[],-1,false, true];";
+	_unit setVehicleInit "this disableAI ""MOVE"";this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
 	processInitCommands;
 
 	_circle = 100;

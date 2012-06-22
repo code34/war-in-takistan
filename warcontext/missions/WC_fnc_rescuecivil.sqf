@@ -35,7 +35,7 @@
 	for "_i" from 1 to _number do {
 		_type = wcrescuecivils call BIS_fnc_selectRandom;
 		_civil = _group createUnit [_type, position _unit, [], 5, "FORM"];
-		_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\WC_fnc_followme.sqf',[],-1,false, true];";
+		_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
 		dostop _civil;
 		processInitCommands;
 		sleep 0.5;
