@@ -1,11 +1,19 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext - radio marker
+	// warcontext - players marker - put a marker on each players at distance of max x meters
 	// -----------------------------------------------
-	private ["_arrayofplayer", "_radio", "_markersize", "_position", "_markerradio", "_marker", "_marker2", "_arrayofmarker", "_side", "_trg", "_list", "_countscream"];
+
+	private [
+		"_position", 
+		"_marker", 
+		"_arrayofmarker", 
+		"_trg", 
+		"_list", 
+		"_countscream"
+	];
 
 	_trg = createTrigger["EmptyDetector", position player]; 
-	_trg setTriggerArea[ 2000 , 2000,0,false];
+	_trg setTriggerArea[ wcplayermarkerdist , wcplayermarkerdist, 0,false];
 	_trg setTriggerActivation["Any","PRESENT", true];
 	_trg setTriggerStatements["this", "", ""];
 

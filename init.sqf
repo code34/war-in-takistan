@@ -155,7 +155,7 @@
 	WC_fnc_mainloop 		= compile preprocessFile "warcontext\WC_fnc_mainloop.sqf";
 	WC_fnc_mortar		 	= compile preprocessFile "warcontext\WC_fnc_mortar.sqf";
 	WC_fnc_nastyvehicleevent	= compile preprocessFile "warcontext\WC_fnc_nastyvehicleevent.sqf";
-	WC_fnc_newfollowplayer		= compile preprocessFile "warcontext\WC_fnc_newfollowplayer.sqf";
+	WC_fnc_playersmarkers		= compile preprocessFile "warcontext\WC_fnc_playersmarkers.sqf";
 	WC_fnc_nuclearnuke		= compile preprocessFile "warcontext\WC_fnc_nuclearnuke.sqf";
 	WC_fnc_onkilled			= compile preprocessFile "warcontext\WC_fnc_onkilled.sqf";
 	WC_fnc_patrol			= compile preprocessFile "warcontext\WC_fnc_patrol.sqf";

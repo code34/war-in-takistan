@@ -132,6 +132,9 @@
 
 	// Rain max rate of the country - 0  (low) 1 (full)
 	wcrainrate = 0.65;
+
+	// player can see marker of others player when they are at max x meters
+	wcplayermarkerdist = 2000;
 	
 	// Kind of engineer
 	wcengineerclass = ["AFR_Soldier_Engineer", "ACE_USMC_SoldierS_Engineer_D", "HEXA_Soldier_ISAf", "US_Soldier_Engineer_EP1", "BWMod_EngineerG", "BWMod_EngineerG_Desert", "BWMod_EngineerG_ISAF", "US_Soldier_Engineer_EP1_retex_ger_des", "US_Soldier_Engineer_EP1_retex_ger_wdl", "FR_Sykes", "US_Delta_Force_Night_EP1"];

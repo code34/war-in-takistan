@@ -205,7 +205,7 @@
 	};
 
 	if(wcwithmarkers == 1) then {
-		wcgarbage = [] spawn WC_fnc_newfollowplayer;
+		wcgarbage = [] spawn WC_fnc_playersmarkers;
 		wcgarbage = [] spawn WC_fnc_followvehicle;
 	};
 
