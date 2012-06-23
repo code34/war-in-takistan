@@ -109,6 +109,7 @@
 	WC_fnc_restorebuilding 		= compile preprocessFile "warcontext\functions\WC_fnc_restorebuilding.sqf";
 	WC_fnc_seed	 		= compile preprocessFile "warcontext\functions\WC_fnc_seed.sqf";
 	WC_fnc_setskill 		= compile preprocessFile "warcontext\functions\WC_fnc_setskill.sqf";
+	WC_fnc_weaponcanflare		= compile preprocessFile "warcontext\functions\WC_fnc_weaponcanflare.sqf";
 	WC_fnc_weather		 	= compile preprocessFile "warcontext\functions\WC_fnc_weather.sqf";
 
 	// warcontext ambiant scripts 
@@ -146,7 +147,6 @@
 	WC_fnc_exportweaponsplayer	= compile preprocessFile "warcontext\WC_fnc_exportweaponsplayer.sqf";
 	WC_fnc_fasttime			= compile preprocessFile "warcontext\WC_fnc_fasttime.sqf";
 	WC_fnc_fireflare 		= compile preprocessFile "warcontext\WC_fnc_fireflare.sqf";
-	WC_fnc_flare	 		= compile preprocessFile "warcontext\WC_fnc_flare.sqf";
 	WC_fnc_followvehicle		= compile preprocessFile "warcontext\WC_fnc_followvehicle.sqf";
 	WC_fnc_grouphandler		= compile preprocessFile "warcontext\WC_fnc_grouphandler.sqf";
 	WC_fnc_keymapper		= compile preprocessFile "warcontext\WC_fnc_keymapper.sqf";

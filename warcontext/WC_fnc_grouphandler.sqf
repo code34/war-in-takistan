@@ -10,7 +10,7 @@
 			wcgarbage = [_x, wcskill] spawn WC_fnc_setskill;
 			if(vehicle _x == _x) then {
 				wcunits = wcunits + [_x];
-				_mags = [primaryweapon _x] call WC_fnc_flare;
+				_mags = [primaryweapon _x] call WC_fnc_weaponcanflare;
 				if(_mags select 0) then {
 					[_x, _mags] spawn WC_fnc_fireflare;
 				};
