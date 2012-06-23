@@ -5,7 +5,7 @@
 
 	if (isdedicated) exitWith{};
 
-	_diary = player createDiaryRecord ["Diary", ["Author", "The main mission was developped by  code34"]];
+	_diary = player createDiaryRecord ["Diary", ["Author", "The main mission was developped by code34"]];
 	_diary = player createDiaryRecord ["Diary", ["Tent", "You can build tent. Tent can be used as personnal respawn."]];
 	_diary = player createDiaryRecord ["Diary", ["Repair\Unlock\Unflip vehicles", "Only engineers can repair, unflip, unlock vehicles."]];
 	_diary = player createDiaryRecord ["Diary", ["Points", "At the end of each mission, the players have to distribute some points to other players to evaluate their contribution to the successfull of the mission. Thoses points affects the players ranking. More the rank of the player is higher, more the game is hardier for him (less revive)"]];
@@ -21,4 +21,4 @@
 	8- Asshole team<br/>
 	"]];
 	_diary = player createDiaryRecord ["Diary", ["Complete an operation", "You have to go to the mission spot, and complete it. When you have sucess, all the friendly troops have to go out of the zone and wait for complete message."]];
-	_diary = player createDiaryRecord ["Diary", ["OPERATIONS IRON RAINS", "The war in Takistan lasts for several months. Conflicts are increasingly hard, and rains were replaced during the last months by ammunitions."]];
+	_diary = player createDiaryRecord ["Diary", ["OPERATIONS IRON RAINS", format ["The war in %1 lasts for several months. Conflicts are increasingly hard, and rains were replaced during the last months by ammunitions.", worldname]]];
