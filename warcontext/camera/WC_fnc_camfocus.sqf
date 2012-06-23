@@ -4,8 +4,11 @@
 
 	private [
 		"_alt",
+		"_obj",
 		"_object", 
 		"_objective", 
+		"_newx", 
+		"_newy", 
 		"_x", 
 		"_y", 
 		"_xsign",
@@ -107,13 +110,6 @@
 		if(random 1 > 0.5) then { _xsign = 1; } else { _xsign = -1;};
 		if(random 1 > 0.5) then { _ysign = 1; } else { _ysign = -1;};	
 		if(_distance == 10) then { _alt = random 3;}else{_alt = 3 + (random 20);};
-
-		// check alt of camera
-		_newx = ((position _object) select 0) + (_x * _xsign);
-		_newy = ((position _object) select 1) + (_y * _ysign);
-		_obj = "Microphone1_ep1" createvehiclelocal [_newx, _newy];
-		_alt = ((getpos _obj) select 2) + _alt;
-		deletevehicle _obj;
 
 		wccam camsetrelpos [(_x * _xsign), (_y * _ysign), (_alt)];
 
