@@ -261,7 +261,7 @@
 		if(wcwithteleportflagatend == 1) then {
 			_positionflag = (position _location) findemptyposition [10, 300];
 			wcflag = "FlagCarrierUSA_EP1" createVehicle _positionflag;
-			wcflag setvehicleinit "this allowdammage false; wcrtb = this addAction ['<t color=''#dddd00''>Teleport to base</t>', 'warcontext\WC_fnc_returntobase.sqf',[],-1,false];";
+			wcflag setvehicleinit "this allowdammage false; wcrtb = this addAction ['<t color=''#dddd00''>Teleport to base</t>', 'warcontext\actions\WC_fnc_doreturntobase.sqf',[],-1,false];";
 			processInitCommands;
 			_marker = [format['teleportflag%1',wcteleportindex], 0.5, _position, 'ColorGreen', 'ICON', 'FDIAGONAL', 'City', 0, '', false] call WC_fnc_createmarker;
 			wcteleportindex = wcteleportindex + 1;
