@@ -373,7 +373,7 @@
 					{
 						if((_x != player) and ((animationState _x) in _animation)) then {
 							if(isnil "wcdragg") then {
-								wcdragg = player addAction ["<t color='#dddd00'>Drag player</t>", "warcontext\WC_fnc_drag.sqf",[],-1,false];
+								wcdragg = player addAction ["<t color='#dddd00'>Drag player</t>", "warcontext\actions\WC_fnc_dodrag.sqf",[],-1,false];
 							};	
 							if(wcdragged) then {
 								player playMove "acinpknlmstpsraswrfldnon";

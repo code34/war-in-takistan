@@ -106,6 +106,7 @@
 	WC_fnc_sortlocationbydistance	= compile preprocessFile "warcontext\functions\WC_fnc_sortlocationbydistance.sqf";
 	WC_fnc_relocatelocation		= compile preprocessFile "warcontext\functions\WC_fnc_relocatelocation.sqf";
 	WC_fnc_relocateposition		= compile preprocessFile "warcontext\functions\WC_fnc_relocateposition.sqf";
+	WC_fnc_restorebuilding 		= compile preprocessFile "warcontext\functions\WC_fnc_restorebuilding.sqf";
 	WC_fnc_seed	 		= compile preprocessFile "warcontext\functions\WC_fnc_seed.sqf";
 	WC_fnc_setskill 		= compile preprocessFile "warcontext\functions\WC_fnc_setskill.sqf";
 	WC_fnc_weather		 	= compile preprocessFile "warcontext\functions\WC_fnc_weather.sqf";
@@ -165,7 +166,6 @@
 	WC_fnc_publishmission		= compile preprocessFile "warcontext\WC_fnc_publishmission.sqf";
 	WC_fnc_restoreloadout		= compile preprocessFile "warcontext\WC_fnc_restoreloadout.sqf";
 	WC_fnc_restoreactionmenu	= compile preprocessFile "warcontext\WC_fnc_restoreactionmenu.sqf";
-	WC_fnc_restorebuilding 		= compile preprocessFile "warcontext\WC_fnc_restorebuilding.sqf";
 	WC_fnc_respawnvehicle		= compile preprocessFile "warcontext\WC_fnc_respawnvehicle.sqf";
 	WC_fnc_serverside 		= compile preprocessFile "warcontext\WC_fnc_serverside.sqf";
 	WC_fnc_sentinelle	 	= compile preprocessFile "warcontext\WC_fnc_sentinelle.sqf";
