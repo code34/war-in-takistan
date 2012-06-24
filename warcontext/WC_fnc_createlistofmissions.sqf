@@ -37,36 +37,26 @@
 	switch (wcopposingforce) do {
 		case 1: {
 			wclevelmaxincity = 2;
-			wclevelmaxoutofcity = wclevel;
 		};
 
 		case 2: {
 			wclevelmaxincity = 4;
-			wclevelmaxoutofcity = wclevel * 3;
 		};
 		
 		case 3: {
 			wclevelmaxincity = 8;
-			wclevelmaxoutofcity = wclevel * 4;
 		};
 
 		case 4: {
 			wclevelmaxincity = 12;
-			wclevelmaxoutofcity = wclevel * 5;
 		};
 
 		case 5: {
 			wclevelmaxincity = 16;
-			wclevelmaxoutofcity = wclevel * 6;
 		};
 	};
 
 	_maxnumberofmission = 75;
-
-	// arcade = 1
-	if(wckindofgame == 1) then {
-		if(wclevelmaxoutofcity > 20) then { wclevelmaxoutofcity = 20; };
-	};
 
 	if(wclevel < 10) then {
 		_countofmission = 1 + ceil(random 10);
@@ -83,7 +73,6 @@
 		} else {
 			_numberofgroup = 20;
 			_numberofvehicle = 10;
-			wclevelmaxoutofcity = 10;
 		};
 
 		if(wcwithenemyvehicle == 0) then {

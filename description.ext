@@ -652,6 +652,14 @@ class Params
 		default = 2;
 	};
 
+	class wclevelmaxoutofcity
+	{
+		title = "ENEMIES FORCE AROUND ZONE";
+		values[] = {1, 2, 4, 8, 10};
+		texts[] = {"WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
+		default = 4;
+	};
+
 	class wcairopposingforce
 	{
 		title = "ENEMIES AIR FORCE ON ZONE";
