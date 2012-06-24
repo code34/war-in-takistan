@@ -325,7 +325,7 @@
 					wccancelmission = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCANCELMISSION"+"</t>", "warcontext\actions\WC_fnc_docancelmission.sqf",[],-1,false];
 				};
 				if((isnil "wcbombingsupport") and (wcbombingavalaible == 1)) then {
-					wcbombingsupport = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBOMBING"+"</t>", "warcontext\WC_fnc_bombingsupport.sqf",[],-1,false];
+					wcbombingsupport = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBOMBING"+"</t>", "warcontext\actions\WC_fnc_dobombingrequest.sqf",[],-1,false];
 				};
 				if((isnil "wcmanageteam") and (wckindofserver != 3)) then {
 					wcmanageteam = player addAction ["<t color='#dddd00'>Manage team</t>", "warcontext\dialogs\WC_fnc_createmenumanageteam.sqf",[],6,false];
