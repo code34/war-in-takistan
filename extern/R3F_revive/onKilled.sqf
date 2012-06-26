@@ -43,6 +43,10 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 	_hasruck = false;
 	_hasruckace = false;
 
+	_ruckmags = [];
+	_ruckweapons = [];
+	_weapononback = [];
+
 	if!(isnull (unitBackpack R3F_REV_corps_avant_mort)) then {
 		_hasruck = true;
 		_backpack = unitBackpack R3F_REV_corps_avant_mort;
@@ -50,10 +54,6 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 		_ruckmags = getMagazineCargo _backpack;
 		_ruckweapons = getWeaponCargo _backpack;
 	};
-
-	_ruckmags = [];
-	_ruckweapons = [];
-	_weapononback = [];
 	
 	if(wcwithACE == 1) then {
 		_weapononback = R3F_REV_corps_avant_mort getvariable "ACE_weapononback";

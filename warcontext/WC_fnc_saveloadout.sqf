@@ -26,6 +26,10 @@
 	wchasruck = false;
 	wchasruckace = false;
 
+	wcruckmags = [];
+	wcruckweapons = [];
+	wcweapononback = [];
+
 	if!(isnull (unitBackpack player)) then {
 		wchasruck = true;
 		wcbackpack = unitBackpack player;
@@ -34,9 +38,6 @@
 		wcruckweapons = getWeaponCargo _backpack;
 	};
 
-	wcruckmags = [];
-	wcruckweapons = [];
-	wcweapononback = [];
 	
 	if(wcwithACE == 1) then {
 		wcweapononback = player getvariable "ACE_weapononback";
