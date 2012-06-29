@@ -26,13 +26,15 @@
 					} else {
 						(_this select 0) setdamage ((getdammage(_this select 0)) + (_this select 2));
 					};
-				} else {
-					_name = currentMagazine (_this select 3);
-					_name = getText (configFile >> "CfgMagazines" >> _name >> "displayNameShort");
-					if!(_name == "SD") then {
-						(_this select 0) dotarget (_this select 3);
-						(_this select 0) doFire (_this select 3);
-					};
+				};
+				_name = currentMagazine (_this select 3);
+				_name = getText (configFile >> "CfgMagazines" >> _name >> "displayNameShort");
+				if!(_name == "SD") then {
+					{					
+						_x reveal (_this select 3);
+						_x dotarget (_this select 3);
+						_x doFire (_this select 3);
+					}foreach (crew (_this select 0));
 				};
 			};
 		}];
@@ -49,9 +51,11 @@
 		_vehicle addeventhandler ['FiredNear', {
 			if(side(_this select 1) in [west, civilian]) then {
 				if(random 1 > 0.3) then {
-					(_this select 0) doTarget (_this select 1);
-					(_this select 0) reveal (_this select 1);
-					(_this select 0) doFire (_this select 1);
+					{					
+						_x reveal (_this select 1);
+						_x dotarget (_this select 1);
+						_x doFire (_this select 1);
+					}foreach (crew (_this select 0));
 				};
 			};
 		}];
