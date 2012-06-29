@@ -44,15 +44,15 @@
 		};
 		
 		case 3: {
-			wclevelmaxincity = 8;
+			wclevelmaxincity = 6;
 		};
 
 		case 4: {
-			wclevelmaxincity = 12;
+			wclevelmaxincity = 8;
 		};
 
 		case 5: {
-			wclevelmaxincity = 16;
+			wclevelmaxincity = 10;
 		};
 	};
 
