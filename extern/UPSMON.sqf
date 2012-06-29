@@ -1,6 +1,8 @@
 	// =========================================================================================================
-	//  UPSMON - Urban Patrol Script  Mon
-	//  Version: 5.0.7 
+	// UPSMON - Urban Patrol Script  Mon
+	// REWORKED FOR WARCONTEXT - code34 - nicolas_boiteux@yahoo.Fr
+	// --------------------------------------------------------------------------------------------------------
+	// Based on UPSMON - Version: 5.0.7 
 	// Author: Monsada (chs.monsada@gmail.com) 
 	//		Comunidad Hispana de Simulación: 
 	//		http://www.simulacion-esp.com
@@ -311,12 +313,6 @@
 
 	if (KRON_UPS_Debug>0) then {player sidechat format["%1: New instance",_grpidx,_npc getVariable ("UPSMON_grpid")]}; 
 
-	//Is ACE mod installed and loaded?
-	//_ace = isClass(configFile >> "CfgPatches" >> "ace_main");
-
-	//Did ACE scripting start?
-	//if (KRON_UPS_Debug>0) then {player sidechat format["_ACE=%1 ACE=%2",_ace,!(isNil "ace_main")]}; 
-
 	// get name of area marker 
 	_areamarker = _this select 1;
 	if (isNil ("_areamarker")) exitWith {
@@ -376,8 +372,6 @@
 	// remember the original group members, so we can later find a new leader, in case he dies
 	_group = group _npc;
 	_members = units _group;
-
-	KRON_UPS_Total = KRON_UPS_Total + (count _members);
 
 	//Fills member soldier types
 	_vehicles = [];
@@ -1268,7 +1262,6 @@ while {_loop && (count (units _group) > 0)} do {
 				_i = _i + 1;
 				sleep 0.5;
 			}foreach KRON_NPCs;					
-			//sleep 0.05;			
 			
 			//La preferencia es la elección inicial de dirección
 			switch (_flankdir) do {
@@ -2027,7 +2020,6 @@ if (KRON_UPS_Debug>0) then {hint format["%1 exiting mainloop",_grpidx]};
 //Limpiamos variables globales de este grupo
 KRON_targetsPos set [_grpid,[0,0]];
 KRON_NPCs set [_grpid,objnull];
-KRON_UPS_Exited=KRON_UPS_Exited+1;
 
 if (_track=="TRACK") then {
 	//_trackername setMarkerType "Dot";
@@ -2040,15 +2032,3 @@ if (!isnull _target) then {
 	_dist = ([_orgpos,position _target] call KRON_distancePosSqr);	
 };
 if (KRON_UPS_Debug>0) then {player sidechat format["%1 _dist=%2 _closeenough=%3",_grpidx,_dist,_closeenough]};		
-
-_friends=nil;
-_enemies=nil;
-_friendlytanks = nil;
-_roads = nil;
-_targets = nil;
-_members = nil;
-_membertypes = nil;
-_UCthis = nil;
-
-
-if(true) exitWith {}; 
