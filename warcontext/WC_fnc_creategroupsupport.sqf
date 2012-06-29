@@ -94,6 +94,9 @@
 		
 		_leader moveindriver _vehicle;
 		{
+			if(isnull (gunner _vehicle)) then {
+				_x moveingunner _vehicle;
+			};
 			_x moveincargo _vehicle;
 		}foreach (units _group);
 	};
