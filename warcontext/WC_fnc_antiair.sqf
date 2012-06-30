@@ -3,6 +3,7 @@
 	// WARCONTEXT - create an antiair site at random position on map
 
 	private [
+		"_echo",
 		"_position", 
 		"_mount", 
 		"_vehicle", 
@@ -25,21 +26,23 @@
 	_arrayofpilot 	= _arrayofvehicle select 1;
 	_group 		= _arrayofvehicle select 2;	
 
-	_pilot = driver _vehicle;
-
 	wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
 
 	while { alive _pilot } do {
-		_enemys = nearestObjects[_pilot, ["Air"], 2000];
-		{	
-			if(random 1 > 0.8) then {		
-				if(side _x == west) then {
-					_pilot dofire _x;
-					_pilot reveal _x;
-				};
+		_enemys = nearestObjects[_pilot, ["Air"], 3000];
+		if (count _enemys > 0) then {
+			_echo = _enemys call BIS_fnc_selectRandom;
+		};
+		if((getposatl _echo) select 2 > 50) then {		
+			if(side _echo == west) then {
+				{
+					_x dotarget _echo;
+					_x dofire _echo;
+					_x reveal _echo;
+				} foreach (crew _vehicle);
 			};
-		}foreach _enemys;
+		};
 		sleep 30;
 	};
 
