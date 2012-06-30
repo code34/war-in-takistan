@@ -109,16 +109,18 @@
 		_y = random _distance;
 		if(random 1 > 0.5) then { _xsign = 1; } else { _xsign = -1;};
 		if(random 1 > 0.5) then { _ysign = 1; } else { _ysign = -1;};	
-		if(_distance == 10) then { _alt = random 3;}else{_alt = 3 + (random 20);};
+		if(_distance == 10) then { _alt = random 2;}else{_alt = 2 + (random 20);};
 
-		wccam camsetrelpos [(_x * _xsign), (_y * _ysign), (_alt)];
+		_newx = ((getpos _object) select 0) + (_x * _xsign);
+		_newy = ((getpos _object) select 1) + (_y * _ysign);
 
-		//_instant = random 1;
-		//if(_instant > 0.5) then {
+		if(!wccamgoalanimate) then {
+			wccam camsetpos [_newx,_newy, _alt];
 			wccam CamCommit 0;			
-		//} else {
-		//	wccam CamCommit 10;
-		//};
+		} else {
+			wccam camsetrelpos [(_x * _xsign), (_y * _ysign), (_alt)];
+			wccam CamCommit 10;
+		};
 
 		"FilmGrain" ppEffectAdjust[random 0.2, 5, 3.42, 10, 8.5, false];
 		"FilmGrain" ppEffectCommit 0; 

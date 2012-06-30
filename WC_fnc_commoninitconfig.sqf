@@ -206,6 +206,9 @@
 	// Goal cam uses color
 	wccamgoalwithcolor = true;
 
+	// Goal cam turn around goal
+	wccamgoalanimate = false;
+
 	// contain all nuclear zone
 	wcnuclearzone = [];
 
