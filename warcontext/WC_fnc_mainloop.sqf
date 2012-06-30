@@ -252,8 +252,8 @@
 			wcgarbage = [_position] spawn WC_fnc_createmhq;
 		};
 
-		// Wait until the end of Mission
-		waituntil {wcmissionsuccess};
+		// Wait until the end of Mission - use while instead of waituntil - performance leak
+		while { !wcmissionsuccess } do { sleep 1; };
 		wcmissionsuccess = false;
 
 		"operationtext" setMarkerText "Mission is finished. Leave the zone";
