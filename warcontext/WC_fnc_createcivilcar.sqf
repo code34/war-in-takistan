@@ -1,7 +1,7 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// Rework of FlashpointChernarus107 - thomsonb
-	// -----------------------------------------------
+	// warcontext -  create civils car in a location
 
 	private ["_roads", "_position", "_car", "_count", "_location", "_pos","_max"];
 
