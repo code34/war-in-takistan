@@ -33,7 +33,8 @@
 		"_building",
 		"_list",
 		"_dontkeep",
-		"_localalert"
+		"_localalert",
+		"_instances"
 		];
 
 	_parameters = [
@@ -54,6 +55,7 @@
 	_unitsofgroup = [];
 	_unitsoftype = [];
 	_positions = [];
+	_instances = [];
 
 	_group = createGroup east;
 
@@ -123,10 +125,28 @@
 			// by default, all vehicles are in depot mode :)
 			if(random 1 > 0.05) then {
 				_localalert = 20 + (random 70);
-				(units _group) orderGetIn false;
-				waituntil {(wcalert > _localalert)};
+				{
+					if(random 1 > 0.2) then {
+						[_x] orderGetIn false;
+						_instances = _instances + [[_x] spawn WC_fnc_dosillything];
+					};
+					sleep 0.1;
+				} foreach (units _group);
+
+				// use while instead waituntil - performance leak
+				while { (wcalert < _localalert) } do {
+					sleep 1;
+				};
+
+				{
+					terminate _x;
+				}foreach _instances;
 				(units _group) orderGetIn true;
-				waituntil { (count(crew _vehicle)) == (count(units _group)) };
+
+				// use while instead waituntil - performance leak
+				while { (count(crew _vehicle)) != (count(units _group)) } do {
+					sleep 1;
+				};
 			};
 			wcgarbage = [_vehicle, _marker, 'showmarker'] execVM 'extern\ups.sqf';
 		};
