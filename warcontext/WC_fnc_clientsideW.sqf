@@ -278,19 +278,19 @@
 		if(wckindofserver != 3) then {
 			while { true } do {
 				if(wcteamplayscore > 29) then {
-					["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], "Give somes points to others players through the mission info menu when you think they do a good job.", 10] spawn WC_fnc_playerhint;
+					["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 					sleep 10;
 				} else {
 					if(wcteamplayscore > 19) then {
-						["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], "Give somes points to others players through the mission info menu when you think they do a good job.", 10] spawn WC_fnc_playerhint;
+						["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 						sleep 30;
 					} else {
 						if(wcteamplayscore > 9) then {
-							["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], "Give somes points to others players through the mission info menu when you think they do a good job.", 10] spawn WC_fnc_playerhint;
+							["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 							sleep 60;
 						} else {
 							if(wcteamplayscore > 0) then {
-								["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], "Give somes points to others players through the mission info menu when you think they do a good job.", 10] spawn WC_fnc_playerhint;
+								["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 								sleep 120;
 							} else {
 								sleep 60;
@@ -302,6 +302,7 @@
 		};
 	};
 
+	// ADD ACTION MENU FOR ADMINS
 	[] spawn {
 		private ["_idaction", "_count"];
 		_count = 0;
@@ -360,6 +361,7 @@
 		};
 	};
 
+	// DRAG & DROP BODY
 	[] spawn {
 		private ["_units", "_attached", "_animation", "_unit"];
 
