@@ -1,7 +1,7 @@
 	WARCONTEXT - Readme
 
 	Description: functions directory
-	Contains all functions that are factorized code and call several times buy other wc scripts.
+	Contains all functions that are factorized code and call several times by other wc scripts.
 	Functions are normaly standalone code and don't require an external adaptation
 
 	Author:  code34 nicolas_boiteux@yahoo.fr
