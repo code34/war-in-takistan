@@ -447,11 +447,11 @@
 	};
 
 	// EVERYBODY IS MEDIC
-	if((wceverybodymedic == 1) and !(typeOf player in wcmedicclass)) then {
-		[] spawn {
-			private ["_injured", "_men"];
-			wcmedicmenu = nil;
-			while { true } do {
+	[] spawn {
+		private ["_injured", "_men"];
+		wcmedicmenu = nil;
+		while { true } do {
+			if((wceverybodymedic == 1) and !(typeOf player in wcmedicclass)) then {
 				_men = nearestObjects[player,["Man"], 5];
 				_injured = objnull;
 				{
@@ -459,15 +459,17 @@
 						_injured = _x;
 					};
 				}foreach _men;
+
 				if(!(isnull _injured) and (isnil "wcmedicmenu"))  then {
 					wcmedicmenu = player addAction ["<t color='#dddd00'>Heal</t>", "warcontext\actions\WC_fnc_doheal.sqf",[_injured],6,false];
 				} else {
 					if!(isnil "wcmedicmenu") then { player removeAction wcmedicmenu; wcmedicmenu = nil;};
 				};
-				sleep 5;
 			};
+			sleep 5;
 		};
 	};
+
 
 	// if player die, end of game for one life mission
 	if(wcwithonelife == 1) then {
