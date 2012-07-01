@@ -212,7 +212,7 @@
 	// contain all nuclear zone
 	wcnuclearzone = [];
 
-	// count number of day
+	// counter of day start at ..
 	wcday = 1;
 
 	// position of goal zone
