@@ -30,7 +30,7 @@
 
 			// false - positive
 			if(random 1 > 0.99) then {
-				_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom
+				_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;
 				playsound _sound;
 			};
 			sleep 1;
