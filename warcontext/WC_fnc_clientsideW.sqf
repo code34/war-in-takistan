@@ -109,7 +109,7 @@
 	", ""];
 
 
-	// Trigger for menu options
+	// Menu options when player is in vehicle
 	_trgmenuoption = createTrigger["EmptyDetector" , position player];
 	_trgmenuoption setTriggerArea [0, 0, 0, false];
 	_trgmenuoption setTriggerActivation ["NONE", "PRESENT", true];
@@ -187,9 +187,9 @@
 		};
 	};
 	
-	// add GPS
 	removeBackpack player;
 
+	// load player team preset
 	[] execVM "warcontext\WC_fnc_loadweaponsplayer.sqf";
 	[] execVM "warcontext\WC_fnc_creatediary.sqf";
 
@@ -241,10 +241,14 @@
 	[] spawn {
 		while { true } do {
 			if((position player) distance (getmarkerpos "hospital") < 5) then {
-				_message =["You retrieve","all your revives"];
+				_message =["You retrieve", format ["your %1 revives", R3F_REV_CFG_nb_reanimations]];
 				_message spawn EXT_fnc_infotext;
 				R3F_REV_nb_reanimations = R3F_REV_CFG_nb_reanimations;
 				player setdamage 0;
+				wcclientlogs = wcclientlogs + [format["Hospital: you retrieve your %1 revives",  R3F_REV_CFG_nb_reanimations]];
+				while { ((position player) distance (getmarkerpos "hospital") < 5) } do {
+					sleep 1;
+				};
 			};
 			sleep 10;
 		};
@@ -258,7 +262,7 @@
 				if((_x distance player < 100) and _x != player) then {
 					wcbonus = wcbonus + 1;
 				};
-				sleep 0.01;
+				sleep 0.1;
 			}foreach playableUnits;
 			if(wcbonus > 10000) then {
 				_message =["You have win", "10 points Teamplay bonus"];
@@ -426,28 +430,7 @@
 	};
 
 	// IED DETECTOR
-	[] spawn {
-		private ["_objects"];
-		while { true } do {
-			_objects = nearestObjects [player, ["All"], 30];
-			{
-				if(_x getvariable "wciedactivate") then {
-					if(vehicle player == player) then {
-						if(player distance _x > 20) then {
-							playsound "bombdetector2";	
-						} else {
-							if(player distance _x > 10) then {
-								playsound "bombdetector3";
-							} else {
-								playsound "bombdetector1";
-							};
-						};
-					};
-				};
-			}foreach _objects;
-		sleep 1;
-		};
-	};
+	wcgarbage = [] spawn WC_fnc_ieddetector;
 
 	// NUCLEAR ZONE - RADIATION
 	if(wcwithnuclear == 1) then {

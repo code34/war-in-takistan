@@ -781,6 +781,14 @@ class Params
 		default = 1;
 	};
 
+	class wceverybodyengineer
+	{
+		title = "PLAYERS CAN DETECT IED";
+		values[] = {0, 1};
+		texts[] = {"NO (ONLY ENGINEERS)", "YES (EVERYBODY)"};
+		default = 1;
+	};
+
 	class wcwithinjuredeffect
 	{
 		title = "PLAYERS INJURED SEE RED EFFECT";

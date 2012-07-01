@@ -150,6 +150,7 @@
 	WC_fnc_fasttime			= compile preprocessFile "warcontext\WC_fnc_fasttime.sqf";
 	WC_fnc_fireflare 		= compile preprocessFile "warcontext\WC_fnc_fireflare.sqf";
 	WC_fnc_grouphandler		= compile preprocessFile "warcontext\WC_fnc_grouphandler.sqf";
+	WC_fnc_ieddetector		= compile preprocessFile "warcontext\WC_fnc_ieddetector.sqf";
 	WC_fnc_keymapper		= compile preprocessFile "warcontext\WC_fnc_keymapper.sqf";
 	WC_fnc_lifeslider		= compile preprocessFile "warcontext\WC_fnc_lifeslider.sqf";
 	WC_fnc_light			= compile preprocessFile "warcontext\WC_fnc_light.sqf";
