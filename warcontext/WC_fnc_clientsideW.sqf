@@ -6,6 +6,7 @@
 	if (side player != west) exitWith {};
 
 	private [
+		"_kindofgame",
 		"_position", 
 		"_magazines",
 		"_weapons",
@@ -511,7 +512,7 @@
 		};
 	};
 
-	["Welcome to base", "Take some weapons at ammobox and wait for orders.", format["This mission is currently played as %1 game.", _kindofgame], 10] spawn WC_fnc_playerhint;
+	[localize "STR_WC_MENUWELCOMEBASE", localize "STR_WC_MENUTAKEWEAPONS", format[localize "STR_WC_MENUKINDOFGAME", _kindofgame], 10] spawn WC_fnc_playerhint;
 
 
 	// INITIALIZE PLAYER SCORE ON SERVER
