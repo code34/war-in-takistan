@@ -17,7 +17,7 @@
 
 		_vehicle addeventhandler ['HandleDamage', {
 			if(side(_this select 3) in [west, civilian]) then {
-				private ["_name"];
+				private ["_name, "_gunner"];
 				if (_this select 2 > wcdammagethreshold) then {
 					(_this select 0) removeAllEventHandlers "HandleDamage";
 					if((_this select 2) + (getdammage (_this select 0)) > 0.9) then {
@@ -30,11 +30,10 @@
 				_name = currentMagazine (_this select 3);
 				_name = getText (configFile >> "CfgMagazines" >> _name >> "displayNameShort");
 				if!(_name == "SD") then {
-					{					
-						_x reveal (_this select 3);
-						_x dotarget (_this select 3);
-						_x doFire (_this select 3);
-					}foreach (crew (_this select 0));
+					_gunner = gunner (_this select 0);
+					_gunner reveal (_this select 3);
+					_gunner dotarget (_this select 3);
+					_gunner doFire (_this select 3);
 				};
 			};
 		}];
@@ -49,13 +48,13 @@
 		'];
 
 		_vehicle addeventhandler ['FiredNear', {
+			private ["_gunner"];
 			if(side(_this select 1) in [west, civilian]) then {
-				if(random 1 > 0.3) then {
-					{					
-						_x reveal (_this select 1);
-						_x dotarget (_this select 1);
-						_x doFire (_this select 1);
-					}foreach (crew (_this select 0));
+				if(random 1 > 0.1) then {
+					_gunner = gunner (_this select 0);
+					_gunner reveal (_this select 1);
+					_gunner dotarget (_this select 1);
+					_gunner doFire (_this select 1);
 				};
 			};
 		}];
