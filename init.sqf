@@ -161,7 +161,7 @@
 	WC_fnc_nuclearnuke		= compile preprocessFile "warcontext\WC_fnc_nuclearnuke.sqf";
 	WC_fnc_onkilled			= compile preprocessFile "warcontext\WC_fnc_onkilled.sqf";
 	WC_fnc_patrol			= compile preprocessFile "warcontext\WC_fnc_patrol.sqf";
-	WC_fnc_playerhandler		= compile preprocessFile "warcontext\WC_fnc_playerhandler.sqf";
+	WC_fnc_clienthandler		= compile preprocessFile "warcontext\WC_fnc_clienthandler.sqf";
 	WC_fnc_playerranking		= compile preprocessFile "warcontext\WC_fnc_playerranking.sqf";
 	WC_fnc_protectobject		= compile preprocessFile "warcontext\WC_fnc_protectobject.sqf";
 	WC_fnc_publishmission		= compile preprocessFile "warcontext\WC_fnc_publishmission.sqf";

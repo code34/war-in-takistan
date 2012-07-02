@@ -136,7 +136,7 @@
 			}];
 			selectPlayer _unit;
 
-			wcgarbage = [] spawn WC_fnc_playerhandler;
+			wcgarbage = [] spawn WC_fnc_clienthandler;
 
 			wcgarbage = [] spawn WC_fnc_restoreactionmenu;
 

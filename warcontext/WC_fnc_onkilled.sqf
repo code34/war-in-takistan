@@ -40,7 +40,7 @@
 		["wcplayeraddscore", "server"] call WC_fnc_publicvariable;
 	};
 
-	wcgarbage = [] spawn WC_fnc_playerhandler;
+	wcgarbage = [] spawn WC_fnc_clienthandler;
 
 	wcgarbage = [] spawn WC_fnc_restoreactionmenu;
 
