@@ -3,7 +3,6 @@
 	// warcontext -  Client Side logic
 
 	if (isDedicated) exitWith {};
-	if (side player != west) exitWith {};
 
 	private [
 		"_kindofgame",

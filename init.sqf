@@ -6,7 +6,7 @@
 	//
 	// Main scripts
 	// warcontext\WC_fnc_mainloop : loop concerning environment mission on going. First build a new environment, build the mission, wait mission is done, delete environment, and redo the loop.
-	// warcontext\WC_fnc_clientsideW : contains all the client side script call
+	// warcontext\WC_fnc_clientside : contains all the client side script call
 	// warcontext\WC_fnc_serverside : contains all the server side script call
 	// warcontext\WC_fnc_createsidemission : build the mission
 
@@ -168,6 +168,7 @@
 	WC_fnc_restoreloadout		= compile preprocessFile "warcontext\WC_fnc_restoreloadout.sqf";
 	WC_fnc_restoreactionmenu	= compile preprocessFile "warcontext\WC_fnc_restoreactionmenu.sqf";
 	WC_fnc_respawnvehicle		= compile preprocessFile "warcontext\WC_fnc_respawnvehicle.sqf";
+	WC_fnc_serverhandler 		= compile preprocessFile "warcontext\WC_fnc_serverhandler.sqf";
 	WC_fnc_serverside 		= compile preprocessFile "warcontext\WC_fnc_serverside.sqf";
 	WC_fnc_sentinelle	 	= compile preprocessFile "warcontext\WC_fnc_sentinelle.sqf";
 	WC_fnc_support	 		= compile preprocessFile "warcontext\WC_fnc_support.sqf";
@@ -205,7 +206,7 @@
 	//
 	//	CLIENT SIDE
 	//
-	if(local player) then { wcgarbage = [] execVM "warcontext\WC_fnc_clientsideW.sqf"; };
+	if(local player) then { wcgarbage = [] execVM "warcontext\WC_fnc_clientside.sqf"; };
 
 	//
 	//	SERVER SIDE
