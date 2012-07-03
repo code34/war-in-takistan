@@ -25,7 +25,7 @@
 
 	// Grab all WC_fnc_publicvariable events
 	wcgarbage = [] spawn WC_fnc_eventhandler;
-	wcgarbage = [] spawn WC_fnc_playerhandler;
+	wcgarbage = [] spawn WC_fnc_clienthandler;
 
 	sleep 1;
 
