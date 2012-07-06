@@ -312,7 +312,7 @@
 		deletemarker "generator";
 		deletemarkerlocal "airzone";
 
-		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONFINISHED", wclevel], localize "STR_WC_MESSAGNEXTSTEP"];
+		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONFINISHED", wcmissioncount], localize "STR_WC_MESSAGNEXTSTEP"];
 		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 		sleep 0.5;
