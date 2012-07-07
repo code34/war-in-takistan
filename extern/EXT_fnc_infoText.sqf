@@ -16,6 +16,7 @@
 	
 	//--- Separate lines
 	_text = _this;
+
 	_textArrayUnicode = [];
 	{_textArrayUnicode = _textArrayUnicode + [toarray _x]} foreach _text;
 	
@@ -39,9 +40,6 @@
 		_line = _x;
 		_textArray = _textArray + _line + ["\n"];
 		{
-			//_emptyArray = _emptyArray + [_line call bis_fnc_selectrandom]; //--- Shuffled text
-			//_emptyArray = _emptyArray + [str floor random 2]; //--- Binary Solo
-			//_emptyArray = _emptyArray + [""]; //--- Rolling text
 			_emptyArray = _emptyArray + [" "]; //--- Space
 			_nArrayTemp = _nArrayTemp + [_n];
 			_n = _n + 1;
@@ -70,16 +68,14 @@
 	
 	_text = composetext _finalArray;
 	_textControl ctrlsettext str _text;
+	_textControl ctrlSetFontHeight 0.04;
 	_textControl ctrlcommit 0.01;
-	sleep 1;
 	
 	{
 		_finalArray set [_x,_textArray select _x];
 		_text = composetext _finalArray;
 		_textControl ctrlsettext str _text;
 		_textControl ctrlcommit 0.01;
-		//playsound "counter";
-		//if (random 1 > 0.9) then {sleep 0.1};
 		sleep 0.01;
 	} foreach _nArray;
 	
@@ -92,8 +88,6 @@
 		_text = composetext _finalArray;
 		_textControl ctrlsettext str _text;
 		_textControl ctrlcommit 0.01;
-		//playsound "counter";
-		//if (random 1 > 0.9) then {sleep 0.2};
 		sleep 0.01;
 	} foreach _nArray;
 	
