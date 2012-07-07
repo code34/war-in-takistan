@@ -4,23 +4,47 @@
 	// ---------------------------------------------------
 
 	private [
+		"_counter",
 		"_objects", 
-		"_sound"
+		"_sound",
+		"_printed"
 	];
+
+	_printed = false;
 
 	while { true } do {
 		if ((wceverybodyengineer == 1) or (typeOf player in wcengineerclass)) then {
 			_objects = nearestObjects [player, ["All"], 30];
 			{
 				if(_x getvariable "wciedactivate") then {
+					if!(_printed) then {
+						[localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
+						_printed = true;
+						_counter = 0;
+					};
 					if(vehicle player == player) then {
 						if(player distance _x > 20) then {
-							playsound "bombdetector2";	
+							if(random 1 < 0.8) then {
+								playsound "bombdetector2";
+							} else {
+								_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;
+								playsound _sound;
+							};
 						} else {
 							if(player distance _x > 10) then {
-								playsound "bombdetector3";
+								if(random 1 < 0.9) then {
+									playsound "bombdetector3";
+								} else {
+									_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;
+									playsound _sound;
+								};								
 							} else {
-								playsound "bombdetector1";
+								if(random 1 < 0.97) then {
+									playsound "bombdetector1";
+								} else {
+									_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;
+									playsound _sound;
+								};
 							};
 						};
 					};
@@ -29,9 +53,19 @@
 			}foreach _objects;
 
 			// false - positive
-			if(random 1 > 0.99) then {
+			if((random 1 > 0.99) and wciedfalsepositive) then {
+				[localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
+				_printed = true;
+				_counter = 0;
 				_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;
 				playsound _sound;
+			};
+
+			if(_printed) then {
+				_counter = _counter + 1;
+				if(_counter > 15) then {
+					_printed = false;
+				};
 			};
 			sleep 1;
 		};
