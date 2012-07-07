@@ -11529,7 +11529,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=36;
+		items=35;
 		class Item0
 		{
 			position[]={7051.1416,331.32663,4927.1919};
@@ -11540,24 +11540,12 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={894.16394,0.45553705,4836.7529};
-			name="Boot_Hill";
-			type="Empty";
-		};
-		class Item2
-		{
-			position[]={816.29138,0.46025378,5350.2393};
-			name="center";
-			type="Empty";
-		};
-		class Item3
-		{
 			position[]={7055.1118,331.45328,4926.5669};
 			name="base_spawn_1";
 			type="Empty";
 			angle=-297.52087;
 		};
-		class Item4
+		class Item2
 		{
 			position[]={7055.7495,331.47845,4926.064};
 			name="teleporter";
@@ -11566,7 +11554,7 @@ class Mission
 			colorName="ColorGreen";
 			angle=-612.72601;
 		};
-		class Item5
+		class Item3
 		{
 			position[]={7051.6025,331.37274,4923.7402};
 			name="crate1";
@@ -11574,7 +11562,7 @@ class Mission
 			type="Empty";
 			angle=-466.21664;
 		};
-		class Item6
+		class Item4
 		{
 			position[]={7083.7588,331.5957,4887.126};
 			name="hq";
@@ -11583,21 +11571,21 @@ class Mission
 			colorName="ColorBlue";
 			angle=19.075977;
 		};
-		class Item7
+		class Item5
 		{
 			position[]={7159.0693,334.32346,4867.1226};
 			name="jail";
 			type="Empty";
 			angle=0.82791454;
 		};
-		class Item8
+		class Item6
 		{
 			position[]={7070.1636,341.85144,4729.9204};
 			name="mortuary";
 			type="Empty";
 			angle=70.69989;
 		};
-		class Item9
+		class Item7
 		{
 			position[]={7064.4697,330.69778,4883.6582};
 			name="section4";
@@ -11605,7 +11593,7 @@ class Mission
 			type="Empty";
 			angle=107.87537;
 		};
-		class Item10
+		class Item8
 		{
 			position[]={7040.2666,331.06113,4925.8218};
 			name="hospital";
@@ -11615,7 +11603,7 @@ class Mission
 			b=0.5;
 			angle=0.13036782;
 		};
-		class Item11
+		class Item9
 		{
 			position[]={7133.4863,332.99854,4881.3096};
 			name="repair";
@@ -11624,7 +11612,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=-7.0861101;
 		};
-		class Item12
+		class Item10
 		{
 			position[]={7084.9883,331.7261,4891.6621};
 			name="bluefor";
@@ -11637,7 +11625,7 @@ class Mission
 			b=300;
 			angle=0.13036782;
 		};
-		class Item13
+		class Item11
 		{
 			position[]={7036.5532,330.79449,4870.8237};
 			name="recruit1";
@@ -11645,7 +11633,7 @@ class Mission
 			type="Empty";
 			angle=262.5;
 		};
-		class Item14
+		class Item12
 		{
 			position[]={7061.4556,331.61383,4926.9771};
 			name="clothes";
@@ -11654,7 +11642,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=92.2547;
 		};
-		class Item15
+		class Item13
 		{
 			position[]={7054.4468,331.37015,4930.3228};
 			name="autoloadcrate";
@@ -11662,7 +11650,7 @@ class Mission
 			type="Empty";
 			angle=-462.74478;
 		};
-		class Item16
+		class Item14
 		{
 			position[]={7121.9268,334.60767,4847.166};
 			name="FAARP";
@@ -11671,7 +11659,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=8.2684469;
 		};
-		class Item17
+		class Item15
 		{
 			position[]={7151.2578,332.40314,4903.4736};
 			name="vehicle store";
@@ -11680,7 +11668,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=190.63474;
 		};
-		class Item18
+		class Item16
 		{
 			position[]={7069.022,331.89481,4854.4604};
 			name="mash";
@@ -11689,7 +11677,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=14.336979;
 		};
-		class Item19
+		class Item17
 		{
 			position[]={7026.3701,330.88251,4877.1982};
 			name="AA_2_2_1";
@@ -11698,7 +11686,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=51.835743;
 		};
-		class Item20
+		class Item18
 		{
 			position[]={7033.1733,330.27478,4894.563};
 			name="Artillery";
@@ -11707,7 +11695,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=11.156132;
 		};
-		class Item21
+		class Item19
 		{
 			position[]={7196.562,331.67117,4919.1802};
 			name="Checkpoint Alpha";
@@ -11716,7 +11704,7 @@ class Mission
 			colorName="ColorBlue";
 			angle=-90.943787;
 		};
-		class Item22
+		class Item20
 		{
 			position[]={7175.8384,335.11462,4861.8774};
 			name="wall";
@@ -11726,7 +11714,7 @@ class Mission
 			b=45;
 			angle=-164.61401;
 		};
-		class Item23
+		class Item21
 		{
 			position[]={7025.6577,330.21655,4904.459};
 			name="wall_1";
@@ -11736,7 +11724,7 @@ class Mission
 			b=45;
 			angle=-162.27136;
 		};
-		class Item24
+		class Item22
 		{
 			position[]={7088.0645,333.71902,4840.147};
 			name="wall_2";
@@ -11746,7 +11734,7 @@ class Mission
 			b=80;
 			angle=-254.84953;
 		};
-		class Item25
+		class Item23
 		{
 			position[]={7144.6602,331.88071,4915.7124};
 			name="wall_3";
@@ -11756,7 +11744,7 @@ class Mission
 			b=45;
 			angle=-74.221764;
 		};
-		class Item26
+		class Item24
 		{
 			position[]={7066.9541,331.40967,4939.1978};
 			name="wall_4";
@@ -11766,7 +11754,7 @@ class Mission
 			b=30;
 			angle=108.1123;
 		};
-		class Item27
+		class Item25
 		{
 			position[]={7085.1006,331.70349,4890.3594};
 			name="FOB Stryker";
@@ -11775,35 +11763,35 @@ class Mission
 			colorName="ColorBlack";
 			angle=1.5107321;
 		};
-		class Item28
+		class Item26
 		{
 			position[]={7096.5552,331.71744,4923.9585};
 			name="t";
 			type="mil_arrow";
 			angle=15.648232;
 		};
-		class Item29
+		class Item27
 		{
 			position[]={7092.8877,332.04526,4913.1001};
 			name="t_1";
 			type="mil_arrow";
 			angle=197.59674;
 		};
-		class Item30
+		class Item28
 		{
 			position[]={7035.9448,330.4043,4958.2954};
 			name="a";
 			type="mil_arrow";
 			angle=-72.219345;
 		};
-		class Item31
+		class Item29
 		{
 			position[]={7199.5425,331.95145,4910.2144};
 			name="t_2_1";
 			type="mil_arrow";
 			angle=97.96521;
 		};
-		class Item32
+		class Item30
 		{
 			position[]={7077.9536,330.94107,4955.0068};
 			name="wall_4_1";
@@ -11813,7 +11801,7 @@ class Mission
 			b=30;
 			angle=287.50766;
 		};
-		class Item33
+		class Item31
 		{
 			position[]={7147.4014,330.87488,4933.9795};
 			name="wall_4_1_1";
@@ -11823,7 +11811,7 @@ class Mission
 			b=45;
 			angle=286.35657;
 		};
-		class Item34
+		class Item32
 		{
 			position[]={7042.2998,330.37076,4966.6509};
 			name="Checkpoint Bravo";
@@ -11832,10 +11820,16 @@ class Mission
 			colorName="ColorBlue";
 			angle=-90.943787;
 		};
-		class Item35
+		class Item33
 		{
 			position[]={7051.1382,330.7627,4903.0234};
 			name="convoystart";
+			type="Empty";
+		};
+		class Item34
+		{
+			position[]={0,607.05231,0};
+			name="initpos";
 			type="Empty";
 		};
 	};

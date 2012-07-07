@@ -22,7 +22,7 @@
 		_lastbody = player;
 		[_lastbody] spawn WC_fnc_garbagecollector;
 		_lastbody removeAllEventHandlers "killed";
-		_lastbody setpos [0,0,0];
+		_lastbody setpos wcinitpos;
 		wcbackupbody setpos wcbackupposition;
 		selectplayer wcbackupbody;
 		_lastbody setdamage 1;
@@ -96,7 +96,7 @@
 
 			wcbackupbody = player;
 			wcbackupposition = position player;
-			wcbackupbody setpos [0,0,0];
+			wcbackupbody setpos wcinitpos;
 
 			_unit addeventhandler ['killed', {
 				_this spawn WC_fnc_garbagecollector;
