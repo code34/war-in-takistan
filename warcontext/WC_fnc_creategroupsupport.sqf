@@ -102,6 +102,7 @@
 	};
 	
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
+	wcsupportgroup = wcsupportgroup + [_group];
 
 	// initialisation script for units
 	_leader = leader _group;

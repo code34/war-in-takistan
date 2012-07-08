@@ -95,36 +95,37 @@
 		if(wcalert > 99 and wcradioalive) then {
 				_support = false;
 
-				if(random 1 > 0.5) then {
-					if(getdammage _barrack < 0.9) then {
-						for "_x" from 1 to ceil(random wcreinforcmentlevel) step 1 do {
+				// if less than 2 members lefts (base on uaz members number), we consider we should send new reinforcment
+				{
+					if(count (units _x) < 2) then {
+						wcsupportgroup = wcsupportgroup - [_x];
+					};
+				}foreach wcsupportgroup;
+
+
+				while { (count wcsupportgroup < wcreinforcmentlevel) } do {
+					if(random 1 > 0.5) then {
+						if(getdammage _barrack < 0.9) then {
 							_enemy = nearestObjects[_factory,["Man", "LandVehicle"], 150];
 							if(west countside _enemy == 0) then {
-								if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) -50 < ((playersNumber west) * 5))) then {
-									diag_log "WARCONTEXT: CALL 1 INFANTERY SUPPORT";
-									_handle = [_markersource, _markerdest, wcsupportfaction, false] spawn WC_fnc_creategroupsupport;
-									_support = true;
-									sleep 4;
-								};
+								diag_log "WARCONTEXT: CALL 1 INFANTERY SUPPORT";
+								_handle = [_markersource, _markerdest, wcsupportfaction, false] spawn WC_fnc_creategroupsupport;
+								_support = true;
 							};
 						};
-					};
-				} else {
-					if(wcwithenemyvehicle == 0) then {
-						if(getdammage _factory < 0.9) then {
-							for "_x" from 1 to ceil(random wcreinforcmentlevel) step 1 do {	
+					} else {
+						if(wcwithenemyvehicle == 0) then {
+							if(getdammage _factory < 0.9) then {
 								_enemy = nearestObjects[_factory,["Man", "LandVehicle"], 150];
 								if(west countside _enemy == 0) then {
-									if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) -50 < ((playersNumber west) * 5))) then {
-										diag_log "WARCONTEXT: CALL 1 VEHICLE SUPPORT";
-										_handle = [_markersource, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupsupport;
-										_support = true;
-										sleep 4;
-									};
+									diag_log "WARCONTEXT: CALL 1 VEHICLE SUPPORT";
+									_handle = [_markersource, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupsupport;
+									_support = true;
 								};
 							};
 						};
 					};
+					sleep 4 + (random 60);
 				};
 
 				if(_support) then { _counter = _counter + 1;};

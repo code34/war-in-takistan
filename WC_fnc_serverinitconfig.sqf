@@ -195,6 +195,9 @@
 	// contains all buildin mission
 	wclistofmissions = [];
 
+	// contains all support groups
+	wcsupportgroup = [];
+
 	// objective informations
 	wcobjectiveindex = 0;
 	wcobjective = [-1, objnull, 0, "", ""];	
