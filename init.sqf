@@ -122,7 +122,6 @@
 	WC_fnc_computeavillage 		= compile preprocessFile "warcontext\WC_fnc_computeavillage.sqf";
 	WC_fnc_createammobox 		= compile preprocessFile "warcontext\WC_fnc_createammobox.sqf";
 	WC_fnc_createairpatrol		= compile preprocessFile "warcontext\WC_fnc_createairpatrol.sqf";
-	WC_fnc_createairpatrol2		= compile preprocessFile "warcontext\WC_fnc_createairpatrol2.sqf";
 	WC_fnc_createseapatrol		= compile preprocessFile "warcontext\WC_fnc_createseapatrol.sqf";
 	WC_fnc_createsheep		= compile preprocessFile "warcontext\WC_fnc_createsheep.sqf";
 	WC_fnc_createcomposition	= compile preprocessFile "warcontext\WC_fnc_createcomposition.sqf";

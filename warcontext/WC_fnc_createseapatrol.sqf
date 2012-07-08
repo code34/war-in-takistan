@@ -22,7 +22,9 @@
 			wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 			_vehicles = _vehicles + [(_arrayovehicle select 0)];
 			_driver = ((_arrayofvehicle select 1) select 0);
-			wcgarbage = [_driver] spawn WC_fnc_airpatrol;
+
+			// no yet sea patrol script
+			// wcgarbage = [_driver] spawn WC_fnc_airpatrol;
 		};
 		{
 			if!(alive _x) then {
