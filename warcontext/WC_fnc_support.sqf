@@ -100,7 +100,7 @@
 						for "_x" from 1 to ceil(random wcreinforcmentlevel) step 1 do {
 							_enemy = nearestObjects[_factory,["Man", "LandVehicle"], 150];
 							if(west countside _enemy == 0) then {
-								if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) -50 < ((playersNumber west) * 5 * wclevel))) then {
+								if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) -50 < ((playersNumber west) * 5))) then {
 									diag_log "WARCONTEXT: CALL 1 INFANTERY SUPPORT";
 									_handle = [_markersource, _markerdest, wcsupportfaction, false] spawn WC_fnc_creategroupsupport;
 									_support = true;
@@ -115,7 +115,7 @@
 							for "_x" from 1 to ceil(random wcreinforcmentlevel) step 1 do {	
 								_enemy = nearestObjects[_factory,["Man", "LandVehicle"], 150];
 								if(west countside _enemy == 0) then {
-									if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) -50 < ((playersNumber west) * 5 * wclevel))) then {
+									if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) -50 < ((playersNumber west) * 5))) then {
 										diag_log "WARCONTEXT: CALL 1 VEHICLE SUPPORT";
 										_handle = [_markersource, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupsupport;
 										_support = true;
