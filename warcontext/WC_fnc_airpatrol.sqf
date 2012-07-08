@@ -3,27 +3,17 @@
 	// WARCONTEXT - Seek & destroy air patrol script
 
 	private [
-		"_destposition",
 		"_bucket",
-		"_unit", 
-		"_group", 
-		"_cible", 
-		"_position", 
-		"_lastposition",
-		"_cibles", 
-		"_min", 
-		"_count", 
-		"_count2", 
-		"_count3",
-		"_list",
+		"_count",
+		"_destposition",
 		"_distance",
-		"_move",
+		"_flag",
 		"_formationtype",
-		"_marker",
-		"_vehicle",
-		"_exit",
-		"_time",
-		"_flag"
+		"_group", 
+		"_lastposition",
+		"_position", 
+		"_unit", 
+		"_vehicle"
 	];
 
 	_unit = _this select 0;
@@ -32,25 +22,16 @@
 
 	_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
 
-	if((vehicle _unit) iskindof "Air") then {
-		waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
-		_position = wcselectedzone;
-	};
-
-	if((vehicle _unit) iskindof "Ship") then {
-		_position = [wcmaptopright, wcmapbottomleft, "onsea"] call WC_fnc_createposition;
-	};
-
-	_group setCombatMode "BLUE";
-
-	_vehicle addEventHandler ['Hit', '
-		group (driver (_this select 0)) setCombatMode "RED";
-	'];
+	waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
+	_position = wcselectedzone;
 
 	_position = ["airzone"] call WC_fnc_createpositioninmarker;
+
+	_group setCombatMode "BLUE";
 	_group setBehaviour "COMBAT";
+
 	_unit domove [_position select 0, _position select 1, 300];
-	(vehicle _unit) flyInHeight 300;
+	_vehicle flyInHeight 300;
 
 	_bucket = 0;
 	_lastposition = [0,0];
