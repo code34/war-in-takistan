@@ -96,7 +96,7 @@
 
 			wcbackupbody = player;
 			wcbackupposition = position player;
-			wcbackupbody setpos wcinitpos;
+			wcbackupbody setpos (wcinitpos findEmptyPosition[ 1 , 100]);
 
 			_unit addeventhandler ['killed', {
 				_this spawn WC_fnc_garbagecollector;
