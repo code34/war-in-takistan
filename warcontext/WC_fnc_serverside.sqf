@@ -28,7 +28,7 @@
 	};
 
 	if(wcwithseapatrol == 1) then {
-		wcgarbage = [] spawn WC_fnc_createseapatrol;
+		wcgarbage = [wcseainitpos] spawn WC_fnc_createseapatrol;
 	};
 
 	if(wcwithteleporttent == 1) then {

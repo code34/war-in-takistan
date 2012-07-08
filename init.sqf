@@ -167,6 +167,7 @@
 	WC_fnc_restoreloadout		= compile preprocessFile "warcontext\WC_fnc_restoreloadout.sqf";
 	WC_fnc_restoreactionmenu	= compile preprocessFile "warcontext\WC_fnc_restoreactionmenu.sqf";
 	WC_fnc_respawnvehicle		= compile preprocessFile "warcontext\WC_fnc_respawnvehicle.sqf";
+	WC_fnc_seapatrol 		= compile preprocessFile "warcontext\WC_fnc_seapatrol.sqf";
 	WC_fnc_serverhandler 		= compile preprocessFile "warcontext\WC_fnc_serverhandler.sqf";
 	WC_fnc_serverside 		= compile preprocessFile "warcontext\WC_fnc_serverside.sqf";
 	WC_fnc_sentinelle	 	= compile preprocessFile "warcontext\WC_fnc_sentinelle.sqf";

@@ -133,6 +133,9 @@
 	// safe Position where ai, or body can be teleport for wc purpose
 	wcinitpos = getmarkerpos "initpos";
 
+	// position where pop enemy sea patrol (left bottom corner)
+	wcseainitpos = [400,400,0];
+
 	// Rain max rate of the country - 0  (low) 1 (full)
 	wcrainrate = 0.65;
 
@@ -168,6 +171,9 @@
 
 	// anti air vehicles
 	wcaavehicles = ["ZU23_TK_GUE_EP1", "Ural_ZU23_TK_GUE_EP1"];
+
+	// sea patrol
+	wcseapatrol = ["PBX"];
 
 	// kind of enemies backpack
 	wcenemybackpack = ["TK_ALICE_Pack_EP1", "TK_RPG_Backpack_EP1", "TK_ALICE_Pack_Explosives_EP1", "TK_ALICE_Pack_AmmoMG_EP1", "TKG_ALICE_Pack_AmmoAK47_EP1", "TKG_ALICE_Pack_AmmoAK74_EP1"];
