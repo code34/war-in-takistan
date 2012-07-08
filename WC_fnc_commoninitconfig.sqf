@@ -184,7 +184,7 @@
 	// change clothes - player can be west
 	wcchangeclotheswest = ["US_Pilot_Light_EP1"];
 
-	// change clothes - player can be east
+	// change clothes - player can be east - add clothes if you want in array
 	wcchangeclotheseast = [];
 
 	wcchangeclothes = wcchangeclothescivil + wcchangeclotheswest + wcchangeclotheseast;
