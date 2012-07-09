@@ -21,7 +21,7 @@
 
 	_flag = _this select 0;
 
-	_locations = nearestLocations [position _flag, ["NameCityCapital", "NameCity","NameVillage", "Name", "Hill", "Mount"], 2000];
+	_locations = nearestLocations [position _flag, ["NameCityCapital", "NameCity","NameVillage", "Name", "Hill", "Mount"], 1500];
 	
 	{
 		if((position _x) distance (position _flag) < 700) then {
@@ -107,16 +107,24 @@
 			wcmessageW = [format["Still %1 minutes", floor(_timer / 60)], format["%1/%2 players died", (wcnumberofkilledofmissionW - _delta), (playersNumber west)]];
 			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
-			_location = _locations call BIS_fnc_selectRandom;
-			if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) < ((playersNumber west) * 5 * wclevel))) then {
-				_handle = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
-			};
-			sleep 1;
+			// if less than 2 members lefts (base on uaz members number), we consider we should send new reinforcment
+			{
+				if(count (units _x) < 2) then {
+					wcdefendgroup = wcdefendgroup - [_x];
+				};
+			}foreach wcdefendgroup;
 
-			_location = _locations call BIS_fnc_selectRandom;
-			if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) < ((playersNumber west) * 5 * wclevel))) then {
-				_handle = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
+			while { (count wcdefendgroup < wclevelmaxincity) } do {
+				_location = _locations call BIS_fnc_selectRandom;
+
+				if(random 1 > 0.5) then {
+					_handle = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
+				} else {
+					if(wcwithenemyvehicle == 0) then {
+						_handle = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
+					};
+				};
+				sleep 4;
 			};
-			sleep 1;
 		};
 	};
