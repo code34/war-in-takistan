@@ -61,7 +61,7 @@
 
 	_markerdest = ["markersupportdest", (wcdistance * 2), _positiondest, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
 
-	if((diag_fps > wcminfpsonserver) and ((east countside allunits) + (resistance countside allunits) < ((playersNumber west) * 5 * wclevel))) then {
+	if(random 1 > 0.7) then {
 		diag_log "WARCONTEXT: CREATING 1 GROUP TO PROTECT OPFOR BASE";
 		_handle = [_markersource, wcfactions call BIS_fnc_selectRandom, false] spawn WC_fnc_creategroup;
 	};
