@@ -4,25 +4,32 @@
 	// locality : client side
 
 	private [
+		"_autoload", 
+		"_combined",
 		"_text", 
 		"_kindofgame", 
 		"_kindofserver", 
-		"_autoload", 
-		"_combined"
+		"_terraingrid",
+		"_viewdist",
+		"_viewdistmax"
 	];
 
 	MenuAction = -1;
 	
 	playsound "paper";
+
+	_terraingrid = wcterraingrid;
+	_viewdist = wcviewdist;
+	_viewdistmax = wcviewdistance;
 	
-	ctrlSetText [13001, Format [localize "STR_ACGUI_VM_TXT_VD", wcviewDist]];
-	ctrlSetText [13003, Format [localize "STR_ACGUI_VM_TXT_TG", (50 - wcterraingrid)]];
+	ctrlSetText [13001, Format [localize "STR_ACGUI_VM_TXT_VD", _viewdist]];
+	ctrlSetText [13003, Format [localize "STR_ACGUI_VM_TXT_TG", (50 - _terraingrid)]];
 	
-	SliderSetRange[13002,100, wcviewdistance];
+	SliderSetRange[13002,100, _viewdistmax];
 	SliderSetRange[13004,0, 50];
 	
-	SliderSetPosition[13002, wcviewDist];
-	SliderSetPosition[13004, (50 - wcterraingrid)];
+	SliderSetPosition[13002, _viewdist];
+	SliderSetPosition[13004, (50 - _terraingrid)];
 	
 	_text = "Game settings";
 	lbAdd [13007, _text];
@@ -51,17 +58,21 @@
 	while {alive player && dialog} do {
 		sleep 0.1;
 	
-		wcviewDist = Floor (SliderPosition 13002);
-		wcterraingrid = (50 - Floor (SliderPosition 13004));
+		_viewdist = Floor (SliderPosition 13002);
+		_terraingrid = (50 - Floor (SliderPosition 13004));
 		
-		ctrlSetText [13001, Format [localize "STR_ACGUI_VM_TXT_VD",wcviewDist]];
-		ctrlSetText [13003, Format [localize "STR_ACGUI_VM_TXT_TG", (50 - wcterraingrid)]];
+		ctrlSetText [13001, Format [localize "STR_ACGUI_VM_TXT_VD",_viewdist]];
+		ctrlSetText [13003, Format [localize "STR_ACGUI_VM_TXT_TG", (50 - _terraingrid)]];
 		
 		if (MenuAction == 2) then {
 			MenuAction = -1;
 			closeDialog 0;
-			setViewDistance wcviewDist;
-			setTerrainGrid wcterraingrid;
+
+			setViewDistance _viewdist;
+			setTerrainGrid _terraingrid;
+
+			wcterraingrid = _terraingrid;
+			wcviewdist = _viewdist;
 		};
 	};
 

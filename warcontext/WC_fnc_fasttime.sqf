@@ -61,7 +61,7 @@
 		}; 
 
 		ppEffectDestroy wccameffect;
-		setviewdistance wcviewDist;
+		setviewdistance wcviewdist;
 		wccam = objNull;
 		wcadvancetodate = nil;
 	};

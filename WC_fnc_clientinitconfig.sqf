@@ -9,8 +9,8 @@
 	setTerrainGrid wcterraingrid;
 
 	// view distance is set by lobby parameter
-	wcviewDist = wcviewdistance;
-	setViewDistance wcviewDist;
+	wcviewdist = wcviewdistance;
+	setViewDistance wcviewdist;
 
 	// turn off ao marker
 	setGroupIconsVisible [false, false];
