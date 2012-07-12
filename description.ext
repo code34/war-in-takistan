@@ -418,12 +418,12 @@ class CfgMusic {
 	tracks[]={intro, outro};
 	class intro
 	{
-		name = "";
+		name = "intro";
 		sound[] = {"\sound\intro.ogg", db+0, 1.0};
 	};
 	class outro
 	{
-		name = "";
+		name = "outro";
 		sound[] = {"\sound\outro.ogg", db+0, 1.0};
 	};
 };
