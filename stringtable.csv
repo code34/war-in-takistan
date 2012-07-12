@@ -95,7 +95,7 @@ STR_WC_MISSION73,	"A Forward Operating Base requires an ammo resupply. Bring an 
 STR_WC_MISSION74,	"We need an advanced Forward Operating Base. Build a bunker here!",	"Nous avons besoin d un poste avance, construisez un bunker ici"
 STR_WC_MISSION100,	"Final mission: Intel have identified where the enemy leader is based. Your mission is to kill him as we we believe this will stop the war. Good luck!",	"Final mission: Vous avez decouvert l endroit ou se cache le leader enemi. Vous devez le tuer pour arreter la guerre. Bonne chance !"
 STR_WCSHORT_MISSION0,	"Destroy a SCUD launcher",	"Destroy a SCUD launcher"
-STR_WCSHORT_MISSION1,	"Kill a gold trafficker",	"Kill a gold trafficant"
+STR_WCSHORT_MISSION1,	"Kill a gold trafficker",	"Kill a gold trafficker"
 STR_WCSHORT_MISSION2,	"Kill a nuclear scientist",	"Kill a nuclear scientist"
 STR_WCSHORT_MISSION3,	"Destroy a barracks",	"Destroy a barrack"
 STR_WCSHORT_MISSION4,	"Destroy a refueling Ural",	"Destroy a refueling Ural"
