@@ -20,7 +20,7 @@
 	_position = _this select 0;
 	_autoload = _this select 1;
 
-	_crate = "TKVehicleBox_EP1" createVehiclelocal _position;
+	_crate = "USVehicleBox_EP1" createVehiclelocal _position;
 
 	clearweaponcargo 	_crate;
 	clearmagazinecargo 	_crate;
