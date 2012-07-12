@@ -88,8 +88,11 @@
 	wcdistancegrowth = 10;
 	wcdistance = 200 + (wclevel * wcdistancegrowth);
 
-	// time in secondes before to garbage dead body
+	// time in seconds before to garbage dead body
 	wctimetogarbagedeadbody = 360;
+
+	// time in seconds before to respawn vehicle
+	wctimetorespawnvehicle = 360;
 
 	// soldiers fame - start at good
 	wcfame = 0.70;
