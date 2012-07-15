@@ -85,12 +85,14 @@
 			{
 				_civiltype = _x select 0;
 				_civil = _group createUnit [_civiltype, (_x select 1), [], 0, "FORM"];
-				//_position = [_marker, "onground", "onflat"] call WC_fnc_createpositioninmarker;
+				_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],-1,false, true];";
+				_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
 				_position = _positions call BIS_fnc_selectRandom;
 				_civil setvariable ["destination", _position, false];
 				_civil setvariable ["wcprotected", true, false];
 				wccivilianstoinit = wccivilianstoinit + [_civil];
 			}foreach _back;
+			processInitCommands;
 			_allunits = units _group;
 			_back = [];
 		};
