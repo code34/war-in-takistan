@@ -1,21 +1,32 @@
-	/*
-		File: infoText.sqf
-		Author: Karel Moricky
-	
-		Description:
-		Info with some ffect.
-	
-		Parameter(s):
-		_this: Array containing lines of text (String)
-	*/
-	
+	//	File: infoText.sqf
+	//	Author: Karel Moricky - reworked by code34 for warcontext
+	// 	Description: Info with some effects.
+
+	private [
+		"_count",
+		"_line",
+		"_logs",
+		"_text"
+	];
+
+	// Array of info text
+	_text = _this;
+
+	waituntil {wcclientinitialized};
 	waituntil {wccanwriteinfotext};
 	wccanwriteinfotext = false;
-	
+
 	3100 cutrsc ["rscInfoText","plain"];
-	
-	//--- Separate lines
-	_text = _this;
+
+	// add info text to warcontext logs
+	_logs = "";
+	_count = (count wcclientlogs) - 1;
+	{ 
+		if(wcclientlogs select (_count) != format ["%1", _x]) then {
+			_logs = _logs + " " + format ["%1", _x];
+		};
+	}foreach _text;
+	wcclientlogs = wcclientlogs + [_logs];
 
 	_textArrayUnicode = [];
 	{_textArrayUnicode = _textArrayUnicode + [toarray _x]} foreach _text;
