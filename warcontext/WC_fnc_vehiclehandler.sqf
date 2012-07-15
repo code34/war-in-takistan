@@ -16,15 +16,14 @@
 		};
 
 		_vehicle addeventhandler ['HandleDamage', {
+			private ["_name", "_gunner", "_commander"];
 			if(side(_this select 3) in [west, civilian]) then {
-				private ["_name, "_gunner", "_commander"];
-				if (_this select 2 > wcdammagethreshold) then {
+				if ((_this select 2) > wcdammagethreshold) then {
 					(_this select 0) removeAllEventHandlers "HandleDamage";
-					if((_this select 2) + (getdammage (_this select 0)) > 0.9) then {
+					(_this select 0) setHit [(_this select 1), (_this select 2)];
+					if(damage (_this select 0) > 0.9) then {
 						(_this select 0) setdamage 1;
 						wcnumberofkilledofmissionV = wcnumberofkilledofmissionV + 1;
-					} else {
-						(_this select 0) setdamage ((getdammage(_this select 0)) + (_this select 2));
 					};
 				};
 				_name = currentMagazine (_this select 3);
@@ -53,15 +52,13 @@
 		_vehicle addeventhandler ['FiredNear', {
 			private ["_gunner", "_commander"];
 			if(side(_this select 1) in [west, civilian]) then {
-				if(random 1 > 0.1) then {
-					_gunner = gunner (_this select 0);
-					_commander = commander (_this select 0);
-					{
-						_x reveal (_this select 1);
-						_x dotarget (_this select 1);
-						_x dofire (_this select 1);
-					}foreach [_gunner, _commander];
-				};
+				_gunner = gunner (_this select 0);
+				_commander = commander (_this select 0);
+				{
+					_x reveal (_this select 1);
+					_x dotarget (_this select 1);
+					_x dofire (_this select 1);
+				}foreach [_gunner, _commander];
 			};
 		}];
 
