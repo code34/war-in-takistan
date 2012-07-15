@@ -54,11 +54,13 @@
 
 			// false - positive
 			if((random 1 > 0.99) and wciedfalsepositive) then {
-				[localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
-				_printed = true;
-				_counter = 0;
-				_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;
-				playsound _sound;
+				if(player distance getmarkerpos "respawn_west" > 1000) then {
+					[localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
+					_printed = true;
+					_counter = 0;
+					_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;
+					playsound _sound;
+				};
 			};
 
 			if(_printed) then {
