@@ -3,11 +3,26 @@
 	// Create a tent respawn point
 	// -----------------------------------------------
 
-	private ["_position", "_mydir"];
+	private ["_position", "_mydir", "_exit"];
 
 	if (((position player) distance (getmarkerpos "respawn_west")) < 300) exitwith { 
 		[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETRYTOMOVEOUT", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
 	};
+
+	_exit = false;
+	if(wcwithACE == 0) then {
+		if(isnull (unitBackpack player)) then {
+			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETAKEABACKPACK", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
+			_exit = true;
+		};
+	} else {
+		if!(player call ace_sys_ruck_fnc_hasRuck) exitwith {
+			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETAKEABACKPACK", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
+			_exit = true;
+		};
+	};
+
+	if(_exit) exitwith {};
 
 	_mydir = getdir player;
 	_position =  [(getposatl player select 0) + (sin _mydir * 2), (getposatl player select 1) + (cos _mydir * 2), 0];
