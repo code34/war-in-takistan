@@ -349,22 +349,6 @@
 		};
 	};
 
-	// HAND UP - surrender enemies
-	[] spawn {
-		private ["_unit"];
-		while { true } do {
-			_unit = cursorTarget;
-			if(!isplayer _unit) then {
-				if((_unit distance player < 5) and (alive _unit)) then {
-					_unit setvehicleinit "this playMove 'AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon'; removeAllWeapons this; dostop this;";
-					processInitCommands;
-					sleep 10;
-				};
-			};
-			sleep 1;
-		};
-	};
-
 	// DRAG & DROP BODY
 	[] spawn {
 		private ["_units", "_attached", "_animation", "_unit"];

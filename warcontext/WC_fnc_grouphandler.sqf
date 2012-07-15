@@ -8,6 +8,10 @@
 		_group = _this select 0;
 		{
 			wcgarbage = [_x, wcskill] spawn WC_fnc_setskill;
+
+			_x setVehicleInit "this addAction ['<t color=''#ff4500''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],-1,false, true];";
+			_x setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
+
 			if(vehicle _x == _x) then {
 				wcunits = wcunits + [_x];
 				_mags = [primaryweapon _x] call WC_fnc_weaponcanflare;
@@ -81,3 +85,5 @@
 			}];
 			sleep 0.1;
 		} foreach (units _group);
+
+		processInitCommands;

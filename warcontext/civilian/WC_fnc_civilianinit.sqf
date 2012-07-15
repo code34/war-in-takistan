@@ -87,6 +87,11 @@
 			//};
 			_unit addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
 		};
+
+		_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],-1,false, true];";
+		_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
+		processInitCommands;
+
 		wcgarbage = [_unit, wccivilianskill] spawn WC_fnc_setskill;
 		sleep 2;
 	};
