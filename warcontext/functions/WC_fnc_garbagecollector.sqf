@@ -9,11 +9,12 @@
 
 	_unit = _this select 0;
 
-	sleep wctimetogarbagedeadbody;
-
 	if (_unit iskindof "Man") then {
+		sleep wctimetogarbagedeadbody;
 		hidebody _unit;
 		sleep 3;
+	} else {
+		sleep wctimetorespawnvehicle;
 	};
 
 	deletevehicle _unit;
