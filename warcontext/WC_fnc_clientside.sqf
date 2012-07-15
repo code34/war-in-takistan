@@ -489,6 +489,7 @@
 				if((name player) in wconelife) then {
 					removeallweapons player;
 					removeallItems player;
+					player enablesimulation false;
 				};
 				sleep 10;
 			};
