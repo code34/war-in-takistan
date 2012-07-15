@@ -80,7 +80,7 @@
 	while {alive player && dialog} do {
 		_text = format["HALL OF FAMES v%1<br/>", wcversion];
 		_kindofgame = if(wckindofgame == 1) then {"arcade";}else{"simulation";};
-		_text = _text + localize format["STR_WC_TEAM%1", wcteamlevel] + "<br/>" + format["%1", _kindofgame] + " game" + "<br/>" + format["D:%1 K:%2 Ms:%3 Mf:%4 Ts:%5", wcday, wcenemykilled, wclevel - 1, wcmissioncount - wclevel, wcteamscore] + "<br/><br/>";
+		_text = _text + localize format["STR_WC_TEAM%1", wcteamlevel] + "<br/>" + format["%1", _kindofgame] + " game" + "<br/>" + format["Day:%1 EKilled:%2 Lvl:%3 Mission:%4 Team score:%5", wcday, wcenemykilled, wclevel, wcmissioncount - wclevel, wcteamscore] + "<br/><br/>";
 		_text = _text + format["Members of team: %1<br/>", count _originalteam];
 
 		{	
