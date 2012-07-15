@@ -511,7 +511,7 @@ class acInfoDLG
 			y = 0.69;
 			w = 0.2200;
 			text = $STR_ACGUI_MM_BTN_Logs;
-			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\dialogs\WC_fnc_createmenureadlogs.sqf"";";
+			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialogs\WC_fnc_createmenureadlogs.sqf"";";
 	};
 
 	class MM_BtnCredits  : New_Btn 
