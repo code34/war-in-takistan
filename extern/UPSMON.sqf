@@ -703,7 +703,7 @@
 	_targettext = "_currPos";
 	_swimming = false;
 	_waiting = if(_nomove == "NOMOVE") then { 9999 } else {0};
-	_sharedist = if (_nomove=="NOMOVE") then {KRON_UPS_sharedist} else {KRON_UPS_sharedist*1.5};
+	_sharedist = if (_nomove=="NOMOVE") then {KRON_UPS_sharedist} else {KRON_UPS_sharedist * 1.5};
 
 
 	//Gets position of waypoint if no targetpos
@@ -1494,6 +1494,9 @@ while {_loop && (count (units _group) > 0)} do {
 //**********************************************************************************************************************
 //   								SIN		NOVEDADES
 //**********************************************************************************************************************
+	// Add an exit condition cause group can be sanitize
+	if (count (units _group) == 0) exitwith {};
+
 	if !(_newpos) then {
 		// did the leader die?
 		_npc = leader _group;
@@ -1509,22 +1512,21 @@ while {_loop && (count (units _group) > 0)} do {
 				_npc setBehaviour _Behaviour;	
 			};						
 		};	
+
 		//If in safe mode if find dead bodies change behaviour
-		if( toUpper(_Behaviour) IN _safemode) then {	
-			_unitsin = [_npc,_buildingdist] call MON_deadbodies;
+		if(toUpper(_Behaviour) IN _safemode) then {	
+			_unitsin = [_npc, _sharedist] call MON_deadbodies;
 			if (count _unitsin > 0) then { 
 				_Behaviour = "AWARE";
 				_react = _react + 30;
 				_npc setBehaviour _Behaviour;
-				if (KRON_UPS_Debug>0) then {player sidechat format["%1 dead bodies found! set %2",_grpidx,_Behaviour, count _targets]};	
 			};
 		};
 			
 		//Stuck control
 		if (!_nowp && alive _npc && canmove _npc && _wptype == "MOVE" && _timeontarget >= 60 && _lastcurrpos select 0 == _currpos select 0 && _lastcurrpos select 1 == _currpos select 1) then {
-			[_npc] call MON_cancelstop;	
+			_npc stop false;
 			_makenewtarget = true;
-			if (KRON_UPS_Debug>0) then {player sidechat format["%1 stucked, moving",_grpidx]};	
 		};
 		
 		_lastpos = _targetPos;

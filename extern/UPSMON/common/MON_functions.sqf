@@ -1104,7 +1104,7 @@ MON_doGetOut = {
 		unassignVehicle _npc;	
 		_npc action ["getOut", _vehicle];
 		doGetOut _npc;	
-		[_npc] spawn MON_cancelstop;
+		_npc stop false;
 		
 		waituntil {!alive _npc || !canmove _npc || vehicle _npc == _npc};		
 	};
@@ -1472,24 +1472,12 @@ MON_doStop = {
 	_npc = _this select 0;
 	_sleep = _this select 1;		
 	
-	sleep 0.05;	
-	if (!alive _npc  || !canmove _npc ) exitwith{};
-	if 	( _sleep == 0 ) then {_sleep = 0.001};	
+	if (!alive _npc || !canmove _npc ) exitwith{};
+	if (_sleep == 0 ) then { _sleep =  0.001; };
 	
-	//Restauramos valores por defecto de movimiento
-	//_npc disableAI "MOVE"; 
-	dostop _npc ; 
-	sleep _sleep;	
-	[_npc] spawn MON_cancelstop;
-};
-
-//Función que detiene al soldado y lo hace esperar x segundos
-MON_cancelstop = {
-	private["_npc"];	
-	
-	_npc = _this select 0;
+	dostop _npc ;
+	sleep _sleep;
 	_npc stop false;
-
 };
 
 //Realiza la animación de esquivar granada
@@ -2200,30 +2188,35 @@ MON_artillery_dofire = {
 	};
 };
 
-//Función que devuelve un array con los vehiculos terrestres más cercanos
-//Parámeters: [_npc,_distance]
+// Return an array of all deadbody at distance of units
+//	Parámeters: [_npc,_distance]
 //	<-	_npc: object for  position search
 //	<-	_distance:  max distance from npc
-//	->	_vehicles:  array of vehicles
+
 MON_deadbodies = {
-		private["_vehicles","_npc","_bodies","_OCercanos","_distance","_side"];	
+	private["_vehicles","_npc","_bodies","_OCercanos","_distance","_side"];	
 					
 	_npc = _this select 0;	
 	_distance = _this select 1;					
-	//_side = _this select 2;	
+
+	_OCercanos = [];
+	_bodies = [];
 		
-		_OCercanos = [];
-		_bodies = [];
-		
-		//Buscamos objetos cercanos
-		_OCercanos = nearestObjects [_npc, ["Man"] , _distance];
+	//Buscamos objetos cercanos
+	_OCercanos = nearestObjects [_npc, ["Man"] , _distance];
 			
-		{			
-			if (_npc knowsabout _x >0.5 && (!canmove _x || !alive _x)) then { _bodies = _bodies + [_x];};
-		}foreach _OCercanos;
+	{	
+				
+		if (_npc knowsabout _x > 0.5) then {
+			if (!canmove _x || !alive _x) then { 
+				_bodies = _bodies + [_x];
+			};
+		};
+		sleep 0.02;
+	}foreach _OCercanos;
 		
-		_bodies;
-	};	
+	_bodies;
+};	
 
 //Función que devuelve un array con los vehiculos terrestres más cercanos
 //Parámeters: [_npc,_distance]
