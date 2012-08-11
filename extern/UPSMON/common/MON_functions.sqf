@@ -2196,12 +2196,14 @@ MON_artillery_dofire = {
 MON_deadbodies = {
 	private["_vehicles","_npc","_bodies","_OCercanos","_distance","_side"];	
 					
-	_npc = _this select 0;	
+	_npc = _this select 0;
 	_distance = _this select 1;					
 
 	_OCercanos = [];
 	_bodies = [];
-		
+
+	if(isnull _npc) exitwith {_bodies;};
+
 	//Buscamos objetos cercanos
 	_OCercanos = nearestObjects [_npc, ["Man"] , _distance];
 			
