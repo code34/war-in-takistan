@@ -39,7 +39,7 @@
 	};
 
 	_active = createTrigger["EmptyDetector", [0,0,0]];
-	_active setTriggerArea[1000, 1000, 0, false];
+	_active setTriggerArea[wcleaveareasizeatendofmission, wcleaveareasizeatendofmission, 0, false];
 	_active setTriggerActivation["WEST", "PRESENT", TRUE];
 	_active setTriggerStatements["this", "", ""];
 
@@ -269,7 +269,7 @@
 
 		_numberofplayers = 100;
 		_count = 0;
-		while { _numberofplayers >= (ceil((playersNumber west) * 0.2)) } do {
+		while { _numberofplayers >= (ceil((playersNumber west) * wcleaversatendofmission)) } do {
 			_list = list _active;
 			{
 				if !(isplayer _x) then { 
@@ -279,7 +279,7 @@
 			}foreach _list;
 			_numberofplayers = count _list;
 			sleep 10;
-			if(_numberofplayers >= (ceil((playersNumber west) * 0.2))) then { 
+			if(_numberofplayers >= (ceil((playersNumber west) * wcleaversatendofmission))) then { 
 				_count = _count + 1;
 				if(_count > 10) then {
 					_count = 0;

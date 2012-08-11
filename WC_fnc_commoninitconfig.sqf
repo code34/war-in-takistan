@@ -203,6 +203,12 @@
 	wcgeneratordistminofgoal = 150;
 	wcgeneratordistmaxofgoal = 300;
 
+	// size of area to detect friendly units leave the zone at end of mission
+	wcleaveareasizeatendofmission = 1000;
+
+	// percent of players that must leave the zone at end of mission (by defaut 20%)
+	wcleaversatendofmission = 0.2;
+
 	// Simulation mode has a harder scoring system
 	if(wckindofgame == 1) then {
 		wcscorelimitmin = -80; 
