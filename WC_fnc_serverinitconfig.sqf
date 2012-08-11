@@ -156,6 +156,9 @@
 
 	// contain scores of all players
 	wcscoreboard = [];
+	
+	// contain patrol groups wich used wc patrol script
+	wcpatrolgroups = [];
 
 	// contain all securised zone
 	wcsecurezone = [getmarkerpos "respawn_west"];
