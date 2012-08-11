@@ -62,6 +62,11 @@
 			wcmapbottomleft = [0,0];
 		};
 
+		case "malden2010" : {
+			wcmaptopright 	= [12800,12800];
+			wcmapbottomleft = [0,0];
+		};
+
 		case "everon2010" : {
 			wcmaptopright 	= [12800,12800];
 			wcmapbottomleft = [0,0];
