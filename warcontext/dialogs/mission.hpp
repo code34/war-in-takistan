@@ -144,7 +144,7 @@ class RscDisplayclothes
 {
 	idd = 5000;
 	movingenable = 0;
-	controlsBackground[] = {"control5001", "control5002","control5004","control5005"};
+	controlsBackground[] = {"control5001", "control5002","control5004","control5005", "control5006"};
 	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menuchangeclothes.sqf""; uiNamespace setVariable [""wcdisplay"", _this select 0]; menuaction = -1;";
 		class control5001: RscStructuredText
 		{
@@ -170,7 +170,7 @@ class RscDisplayclothes
 			text = "Take this";
 			x = 0.22 * safezoneW + safezoneX;
 			y = 0.862 * safezoneH + safezoneY;
-			w = 0.141702 * safezoneW;
+			w = 0.12 * safezoneW;
 			h = 0.052 * safezoneH;
 			action = "menuaction = 1;";
 		};
@@ -182,6 +182,16 @@ class RscDisplayclothes
 			y = 0.094 * safezoneH + safezoneY;
 			w = 0.22 * safezoneW;
 			h = 0.048 * safezoneH;
+		};
+		class control5006: RscButton
+		{
+			idc = 5006;
+			text = "Close";
+			x = 0.36 * safezoneW + safezoneX;
+			y = 0.862 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			h = 0.052 * safezoneH;
+			action = "menuaction = 2;";
 		};
 };
 

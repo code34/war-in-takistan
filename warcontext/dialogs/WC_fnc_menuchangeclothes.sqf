@@ -154,6 +154,10 @@
 				};
 			};
 		};
+		if(menuaction == 2) then {
+			closedialog 0;
+			menuaction = -1;
+		};
 		sleep 1;
 	};
 
