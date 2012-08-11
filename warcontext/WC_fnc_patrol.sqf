@@ -17,7 +17,8 @@
 		"_distance",
 		"_move",
 		"_formationtype",
-		"_marker"
+		"_marker",
+		"_originalsize"
 	];
 
 	_unit = _this select 0;
@@ -25,6 +26,10 @@
 
 	if(_group in wcpatrolgroups) exitwith {};
 	wcpatrolgroups = wcpatrolgroups + [_group];
+
+	_originalsize = count (units _group);
+
+	wcgarbage = [_group] spawn WC_fnc_grouphandler;
 
 	_lastposition = position _unit;
 
@@ -44,7 +49,7 @@
 	while { (count (units _group) > 0) } do {
 		_unit = leader _group;
 
-		if(wcalert > 50) then {
+		if((wcalert > 50) || (count (units _group) < _originalsize)) then {
 			_group setBehaviour "AWARE";
 			_cibles = [];
 			_list = (position _unit) nearEntities [["Man"], 300];
@@ -108,7 +113,7 @@
 			[group _unit, 0] setWaypointVisible true;
 			[group _unit, 0] setWaypointSpeed "LIMITED";
 			(group _unit) setCurrentWaypoint [group _unit, 0];
-			while { (([(position _unit) select 0, (position _unit) select 1] distance [_position select 0, _position select 1] > 20) and (wcalert < 50) and !(_move)) } do {
+			while { (([(position _unit) select 0, (position _unit) select 1] distance [_position select 0, _position select 1] > 20) and (wcalert < 50) and !(_move) and (count (units _group) == _originalsize)) } do {
 				_lastposition = position _unit;
 				sleep 2;
 				if(format["%1", _lastposition] == format["%1", position _unit]) then {
