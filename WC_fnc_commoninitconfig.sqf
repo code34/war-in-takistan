@@ -144,6 +144,9 @@
 	// Rain max rate of the country - 0  (low) 1 (full)
 	wcrainrate = 0.65;
 
+	// mortar spawn percent probability at begin of mission (defaut 20%)
+	wcmortarprobability = 0.2;
+
 	// player can see marker of others player when they are at max x meters
 	wcplayermarkerdist = 2000;
 	

@@ -167,7 +167,7 @@
 		["wcselectedzone", "client"] call WC_fnc_publicvariable;
 
 		// build bombing mortar
-		if (random 1 > 0.80) then {
+		if (random 1 < wcmortarprobability) then {
 			wcgarbage = [_marker] spawn WC_fnc_mortar;
 		};
 
