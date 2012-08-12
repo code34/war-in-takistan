@@ -122,11 +122,7 @@
 
 		_text = "";
 		_ctrl2 = (uiNamespace getVariable 'wcdisplay') displayCtrl 10103;
-		//_hour = date select 3;
-		//if(_hour < 10) then { _hour = format ["0%1", _hour];} else {_hour = format["%1", _hour];};
-		//_minute =  date select 4;
-		//if(_minute < 10) then { _minute = format ["0%1", _minute];} else {_minute = format["%1", _minute];};
-		//_clock = format["%1:%2", _hour, _minute];
+
 		_text = _text + format ["Day %1 %2<br/>", wcday];
 		if(wcradioalive) then {	
 			if(wcalert > 99) then { 
