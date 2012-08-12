@@ -173,7 +173,7 @@
 
 		// build an antiair
 		if(wcwithantiairsite > 0) then {
-			for "_x" from 0 to ceil (random wcaalevel) step 1 do {
+			for "_x" from 0 to ceil (random (wcaalevel - 1)) step 1 do {
 				wcgarbage = [] spawn WC_fnc_antiair;
 				sleep 0.05;
 			};
