@@ -803,3 +803,43 @@ class RscDisplayLogs {
 		action = "closedialog 0;";
 	};
 };
+
+class infomessage
+	{
+	idd = 10100;
+	movingEnable=0;
+	duration = 1000000000; 
+	fadein=0;    
+	name="infomessage";
+	controlsBackground[] = {"wctext", "wcteamtext"};
+	onLoad = "uiNamespace setVariable ['wcdisplay', _this select 0];";
+	onunLoad = "uiNamespace setVariable ['wcdisplay', objnull];";    
+
+	class wctext { 
+		idc = 10101; 
+		type = CT_STRUCTURED_TEXT; 
+		style = ST_LEFT; 
+		x = (SafeZoneX + 0.02);
+		y = (SafeZoneY + 0.25);
+		w = 0.3;
+		h = 0.6;
+		size = 0.018; 
+		colorBackground[] = { 0, 0, 0, 0 };
+		colortext[] = {0,0,0,0.7};
+		text ="";
+	};
+
+	class wcteamtext { 
+		idc = 10103; 
+		type = CT_STRUCTURED_TEXT; 
+		style = ST_LEFT; 
+		x = (SafeZoneW + SafezoneX) - 0.25;
+		y = (1 + ((0 + SafeZoneY) * -1) - 0.14);
+		w = 0.25;
+		h = 0.14;
+		size = 0.02; 
+		colorBackground[] = { 0, 0, 0, 0 };
+		colortext[] = {0,0,0,0.7};
+		text ="";
+	};
+};

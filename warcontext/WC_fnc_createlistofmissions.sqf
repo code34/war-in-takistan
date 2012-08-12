@@ -104,7 +104,6 @@
 		} else {
 			_missionnumber = 100;
 		};
-
 		_thislist = _thislist + [_missionnumber];
 
 		// defend mission

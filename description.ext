@@ -36,7 +36,7 @@ class RscTitles
 {
 	#include "extern\R3F_DEBUG\scripts\main_dlg.h"
 
-	titles[]={"warcontextlabel", "infomessage", "TitreMission", "LooseMission", "lbrvwfr","drocnpuaxxg", "WinMission", "Titrecredits"};
+	titles[]={"warcontextlabel", "infomessage", "infomission", "TitreMission", "LooseMission", "lbrvwfr","drocnpuaxxg", "WinMission", "Titrecredits"};
 
 	class warcontextlabel
 	{
@@ -397,6 +397,32 @@ class RscTitles
 			w = 0.25;
 			h = 0.14;
 			size = 0.02; 
+			colorBackground[] = { 0, 0, 0, 0 };
+			colortext[] = {0,0,0,0.7};
+			text ="";
+		};
+	};
+
+	class infomission
+		{
+		idd = 10200;
+		movingEnable=0;
+		duration = 10000; 
+		fadein=1;    
+		name="infomission";
+		controlsBackground[] = {"wcinfomissiontext"};
+		onLoad = "uiNamespace setVariable ['wcinfomissiondisplay', _this select 0];";
+		onunLoad = "uiNamespace setVariable ['wcinfomissiondisplay', objnull];";    
+
+		class wcinfomissiontext { 
+			idc = 10201; 
+			type = CT_STRUCTURED_TEXT; 
+			style = ST_LEFT; 
+			x = (SafeZoneW + SafezoneX) - 0.60;
+			y = (1 + ((0 + SafeZoneY) * -1) - 0.40);
+			w = 0.60;
+			h = 0.40;
+			size = 0.08; 
 			colorBackground[] = { 0, 0, 0, 0 };
 			colortext[] = {0,0,0,0.7};
 			text ="";

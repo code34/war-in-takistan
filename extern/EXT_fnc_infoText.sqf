@@ -15,7 +15,8 @@
 	waituntil {wccanwriteinfotext};
 	wccanwriteinfotext = false;
 
-	3100 cutrsc ["rscInfoText","plain"];
+	//3100 cutrsc ["rscInfoText","plain"];
+	10200 cutrsc ["infomission","PLAIN"];
 
 	// add info text to warcontext logs
 	_logs = "";
@@ -72,8 +73,9 @@
 	
 	//--- Visualization
 	disableserialization;
-	_display = uinamespace getvariable "BIS_InfoText";
-	_textControl = _display displayctrl 3101;
+	_display = uinamespace getvariable "wcinfomissiondisplay";
+	//_textControl = _display displayctrl 3101;
+	_textControl = _display displayctrl 10201;
 	
 	
 	_text = composetext _finalArray;
@@ -102,6 +104,7 @@
 	} foreach _nArray;
 	
 	
-	3100 cuttext ["","plain"];
+	//3100 cuttext ["","plain"];
+	10200 cuttext ["","plain"];
 	
 	wccanwriteinfotext = true;
