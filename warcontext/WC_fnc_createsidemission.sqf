@@ -1064,6 +1064,7 @@
 			_position = _position findEmptyPosition [3,100];
 			if((count _position) == 0) then {
 				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE LEADER MISSION";
+				_position = _position findEmptyPosition [3, wcdistance];
 			};
 			_vehicle setpos _position;
 			_vehicle setvehicleinit "this allowdammage true;";
