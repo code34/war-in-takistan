@@ -177,6 +177,9 @@
 	// kind of units crew of enemies vehicles
 	wccrewforces = ["TK_Soldier_Crew_EP1"];
 
+	// kind of sheep
+	wcsheeps = ["Sheep01_EP1", "Sheep02_EP1"];
+
 	// anti air vehicles
 	wcaavehicles = ["ZU23_TK_GUE_EP1", "Ural_ZU23_TK_GUE_EP1"];
 
