@@ -116,7 +116,7 @@
 
 	// cheat mode
 	if(wckindofgame == 3) then {
-		if(_dikCode == DIK_1) then{
+		if(_dikCode == DIK_1) then {
 			removeallweapons player;
 			_weapon = wclistofweapons select wclistofweaponsindex;
 			wclistofweaponsindex = wclistofweaponsindex + 1;
@@ -132,7 +132,7 @@
 			{
 				player addmagazine _x;
 			}foreach _magazines;
-			reload player;			
+			reload player;	
 		};
 	};
 
