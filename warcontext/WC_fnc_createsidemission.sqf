@@ -1009,7 +1009,7 @@
 		case 70: {
 			_missiontext = [_missionname,"Rescue","10 civilians"];
 			_position = _position findEmptyPosition [10, wcdistance];
-			if(count _position == 0) then {
+			if((count _position) == 0) then {
 				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE MASH MISSION";
 			};
 			_vehicle = "MASH_EP1" createvehicle _position;
@@ -1062,8 +1062,8 @@
 			_vehicle addmagazine "30Rnd_545x39_AK";
 			_vehicle addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
 			_position = _position findEmptyPosition [3,100];
-			if(count _position == 0) then {
-				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE LEADER MISSION;
+			if((count _position) == 0) then {
+				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE LEADER MISSION";
 			};
 			_vehicle setpos _position;
 			_vehicle setvehicleinit "this allowdammage true;";
@@ -1077,7 +1077,6 @@
 
 	diag_log format ["WARCONTEXT: MISSION:%1 TYPE:%2 DESCRIPTION: %3", _missionnumber, _missiontype, _missiontext];
 
-	
 	sleep 30;
 
 	// for debug purpose 
