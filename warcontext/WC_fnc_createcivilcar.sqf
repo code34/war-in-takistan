@@ -1,9 +1,17 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// Rework of FlashpointChernarus107 - thomsonb
 	// warcontext -  create civils car in a location
+	// + Rework of PDB function FlashpointChernarus107 - thomsonb 
 
-	private ["_roads", "_position", "_car", "_count", "_location", "_pos","_max"];
+	private [
+		"_car", 
+		"_count", 
+		"_location", 
+		"_max",
+		"_pos",
+		"_position", 
+		"_roads"
+		];
 
 	_location = _this select 0;
 	_position = [_location] call WC_fnc_relocatelocation;	
@@ -33,14 +41,19 @@
 					_car = (wcvehicleslistC call BIS_fnc_selectRandom) createvehicle _pos;
 					_car setpos [(position _car select 0), (position _car select 1), 1];
 					_car setdir _dir;
-					// simulation = 2
+
+					diag_log format["WARCONTEXT: GENERATE %1 CIVIL CAR", typeof _car];
+
+					// simulation mode
 					if(wckindofgame == 2) then {
 						_car setfuel (random 1);
 						_car setdamage (random 1);
 					};
+
 					if(random 1> 0.95) then {
 						_car setVectorUp [1, 0, 0];
 					};
+
 					if(random 1 > 0.95) then {
 						wcgarbage = [_car] spawn WC_fnc_createied;
 					};
@@ -50,5 +63,3 @@
 			};
 		};
 	}foreach _roads;
-
-	diag_log format["WARCONTEXT: GENERATE %1 CIVIL CARS IN ZONE OF %2", _count, text _location];
