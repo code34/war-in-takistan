@@ -91,7 +91,7 @@
 			if(count _position == 0) then {
 				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR NEW TARGET CONVOY";
 			};
-			(driver _vehicle) dostop false;
+			(driver _vehicle) stop false;
 			(driver _vehicle) domove _position;
 			_vehicle setFuel 1;
 			_bucket = 0;
