@@ -13,14 +13,18 @@
 		"_type"
 	];
 
-	_hill = nearestLocations [getmarkerpos "respawn_west", ["hill"], 20000];
+	_hill = nearestLocations [wcmapcenter, ["hill"], 20000];
 
 	sleep 1;
 	
 	_position = (position (_hill call BIS_fnc_selectRandom)) findEmptyPosition [2, 20];
 
+	if(count _position == 0) exitwith {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR AA SITE";
+	};
+
 	_type = wcaavehicles call BIS_fnc_selectRandom;
-	_arrayofvehicle = [_position, 0, _type, resistance] call BIS_fnc_spawnVehicle;
+	_arrayofvehicle = [_position, 0, _type, east] call BIS_fnc_spawnVehicle;
 
 	_vehicle 	= _arrayofvehicle select 0;
 	_arrayofpilot 	= _arrayofvehicle select 1;
@@ -38,16 +42,17 @@
 
 	while { (damage _vehicle) < 0.9 } do {
 		_enemys = nearestObjects[_gunner, ["Air"], 3000];
+
 		if (count _enemys > 0) then {
 			_echo = _enemys call BIS_fnc_selectRandom;
-		};
-		if((getposatl _echo) select 2 > 50) then {		
-			if(side ((crew _echo) select 0) == west) then {
-				{
-					_x dotarget _echo;
-					_x dofire _echo;
-					_x reveal _echo;
-				} foreach (crew _vehicle);
+			if((getposatl _echo) select 2 > 50) then {		
+				if(side ((crew _echo) select 0) == west) then {
+					{
+						_x dotarget _echo;
+						_x dofire _echo;
+						_x reveal _echo;
+					} foreach (crew _vehicle);
+				};
 			};
 		};
 		sleep 30;

@@ -685,6 +685,14 @@ class Params
 		default = 5;
 	};
 
+	class wcaalevel
+	{
+		title = "ENEMIES AA SITES ON MAP";
+		values[] = {0, 1, 2, 3};
+		texts[] = {"OFF", "WEAK: 1 VEHICLE", "NORMAL: 2 VEHICLES", "STRONG: 3 VEHICLES"};
+		default = 2;
+	};
+
 	class wcwithcomposition
 	{
 		title = "ENEMIES BUILDING COMPOSITION ON MAP";
