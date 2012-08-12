@@ -355,12 +355,30 @@
 		wcammoused = wcammoused + 1;
 	'];
 
+	// arcade mode
 	if(wckindofgame == 1) then {
 		player addEventHandler ['HandleDamage', {
 			if(vehicle (_this select 0) == (_this select 0)) then {
 				(_this select 0) setdamage ( (getdammage(_this select 0)) + ((_this select 2)/10) );
 			} else {
 				(_this select 0) setdamage ( (getdammage(_this select 0)) + ((_this select 2)/2) );
+			};
+		}];
+	};
+
+	// practice mode
+	if(wckindofgame == 3) then {
+		player addEventHandler ['Fired', '
+				_position = getposatl (_this select 6);
+				_velocity = velocity (_this select 6);
+				(_this select 0) setvehicleammo 1;
+				_type = typeof (_this select 6);
+		'];
+		player addEventHandler ['HandleDamage', {
+			if(vehicle (_this select 0) == (_this select 0)) then {
+				(_this select 0) setdamage ( (getdammage(_this select 0)) + ((_this select 2)/100) );
+			} else {
+				(_this select 0) setdamage ( (getdammage(_this select 0)) + ((_this select 2)/20) );
 			};
 		}];
 	};

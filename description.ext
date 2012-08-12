@@ -600,7 +600,7 @@ class Params
 	{
 		title = "KIND OF GAME";
 		values[] = {1, 2, 3};
-		texts[] = {"ARCADE", "SIMULATION", "CHEATED"};
+		texts[] = {"ARCADE", "SIMULATION", "PRACTICE"};
 		default = 1;
 	};
 

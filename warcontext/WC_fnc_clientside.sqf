@@ -484,15 +484,15 @@
 
 	switch (wckindofgame) do {
 		case 1: {
-			_kindofgame = "arcade";
+			_kindofgame = "ARCADE";
 		};
 
 		case 2: {
-			_kindofgame = "simulation";	
+			_kindofgame = "SIMULATION";	
 		};
 
 		case 3: {
-			_kindofgame = "cheated";
+			_kindofgame = "PRACTICE";
 		};
 	};
 
