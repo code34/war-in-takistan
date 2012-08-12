@@ -23,6 +23,10 @@
 	_group = creategroup east;
 	for "_i" from 1 to _sizeofgroup do {
 		_position = (position _unit) findEmptyPosition [2, 30];
+		if(count _position == 0) then {
+			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE DESTROY GROUP";
+		};
+
 		_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
 		wcgarbage = [_vehicle] spawn WC_fnc_patrol;
 		wcgarbage = [_vehicle] spawn WC_fnc_dosillything;

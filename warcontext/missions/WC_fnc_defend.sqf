@@ -40,6 +40,10 @@
 
 	//for "_x" from 0 to floor(random 2) step 1 do {
 		_position = (position _flag) findEmptyPosition [5, 100];
+		if(count _position == 0) then {
+			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE FRIENDLY DEFEND GROUP";
+		};
+
 		_type = ["M1A1_US_DES_EP1", "M2A2_EP1"] call BIS_fnc_selectRandom;
 		_arrayofvehicle =[ _position, 0, _type, west] call BIS_fnc_spawnVehicle;
 		_vehicle 	= _arrayofvehicle select 0;

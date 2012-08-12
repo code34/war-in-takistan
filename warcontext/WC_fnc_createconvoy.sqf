@@ -22,7 +22,12 @@
 	diag_log "WARCONTEXT: BUILD 1 CONVOY";
 
 	_target = wctownlocations call BIS_fnc_selectRandom;
+
 	_position = (position _target) findEmptyPosition [10, 500];
+	if(count _position == 0) exitwith {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CONVOY SPAWN";
+	};
+
 	_bucket = 0;
 
 	_arrayofvehicle = [_position, 0, (wcvehicleslistE call BIS_fnc_selectRandom), east] call BIS_fnc_spawnVehicle;
@@ -39,7 +44,11 @@
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;	
 
 	_target = wctownlocations call BIS_fnc_selectRandom;
+
 	_position = (position _target) findEmptyPosition [10, 500];
+	if(count _position == 0) then {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR TARGET CONVOY";
+	};
 
 	_group setBehaviour "SAFE";
 	_group setSpeedMode "FULL";
@@ -79,6 +88,10 @@
 		if(_bucket > 6) then {
 			_target = wctownlocations call BIS_fnc_selectRandom;
 			_position = (position _target) findEmptyPosition [10, 500];
+			if(count _position == 0) then {
+				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR NEW TARGET CONVOY";
+			};
+			(driver _vehicle) dostop false;
 			(driver _vehicle) domove _position;
 			_vehicle setFuel 1;
 			_bucket = 0;

@@ -118,6 +118,9 @@ R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 			wcrespawntohq = name player;
 			["wcrespawntohq", "all"] call WC_fnc_publicvariable;
 			_position = (position wcteleport) findemptyposition [10, 300];
+			if(count _position == 0) then {
+				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR TELEPORT TO HQ";
+			};
 			player setpos _position;	
 		};
 

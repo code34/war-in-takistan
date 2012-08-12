@@ -21,6 +21,9 @@
 		sleep 0.5;
 	};
 	_position = (position _location) findemptyposition [10, 200];
+	if(count _position == 0) then {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE MHQ";
+	};
 
 	deletevehicle wcteleport;
 	wcteleport = "M1130_HQ_unfolded_Base_EP1" createVehicle _position;

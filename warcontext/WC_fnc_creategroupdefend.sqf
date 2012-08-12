@@ -81,6 +81,9 @@
 
 		_leader = leader _group;		
 		_position = (position _leader) findEmptyPosition [5, 50];
+		if(count _position == 0) then {
+			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR TRANSPORT GROUP DEFEND";
+		};
 
 		_vehicle = "V3S_TK_EP1" createvehicle _position;
 		wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;

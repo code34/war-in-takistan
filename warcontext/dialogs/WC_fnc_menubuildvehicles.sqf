@@ -55,6 +55,9 @@
 		if(menuaction == 1) then {
 			["Build a vehicle", "Wait while the building of your vehicle", "The vehicle will appear near you in few seconds. Older one will be delete.", 3] spawn WC_fnc_playerhint;
 			_position = (position player) findemptyposition [5, 30];
+			if(count _position == 0) then {
+				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE ATV";
+			};
 			deletevehicle wcmyatv;
 			closedialog 0;
 			menuaction = -1;

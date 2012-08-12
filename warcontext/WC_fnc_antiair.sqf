@@ -18,7 +18,6 @@
 	sleep 1;
 	
 	_position = (position (_hill call BIS_fnc_selectRandom)) findEmptyPosition [2, 20];
-
 	if(count _position == 0) exitwith {
 		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR AA SITE";
 	};

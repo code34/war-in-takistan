@@ -41,6 +41,10 @@
 
 	if (_motorized) then {
 		_position = (position wcheavyfactory) findEmptyPosition [5, 50];
+		if(count _position == 0) then {
+			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR SUPPORT GROUP VEHICLE SPAWN";
+		};
+
 		_arrayofvehicle =[_position, 0, _typeofgroup, east] call BIS_fnc_spawnVehicle;
 		sleep 0.05;
 
@@ -80,6 +84,10 @@
 		diag_log format ["WARCONTEXT: CREATING A SUPPORT GROUP %2 IN ZONE %1 OF SIZE %3", _marker, _typeofgroup, _sizeofgroup];
 
 		_position = (position wcbarrack) findEmptyPosition [5, 50];
+		if(count _position == 0) then {
+			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR UNITS SUPPORT GROUP SPAWN";
+		};
+
 		{
 			_soldier = _group createUnit [_x, _position, [], 0, 'FORM'];
 			sleep 0.05;
@@ -87,6 +95,9 @@
 		
 		_leader = leader _group;
 		_position = (position wcbarrack) findEmptyPosition [5, 50];
+		if(count _position == 0) then {
+			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR UNITS TRANSPORT SUPPORT GROUP SPAWN";
+		};
 
 		_vehicle = "BTR60_TK_EP1" createvehicle _position;
 		wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;

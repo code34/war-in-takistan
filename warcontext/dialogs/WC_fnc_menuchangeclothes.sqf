@@ -15,7 +15,8 @@
 		"_type",
 		"_maxsize",
 		"_unit",
-		"_group"
+		"_group",
+		"_position"
 	];
 
 	if(wcoriginalclothes != typeof player) exitwith {
@@ -96,7 +97,13 @@
 
 			wcbackupbody = player;
 			wcbackupposition = position player;
-			wcbackupbody setpos (wcinitpos findEmptyPosition[ 1 , 100]);
+
+			_position = wcinitpos findEmptyPosition[ 1 , 100];
+			if(count _position == 0) then {
+				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CHANGE CLOTHES BACKUP POSITION";
+			};
+
+			wcbackupbody setpos _position;
 
 			_unit addeventhandler ['killed', {
 				_this spawn WC_fnc_garbagecollector;

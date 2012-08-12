@@ -41,7 +41,12 @@
 	wcpropagander = wcpropagander + [_unit];
 
 	_unit allowfleeing 0;
+
 	_position = (position _unit) findEmptyPosition [8, 100];
+	if(count _position == 0) exitwith {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR PROPAGAND CIVILIAN";
+	};
+
 	_unit setpos _position;
 	_unit setvariable ["wcprotected", true];
 	_unit setVehicleInit "this disableAI ""MOVE"";this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";

@@ -36,7 +36,12 @@
 	_unit setpos _position;
 
 	_unit allowfleeing 0;
+
 	_position = (position _unit) findEmptyPosition [8, 100];
+	if(count _position == 0) then {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CIVILIAN HEALER";
+	};
+
 	_unit setpos _position;
 
 	while { alive _unit } do {

@@ -17,7 +17,12 @@
 	waituntil {!(player getvariable "deadmarker")};
 
 	_position = (getmarkerpos "respawn_west") findEmptyPosition [10, 200];
-	player setpos _position;
+	if(count _position == 0) then {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR PLAYER OUTRO";
+		player setpos wcmapcenter;
+	} else {
+		player setpos _position;
+	};
 
 	disableSerialization;
 

@@ -11,4 +11,8 @@
 	sleep 3;
 
 	_position = (position player) findemptyposition [10, 300];
+	if(count _position == 0) then {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE AMMOBOX";
+	};
+
 	wcgarbage = [_position, "base"] spawn WC_fnc_createammobox;

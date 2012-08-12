@@ -260,6 +260,9 @@
 
 		if(wcwithteleportflagatend == 1) then {
 			_positionflag = (position _location) findemptyposition [10, 300];
+			if(count _positionflag == 0) then {
+				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR TELEPORT FLAG";
+			};
 			wcflag = "FlagCarrierUSA_EP1" createVehicle _positionflag;
 			wcflag setvehicleinit "this allowdammage false; wcrtb = this addAction ['<t color=''#dddd00''>Teleport to base</t>', 'warcontext\actions\WC_fnc_doreturntobase.sqf',[],-1,false];";
 			processInitCommands;

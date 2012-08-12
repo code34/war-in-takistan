@@ -42,7 +42,12 @@
 	wcpropagander = wcpropagander + [_unit];
 
 	_unit allowfleeing 0;
+
 	_position = (position _unit) findEmptyPosition [8, 100];
+	if(count _position == 0) exitwith {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CIVILIAN SABOTER";
+	};
+
 	_unit setpos _position;
 
 	WC_fnc_findtargetvehicle = {
