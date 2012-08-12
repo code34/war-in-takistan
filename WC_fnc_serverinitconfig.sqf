@@ -132,9 +132,16 @@
 
 	// initialise the index composition
 	wccompositionindex = 0;
+
 	wciedindex = 0;
 	wcnuclearindex = 0;
+	
+	// Patrol wc index marker
 	wcpatrolindex = 0;
+
+	// AA index marker
+	wcaaindex = 0;
+
 	wcdefendzoneindex = 0;
 	wcteleportindex = 0;
 

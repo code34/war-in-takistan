@@ -813,6 +813,14 @@ class Params
 		default = 1;
 	};
 
+	class wcwithaamarkers
+	{
+		title = "ENEMY AA SITES MARKER ON MAP";
+		values[] = {0, 1};
+		texts[] = {"NO", "YES"};
+		default = 1;
+	};
+
 	class wcwithmarkerongoal
 	{
 		title = "SHOW A GOAL MARKER";

@@ -5,11 +5,11 @@
 	private [
 		"_echo",
 		"_position", 
-		"_mount", 
+		"_marker", 
 		"_vehicle", 
 		"_arrayofpilot", 
 		"_group", 
-		"_pilot", 
+		"_gunner", 
 		"_type"
 	];
 
@@ -29,13 +29,20 @@
 	wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
 
-	while { alive _pilot } do {
-		_enemys = nearestObjects[_pilot, ["Air"], 3000];
+	_gunner = gunner _vehicle;
+
+	if(wcwithaamarkers == 1) then {
+		_marker = [format['antiair%1', wcaaindex], 0.5, position _gunner, 'ColorRED', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, 'AA site', false] call WC_fnc_createmarker;
+		wcaaindex = wcaaindex + 1;
+	};
+
+	while { (damage _vehicle) < 0.9 } do {
+		_enemys = nearestObjects[_gunner, ["Air"], 3000];
 		if (count _enemys > 0) then {
 			_echo = _enemys call BIS_fnc_selectRandom;
 		};
 		if((getposatl _echo) select 2 > 50) then {		
-			if(side _echo == west) then {
+			if(side ((crew _echo) select 0) == west) then {
 				{
 					_x dotarget _echo;
 					_x dofire _echo;
@@ -46,6 +53,4 @@
 		sleep 30;
 	};
 
-
-
-	
+	deletemarker _marker;
