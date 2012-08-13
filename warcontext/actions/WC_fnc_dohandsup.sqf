@@ -10,4 +10,4 @@
 
 	_unit playMove 'AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon';
 	removeAllWeapons _unit; 
-	dostop _unit;
+	_unit stop true;

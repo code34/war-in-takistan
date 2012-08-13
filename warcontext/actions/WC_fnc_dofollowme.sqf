@@ -13,7 +13,7 @@
 	_unit = _this select 0;
 	_leader = _this select 1;	
 
-	_unit setVehicleInit "this enableAI ""Move"";";
+	_unit setVehicleInit "this enableAI ""Move""; this stop false;";
 	processInitCommands;
 
 	_unit dowatch position _leader;
