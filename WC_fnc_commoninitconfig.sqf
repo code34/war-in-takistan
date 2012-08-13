@@ -147,6 +147,12 @@
 	// mortar spawn percent probability at begin of mission (defaut 20%)
 	wcmortarprobability = 0.2;
 
+	// civilian terrorist percent (defaut 10%)
+	wcterroristprobability = 0.1;
+
+	// civilian driver percent (defaut 20%)
+	wcciviliandriverprobability = 0.2;
+
 	// player can see marker of others player when they are at max x meters
 	wcplayermarkerdist = 2000;
 	

@@ -44,6 +44,7 @@
 	while { _count < 4 } do {
 		_count = count (nearestObjects [_position, ["House"] , 150]);
 		sleep 1;
+		diag_log "WARCONTEXT: NO FOUND ENOUGH HOUSES FOR CIVILIANS POP";
 	};
 
 	_buildings = nearestObjects[_position,["Building"], 500];

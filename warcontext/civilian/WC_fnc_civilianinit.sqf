@@ -15,7 +15,7 @@
 		_unit = wccivilianstoinit select 0;
 		wccivilianstoinit = wccivilianstoinit - [_unit];
 
-		if(random 1 > 0.97) then {
+		if(random 1 < wcterroristprobability) then {
 			_civiltype = ["bomberman", "propagander", "altercation", "saboter"] call BIS_fnc_selectRandom;
 			
 			switch (_civiltype) do {
@@ -58,7 +58,7 @@
 				};
 			};
 		} else {
-			if(random 1 > 0.8) then {
+			if(random 1 < wcciviliandriverprobability) then {
 				wcgarbage = [_unit] spawn WC_fnc_drivercivilian;
 			};
 		};
