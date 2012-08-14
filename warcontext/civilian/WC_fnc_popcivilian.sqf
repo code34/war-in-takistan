@@ -67,7 +67,6 @@
 		_position = _positions call BIS_fnc_selectRandom;
 		if(random 1 < wcterroristprobability) then {
 			_civilrole = ["bomberman","propagander","altercation","saboter","builder","healer"] call BIS_fnc_selectRandom;
-			_civilrole = "propagander";
 		} else {
 			if(random 1 < wcciviliandriverprobability) then {
 				_civilrole = "driver";
