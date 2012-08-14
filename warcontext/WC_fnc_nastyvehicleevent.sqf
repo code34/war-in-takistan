@@ -13,7 +13,7 @@
 
 	_unit = _this select 0;
 
-	_sabotage = ["fuel", "explosion", "weapon", "sabotage", "speed"] call BIS_fnc_selectRandom;
+	_sabotage = ["fuel", "explosion", "weapon", "sabotage", "speed", "ied"] call BIS_fnc_selectRandom;
 
 	switch (_sabotage) do {
 		case "fuel": {
@@ -21,7 +21,7 @@
 			while { damage _unit > 0 } do {
 				if(speed _unit > 1) then {
 					if(count (crew _unit) > 0) then {
-						_unit setfuel ((fuel _unit) - 0.01);
+						_unit setfuel ((fuel _unit) - 0.05);
 					};
 				};
 				sleep 1;
@@ -51,7 +51,11 @@
 		};
 
 		case "sabotage" : {
-			_unit setVehicleInit "this setdamage 0.9;";
+			_unit setVehicleInit "this setdamage 0.95;";
 			processInitCommands;
+		};
+
+		case "ied" : {
+			wcgarbage = [_unit] spawn WC_fnc_createied;
 		};
 	};
