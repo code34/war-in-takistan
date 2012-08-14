@@ -414,7 +414,8 @@ class RscTitles
 		onLoad = "uiNamespace setVariable ['wcinfomissiondisplay', _this select 0];";
 		onunLoad = "uiNamespace setVariable ['wcinfomissiondisplay', objnull];";    
 
-		class wcinfomissiontext { 
+		class wcinfomissiontext
+		{ 
 			idc = 10201; 
 			type = CT_STRUCTURED_TEXT; 
 			style = ST_LEFT; 

@@ -131,7 +131,6 @@
 	}foreach _bunker;
 
 
-
 	// we must wait - async return bug of arma
 	sleep 1;
 
