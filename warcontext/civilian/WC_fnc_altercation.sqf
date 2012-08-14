@@ -24,7 +24,6 @@
 	_needpropagander = true;
 	_targets = [];
 
-
 	{
 		if(_x distance _unit < 500) then {
 			_needpropagander = false;
@@ -34,26 +33,17 @@
 
 	if (!_needpropagander) exitWith{};
 
-	diag_log format["WARCONTEXT: BUILD 1 ALTERCATION - fame: %1", wcfame];
-
 	wcpropagander = wcpropagander + [_unit];
+
+	diag_log format["WARCONTEXT: BUILD 1 ALTERCATION - fame: %1", wcfame];
 
 	_check = false;
 	_count = 0;
-	while { !_check} do {
-		if(alive _unit) then {
-			if!((west countSide nearestObjects[_unit,["Man"], 400]) > 0) then {
-				_check = true;
-			} else {
-				_count = _count + 1;
-				if(_count > 60) then {
-					_check = true;
-				};
-			};
-		} else {
+	while { ((!_check) and (alive _unit)) } do {
+		if((west countSide nearestObjects[_unit,["Man"], 200]) > 0) then {
 			_check = true;
 		};
-		sleep 10;
+		sleep 1;
 	};
 
 	if!(alive _unit) exitwith {};
@@ -67,23 +57,42 @@
 	}foreach _men;
 
 	_target = _targets call BIS_fnc_selectRandom;
+	_check = false;
 
-	while { ((alive _target) or ((_target distance _unit) < 400)) } do {
+	//create a crowd arround an alone player
+	while { ((alive _unit) and (alive _target) and ((_target distance _unit) < 400) and !_check) } do {
 		_position = position _target;
-		_men = nearestObjects[_target,["Man"], 30];
-		if(count _men < 10) then {
+		_count = west countside nearestObjects[_target,["Man"], 20];
+
+		// if less than 4 players - crowd
+		if(_count < 4) then {
 			_positions = [_position, 5, 360, getdir _target, 5] call WC_fnc_createcircleposition;
 			_men = nearestObjects[_target,["Man"], 400];
+			_men = _men - [_unit];
 			{
 				if(side _x == civilian) then {
 					if(_x distance _target > 5) then {
-						_x domove (_positions call BIS_fnc_selectRandom);
+						_position = (_positions call BIS_fnc_selectRandom);
+						_x setvariable ["destination", _position, false];
+						_x setvariable ["civilrole", "crowd", false];
+						_x setvariable ["target", _target, false];
+						_x stop false;
+						_x domove _position;
 					} else {
-						dostop _x;
 						_x dowatch _target;
+						sleep 3;
+						_x stop true;
 					};
 				};
 			}foreach _men;
+		} else {
+			_men = nearestObjects[_target,["Man"], 400];
+			_men = _men - [_unit];
+			{
+				if(side _x == civilian) then {
+					_x setvariable ["civilrole", "civil", false];
+				};
+			}foreach _men;
 		};
-		sleep 5;
+		sleep 15;
 	};
