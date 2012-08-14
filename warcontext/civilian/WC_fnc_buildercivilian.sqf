@@ -26,33 +26,17 @@
 
 	if (!_needpropagander) exitWith{};
 
-	// create a new unit not depending of ALICE
-	_position = position _unit;
-	_typeof = typeof _unit;
-	_unit removeAllEventHandlers "killed";
-	_unit setpos [0,0];
-	_unit setdamage 1;
-	deletevehicle _unit;
-
-	_group = creategroup civilian;
-	_unit = _group createUnit [_typeof, [0,0], [], 0, "FORM"];
-	_unit setpos _position;
-
-	diag_log format["WARCONTEXT: BUILD 1 BUILDER - fame: %1", wcfame];
-
 	wcpropagander = wcpropagander + [_unit];
 
-	_unit allowfleeing 0;
+	diag_log format["WARCONTEXT: BUILD 1 BUILDER - fame: %1", wcfame];
 
 	_position = (position _unit) findEmptyPosition [8, 100];
 	if(count _position == 0) then {
 		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CIVILIAN BUILDER";
+	} else {
+		_unit setpos _position;
 	};
 
-	_unit setpos _position;
-
 	while { alive _unit } do {
-
-
 		sleep 1;
 	};
