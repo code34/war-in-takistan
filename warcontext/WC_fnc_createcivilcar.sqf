@@ -52,10 +52,11 @@
 
 					if(random 1> 0.95) then {
 						_car setVectorUp [1, 0, 0];
+						_car setdamage (random 1);
 					};
 
 					if(random 1 > 0.95) then {
-						wcgarbage = [_car] spawn WC_fnc_createied;
+						wcgarbage = [_car] spawn WC_fnc_nastyvehicleevent;
 					};
 					wcvehicles = wcvehicles + [_car];
 					_count = _count + 1;
