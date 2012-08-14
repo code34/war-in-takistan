@@ -9,6 +9,7 @@
 		"_number", 
 		"_civil", 
 		"_civiltype", 
+		"_civilrole",
 		"_group", 
 		"_marker", 
 		"_size", 
@@ -36,7 +37,7 @@
 	_marker = [_name, 500, _position, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
 
 	_active = createTrigger["EmptyDetector", _position];
-	_active setTriggerArea[1000, 1000, 0, false];
+	_active setTriggerArea[wccivildistancepop, wccivildistancepop, 0, false];
 	_active setTriggerActivation["WEST", "PRESENT", TRUE];
 	_active setTriggerStatements["", "", ""];
 
@@ -64,23 +65,33 @@
 	for "_x" from 0 to _number do {
 		_civiltype = wccivilclass call BIS_fnc_selectRandom;
 		_position = _positions call BIS_fnc_selectRandom;
-		_back = _back + [[_civiltype, _position]];
+		if(random 1 < wcterroristprobability) then {
+			_civilrole = ["bomberman","propagander","altercation","saboter","builder","healer"] call BIS_fnc_selectRandom;
+			_civilrole = "propagander";
+		} else {
+			if(random 1 < wcciviliandriverprobability) then {
+				_civilrole = "driver";
+			} else {
+				_civilrole = "civil";
+			};
+		};
+		_back = _back + [[_civiltype, _position, _civilrole]];
 
 	};
 
-	while { _count > 4 } do {
-		if(count _allunits < 1) then {
-			_allunits = units _group;
-		};
-
+	while { true } do {
 		// restore civils
 		if(west countside list _active == 0) then {
 			{
-				_back = _back + [[typeof _x, position _x]];
-				_x removeAllEventHandlers "Killed";
-				_x setdammage 1;
-				deletevehicle _x;
+				if(alive _x) then {
+					_civilrole = _x getvariable "civilrole";
+					_back = _back + [[typeof _x, position _x, _civilrole]];
+					_x removeAllEventHandlers "Killed";
+					_x setdammage 1;
+					deletevehicle _x;
+				};
 			}foreach (units _group);
+			deletegroup _group;
 			waituntil {(west countside list _active > 0)};
 			_group = creategroup civilian;
 			{
@@ -89,54 +100,14 @@
 				_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],-1,false, true];";
 				_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
 				_position = _positions call BIS_fnc_selectRandom;
+				_civil setvariable ["civilrole", (_x select 2), false];
 				_civil setvariable ["destination", _position, false];
 				_civil setvariable ["wcprotected", true, false];
 				wccivilianstoinit = wccivilianstoinit + [_civil];
 			}foreach _back;
+			wcgarbage = [_group] spawn WC_fnc_walkercivilian;
 			processInitCommands;
-			_allunits = units _group;
 			_back = [];
 		};
-
-		_group setCombatMode "RED";
-		_civil = _allunits select 0;
-		_allunits = _allunits - [_civil];
-
-		_civil setspeedmode "limited";
-		_civil setbehaviour "safe";
-		_civil allowFleeing 0;
-
-		if(position _civil distance (_civil getvariable "destination") < 8) then {
-			_position = _positions call BIS_fnc_selectRandom;
-			_civil setvariable ["destination", _position, false];
-			_civil domove _position;
-			_civil setvariable ["moveretry", 0, false];
-		} else {
-			_civil domove (_civil getvariable "destination");
-		};
-
-		if(format["%1", _civil getvariable "lastpos"] == format["%1", position _civil]) then {
-			_civil setvariable ["moveretry", (_civil getvariable "moveretry") + 1, false];
-		};
-
-		_civil setvariable ["lastpos", position _civil, false];
-
-		if(_civil getvariable "moveretry" > 3) then {
-			_position = _positions call BIS_fnc_selectRandom;
-			_civil setvariable ["destination", _position, false];
-			_civil domove _position;
-			_civil setvariable ["moveretry", 0, false];
-		};
-
-		_count = count (nearestObjects [_position, ["House"] , 150]);
 		sleep 5;
 	};
-
-	{
-		_x removeAllEventHandlers "Killed";
-		_x setdammage 1;
-		deletevehicle _x;
-	}foreach (units _group);
-
-	deletevehicle _active;
-

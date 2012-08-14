@@ -186,6 +186,7 @@
 	WC_fnc_popcivilian		= compile preprocessFile "warcontext\civilian\WC_fnc_popcivilian.sqf";
 	WC_fnc_propagand		= compile preprocessFile "warcontext\civilian\WC_fnc_propagand.sqf";
 	WC_fnc_sabotercivilian 		= compile preprocessFile "warcontext\civilian\WC_fnc_sabotercivilian.sqf";
+	WC_fnc_walkercivilian 		= compile preprocessFile "warcontext\civilian\WC_fnc_walkercivilian.sqf";
 
 	// wit missions scripts
 	WC_fnc_bringvehicle		= compile preprocessFile "warcontext\missions\WC_fnc_bringvehicle.sqf";
