@@ -28,7 +28,7 @@
 	// don't edit below init of working variables
 	// -------------------------------------------
 	
-	wccamnvg = 1;
+	wccamnvg = true;
 
 	wccam = objNull;
 

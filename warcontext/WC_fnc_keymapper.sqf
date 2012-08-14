@@ -54,29 +54,9 @@
 
 	if(_dikCode in actionKeys "NightVision") then {
 		if(format["%1", wcanim] != "") then {
-			switch (wccamnvg) do {
-				case 0: {
-					camUseNVG false;
-					false setCamUseTi 0;
-				};
-
-				case 1: {
-					camUseNVG true;
-					false setCamUseTi 0;
-				};
-
-				case 2: {
-					camUseNVG true;
-					true setCamUseTi 2;
-				};
-
-				case 3: {
-					camUseNVG true;
-					true setCamUseTi 7;
-				};
-			};
-			wccamnvg = wccamnvg + 1;
-			if(wccamnvg > 3) then { wccamnvg = 0; };
+			camUseNVG wccamnvg;
+			false setCamUseTi 0;
+			wccamnvg = !wccamnvg;
 		};
 	};
 
