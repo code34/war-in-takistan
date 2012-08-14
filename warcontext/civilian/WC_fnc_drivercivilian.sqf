@@ -16,22 +16,27 @@
 
 	_unit = _this select 0;
 
-	diag_log format["WARCONTEXT: BUILD 1 DRIVER - fame: %1", wcfame];
+	_vehicles = nearestObjects[_unit,["LandVehicle"], 300];
+	if (count _vehicles == 0) exitwith {
+		_unit setvariable ["civilrole", "civil", false];
+	};
 
+	diag_log format["WARCONTEXT: BUILD 1 DRIVER - fame: %1", wcfame];
 	_target = wctownlocations call BIS_fnc_selectRandom;
 
-	while { alive _unit } do {
+	while { ((alive _unit) and !_exit) } do {
 		if(vehicle _unit == _unit) then {
 			_find = false;
 			_vehicles = nearestObjects[_unit,["LandVehicle"], 300];
-			{	
+			{
 				_vehicle = _x;	
 				if((count (crew _vehicle) == 0) and !_find) then {
 					if(getdammage _vehicle < 0.9) then {
 						_find = true;
-						while {(_unit distance _vehicle > 5) and (alive _unit) and (alive _vehicle) and !(locked _vehicle)} do {
-							_unit domove position _vehicle;
-							sleep 10;
+						while {(_unit distance _vehicle > 10) and (alive _unit) and (alive _vehicle) and !(locked _vehicle)} do {
+							_unit domove (position _vehicle);
+							_unit setvariable ["destination', (position _vehicle), false];
+							sleep 20;
 						};
 						if((count (crew _vehicle) == 0) and (alive _unit) and (alive _vehicle) and !(locked _vehicle)) then {
 							_position = position _unit;
@@ -44,26 +49,15 @@
 							_unit = _group createUnit [_typeof, [0,0], [], 0, "FORM"];
 							_vehicle setfuel 1;
 							_vehicle setdamage 0;
+							_unit assignAsDriver _vehicle;
+							_unit ordergetIn true;
 							_unit moveindriver _vehicle;
-							_unit addEventHandler ['HandleDamage', {
-								if!((_this select 0) == (_this select 3)) then {
-									(_this select 0) setdamage (0.5 + (random 0.5));
-								};
-							}];
-							_unit addeventhandler ['killed', {
-								_this spawn WC_fnc_garbagecollector;
-								wcnumberofkilledofmissionC = wcnumberofkilledofmissionC + 1;
-								wcfame = wcfame - 0.01;
-							}];
 						};
 					};
-				};
-		
+				};		
 			}foreach _vehicles;
 		};
 		if(position _unit distance position _target > 150) then {
-			(group _unit) setBehaviour "SAFE";
-			(group _unit) setSpeedMode "FULL";
 			_unit domove position _target;
 			sleep 60;
 		} else {
