@@ -147,8 +147,8 @@
 	// mortar spawn percent probability at begin of mission (defaut 20%)
 	wcmortarprobability = 0.2;
 
-	// civilian terrorist percent (defaut 10%)
-	wcterroristprobability = 0.1;
+	// civilian terrorist percent - depending of lobby parameter (by default 20% hostile)
+	wcterroristprobability = (wccivilianfame / 100);
 
 	// civilian driver percent (defaut 20%)
 	wcciviliandriverprobability = 0.2;

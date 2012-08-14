@@ -920,6 +920,14 @@ class Params
 		default = 5;
 	};
 
+	class wccivilianfame
+	{
+		title = "CIVILIAN FAME";
+		values[] = {0, 10, 20, 40};
+		texts[] = {"PEACEFULL", "FRIENDLY", "HOSTILE", "DESTRUCTIVE"};
+		default = 20;
+	};
+
 	class wcwithcivilcar
 	{
 		title = "MAX CIVIL VEHICLES PER TOWN";
