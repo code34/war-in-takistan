@@ -3,9 +3,9 @@
 
 	WC_fnc_netcode_wcweather = {
 		wcweather = _this select 0;
-		600 setRain (wcweather select 0);
-		600 setfog (wcweather select 1);
-		600 setOvercast (wcweather select 2);
+		100 setRain (wcweather select 0);
+		100 setfog (wcweather select 1);
+		100 setOvercast (wcweather select 2);
 	};
 
 	WC_fnc_netcode_wcdate = {
