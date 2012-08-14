@@ -17,6 +17,7 @@
 
 	switch (_sabotage) do {
 		case "fuel": {
+			_unit setvariable ["typeofsabotage", "fuel", false];
 			_unit setdamage 0.05;
 			while { damage _unit > 0 } do {
 				if(speed _unit > 1) then {
@@ -31,6 +32,7 @@
 		};
 
 		case "explosion": {
+			_unit setvariable ["typeofsabotage", "explosion", false];
 			while { alive _unit } do {
 				if(count (crew _unit) > 2) then {		
 					if(speed _unit > (30 + random 30)) then {
@@ -45,17 +47,20 @@
 			};
 		};
 
-		case "weapon": {	
+		case "weapon": {
+			_unit setvariable ["typeofsabotage", "ammo", false];
 			_unit setVehicleInit "this setVehicleAmmo 0;";
 			processInitCommands;
 		};
 
 		case "sabotage" : {
+			_unit setvariable ["typeofsabotage", "sabotage", false];
 			_unit setVehicleInit "this setdamage 0.95;";
 			processInitCommands;
 		};
 
 		case "ied" : {
+			_unit setvariable ["typeofsabotage", "ied", false];
 			wcgarbage = [_unit] spawn WC_fnc_createied;
 		};
 	};
