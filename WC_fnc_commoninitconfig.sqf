@@ -209,9 +209,12 @@
 	// kind of radio tower
 	wcradiotype = ["TK_WarfareBUAVterminal_EP1"];
 
-	// Radio appear at distance of goal (min & max)
+	// Radio appear at x meter distance of goal (min & max)
 	wcradiodistminofgoal = 150;
 	wcradiodistmaxofgoal = 300;
+
+	// Civils appear at x meter distance of player
+	wccivildistancepop = 1000;
 
 	// kind of generator
 	wcgeneratortype = ["PowerGenerator_EP1"];
