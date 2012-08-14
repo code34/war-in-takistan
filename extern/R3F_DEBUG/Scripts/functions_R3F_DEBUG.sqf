@@ -41,7 +41,9 @@ VAR_R3F_DEBUG_SetVelocity				= CONST_R3F_DEBUG_VELOCITY1;
 VAR_R3F_DEBUG_InfiniteAmmoState				= CONST_R3F_DEBUG_INFINITEAMMO_OFF;
 VAR_R3F_DEBUG_Default_Script				= "";
 
-VAR_R3F_DEBUG_Spy							= [];
+VAR_R3F_DEBUG_Spy	= [
+		"(position player)"
+];
 
 CONST_R3F_DEBUG_OptionNamesAndValues =
 [
