@@ -21,28 +21,26 @@
 	diag_log format["WARCONTEXT: BUILD 1 HEALER - fame: %1", wcfame];
 
 	_needpropagander = true;
-	_side = [east, west, resistance] call BIS_fnc_selectRandom;
 
-	// create a new unit not depending of ALICE
-	_position = position _unit;
-	_typeof = typeof _unit;
-	_unit removeAllEventHandlers "killed";
-	_unit setpos [0,0];
-	_unit setdamage 1;
-	deletevehicle _unit;
+	{
+		if(_x distance _unit < 500) then {
+			_needpropagander = false;
+		};
+		if(isnull _x) then { wcpropagander = wcpropagander - [_x]; };
+	}foreach wcpropagander;
 
-	_group = creategroup civilian;
-	_unit = _group createUnit [_typeof, [0,0], [], 0, "FORM"];
-	_unit setpos _position;
+	if (!_needpropagander) exitWith{};
 
-	_unit allowfleeing 0;
+	wcpropagander = wcpropagander + [_unit];
 
 	_position = (position _unit) findEmptyPosition [8, 100];
 	if(count _position == 0) then {
 		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CIVILIAN HEALER";
+	} else {
+		_unit setpos _position;
 	};
 
-	_unit setpos _position;
+	_side = [east, west, resistance] call BIS_fnc_selectRandom;
 
 	while { alive _unit } do {
 		_men = nearestObjects[_unit,["Man"], 400];
@@ -51,10 +49,12 @@
 				if(getdammage _x > 0.10) then {
 					while { ((position _unit distance position _x > 3) and (position _unit distance position _x < 100) and (alive _unit) and (alive _x)) } do {
 						_unit domove position _x;
+						_unit setvariable ["destination", _position, false];
 						sleep 10;
 					};
 					if ((alive _unit) and (alive _x)) then {
-						_x action ["heal", _unit];
+						_unit action ["heal", _x];
+						_x setdammage 0;
 						sleep 8;
 					};
 				};
