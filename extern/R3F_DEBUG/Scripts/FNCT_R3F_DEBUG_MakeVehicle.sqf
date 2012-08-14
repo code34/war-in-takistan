@@ -30,7 +30,10 @@ FNCT_R3F_DEBUG_MakeVehicle = {
       _class = CONST_R3F_DEBUG_DEFAUT_VEHICLE;
       _pos = getPos player;
    };
+
    _vehicle = _class createVehicle _pos;
+   _vehicle setvehiclevarname "debugvehicle";
+	
    if (not (isNull _vehicle)) then {
       if (not (isNull VAR_R3F_DEBUG_Vehicle)) then {
          deleteVehicle VAR_R3F_DEBUG_Vehicle;
