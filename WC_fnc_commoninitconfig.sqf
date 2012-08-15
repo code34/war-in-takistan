@@ -185,6 +185,9 @@
 
 	// kind of sheep
 	wcsheeps = ["Sheep01_EP1", "Sheep02_EP1"];
+	
+	// kind of ied objects
+	wciedobjects = ["Land_transport_crates_EP1", "Land_Misc_Garb_Heap_EP1", "Land_tires_EP1", "Misc_TyreHeapEP1", "Land_Bag_EP1", "Land_Canister_EP1", "Land_Reservoir_EP1", "Land_Wicker_basket_EP1", "Land_Vase_loam_EP1", "Land_bags_stack_EP1", "Land_bags_EP1"];
 
 	// anti air vehicles
 	wcaavehicles = ["ZU23_TK_GUE_EP1", "Ural_ZU23_TK_GUE_EP1"];

@@ -4,7 +4,7 @@
 	
 	private [
 		"_count", 
-		"_iedobject", 
+		"_iedobjects", 
 		"_iedtype",
 		"_index", 
 		"_max",
@@ -13,20 +13,7 @@
 		"_positions"
 	];
 
-	_iedobject = [
-		"Land_transport_crates_EP1",
-		"Land_Misc_Garb_Heap_EP1",
-		"Land_tires_EP1",
-		"Misc_TyreHeapEP1",
-		"Land_Bag_EP1",
-		"Land_Canister_EP1",
-		"Land_Reservoir_EP1",
-		"Land_Wicker_basket_EP1",
-		"Land_Vase_loam_EP1",
-		"Land_bags_stack_EP1",
-		"Land_bags_EP1"
-	];
-
+	_iedobjects = wciedobjects;
 	_position = _this select 0;
 	_positions = [];
 
@@ -45,16 +32,11 @@
 		if(_count < _max) then {
 			_position = _x findEmptyPosition [1,5];
 			if(count _position > 0) then {
-	
-				if(random 1 > 0.5) then {
-					_iedtype = _iedobject call BIS_fnc_selectRandom;
-					_iedobject = _iedobject - [_iedtype];
-					_object = _iedtype createVehicle _position;
-					_object setpos _position;
-					_object setdir (random 360);
-				} else {
-					_object = (nearestObjects[_position,["AllVehicles", "Thing"], 200]) call BIS_fnc_selectRandom;
-				};
+				_iedtype = _iedobjects call BIS_fnc_selectRandom;
+				_iedobjects = _iedobjects - [_iedtype];
+				_object = _iedtype createVehicle _position;
+				_object setpos _position;
+				_object setdir (random 360);
 				if(random 1 > 0.7) then {
 					_name = format["mrkied%1", wciedindex];
 					wciedindex = wciedindex + 1;
