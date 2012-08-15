@@ -2,7 +2,16 @@
 	// Author:  code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - IED in town 
 	
-	private ["_position", "_iedobject", "_object", "_position", "_iedtype", "_positions", "_count", "_index", "_max"];
+	private [
+		"_count", 
+		"_iedobject", 
+		"_iedtype",
+		"_index", 
+		"_max",
+		"_object", 
+		"_position", 
+		"_positions"
+	];
 
 	_iedobject = [
 		"Land_transport_crates_EP1",
@@ -34,8 +43,6 @@
 
 	{
 		if(_count < _max) then {
-			_name = format["mrkied%1", wciedindex];
-			wciedindex = wciedindex + 1;
 			_position = _x findEmptyPosition [1,5];
 			if(count _position > 0) then {
 	
@@ -46,10 +53,12 @@
 					_object setpos _position;
 					_object setdir (random 360);
 				} else {
-					_object = (nearestObjects[_position,["All"], 200]) call BIS_fnc_selectRandom;
+					_object = (nearestObjects[_position,["AllVehicles", "Thing"], 200]) call BIS_fnc_selectRandom;
 				};
 				if(random 1 > 0.7) then {
-					_marker = [_name, 0.5, _position, 'ColorRed', 'ICON', 'FDIAGONAL', 'dot', 0, '', false] call WC_fnc_createmarkerlocal;
+					_name = format["mrkied%1", wciedindex];
+					wciedindex = wciedindex + 1;
+					_marker = [_name, 0.5, _position, 'ColorRed', 'ICON', 'FDIAGONAL', 'dot', 0, ("IED: "+(typeof _object)), false] call WC_fnc_createmarkerlocal;
 					wcgarbage = [_object] spawn WC_fnc_createied;
 				};
 				wcobjecttodelete = wcobjecttodelete + [_object];
