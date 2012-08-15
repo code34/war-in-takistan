@@ -32,6 +32,7 @@
 			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			diag_log "WARCONTEXT: RADIO TOWER HAS BEEN DESTROYED";
 		};
+		(_this select 2);
 	}];	
 	diag_log format["WARCONTEXT: CREATE A RADIO TOWER: %1", _type];
 
