@@ -17,11 +17,27 @@
 #include "constants_R3F_DEBUG.sqf";
 
 FNCT_R3F_DEBUG_doGodSight ={
-	private ["_unit"];
+	private ["_unit", "_check", "_base", "_temp"];
 	while {VAR_R3F_DEBUG_GodSightState > 0} do {
 		_unit = cursorTarget;
 		if!(isnull _unit) then {
-			hintsilent format["%1 is now identified as varname: wcdebugunit", typeof _unit];
+
+			_check = false;
+			_temp = typeof _unit;
+			_base = [];
+
+			while { !_check } do {
+				_base = _base + [_temp];
+				_temp = configName(inheritsFrom (configFile >> "CfgVehicles" >> _temp));
+				if (_temp == "All") then { _check = true};			
+			};
+
+			_temp = "";
+			{
+				_temp = _x + ">" + _temp;
+			}foreach _base;
+			
+			hintsilent format["%1 is now identified as varname: wcdebugunit", _temp];
 			wcdebugunit = _unit;
 		};
 		sleep 0.2;
