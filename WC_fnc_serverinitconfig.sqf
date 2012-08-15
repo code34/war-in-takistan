@@ -133,7 +133,9 @@
 	// initialise the index composition
 	wccompositionindex = 0;
 
+	// initialise marker index
 	wciedindex = 0;
+	wccivilcarindex = 0;
 	wcnuclearindex = 0;
 	
 	// Patrol wc index marker

@@ -42,6 +42,11 @@
 					_car setpos [(position _car select 0), (position _car select 1), 1];
 					_car setdir _dir;
 
+					_name = format["mrkcivilcar%1", wccivilcarindex];
+					wccivilcarindex = wccivilcarindex + 1;
+					_marker = [_name, 0.5, position _car, 'ColorBlack', 'ICON', 'FDIAGONAL', 'dot', 0, "", false] call WC_fnc_createmarkerlocal;
+					wcambiantmarker = wcambiantmarker + [_marker];
+
 					diag_log format["WARCONTEXT: GENERATE %1 CIVIL CAR", typeof _car];
 
 					// simulation mode
