@@ -1054,6 +1054,19 @@
 			wcbonusfame = 0.1;
 		};
 
+		case 75: {
+			_missiontext = [_missionname,"Escort a medic on battlefield "];
+			_group = createGroup civilian;
+			_unit = _group createUnit ["Dr_Hladik_EP1", getmarkerpos "convoystart", [], 0, "NONE"];
+			_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
+			processinitcommands;
+			_vehicle = createVehicle ["MASH_EP1", _position, [], 0, "NONE"];
+			[_unit, position _vehicle] spawn WC_fnc_bringunit;
+			wcgarbage = [_unit] spawn WC_fnc_createmedic;
+			_missiontype = "bringunit";
+			wcbonusfame = 0;
+		};
+
 		case 100: {
 			_missiontext = [_missionname," Kill the enemy leader"];
 			_vehicle = imam;
@@ -1197,6 +1210,10 @@
 		};
 
 		case "bring" : {
+
+		};
+
+		case "bringunit" : {
 
 		};
 	};

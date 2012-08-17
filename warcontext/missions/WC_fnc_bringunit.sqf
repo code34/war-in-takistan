@@ -10,7 +10,7 @@
 	];
 
 	_unit = _this select 0;
-	_targetpos = position (_this select 1);
+	_targetpos = _this select 1;
 	_missioncomplete = false;
 	
 	while {!_missioncomplete} do {

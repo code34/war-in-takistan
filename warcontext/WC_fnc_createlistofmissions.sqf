@@ -56,7 +56,7 @@
 		};
 	};
 
-	_maxnumberofmission = 75;
+	_maxnumberofmission = 76;
 
 	if(wclevel < 10) then {
 		_countofmission = 1 + ceil(random 10);
@@ -104,6 +104,8 @@
 		} else {
 			_missionnumber = 100;
 		};
+	
+		_missionnumber = 75;
 		_thislist = _thislist + [_missionnumber];
 
 		// defend mission
