@@ -6,10 +6,7 @@
 		"_unit", 
 		"_enemy", 
 		"_startpos", 
-		"_missioncomplete", 
-		"_vehicle", 
-		"_vehicle2", 
-		"_group"
+		"_missioncomplete"
 	];
 
 	_unit = _this select 0;
@@ -39,7 +36,9 @@
 			wcenemyglobalfuel = wcenemyglobalfuel + wcbonusfuel;
 		};
 		if(isplayer (driver _unit)) then {
-			_unit setVehicleInit "this setfuel 1;";
-			processInitCommands;
+			if(fuel _unit < 0.1) then {
+				_unit setVehicleInit "this setfuel 1;";
+				processInitCommands;
+			};
 		};
 	};
