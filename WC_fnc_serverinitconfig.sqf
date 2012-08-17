@@ -137,6 +137,7 @@
 	wciedindex = 0;
 	wccivilcarindex = 0;
 	wcnuclearindex = 0;
+	wcminefieldindex = 0;
 	
 	// Patrol wc index marker
 	wcpatrolindex = 0;

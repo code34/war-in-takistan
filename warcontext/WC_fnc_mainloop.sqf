@@ -245,6 +245,11 @@
 					wcgarbage = [position _x] spawn WC_fnc_createiedintown;
 				};
 			};
+			if(wcwithminefield > 0) then {
+				if(random 1 > 0.9) then {
+					wcgarbage = [position _x] spawn WC_fnc_createminefield;
+				};
+			};
 			sleep 1;
 		}foreach _civillocation;
 

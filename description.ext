@@ -945,6 +945,14 @@ class Params
 		default = 1;
 	};
 
+	class wcwithminefield
+	{
+		title = "MINEFIELD ON ROAD";
+		values[] = {0, 1};
+		texts[] = {"OFF", "ON"};
+		default = 1;
+	};
+
 	class wcwithsheeps
 	{
 		title = "SHEEPS IN HILLS";
