@@ -105,7 +105,6 @@
 			_missionnumber = 100;
 		};
 	
-		_missionnumber = 75;
 		_thislist = _thislist + [_missionnumber];
 
 		// defend mission
