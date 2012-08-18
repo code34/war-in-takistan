@@ -39,10 +39,10 @@ FNCT_R3F_DEBUG_GetMarkerSize = {
 		_size = [0.2, 0.2];
 	} else {
 		if ((vehicle _unit) isKindOf "Land") then {
-			_size = [0.2, 0.4];
+			_size = [0.3, 0.4];
 		} else {
 			if ((vehicle _unit) isKindOf "Air") then {
-				_size = [0.2, 0.4];
+				_size = [0.3, 0.4];
 			} else {
 				if ((vehicle _unit) isKindOf "Ship") then {
 					_size = [0.3, 0.3];
@@ -60,7 +60,7 @@ FNCT_R3F_DEBUG_GetMarkerType = {
 		_type = "hd_arrow";
 	} else {
 		if ((vehicle _unit) isKindOf "Land") then {
-			_type = "mil_arrow";
+			_type = "mil_arrow2";
 		} else {
 			if ((vehicle _unit) isKindOf "Air") then {
 				_type = "mil_arrow2";
@@ -85,7 +85,12 @@ FNCT_R3F_DEBUG_GetMarkerText = {
 		if ((((units _unit) select (count units _unit) - 1) in _array_cargo) && (_driver in (units _unit))) then {
 			_nbr_cargo = 0;
 		};
-		_text =  format ["%1",_nbr_cargo + count (units (vehicle _unit))];
+		if((vehicle _unit) == _unit) then {
+			_text =  format ["%1", (_nbr_cargo + count (units (vehicle _unit)))];
+		} else {
+			_name = getText (configFile >> "CfgVehicles" >> (typeof (vehicle _unit)) >> "DisplayName");
+			_text =  format ["%1: %2 %3", (_nbr_cargo + count (units (vehicle _unit))), _name, (damage (vehicle _unit))] + "%";
+		};
 	};
 	_text;
 };
@@ -157,7 +162,7 @@ FNCT_R3F_DEBUG_SetShowIA = {
 				_mark setMarkerDirLocal (getDir (vehicle _unit));
 			};
 		} foreach _all_units;
-		sleep 1;
+		sleep 0.1;
 		_array_mark = [_array_mark] call FNCT_R3F_DEBUG_CleanArray;
 	};
 	[_array_mark] call FNCT_R3F_DEBUG_CleanAllMarker;
