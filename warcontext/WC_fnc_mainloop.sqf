@@ -512,10 +512,13 @@
 		["wcmissioncount", "client"] call WC_fnc_publicvariable;
 		["wcenemykilled", "client"] call WC_fnc_publicvariable;
 		wcdistance = wcdistance + wcdistancegrowth;
+
 		wcblinde = [];
 		wcunits = [];
 		wcvehicles = [];
 		wcobjecttodelete = [];
+		wcallaaposition = [];
+
 		wcalert = 0;
 		["wcalert", "client"] call WC_fnc_publicvariable;
 		diag_log "WARCONTEXT: SANITING: MISSION IS FINISHED";

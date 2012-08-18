@@ -211,6 +211,9 @@
 	// contains all buildin mission
 	wclistofmissions = [];
 
+	// contains all aa site position
+	wcallaaposition = [];
+
 	// contains all support groups
 	wcsupportgroup = [];
 

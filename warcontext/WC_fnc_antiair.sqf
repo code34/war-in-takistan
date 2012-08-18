@@ -3,6 +3,9 @@
 	// WARCONTEXT - create an antiair site at random position on map
 
 	private [
+		"_check",
+		"_count",
+		"_exit",
 		"_echo",
 		"_position", 
 		"_marker", 
@@ -15,9 +18,36 @@
 
 	_hill = nearestLocations [wcmapcenter, ["hill"], 20000];
 
+	if(count _hill < (wcaalevel + 1)) exitwith {
+		diag_log "WARCONTEXT: Not enough hill on this map to build AA SITE";
+	};
+
 	sleep 1;
 	
-	_position = (position (_hill call BIS_fnc_selectRandom)) findEmptyPosition [2, 20];
+	_check = false;
+	_count = 0;
+	_exit = false;
+
+	while { !_check } do {
+		_check = true;
+		_position = (position (_hill call BIS_fnc_selectRandom)) findEmptyPosition [2, 20];
+
+		{
+			if(_position distance _x < 100) then {
+				_check = false;
+			};
+		}foreach wcallaaposition;
+		_count = _count + 1;
+		if(_count > 10) then {_exit = true; _check = true;}; 
+		sleep 0.1;
+	};
+
+	if(_exit) exitwith { 
+		diag_log "WARCONTEXT: hill are too near on this map to build AA SITE";
+	};
+
+	wcallaaposition = wcallposition + [_position];
+
 	if(count _position == 0) exitwith {
 		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR AA SITE";
 	};
