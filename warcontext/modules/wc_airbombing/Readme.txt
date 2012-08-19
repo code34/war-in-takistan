@@ -1,11 +1,7 @@
-	WARCONTEXT - Readme
-
-	Description: civilian directory
-	Civilian directory contains all the scripts relative to the ai spawning/moving civilians (replace completly alice system)
-
+	WARCONTEXT 
 	Author:  code34 nicolas_boiteux@yahoo.fr
 
-	Copyright (C) 2012 Code34
+	Copyright (C) 2012 Nicolas BOITEUX
 	
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by

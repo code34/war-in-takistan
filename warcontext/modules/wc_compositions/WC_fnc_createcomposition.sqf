@@ -1,6 +1,6 @@
 	// -----------------------------------------------
 	// Author:  code34 nicolas_boiteux@yahoo.fr
-	// warcontext  - create bunker near roads
+	// warcontext  - create composition near road
 	// -----------------------------------------------
 
 	private [

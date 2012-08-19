@@ -4,9 +4,7 @@
 
 	private [
 		"_bucket",
-		"_count",
 		"_destposition",
-		"_distance",
 		"_flag",
 		"_formationtype",
 		"_group", 
@@ -17,13 +15,12 @@
 	];
 
 	_unit = _this select 0;
+	_positon = _this select 1;
+
 	_vehicle = vehicle _unit;
 	_group = group _unit;
 
 	_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
-
-	waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
-	_position = wcselectedzone;
 
 	_position = ["airzone"] call WC_fnc_createpositioninmarker;
 

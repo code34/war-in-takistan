@@ -190,8 +190,8 @@
 	removeBackpack player;
 
 	// load player team preset
-	[] execVM "warcontext\WC_fnc_loadweaponsplayer.sqf";
-	[] execVM "warcontext\WC_fnc_creatediary.sqf";
+	wcgarbage = [] spawn WC_fnc_loadweaponsplayer;
+	wcgarbage = [] spawn WC_fnc_creatediary;
 
 	player addweapon "ITEMGPS";
 	player addweapon "Binocular";

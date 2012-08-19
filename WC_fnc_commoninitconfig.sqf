@@ -214,6 +214,9 @@
 
 	wcchangeclothes = wcchangeclothescivil + wcchangeclotheswest + wcchangeclotheseast;
 
+	// type of plane
+	wcairpatroltype = ["Su39","Su25_TK_EP1", "Mi17_TK_EP1", "Mi24_D_TK_EP1"];
+
 	// kind of radio tower
 	wcradiotype = ["TK_WarfareBUAVterminal_EP1"];
 

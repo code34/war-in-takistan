@@ -56,7 +56,7 @@
 					_position = [0,0,0];
 					if(_enemy distance _unit < 800) then {
 						while { [_position select 0, _position select 1] distance [(position _enemy select 0), (position _enemy select 1)] > 100 } do {
-							_position = [(position _enemy), 100] WC_fnc_createpositionaround;
+							_position = [(position _enemy), 100] call WC_fnc_createpositionaround;
 							_friendlyunits = nearestObjects [_position, ["Man", "LandVehicle"], 50];
 							{
 								if((side _x) in wcenemyside) then {

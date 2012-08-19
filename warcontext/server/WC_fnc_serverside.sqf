@@ -24,7 +24,10 @@
 	};
 
 	if(wcairopposingforce > 0) then {
-		wcgarbage = [] spawn WC_fnc_createairpatrol;
+		[] spawn {
+			waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
+			wcgarbage = [wcselectedzone, wcairpatroltype, wcairopposingforce] spawn WC_fnc_initairpatrol;
+		};
 	};
 
 	if(wcwithseapatrol == 1) then {

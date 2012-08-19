@@ -120,7 +120,10 @@
 
 	if (_motorized) then {
 		if(_vehicle isKindOf "Air") then {
-			wcgarbage = [(driver _vehicle)] spawn WC_fnc_airpatrol;
+			[] spawn {
+				waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
+				wcgarbage = [(driver _vehicle), wcselectedzone] spawn WC_fnc_airpatrol;
+			};
 		} else {
 			// by default, all vehicles are in depot mode :)
 			if(random 1 > 0.05) then {

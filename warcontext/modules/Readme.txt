@@ -1,12 +1,11 @@
 	WARCONTEXT - Readme
 
-	Description: ressources directory
-	contains all the game ressources parsers. 
-	Retrieve games, addons, islands informations through the config files
+	Description: modules directory
+	Contains all modules that should become standalone code 
 
 	Author:  code34 nicolas_boiteux@yahoo.fr
 
-	Copyright (C) 2012 Nicolas BOITEUX
+	Copyright (C) 2012 Code34
 	
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
