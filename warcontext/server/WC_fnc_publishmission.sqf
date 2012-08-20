@@ -1,8 +1,15 @@
 	// -----------------------------------------------
-	// Author: team  code34 nicolas_boiteux@yahoo.fr
+	// Author: code34 nicolas_boiteux@yahoo.fr
+	// Send variables to join players (JIP)
 
 	if (!isServer) exitWith {};
-	private ["_ok", "_name", "_count", "_variables"];
+
+	private [
+		"_count",
+		"_ok",
+		"_name",
+		"_variables"
+	];
 	
 	_name = _this select 1;
 
@@ -11,7 +18,7 @@
 	_ok = true;
 	_count = 0;
 
-	// WAIT THAT PLAYERS IS INITIALIZED
+	// WAIT THAT JIP CLIENT IS INITIALIZED
 	while {_ok} do {
 		if(_name in wcplayerready) then {
 			_ok = false;
