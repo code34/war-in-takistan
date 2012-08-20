@@ -160,6 +160,9 @@
 
 	// player can see marker of others player when they are at max x meters
 	wcplayermarkerdist = 2000;
+
+	// weapons list of ammobox, you can add weapons in this array to add then to main ammobox
+	wclistofweapons = ["M9","M9SD","Makarov","MakarovSD","M16A2","M16A2GL","M4A1","PK","SVD","M136","Javelin","Stinger","RPG7V","Strela","Igla","MetisLauncher","Binocular","Laserdesignator","NVGoggles","Colt1911","ksvk","m107","RPG18","AK_47_M","AK_47_S","AK_74","AK_74_GL","AKS_74_kobra","AKS_74_pso","AKS_74_U","RPK_74","m8_carbine","m8_carbineGL","m8_compact","m8_sharpshooter","m8_SAW","Kostey_photos","Kostey_map_case","Moscow_Bombing_File","Cobalt_File","ItemWatch","ItemCompass","ItemGPS","ItemRadio","ItemMap","EvPhoto","EvMap","EvMoscow","EvKobalt","EvMoney","BAF_AS50_scoped","BAF_AS50_TWS","BAF_LRR_scoped","BAF_LRR_scoped_W","BAF_NLAW_Launcher","BAF_L85A2_RIS_Holo","BAF_L85A2_UGL_Holo","BAF_L85A2_RIS_SUSAT","BAF_L85A2_UGL_SUSAT","BAF_L85A2_RIS_ACOG","BAF_L85A2_UGL_ACOG","BAF_L85A2_RIS_CWS","BAF_L86A2_ACOG","BAF_L110A1_Aim","BAF_L7A2_GPMG","Sa61_EP1","UZI_EP1","UZI_SD_EP1","revolver_EP1","revolver_gold_EP1","glock17_EP1","M60A4_EP1","Mk_48_DES_EP1","M249_EP1","M249_TWS_EP1","M249_m145_EP1","M24_des_EP1","SVD_des_EP1","SVD_NSPU_EP1","Sa58P_EP1","Sa58V_EP1","Sa58V_RCO_EP1","Sa58V_CCO_EP1","M4A3_CCO_EP1","M4A3_RCO_GL_EP1","Binocular_Vector","AK_74_GL_kobra","AKS_74","AKS_74_NSPU","AKS_74_GOSHAWK","FN_FAL","FN_FAL_ANPVS4","G36C_camo","G36_C_SD_camo","G36A_camo","G36K_camo","MG36_camo","M32_EP1","M79_EP1","Mk13_EP1","LeeEnfield","m107_TWS_EP1","M110_TWS_EP1","M110_NVG_EP1","M14_EP1","m240_scoped_EP1","M47Launcher_EP1","MAAWS","SCAR_L_CQC","SCAR_L_CQC_Holo","SCAR_L_STD_Mk4CQT","SCAR_L_STD_EGLM_RCO","SCAR_L_CQC_EGLM_Holo","SCAR_L_STD_EGLM_TWS","SCAR_L_STD_HOLO","SCAR_L_CQC_CCO_SD","SCAR_H_CQC_CCO","SCAR_H_CQC_CCO_SD","SCAR_H_STD_EGLM_Spect","SCAR_H_LNG_Sniper","SCAR_H_LNG_Sniper_SD","SCAR_H_STD_TWS_SD","AA12_PMC","m8_carbine_pmc","m8_compact_pmc","m8_holo_sd","m8_tws_sd","m8_tws"];
 	
 	// Kind of engineer
 	wcengineerclass = ["AFR_Soldier_Engineer", "ACE_USMC_SoldierS_Engineer_D", "HEXA_Soldier_ISAf", "US_Soldier_Engineer_EP1", "BWMod_EngineerG", "BWMod_EngineerG_Desert", "BWMod_EngineerG_ISAF", "US_Soldier_Engineer_EP1_retex_ger_des", "US_Soldier_Engineer_EP1_retex_ger_wdl", "FR_Sykes", "US_Delta_Force_Night_EP1"];
@@ -169,6 +172,9 @@
 
 	// Kind of civils
 	wccivilclass = ["TK_CIV_Takistani01_EP1","TK_CIV_Takistani02_EP1","TK_CIV_Takistani03_EP1","TK_CIV_Takistani04_EP1","TK_CIV_Takistani05_EP1","TK_CIV_Takistani06_EP1","TK_CIV_Worker01_EP1","TK_CIV_Worker02_EP1","TK_CIV_Woman01_EP1","TK_CIV_Woman02_EP1","TK_CIV_Woman03_EP1"];
+
+	// civils without weapons
+	wccivilwithoutweapons = ["TK_CIV_Woman01_EP1", "TK_CIV_Woman02_EP1", "TK_CIV_Woman03_EP1"];
 
 	// blacklist of units that can pop dynamicly (exclude mission)
 	wcblacklistenemyclass = ["TK_Soldier_Crew_EP1", "TK_Aziz_EP1", "TK_Special_Forces_EP1", "TK_Special_Forces_MG_EP1", "TK_Special_Forces_TL_EP1", "TK_Soldier_Pilot_EP1"];
@@ -220,6 +226,9 @@
 	// kind of radio tower
 	wcradiotype = ["TK_WarfareBUAVterminal_EP1"];
 
+	// kind of grave
+	wcgravetype = ["gravecross2_EP1", "GraveCrossHelmet_EP1"];
+
 	// Radio appear at x meter distance of goal (min & max)
 	wcradiodistminofgoal = 150;
 	wcradiodistmaxofgoal = 300;
@@ -234,6 +243,15 @@
 	wcgeneratordistminofgoal = 150;
 	wcgeneratordistmaxofgoal = 300;
 
+	// time in seconds before to garbage dead body
+	wctimetogarbagedeadbody = 360;
+
+	// time in seconds before to respawn vehicle
+	wctimetorespawnvehicle = 360;
+
+	// probability of nuclear attack at begining of a mission - default 25%
+	wcnuclearprobability = 0.85;
+
 	// size of area to detect friendly units leave the zone at end of mission
 	wcleaveareasizeatendofmission = 1000;
 
@@ -247,6 +265,13 @@
 	} else {
 		wcscorelimitmin = -20; 
 		wcscorelimitmax = 25;
+	};
+
+	// threshold of dammage to do, for enemy vehicle explose
+	if(wcwithACE == 1) then {
+		wcdammagethreshold = 0.3;
+	} else {
+		wcdammagethreshold = 0.5;
 	};
 
 	// Goal cam uses color

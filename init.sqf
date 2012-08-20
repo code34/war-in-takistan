@@ -70,9 +70,7 @@
 	// CONFIG FILES
 	//////////////////
 
-	WC_fnc_clientinitconfig 	= compile preprocessFile "WC_fnc_clientinitconfig.sqf";
 	WC_fnc_commoninitconfig 	= compile preprocessFile "WC_fnc_commoninitconfig.sqf";
-	WC_fnc_serverinitconfig 	= compile preprocessFile "WC_fnc_serverinitconfig.sqf";
 
 	// warcontext anim - camera
 	WC_fnc_intro			= compile preprocessFile "warcontext\camera\WC_fnc_intro.sqf";
@@ -285,6 +283,7 @@
 	//////////////
 	// CLIENT SIDE
 	//////////////
+	WC_fnc_clientinitconfig 	= compile preprocessFile "warcontext\client\WC_fnc_clientinitconfig.sqf";
 	WC_fnc_clienthandler		= compile preprocessFile "warcontext\client\WC_fnc_clienthandler.sqf";
 	WC_fnc_clientside		= compile preprocessFile "warcontext\client\WC_fnc_clientside.sqf";
 	
@@ -292,6 +291,7 @@
 	// SERVER SIDE
 	//////////////
 	WC_fnc_publishmission		= compile preprocessFile "warcontext\server\WC_fnc_publishmission.sqf";
+	WC_fnc_serverinitconfig 	= compile preprocessFile "warcontext\server\WC_fnc_serverinitconfig.sqf";
 	WC_fnc_serverhandler 		= compile preprocessFile "warcontext\server\WC_fnc_serverhandler.sqf";
 	WC_fnc_serverside 		= compile preprocessFile "warcontext\server\WC_fnc_serverside.sqf";
 
@@ -322,28 +322,34 @@
 
 	waituntil {!isnil "bis_fnc_init"};
 
-	//
+	/////////////////////////////////////////////////////////////////
 	//	CLIENT SIDE
-	//
+	/////////////////////////////////////////////////////////////////
+
 	if(local player) then { wcgarbage = [] spawn WC_fnc_clientside;};
 
-	//
+	/////////////////////////////////////////////////////////////////
 	//	SERVER SIDE
-	//
+	/////////////////////////////////////////////////////////////////
+
 	if (!isServer) exitWith{};
 
 	diag_log "WARCONTEXT: INITIALIZING MISSION";
 
+	// UPSMON INIT
 	call compile preprocessFileLineNumbers "extern\Init_UPSMON.sqf";
 	
+	///////////////////////////
 	// Init global variables
+	//////////////////////////
+
 	wcgarbage = [] call WC_fnc_serverinitconfig;
+
+	// Init Server SIDE
+	wcgarbage = [] spawn WC_fnc_serverside;
 
 	// Init Debugger
 	wcgarbage = [] spawn WC_fnc_debug;
 
 	// Init Mission - Main loop
 	wcgarbage = [] spawn WC_fnc_mainloop;
-
-	// Init Server SIDE
-	wcgarbage = [] spawn WC_fnc_serverside;
