@@ -15,9 +15,9 @@
 		];
 
 	// Init global variables
-	wcgarbage = [] call WC_fnc_commoninitconfig;
 	wcgarbage = [] call WC_fnc_clientinitconfig;
 
+	// call intro cam
 	wcanim = [] spawn WC_fnc_intro;
 
 	// initialize musics

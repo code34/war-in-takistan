@@ -3,9 +3,18 @@
 	// warcontext 
 	// -----------------------------------------------
 
-	private ["_civillocation"];
-
 	if (!isServer) exitWith{};
+
+	diag_log "WARCONTEXT: INITIALIZING MISSION";
+
+	// Init global variables
+	wcgarbage = [] call WC_fnc_serverinitconfig;
+
+	// UPSMON INIT
+	call compile preprocessFileLineNumbers "extern\Init_UPSMON.sqf";
+
+	// Init Debugger
+	wcgarbage = [] spawn WC_fnc_debug;
 
 	// Grab all WC_fnc_publicvariable events
 	if(isdedicated) then {
@@ -90,16 +99,17 @@
 		sleep 0.01;
 	}foreach _positions;
 
-	[defender1, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender2, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender3, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender4, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender5, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender6, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender7, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender8, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender9, wcenemyside] spawn WC_fnc_sentinelle;
-	[defender10, wcenemyside] spawn WC_fnc_sentinelle;
+	// static weapons at takistan BASE
+	if(tolower(worldname) == "takistan") then {
+		[defender1, wcenemyside] spawn WC_fnc_sentinelle;
+		[defender2, wcenemyside] spawn WC_fnc_sentinelle;
+		[defender3, wcenemyside] spawn WC_fnc_sentinelle;
+		[defender4, wcenemyside] spawn WC_fnc_sentinelle;
+		[defender5, wcenemyside] spawn WC_fnc_sentinelle;
+		[defender6, wcenemyside] spawn WC_fnc_sentinelle;
+		[defender7, wcenemyside] spawn WC_fnc_sentinelle;
+		[defender8, wcenemyside] spawn WC_fnc_sentinelle;
+	};
 
 	{
 		wcgarbage = [_x, 120] spawn WC_fnc_respawnvehicle;
@@ -124,13 +134,15 @@
 	};
 
 
-	_bunker = nearestObjects [getmarkerpos "respawn_west", ["Land_fortified_nest_small_EP1"], 20000];
+	_bunker = nearestObjects [wcmapcenter, ["Land_fortified_nest_small_EP1"], 20000];
 	{
-		_dir = getdir _x;
-		_pos = getpos _x; 
-		_unit = "DSHKM_TK_GUE_EP1" createvehicle _pos; 
-		_unit setpos _pos; 
-		_unit setdir (_dir + 180);
+		if(random 1 < wcstaticinbunkerprobability) then {
+			_dir = getdir _x;
+			_pos = getpos _x; 
+			_unit = "DSHKM_TK_GUE_EP1" createvehicle _pos; 
+			_unit setpos _pos; 
+			_unit setdir (_dir + 180);
+		};
 	}foreach _bunker;
 
 
@@ -227,7 +239,10 @@
 		};
 	};
 
+	/////////////////////////////////////
 	// create radiation on nuclear zone
+	/////////////////////////////////////
+
 	[] spawn {
 		private ["_array"];
 		while { true } do {
@@ -248,7 +263,10 @@
 		};
 	};
 
-	// For open game - all players are team members
+	///////////////////////////////////////////////////////
+	// For open game - insert JIP players in team members
+	///////////////////////////////////////////////////////
+
 	if(wckindofserver != 1) then {
 		[] spawn {
 			private ["_array", "_knownplayer", "_player", "_lastinteam"];
@@ -279,7 +297,10 @@
 		};
 	};
 
+	/////////////////////////////////
 	// synchronize the players rank
+	/////////////////////////////////
+
 	[] spawn {
 		private ["_lastranksync"];
 		_lastranksync = [];
@@ -299,3 +320,9 @@
 
 	onPlayerConnected "[_id, _name] spawn WC_fnc_publishmission";
 	onPlayerDisconnected "wcplayerready = wcplayerready - [_name];";
+
+	////////////////////////////////////
+	// INIT GAME - MAIN LOOP
+	////////////////////////////////////
+
+	wcgarbage = [] spawn WC_fnc_mainloop;

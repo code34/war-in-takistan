@@ -17,13 +17,16 @@
 
 	titleText [localize "STR_WC_MESSAGEINITIALIZING", "BLACK FADED"];
 
+	////////////////////////////////
 	// initialize lobby parameters
+	////////////////////////////////
+
 	for "_i" from 0 to (count paramsArray - 1) do {
 		call compile format["%1=%2;", configName ((missionConfigFile >> "Params") select _i), paramsArray select _i];
 		sleep 0.01;
 	};
 
-	// protection against dummy player that come with ACE when doesn t need
+	// protection against player that come with ACE when doesn t need
 	if(wcwithACE == 1) then {
 		if!(isClass(configFile >> "cfgPatches" >> "ace_main")) then {
 			if(isserver) then {				
@@ -318,38 +321,18 @@
 	//	INITIALIZE NOW
 	//////////////////////////////////////////
 
-	wcgarbage = [] call WC_fnc_commoninitconfig;
-
 	waituntil {!isnil "bis_fnc_init"};
+
+	wcgarbage = [] call WC_fnc_commoninitconfig;
 
 	/////////////////////////////////////////////////////////////////
 	//	CLIENT SIDE
 	/////////////////////////////////////////////////////////////////
 
-	if(local player) then { wcgarbage = [] spawn WC_fnc_clientside;};
+	if (local player) then { wcgarbage = [] spawn WC_fnc_clientside;};
 
 	/////////////////////////////////////////////////////////////////
 	//	SERVER SIDE
 	/////////////////////////////////////////////////////////////////
 
-	if (!isServer) exitWith{};
-
-	diag_log "WARCONTEXT: INITIALIZING MISSION";
-
-	// UPSMON INIT
-	call compile preprocessFileLineNumbers "extern\Init_UPSMON.sqf";
-	
-	///////////////////////////
-	// Init global variables
-	//////////////////////////
-
-	wcgarbage = [] call WC_fnc_serverinitconfig;
-
-	// Init Server SIDE
-	wcgarbage = [] spawn WC_fnc_serverside;
-
-	// Init Debugger
-	wcgarbage = [] spawn WC_fnc_debug;
-
-	// Init Mission - Main loop
-	wcgarbage = [] spawn WC_fnc_mainloop;
+	if (isserver) then { wcgarbage = [] spawn WC_fnc_serverside;};
