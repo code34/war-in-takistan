@@ -252,6 +252,9 @@
 	// probability of nuclear attack at begining of a mission - default 25%
 	wcnuclearprobability = 0.85;
 
+	// probability there is a static weapon in bunker - default 30%
+	wcstaticinbunkerprobability = 0.3;
+
 	// size of area to detect friendly units leave the zone at end of mission
 	wcleaveareasizeatendofmission = 1000;
 
