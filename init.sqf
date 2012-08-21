@@ -125,6 +125,7 @@
 	WC_fnc_loadweaponsplayer	= compile preprocessFile "warcontext\functions\WC_fnc_loadweaponsplayer.sqf";
 	WC_fnc_playerhint		= compile preprocessFile "warcontext\functions\WC_fnc_playerhint.sqf";
 	WC_fnc_sortlocationbydistance	= compile preprocessFile "warcontext\functions\WC_fnc_sortlocationbydistance.sqf";
+	WC_fnc_refreshmarkers		= compile preprocessFile "warcontext\functions\WC_fnc_refreshmarkers.sqf";
 	WC_fnc_relocatelocation		= compile preprocessFile "warcontext\functions\WC_fnc_relocatelocation.sqf";
 	WC_fnc_relocateposition		= compile preprocessFile "warcontext\functions\WC_fnc_relocateposition.sqf";
 	WC_fnc_restorebuilding 		= compile preprocessFile "warcontext\functions\WC_fnc_restorebuilding.sqf";

@@ -149,17 +149,8 @@
 	// we must wait - async return bug of arma
 	sleep 1;
 
-	// refresh public markers
-	[] spawn {
-		while { true } do {
-			{
-				_position = getmarkerpos (_x select 0);
-				(_x select 0) setMarkerPos _position;
-				sleep 0.01;
-			}foreach wcarraymarker;
-			sleep 120;
-		};
-	};
+	// refresh global markers
+	[wcarraymarker, 120] spawn WC_fnc_refreshmarkers;
 
 	// create random nuclear fire
 	if(wcwithnuclear == 1) then {
