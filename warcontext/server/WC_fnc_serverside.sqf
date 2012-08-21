@@ -150,7 +150,7 @@
 	sleep 1;
 
 	// refresh global markers
-	[wcarraymarker, 120] spawn WC_fnc_refreshmarkers;
+	wcgarbage = [120] spawn WC_fnc_refreshmarkers;
 
 	// create random nuclear fire
 	if(wcwithnuclear == 1) then {
@@ -205,54 +205,16 @@
 		};
 	};
 
-	// Manage player score
-	[] spawn {
-		private ["_score", "_player", "_playername", "_point"];
-		if(wckindofserver != 3) then {
-			while { true } do {
-				{
-					_playername = _x select 0;
-					_player = _x select 1;
-					_point = _x select 2;
-					if(score _player < 0) then {
-						_score = (score _player) * -1;
-						_player addscore _score;
-					} else {
-						if(score _player != _point) then {
-							_score = _point - (score _player);
-							_player addscore _score;
-						};
-					};
-					sleep 0.01;
-				}foreach wcscoreboard;
-				sleep 1;
-			};
-		};
+	// Manage player add score
+	if(wckindofserver != 3) then {
+		wcgarbage = [] spawn WC_fnc_playerscore;
 	};
 
 	/////////////////////////////////////
 	// create radiation on nuclear zone
 	/////////////////////////////////////
 
-	[] spawn {
-		private ["_array"];
-		while { true } do {
-			{
-				_array = _x nearEntities [["Man","Landvehicle"], 500];
-				{
-					if(side _x == civilian) then {
-						_x setdamage (getDammage _x +  0.01);
-					} else {
-						_x setdamage (getDammage _x +  0.001);
-					};
-					{_x setdamage  (getDammage _x + 0.001); sleep 0.01;} foreach (crew _x);
-					sleep 0.01;
-				} forEach _array;
-				sleep 0.01;
-			}foreach wcnuclearzone;
-			sleep 1;
-		};
-	};
+	wcgarbage = [] spawn WC_fnc_radiationzone;
 
 	///////////////////////////////////////////////////////
 	// For open game - insert JIP players in team members

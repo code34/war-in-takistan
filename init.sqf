@@ -223,9 +223,11 @@
 	WC_fnc_createnuclearfire 	= compile preprocessFile "warcontext\modules\wc_nuke\WC_fnc_createnuclearfire.sqf";
 	WC_fnc_createnuclearzone 	= compile preprocessFile "warcontext\modules\wc_nuke\WC_fnc_createnuclearzone.sqf";	
 	WC_fnc_nuclearnuke		= compile preprocessFile "warcontext\modules\wc_nuke\WC_fnc_nuclearnuke.sqf";
+	WC_fnc_radiationzone		= compile preprocessFile "warcontext\modules\wc_nuke\WC_fnc_radiationzone.sqf";
 
 	// RANKING
 	WC_fnc_playerranking		= compile preprocessFile "warcontext\modules\wc_ranking\WC_fnc_playerranking.sqf";
+	WC_fnc_playerscore		= compile preprocessFile "warcontext\modules\wc_ranking\WC_fnc_playerscore.sqf";
 
 	// RESPAWNABLE VEHICLE
 	WC_fnc_respawnvehicle		= compile preprocessFile "warcontext\modules\wc_respawnvehicle\WC_fnc_respawnvehicle.sqf";
