@@ -28,7 +28,8 @@
 		"_thislist",
 		"_thisblacklist",
 		"_counter",
-		"_maxnumberofmission"
+		"_maxnumberofmission",
+		"_year"
 	];
 
 	_thislist = [];
@@ -150,6 +151,7 @@
 			};
 		};
 
+		_year = (date select 0);
 		_month = (date select 1);
 		_day = (date select 2);
 		_hour = floor(random 23);
@@ -165,9 +167,9 @@
 		} else {
 			_day = (date select 2);
 		};
-		_time = [2011, _month, _day, _hour, _minute];
+		_time = [_year, _month, _day, _hour, _minute];
 
-		_rain = random 0.65;
+		_rain = random wcrainrate;
 		if((_hour > 3) and (_hour <5)) then {
 			_fog = 0.7 + random (0.3);
 		} else {
