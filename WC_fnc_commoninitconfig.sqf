@@ -314,6 +314,28 @@
 		wcskill = wcskill + (wclevel * 0.02);
 	};
 
+	// maximun number of groups in town (depending of wcopposingforce lobby parameter)
+	switch (wcopposingforce) do {
+		case 1: {
+			wclevelmaxincity = 2;
+		};
+
+		case 2: {
+			wclevelmaxincity = 4;
+		};
+		
+		case 3: {
+			wclevelmaxincity = 6;
+		};
+
+		case 4: {
+			wclevelmaxincity = 8;
+		};
+
+		case 5: {
+			wclevelmaxincity = 10;
+		};
+	};
 
 	// number of enemy killed
 	wcenemykilled = 0;

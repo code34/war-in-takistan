@@ -1,7 +1,6 @@
 	// -----------------------------------------------
 	// Author: team  code34 nicolas_boiteux@yahoo.fr
-	// WARCONTEXT - Description: compute all missions
-	// locality: server side
+	// WARCONTEXT - Description: compute list of missions of operation plan
 
 	if (!isServer) exitWith{};
 
@@ -33,28 +32,6 @@
 	];
 
 	_thislist = [];
-
-	switch (wcopposingforce) do {
-		case 1: {
-			wclevelmaxincity = 2;
-		};
-
-		case 2: {
-			wclevelmaxincity = 4;
-		};
-		
-		case 3: {
-			wclevelmaxincity = 6;
-		};
-
-		case 4: {
-			wclevelmaxincity = 8;
-		};
-
-		case 5: {
-			wclevelmaxincity = 10;
-		};
-	};
 
 	_maxnumberofmission = 76;
 
