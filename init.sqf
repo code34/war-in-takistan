@@ -122,6 +122,7 @@
 	WC_fnc_markerhint		= compile preprocessFile "warcontext\functions\WC_fnc_markerhint.sqf";
 	WC_fnc_markerhintlocal		= compile preprocessFile "warcontext\functions\WC_fnc_markerhintlocal.sqf";
 	WC_fnc_missionname	 	= compile preprocessFile "warcontext\functions\WC_fnc_missionname.sqf";
+	WC_fnc_newdate		 	= compile preprocessFile "warcontext\functions\WC_fnc_newdate.sqf";
 	WC_fnc_loadweaponsplayer	= compile preprocessFile "warcontext\functions\WC_fnc_loadweaponsplayer.sqf";
 	WC_fnc_playerhint		= compile preprocessFile "warcontext\functions\WC_fnc_playerhint.sqf";
 	WC_fnc_sortlocationbydistance	= compile preprocessFile "warcontext\functions\WC_fnc_sortlocationbydistance.sqf";
