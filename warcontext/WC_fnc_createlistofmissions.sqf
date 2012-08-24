@@ -151,23 +151,8 @@
 			};
 		};
 
-		_year = (date select 0);
-		_month = (date select 1);
-		_day = (date select 2);
-		_hour = floor(random 23);
-		_minute = floor(random 59);
-
-		if(_hour < (date select 3)) then { 
-			if(_day < 31) then {
-				_day = (date select 2) + 1;
-			} else {
-				_day = 1;
-				_month = _month + 1;
-			};
-		} else {
-			_day = (date select 2);
-		};
-		_time = [_year, _month, _day, _hour, _minute];
+		// generate the mission date
+		_time = [] call WC_fnc_newdate;
 
 		_rain = random wcrainrate;
 		if((_hour > 3) and (_hour <5)) then {
@@ -189,8 +174,10 @@
 
 	if(wckindofserver != 3) then {
 		if(wcwithhq == 1) then {
+			// players choose the mission
 			["wclistofmissions", "client"] call WC_fnc_publicvariable;
 		} else {
+			// random mission pick
 			wccurrentmission = wclistofmissions call BIS_fnc_selectRandom;
 		};
 	} else {
