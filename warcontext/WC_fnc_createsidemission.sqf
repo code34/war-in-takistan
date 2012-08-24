@@ -1089,8 +1089,12 @@
 		};
 	};
 
+	_minute = [format["%1", (date select 4)]] call WC_fnc_feelwithzero;
+	_hour = [format["%1", (date select 3)]] call WC_fnc_feelwithzero;
+	_day = [format["%1", (date select 2)]] call WC_fnc_feelwithzero;
+	_month = [format["%1", (date select 1)]] call WC_fnc_feelwithzero;
 
-	_date = format["%1", (date select 3)] + ":" + format["%1", (date select 4)] + " " + format["%1", (date select 2)] + "/" + format["%1", (date select 1)] + "/" + format["%1", (date select 0)];
+	_date = _hour + ":" + _minute + " " + _day  + "/" + _month + "/" + format["%1", (date select 0)];
 	_missiontext = [_date]  + _missiontext;
 
 	diag_log format ["WARCONTEXT: MISSION:%1 TYPE:%2 DESCRIPTION: %3", _missionnumber, _missiontype, _missiontext];
