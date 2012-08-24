@@ -3,7 +3,9 @@
 	// warcontext - call halo jump 
 	// -----------------------------------------------
 
-	private ["_position"];
+	private [
+		"_position"
+	];
 
 	_position = position player;
 
@@ -11,13 +13,15 @@
 
 	openMap [true, false];
 
-	onMapSingleClick "player setpos _pos; [player, 1000] spawn bis_fnc_halo; onMapSingleClick'';";
+	onMapSingleClick "titleText ['','BLACK IN', 10]; player setpos _pos; onMapSingleClick''; openMap [false, false];";
 
 	while { (visibleMap) } do {
-		sleep 1;
+		sleep 0.5;
 	};
 
 	if(format["%1", _position] == format ["%1", position player]) then {
 		onMapSingleClick'';
 		[localize "STR_WC_MENUHALOJUMP", localize "STR_WC_MESSAGEHALOJUMPNEWONE", localize "STR_WC_MESSAGECANCELHALOJUMPINFORMATION", 10] spawn WC_fnc_playerhint;
+	} else {
+		[] spawn WC_fnc_altimeter;
 	};

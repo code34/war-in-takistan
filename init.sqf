@@ -99,6 +99,7 @@
 	// GLOBAL FUNCTIONS
 	////////////////////
 
+	WC_fnc_altimeter	 	= compile preprocessFile "warcontext\functions\WC_fnc_altimeter.sqf";
 	WC_fnc_attachmarker 		= compile preprocessFile "warcontext\functions\WC_fnc_attachmarker.sqf";
 	WC_fnc_attachmarkerlocal	= compile preprocessFile "warcontext\functions\WC_fnc_attachmarkerlocal.sqf";
 	WC_fnc_attachmarkerinzone	= compile preprocessFile "warcontext\functions\WC_fnc_attachmarkerinzone.sqf";
