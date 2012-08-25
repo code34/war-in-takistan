@@ -54,33 +54,45 @@
 
 
 	// create mortuary
-	wcgarbage = [] spawn WC_fnc_createmortuary;
+	wcgarbage = [(getmarkerpos "mortuary")] spawn WC_fnc_createmortuary;
 
-	// put light around chopper landing zone
-	if!(isnull tower2) then {
-		_positions = [position tower2, 7, 360, getdir tower2, 7] call WC_fnc_createcircleposition;
-		{
-			_light = "Land_runway_edgelight" createVehicle _x;
-			_light setpos _x;
-			_light setVehicleInit "this allowdammage false;";
-			processInitCommands;
-			sleep 0.01;
-		}foreach _positions;
-	};
-
-	if!(isnull tower3) then {	
-		_positions = [position tower3, 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
-		{
-			_light = "Land_runway_edgelight" createVehicle _x;
-			_light setpos _x;
-			_light setVehicleInit "this allowdammage false;";
-			processInitCommands;
-			sleep 0.01;
-		}foreach _positions;
-	};
+	// TAKISTAN BASE INIT
+	[] spawn {
+		// put light around chopper landing zone
+		if!(isnull tower2) then {
+			_positions = [position tower2, 7, 360, getdir tower2, 7] call WC_fnc_createcircleposition;
+			{
+				_light = "Land_runway_edgelight" createVehicle _x;
+				_light setpos _x;
+				_light setVehicleInit "this allowdammage false;";
+				processInitCommands;
+				sleep 0.01;
+			}foreach _positions;
+		};
 	
-	if!(isnull tower4) then {
-		_positions = [position tower4, 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
+		if!(isnull tower3) then {	
+			_positions = [position tower3, 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
+			{
+				_light = "Land_runway_edgelight" createVehicle _x;
+				_light setpos _x;
+				_light setVehicleInit "this allowdammage false;";
+				processInitCommands;
+				sleep 0.01;
+			}foreach _positions;
+		};
+		
+		if!(isnull tower4) then {
+			_positions = [position tower4, 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
+			{
+				_light = "Land_runway_edgelight" createVehicle _x;
+				_light setpos _x;
+				_light setVehicleInit "this allowdammage false;";
+				processInitCommands;
+				sleep 0.01;
+			}foreach _positions;
+		};
+	
+		_positions = [getmarkerpos "repair", 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
 		{
 			_light = "Land_runway_edgelight" createVehicle _x;
 			_light setpos _x;
@@ -88,27 +100,18 @@
 			processInitCommands;
 			sleep 0.01;
 		}foreach _positions;
-	};
-
-	_positions = [getmarkerpos "repair", 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
-	{
-		_light = "Land_runway_edgelight" createVehicle _x;
-		_light setpos _x;
-		_light setVehicleInit "this allowdammage false;";
-		processInitCommands;
-		sleep 0.01;
-	}foreach _positions;
-
-	// static weapons at takistan BASE
-	if(tolower(worldname) == "takistan") then {
-		[defender1, wcenemyside] spawn WC_fnc_sentinelle;
-		[defender2, wcenemyside] spawn WC_fnc_sentinelle;
-		[defender3, wcenemyside] spawn WC_fnc_sentinelle;
-		[defender4, wcenemyside] spawn WC_fnc_sentinelle;
-		[defender5, wcenemyside] spawn WC_fnc_sentinelle;
-		[defender6, wcenemyside] spawn WC_fnc_sentinelle;
-		[defender7, wcenemyside] spawn WC_fnc_sentinelle;
-		[defender8, wcenemyside] spawn WC_fnc_sentinelle;
+	
+		// static weapons at takistan BASE
+		if(tolower(worldname) == "takistan") then {
+			[defender1, wcenemyside] spawn WC_fnc_sentinelle;
+			[defender2, wcenemyside] spawn WC_fnc_sentinelle;
+			[defender3, wcenemyside] spawn WC_fnc_sentinelle;
+			[defender4, wcenemyside] spawn WC_fnc_sentinelle;
+			[defender5, wcenemyside] spawn WC_fnc_sentinelle;
+			[defender6, wcenemyside] spawn WC_fnc_sentinelle;
+			[defender7, wcenemyside] spawn WC_fnc_sentinelle;
+			[defender8, wcenemyside] spawn WC_fnc_sentinelle;
+		};
 	};
 
 	{
@@ -134,16 +137,18 @@
 	};
 
 
-	_bunker = nearestObjects [wcmapcenter, ["Land_fortified_nest_small_EP1"], 20000];
-	{
-		if(random 1 < wcstaticinbunkerprobability) then {
-			_dir = getdir _x;
-			_pos = getpos _x; 
-			_unit = "DSHKM_TK_GUE_EP1" createvehicle _pos; 
-			_unit setpos _pos; 
-			_unit setdir (_dir + 180);
-		};
-	}foreach _bunker;
+	[] spawn {
+		_bunker = nearestObjects [wcmapcenter, ["Land_fortified_nest_small_EP1"], 20000];
+		{
+			if(random 1 < wcstaticinbunkerprobability) then {
+				_dir = getdir _x;
+				_pos = getpos _x; 
+				_unit = "DSHKM_TK_GUE_EP1" createvehicle _pos; 
+				_unit setpos _pos; 
+				_unit setdir (_dir + 180);
+			};
+		}foreach _bunker;
+	};
 
 
 	// we must wait - async return bug of arma

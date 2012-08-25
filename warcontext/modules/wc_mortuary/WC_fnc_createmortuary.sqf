@@ -10,7 +10,8 @@
 		"_ytodo"
 	];
 
-	_position = getmarkerpos "mortuary";
+	_position = _this select 0;
+
 	_ytodo = wcnumberofkilled / 10;
 	_xstart = (_position select 0) - (5 * 5);
 	_ystart = (_position select 1) - ((_ytodo /2) * 5);
