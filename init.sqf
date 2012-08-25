@@ -140,7 +140,7 @@
 	////////////////////////////////
 
 	// ALTIMETER	
-	WC_fnc_altimeter	 	= compile preprocessFile "warcontext\functions\WC_fnc_altimeter.sqf";
+	WC_fnc_altimeter	 	= compile preprocessFile "warcontext\modules\wc_altimeter\WC_fnc_altimeter.sqf";
 
 	// AIR BOMBING
 	WC_fnc_bomb			= compile preprocessFile "warcontext\modules\wc_airbombing\WC_fnc_bomb.sqf";
