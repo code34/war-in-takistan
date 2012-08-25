@@ -23,5 +23,5 @@
 		onMapSingleClick'';
 		[localize "STR_WC_MENUHALOJUMP", localize "STR_WC_MESSAGEHALOJUMPNEWONE", localize "STR_WC_MESSAGECANCELHALOJUMPINFORMATION", 10] spawn WC_fnc_playerhint;
 	} else {
-		[] spawn WC_fnc_altimeter;
+		[player] spawn WC_fnc_altimeter;
 	};
