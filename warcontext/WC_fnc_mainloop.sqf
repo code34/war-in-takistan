@@ -25,7 +25,6 @@
 		"_active",
 		"_numberofplayers",
 		"_locationsneartarget",
-		"_civillocation",
 		"_vehicle",
 		"_numberofgroup",
 		"_numberofvehicle",
@@ -153,6 +152,15 @@
 
 		diag_log format ["WARCONTEXT: COMPUTING LOCATION %1", text _location];
 
+		// SEND MISSION TEXT TO PLAYER
+		if(isnil text _location) then {
+			_city = nearestLocation [position _location, "NameCity"];
+			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGENEAR", text _city], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
+		} else {
+			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGEGOTO", text _location], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
+		};
+		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW","client"] call WC_fnc_publicvariable;};
+
 		_marker = ['rescuezone', wcdistance, _position, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarker;
 
 		if(wcairopposingforce > 0) then {
@@ -171,7 +179,7 @@
 			wcgarbage = [_marker] spawn WC_fnc_mortar;
 		};
 
-		// build an antiair
+		// CREATE ANTI AIR
 		if(wcwithantiairsite > 0) then {
 			for "_x" from 0 to ceil (random (wcaalevel - 1)) step 1 do {
 				wcgarbage = [] spawn WC_fnc_antiair;
@@ -197,48 +205,36 @@
 			sleep 2;
 		};
 
-		// SEND MISSION TEXT TO PLAYER
-		if(isnil text _location) then {
-			_city = nearestLocation [position _location, "NameCity"];
-			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGENEAR", text _city], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
-		} else {
-			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGEGOTO", text _location], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
-		};
-		if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW","client"] call WC_fnc_publicvariable;};
-
-		//wait for all initialisation
-		sleep 10;
-
 		// CREATE SIDE MISSION
 		wcgarbage = [_missionnumber, _name] spawn WC_fnc_createsidemission;
 
 		// CREATE ENEMIES ON OTHER ZONE NEAR SIDE MISSION
 		wcgarbage = [_location] spawn WC_fnc_ambiantlife;
+
+		// CREATE REINFORCMENT GROUPS
 		if(wcreinforcmentlevel > 0) then { 
 			wcgarbage = [_location, _marker] spawn WC_fnc_support;
 		};
 
+		// CREATE ENEMIES BASE AROUND
 		if(wcwithcomposition == 1) then {
 			wcgarbage = [_location] spawn WC_fnc_createcomposition;
 		};
 
+		// CREATE STATIC WEAPONS IN BUILDING
 		if(wcwithstaticweapons == 1) then {
 			wcgarbage = [_position] spawn WC_fnc_createstatic;
 		};
 
-		// Create ied in towns
-		if(wcwithied > 0) then {
-			if(random 1 > 0.9) then {
-				wcgarbage = [_position] spawn WC_fnc_createiedintown;
-			};
+		// CREATE MHQ NEAR MISSION ZONE
+		if(wcwithmhq == 1) then {
+			wcgarbage = [_position] spawn WC_fnc_createmhq;
 		};
 
-		// create civils car
-		_civillocation = nearestLocations [_position, ["NameCityCapital", "NameCity","NameVillage", "Name"], 8000];
-		sleep 2;
+		// CREATE LOGICS
 		{	
 			if(wcwithcivilcar > 0) then {
-				wcgarbage = [_x] spawn WC_fnc_createcivilcar;
+				wcgarbage = [position _x] spawn WC_fnc_createcivilcar;
 			};
 			if(wcwithied > 0) then {
 				if(random 1 > 0.9) then {
@@ -251,11 +247,7 @@
 				};
 			};
 			sleep 1;
-		}foreach _civillocation;
-
-		if(wcwithmhq == 1) then {
-			wcgarbage = [_position] spawn WC_fnc_createmhq;
-		};
+		}foreach wctownlocations;
 
 		// Wait until the end of Mission - use while instead of waituntil - performance leak
 		while { !wcmissionsuccess } do { sleep 1; };

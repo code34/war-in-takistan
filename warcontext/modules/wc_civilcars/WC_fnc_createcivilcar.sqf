@@ -5,16 +5,17 @@
 
 	private [
 		"_car", 
-		"_count", 
-		"_location", 
+		"_dir",
+		"_marker",
+		"_name",
 		"_max",
 		"_pos",
 		"_position", 
+		"_road",
 		"_roads"
 		];
 
-	_location = _this select 0;
-	_position = [_location] call WC_fnc_relocatelocation;	
+	_position = _this select 0;
 
 	WC_fnc_PDB = {
 		_pos = _this select 0;
@@ -30,42 +31,36 @@
 		};
 	}forEach _roads;
 
-	_max = random wcwithcivilcar;
-	_count = 0;
-	{
-		if(_count < _max) then {
-			if(position _x distance getmarkerpos "respawn_west" > 1000) then {
-				if(random 1 > 0.9) then {
-					_dir = getdir _x;
-					_pos = [getpos _x, _dir + 90, ceil(random 3)] call WC_fnc_PDB;
-					_car = (wcvehicleslistC call BIS_fnc_selectRandom) createvehicle _pos;
-					_car setpos [(position _car select 0), (position _car select 1), 1];
-					_car setdir _dir;
+	if(count _roads == 0) exitwith {diag_log "WARCONTEXT: no roads in this village to build civil car"; };
 
-					_name = format["mrkcivilcar%1", wccivilcarindex];
-					wccivilcarindex = wccivilcarindex + 1;
-					_marker = [_name, 0.5, position _car, 'ColorBlack', 'ICON', 'FDIAGONAL', 'dot', 0, "", false] call WC_fnc_createmarkerlocal;
-					wcambiantmarker = wcambiantmarker + [_marker];
+	_max = round (random wcwithcivilcar);
 
-					diag_log format["WARCONTEXT: GENERATE %1 CIVIL CAR", typeof _car];
+	for "_x" from 1 to _max step 1 do {
+		_road = (_roads call BIS_fnc_selectRandom);
+		_dir = getdir _road;
+		_pos = [getpos _road, _dir + 90, ceil(random 3)] call WC_fnc_PDB;
+		_car = (wcvehicleslistC call BIS_fnc_selectRandom) createvehicle _pos;
+		_car setpos [(position _car select 0), (position _car select 1), 1];
+		_car setdir _dir;
 
-					// simulation mode
-					if(wckindofgame == 2) then {
-						_car setfuel (random 1);
-						_car setdamage (random 1);
-					};
+		_name = format["mrkcivilcar%1", wccivilcarindex];
+		wccivilcarindex = wccivilcarindex + 1;
+		_marker = [_name, 0.5, position _car, 'ColorBlack', 'ICON', 'FDIAGONAL', 'dot', 0, "", false] call WC_fnc_createmarkerlocal;
+		wcambiantmarker = wcambiantmarker + [_marker];
+		diag_log format["WARCONTEXT: GENERATE %1 CIVIL CAR", typeof _car];
 
-					if(random 1> 0.95) then {
-						_car setVectorUp [1, 0, 0];
-						_car setdamage (random 1);
-					};
-
-					if(random 1 > 0.95) then {
-						wcgarbage = [_car] spawn WC_fnc_nastyvehicleevent;
-					};
-					wcvehicles = wcvehicles + [_car];
-					_count = _count + 1;
-				};
-			};
+		// simulation mode
+		if(wckindofgame == 2) then {
+			_car setfuel (random 1);
+			_car setdamage (random 1);
 		};
-	}foreach _roads;
+
+		if(random 1> 0.95) then {
+			_car setVectorUp [1, 0, 0];
+			_car setdamage (random 1);
+		};
+		if(random 1 > 0.95) then {
+			wcgarbage = [_car] spawn WC_fnc_nastyvehicleevent;
+		};
+		wcvehicles = wcvehicles + [_car];
+	};

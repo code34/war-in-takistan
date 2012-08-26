@@ -51,6 +51,7 @@
 
 		if((wcalert > 50) || (count (units _group) < _originalsize)) then {
 			_group setBehaviour "AWARE";
+			_group setCombatMode "RED";
 			_cibles = [];
 			_list = (position _unit) nearEntities [["Man"], 300];
 			{
@@ -103,6 +104,8 @@
 			};
 		} else {
 			_group setBehaviour "SAFE";
+			_group setCombatMode "GREEN";
+
 			_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
 			_position = [_marker, "onground"] call WC_fnc_createpositioninmarker;
 	
@@ -115,7 +118,7 @@
 			(group _unit) setCurrentWaypoint [group _unit, 0];
 			while { (([(position _unit) select 0, (position _unit) select 1] distance [_position select 0, _position select 1] > 20) and (wcalert < 50) and !(_move) and (count (units _group) == _originalsize)) } do {
 				_lastposition = position _unit;
-				sleep 2;
+				sleep 60;
 				if(format["%1", _lastposition] == format["%1", position _unit]) then {
 					_move = _true;
 				};
