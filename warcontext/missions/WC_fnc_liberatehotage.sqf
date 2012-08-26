@@ -55,14 +55,11 @@
 	_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), position _unit, [], 1, "NONE"];
 	_vehicle2 = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), position _unit, [], 8, "NONE"];
 
-
 	_vehicle allowdammage false;
 	_vehicle2 allowdammage false;
 
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
-
-	wcgarbage = [_vehicle] spawn WC_fnc_patrol;
-	wcgarbage = [_vehicle2] spawn WC_fnc_patrol;
+	wcgarbage = [_group, 100] spawn WC_fnc_patrol;
 
 	wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 	wcgarbage = [_vehicle2] spawn WC_fnc_dosillything;

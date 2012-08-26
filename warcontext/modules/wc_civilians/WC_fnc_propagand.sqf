@@ -126,5 +126,5 @@
 
 		_men joinSilent _group;
 		wcgarbage = [_group] spawn WC_fnc_grouphandler;
-		wcgarbage = [(leader _group)] spawn WC_fnc_patrol;
+		wcgarbage = [_group, 300] spawn WC_fnc_patrol;
 	};

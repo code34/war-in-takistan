@@ -1082,7 +1082,7 @@
 			_vehicle setpos _position;
 			_vehicle setvehicleinit "this allowdammage true;";
 			processInitCommands;
-			wcgarbage = [_vehicle] spawn WC_fnc_patrol;
+			wcgarbage = [(group _vehicle), 300] spawn WC_fnc_patrol;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 			_missiontype = "eliminate";
 			wcbonusfame = 0;

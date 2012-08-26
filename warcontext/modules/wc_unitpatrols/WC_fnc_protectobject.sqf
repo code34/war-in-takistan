@@ -25,12 +25,12 @@
 		if(count _position == 0) then {
 			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR PROTECT OBJECT PATROL";
 		} else {
-			_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
-			wcgarbage = [_vehicle] spawn WC_fnc_patrol;
-			wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
+			_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), _position, [], 5, "NONE"];
+			//wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 		};
 	};
 
+	wcgarbage = [_group, 100] spawn WC_fnc_patrol;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
 
 	diag_log format ["WARCONTEXT: COMPUTING A SPECIAL FORCE GROUP OF %1 UNITS FOR PROTECT GOAL", _sizeofgroup];

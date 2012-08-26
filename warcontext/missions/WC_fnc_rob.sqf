@@ -27,10 +27,8 @@
 	_vehicle allowdammage false;
 	_vehicle2 allowdammage false;
 
+	wcgarbage = [_group, 100] spawn WC_fnc_patrol;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
-
-	wcgarbage = [_vehicle] spawn WC_fnc_patrol;
-	wcgarbage = [_vehicle2] spawn WC_fnc_patrol;
 
 	wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 	wcgarbage = [_vehicle2] spawn WC_fnc_dosillything;
