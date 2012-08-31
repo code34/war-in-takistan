@@ -6,6 +6,7 @@
 	// DEVELOPPER - MAP 
 	//
 	// warcontext\ contains main scripts
+	// warcontext\others contains all mission.sqm for other map than takistan. 
 	// warcontext\client\ contains the client side logic
 	// warcontext\server\ contains the server side logic
 	// warcontext\modules\ contains all standalone logics
