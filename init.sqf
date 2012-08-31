@@ -201,7 +201,6 @@
 	// IED
 	WC_fnc_createied 		= compile preprocessFile "warcontext\modules\wc_ied\WC_fnc_createied.sqf";
 	WC_fnc_createiedintown 		= compile preprocessFile "warcontext\modules\wc_ied\WC_fnc_createiedintown.sqf";
-	WC_fnc_disarmied		= compile preprocessFile "warcontext\modules\wc_ied\WC_fnc_disarmied.sqf";
 	WC_fnc_ieddetector		= compile preprocessFile "warcontext\modules\wc_ied\WC_fnc_ieddetector.sqf";
 
 	// KEYMAPPER
