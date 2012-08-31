@@ -13,15 +13,21 @@
 
 	openMap [true, false];
 
-	onMapSingleClick "titleText ['','BLACK IN', 10]; player setpos _pos; onMapSingleClick''; openMap [false, false];";
+	wchalojumppos = [];
+
+	onMapSingleClick "titleText ['','BLACK IN', 10]; wchalojumppos = _pos; onMapSingleClick''; openMap [false, false];";
 
 	while { (visibleMap) } do {
 		sleep 0.5;
 	};
 
-	if(format["%1", _position] == format ["%1", position player]) then {
+	if(count wchalojumppos == 0) then {
 		onMapSingleClick'';
 		[localize "STR_WC_MENUHALOJUMP", localize "STR_WC_MESSAGEHALOJUMPNEWONE", localize "STR_WC_MESSAGECANCELHALOJUMPINFORMATION", 10] spawn WC_fnc_playerhint;
 	} else {
+
+		player setpos [(wchalojumppos select 0), (wchalojumppos select 1), 1000];
+		player switchmove "HaloFreeFall_non";
+		[player, 1000] spawn bis_fnc_halo;
 		[player] spawn WC_fnc_altimeter;
 	};
