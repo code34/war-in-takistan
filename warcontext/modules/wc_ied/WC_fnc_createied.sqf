@@ -18,7 +18,7 @@
 	_missioncomplete = false;
 	_enemys = [];
 
-	_object setVehicleInit "this addAction ['<t color=''#ff4500''>Disarm IED</t>', 'warcontext\WC_fnc_disarmied.sqf',[],-1,false];";
+	_object setVehicleInit "this addAction ['<t color=''#ff4500''>Disarm IED</t>', 'warcontext\actions\WC_fnc_dodisarmied.sqf',[],-1,false];";
 	_object allowFleeing 0;
 
 	processInitCommands;
