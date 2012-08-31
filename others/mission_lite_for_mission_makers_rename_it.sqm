@@ -1151,7 +1151,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			expCond=" (""AllVehicles"" countType thislist  > 0) ";
-			expActiv="_xhandle= [thislist] execVM ""warcontext\WC_fnc_servicing.sqf"";";
+			expActiv="_xhandle= [thislist] execVM ""warcontext\modules\wc_repairzone\WC_fnc_servicing.sqf"";";
 			class Effects
 			{
 			};
