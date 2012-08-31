@@ -74,7 +74,7 @@
 	// CONFIG FILES
 	//////////////////
 
-	WC_fnc_commoninitconfig 	= compile preprocessFile "WC_fnc_commoninitconfig.sqf";
+	WC_fnc_commoninitconfig		= compile preprocessFile "WC_fnc_commoninitconfig.sqf";
 
 	// warcontext anim - camera
 	WC_fnc_intro			= compile preprocessFile "warcontext\camera\WC_fnc_intro.sqf";
