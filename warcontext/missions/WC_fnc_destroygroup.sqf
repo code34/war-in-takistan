@@ -42,10 +42,10 @@
 		_counter = _counter + 1;
 		if((count units _group == 0) or (damage _unit > 0.8)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcmessageW spawn EXT_fnc_infotext;
+			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 			wcleveltoadd = 1;
 		};
@@ -57,7 +57,7 @@
 			}foreach units _group;
 			_counter = 0;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", format["Still %1 enemies", count units _group]];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 		};
 		sleep 1;
 	};

@@ -2,7 +2,7 @@
 	// Author: team  code34 nicolas_boiteux@yahoo.fr
 	// WARCONTEXT - Description: on killed player event
 
-	_this spawn WC_fnc_garbagecollector;
+	wcgarbage = _this spawn WC_fnc_garbagecollector;
 	
 	[] call WC_fnc_saveloadout;
 

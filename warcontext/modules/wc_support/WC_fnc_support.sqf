@@ -63,7 +63,7 @@
 
 	if(random 1 > 0.7) then {
 		diag_log "WARCONTEXT: CREATING 1 GROUP TO PROTECT OPFOR BASE";
-		_handle = [_markersource, wcfactions call BIS_fnc_selectRandom, false] spawn WC_fnc_creategroup;
+		wcgarbage = [_markersource, wcfactions call BIS_fnc_selectRandom, false] spawn WC_fnc_creategroup;
 	};
 
 	wcheavyfactory removeAllEventHandlers "HandleDamage";
@@ -72,7 +72,7 @@
 			wcheavyfactory removeAllEventHandlers "HandleDamage";
 			wcheavyfactory setdamage 1;
 			wcmessageW = ["Heavy Factory", "has been destroyed"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			diag_log "WARCONTEXT: HEAVY FACTORY HAS BEEN DESTROYED";
 		};
 	}];
@@ -83,7 +83,7 @@
 			wcbarrack removeAllEventHandlers "HandleDamage";
 			wcbarrack setdamage 1;
 			wcmessageW = ["Barrack", "has been destroyed"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			diag_log "WARCONTEXT: BARRACK HAS BEEN DESTROYED";
 		};
 	}];
@@ -109,7 +109,7 @@
 							_enemy = nearestObjects[_factory,["Man", "LandVehicle"], 150];
 							if(west countside _enemy == 0) then {
 								diag_log "WARCONTEXT: CALL 1 INFANTERY SUPPORT";
-								_handle = [_markersource, _markerdest, wcsupportfaction, false] spawn WC_fnc_creategroupsupport;
+								wcgarbage = [_markersource, _markerdest, wcsupportfaction, false] spawn WC_fnc_creategroupsupport;
 								_support = true;
 							};
 						};
@@ -119,7 +119,7 @@
 								_enemy = nearestObjects[_factory,["Man", "LandVehicle"], 150];
 								if(west countside _enemy == 0) then {
 									diag_log "WARCONTEXT: CALL 1 VEHICLE SUPPORT";
-									_handle = [_markersource, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupsupport;
+									wcgarbage = [_markersource, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupsupport;
 									_support = true;
 								};
 							};
@@ -137,7 +137,7 @@
 				};
 				if(_support) then { 
 					wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_CALLREINFORCEMENT"];
-					if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 					sleep (600 - (wclevel * 20));
 				};
 		};

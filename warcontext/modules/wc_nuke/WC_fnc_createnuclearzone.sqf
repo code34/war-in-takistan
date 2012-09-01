@@ -8,7 +8,7 @@
 	_position = _this select 0;
 	wcplayerinnuclearzone = true;
 
-	["Nuclear zone", "Nuclear zone injures soldiers.", "Go away from this zone as soon as possible.", 10] spawn WC_fnc_playerhint;
+	wcgarbage = ["Nuclear zone", "Nuclear zone injures soldiers.", "Go away from this zone as soon as possible.", 10] spawn WC_fnc_playerhint;
 
 	while { (player distance _position < 500) } do {
 		"colorCorrections" ppEffectAdjust [1, 0.5, 0, [1, 1, 1,0], [1, 1, 1, -1],  [1, 1, 1, 1]];   

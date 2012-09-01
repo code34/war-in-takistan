@@ -17,7 +17,7 @@
 	];
 
 	if!(name player in wcinteam) exitwith {
-		[localize "STR_WC_MENURECRUITMENT", "Only members of team can build", "Wait to be recruit as team member", 10] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MENURECRUITMENT", "Only members of team can build", "Wait to be recruit as team member", 10] spawn WC_fnc_playerhint;
 		closedialog 0;
 	};
 
@@ -53,7 +53,7 @@
 		_type = _array select _index;
 
 		if(menuaction == 1) then {
-			["Build a vehicle", "Wait while the building of your vehicle", "The vehicle will appear near you in few seconds. Older one will be delete.", 3] spawn WC_fnc_playerhint;
+			wcgarbage = ["Build a vehicle", "Wait while the building of your vehicle", "The vehicle will appear near you in few seconds. Older one will be delete.", 3] spawn WC_fnc_playerhint;
 			_position = (position player) findemptyposition [5, 30];
 			if(count _position == 0) then {
 				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE ATV";

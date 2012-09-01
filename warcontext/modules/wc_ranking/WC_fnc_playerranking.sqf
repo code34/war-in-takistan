@@ -51,7 +51,7 @@
 						["wcdegrade", "all"] call WC_fnc_publicvariable;
 						_message =[localize "STR_WC_MESSAGEDEGRADED", format[localize "STR_WC_MESSAGETORANK", rank player]];
 					};
-					_message spawn EXT_fnc_infotext;
+					wcgarbage = _message spawn EXT_fnc_infotext;
 					playsound "drum";
 					wcrankchanged = true;
 					_count = 0;

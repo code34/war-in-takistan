@@ -101,7 +101,7 @@
 	"FilmGrain" ppEffectEnable true;
 
 	// print mission text
-	_missiontext spawn EXT_fnc_infotext;
+	wcgarbage = _missiontext spawn EXT_fnc_infotext;
 
 	while { (format["%1", wcanim] != "" and _sleep < 60)} do {
 

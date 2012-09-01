@@ -18,7 +18,7 @@
 			{
 				if(_x getvariable "wciedactivate") then {
 					if!(_printed) then {
-						[localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
+						wcgarbage = [localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
 						_printed = true;
 						_counter = 0;
 					};
@@ -56,7 +56,7 @@
 			if((random 1 > 0.99) and wciedfalsepositive) then {
 				if(player distance getmarkerpos "respawn_west" > 1000) then {
 					if((getposatl player) select 2 < 1) then {
-						[localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
+						wcgarbage = [localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
 						_printed = true;
 						_counter = 0;
 						_sound = ["bombdetector1", "bombdetector2", "bombdetector3"] call BIS_fnc_selectRandom;

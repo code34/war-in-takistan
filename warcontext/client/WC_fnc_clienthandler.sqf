@@ -127,7 +127,7 @@
 	WC_fnc_netcode_wcinteamintegration = {
 		wcinteamintegration = _this select 0;
 		if(wcinteamintegration == name player) then {
-			[localize "STR_WC_MENURECRUITMENT", localize "STR_WC_MENUFOLLOWTHELEADER", localize "STR_WC_MENURECRUITASTEAMMENBER", 10] spawn WC_fnc_playerhint;
+			wcgarbage = [localize "STR_WC_MENURECRUITMENT", localize "STR_WC_MENUFOLLOWTHELEADER", localize "STR_WC_MENURECRUITASTEAMMENBER", 10] spawn WC_fnc_playerhint;
 			wcclientlogs = wcclientlogs + ["You have been recruited as team member"];
 		}; 
 	};
@@ -160,7 +160,7 @@
 		wcchoosemission = _this select 0;
 		if(wcchoosemission) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_MENUOPERATIONPLAN"];
-			wcmessageW spawn EXT_fnc_infotext;
+			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			if(isnil "wcchoosemissionmenu") then {
 				wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\dialogs\WC_fnc_createmenuchoosemission.sqf",[],6,false];
 			};
@@ -177,7 +177,7 @@
 
 	WC_fnc_netcode_wcmessageW = {
 		wcmessageW = _this select 0;
-		wcmessageW spawn EXT_fnc_infotext;
+		wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 	};
 
 	WC_fnc_netcode_wcbombingavalaible = {

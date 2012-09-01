@@ -33,7 +33,7 @@
 	};
 
 	if(wcairopposingforce > 0) then {
-		[] spawn {
+		wcgarbage = [] spawn {
 			waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
 			wcgarbage = [wcselectedzone, wcairpatroltype, wcairopposingforce] spawn WC_fnc_initairpatrol;
 		};
@@ -57,7 +57,7 @@
 	wcgarbage = [(getmarkerpos "mortuary")] spawn WC_fnc_createmortuary;
 
 	// TAKISTAN BASE INIT
-	[] spawn {
+	wcgarbage = [] spawn {
 		// put light around chopper landing zone
 		if!(isnull tower2) then {
 			_positions = [position tower2, 7, 360, getdir tower2, 7] call WC_fnc_createcircleposition;
@@ -103,14 +103,14 @@
 	
 		// static weapons at takistan BASE
 		if(tolower(worldname) == "takistan") then {
-			[defender1, wcenemyside] spawn WC_fnc_sentinelle;
-			[defender2, wcenemyside] spawn WC_fnc_sentinelle;
-			[defender3, wcenemyside] spawn WC_fnc_sentinelle;
-			[defender4, wcenemyside] spawn WC_fnc_sentinelle;
-			[defender5, wcenemyside] spawn WC_fnc_sentinelle;
-			[defender6, wcenemyside] spawn WC_fnc_sentinelle;
-			[defender7, wcenemyside] spawn WC_fnc_sentinelle;
-			[defender8, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender1, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender2, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender3, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender4, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender5, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender6, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender7, wcenemyside] spawn WC_fnc_sentinelle;
+			wcgarbage = [defender8, wcenemyside] spawn WC_fnc_sentinelle;
 		};
 	};
 
@@ -137,7 +137,7 @@
 	};
 
 
-	[] spawn {
+	wcgarbage = [] spawn {
 		_bunker = nearestObjects [wcmapcenter, ["Land_fortified_nest_small_EP1"], 20000];
 		{
 			if(random 1 < wcstaticinbunkerprobability) then {
@@ -159,7 +159,7 @@
 
 	// create random nuclear fire
 	if(wcwithnuclear == 1) then {
-		[] spawn {
+		wcgarbage = [] spawn {
 			while { true } do {
 				sleep (3800 + random (3800));
 				if(random 1 > wcnuclearprobability) then {
@@ -170,7 +170,7 @@
 	};
 
 	// heartbeat of teamscore and detection
-	[] spawn {
+	wcgarbage = [] spawn {
 		private ["_lastteamscore", "_lastalert"];
 		_lastteamscore = 0;
 		_lastalert = 0;
@@ -192,7 +192,7 @@
 
 
 	// decrease alert level by time
-	[] spawn {
+	wcgarbage = [] spawn {
 		private["_decrease", "_lastalert"];
 		while { true } do {
 			_decrease = ceil(random(10));
@@ -226,7 +226,7 @@
 	///////////////////////////////////////////////////////
 
 	if(wckindofserver != 1) then {
-		[] spawn {
+		wcgarbage = [] spawn {
 			private ["_array", "_knownplayer", "_player", "_lastinteam"];
 
 			// array contains known player (diff jip & player)
@@ -259,7 +259,7 @@
 	// synchronize the players rank
 	/////////////////////////////////
 
-	[] spawn {
+	wcgarbage = [] spawn {
 		private ["_lastranksync"];
 		_lastranksync = [];
 		while { true } do {
@@ -276,7 +276,7 @@
 		};
 	};
 
-	onPlayerConnected "[_id, _name] spawn WC_fnc_publishmission";
+	onPlayerConnected "wcgarbage = [_id, _name] spawn WC_fnc_publishmission;";
 	onPlayerDisconnected "wcplayerready = wcplayerready - [_name];";
 
 	////////////////////////////////////

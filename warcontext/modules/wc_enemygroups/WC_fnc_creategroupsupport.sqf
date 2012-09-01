@@ -54,7 +54,7 @@
 
 		diag_log format ["WARCONTEXT: CREATING A SUPPORT VEHICLE %2 IN ZONE %1", _marker, _typeofgroup];
 
-		_vehicle setVehicleInit "this lock true;[this] spawn EXT_fnc_atot;";
+		_vehicle setVehicleInit "this lock true; [this] spawn EXT_fnc_atot;";
 		processInitCommands;
 
 		_vehicle setdir (random 360);
@@ -232,7 +232,7 @@
 			{
 				_x action ["eject", _vehicle];
 			}foreach (crew _vehicle);
-			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
+			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
 
 			// after group leave vehicle, a new group drive the vehicle
 			_group = creategroup east;
@@ -254,12 +254,8 @@
 			wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		};
 	} else {
-		//_scriptinit = format["wcgarbage = [this, '%1', 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';", _markerdest];
-		//(leader _group) setVehicleInit _scriptinit;
-		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
+		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
 	};
-
-	//processInitCommands;
 
 	if (count (units _group) < 1) then {
 		if (_motorized) then {

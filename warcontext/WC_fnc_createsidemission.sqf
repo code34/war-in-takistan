@@ -70,7 +70,7 @@
 					};
 				};
 			}foreach _buildings;
-			[_vehicle] spawn {
+			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
 				while {alive _unit} do {
@@ -108,7 +108,7 @@
 					};
 				};
 			}foreach _buildings;
-			[_vehicle] spawn {
+			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
 				while {alive _unit} do {
@@ -177,7 +177,7 @@
 					};
 				};
 			}foreach _buildings;
-			[_vehicle] spawn {
+			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
 				while {alive _unit} do {
@@ -294,7 +294,7 @@
 					};
 				};
 			}foreach _buildings;
-			[_vehicle] spawn {
+			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
 				while {alive _unit} do {
@@ -357,7 +357,7 @@
 					};
 				};
 			}foreach _buildings;
-			[_vehicle] spawn {
+			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
 				while {alive _unit} do {
@@ -400,7 +400,7 @@
 					};
 				};
 			}foreach _buildings;
-			[_vehicle] spawn {
+			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
 				while {alive _unit} do {
@@ -440,7 +440,7 @@
 					};
 				};
 			}foreach _buildings;
-			[_vehicle] spawn {
+			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
 				while {alive _unit} do {
@@ -533,7 +533,7 @@
 			_missiontext = [_missionname, "Liberate the hostage"];
 			_group = createGroup west;
 			_vehicle = _group createUnit ["Haris_Press_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_liberatehotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_liberatehotage;
 			_missiontype = "liberate";
 			wcbonusfame = 0;
 		};
@@ -550,7 +550,7 @@
 			_missiontext = [_missionname, "Liberate an officer"];
 			_group = createGroup west;
 			_vehicle = _group createUnit ["UN_CDF_Soldier_Officer_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_liberatehotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_liberatehotage;
 			_missiontype = "liberate";
 			wcbonusfame = 0;
 		};
@@ -559,7 +559,7 @@
 			_missiontext = [_missionname, "Liberate a tourist"];
 			_group = createGroup west;
 			_vehicle = _group createUnit ["CIV_EuroWoman01_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_liberatehotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_liberatehotage;
 			_missiontype = "liberate";
 			wcbonusfame = 0;
 		};
@@ -571,7 +571,7 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_sabotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_sabotage;
 			_missiontype = "sabotage";
 			wcbonusfame = 0;
 		};
@@ -583,14 +583,14 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_sabotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_sabotage;
 			_missiontype = "sabotage";
 			wcbonusfame = 0;
 		};
 
 		case 34: {
 			_missiontext = [_missionname, "Sabotage a radio tower"];
-			[wcradio] spawn WC_fnc_sabotage;
+			wcgarbage = [wcradio] spawn WC_fnc_sabotage;
 			_missiontype = "sabotage";
 			wcbonusfame = 0;
 		};
@@ -615,7 +615,7 @@
 			}foreach _buildings;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
-			[_vehicle] spawn WC_fnc_steal;
+			wcgarbage = [_vehicle] spawn WC_fnc_steal;
 			_missiontype = "steal";
 			wcbonusfame = 0;
 		};
@@ -627,7 +627,7 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_missiontype = "rob";
 			wcbonusfame = 0;
 		};
@@ -639,7 +639,7 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_missiontype = "rob";
 			wcbonusfame = 0;
 		};
@@ -651,7 +651,7 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_missiontype = "rob";
 			wcbonusfame = 0;
 			wcbonusfuel = -0.1;
@@ -661,7 +661,7 @@
 			_missiontext = [_missionname, "Capture a takistani commander"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_Aziz_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_jail;
+			wcgarbage = [_vehicle] spawn WC_fnc_jail;
 			_missiontype = "jail";
 			wcbonusfame = 0;
 		};
@@ -670,7 +670,7 @@
 			_missiontext = [_missionname, "Capture a takistani officer"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_Soldier_Officer_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_jail;
+			wcgarbage = [_vehicle] spawn WC_fnc_jail;
 			_missiontype = "jail";
 			wcbonusfame = 0;
 		};
@@ -679,7 +679,7 @@
 			_missiontext = [_missionname, "Capture a war lord"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_GUE_Warlord_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_jail;
+			wcgarbage = [_vehicle] spawn WC_fnc_jail;
 			_missiontype = "jail";
 			wcbonusfame = 0.1;
 		};
@@ -697,7 +697,7 @@
 		case 43: {
 			_missiontext = [_missionname, "Retrieve an AH64"];
 			_vehicle = createVehicle ["AH64D_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonusah64";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -708,7 +708,7 @@
 		case 44: {
 			_missiontext = [_missionname, "Retrieve an UH1"];
 			_vehicle = createVehicle ["UH1H_TK_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonusuh1";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -723,7 +723,7 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonusm1";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -734,7 +734,7 @@
 		case 46: {
 			_missiontext = [_missionname, "Retrieve an MH6"];
 			_vehicle = createVehicle ["MH6J_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonusmh6";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -765,7 +765,7 @@
 		case 49: {
 			_missiontext = [_missionname,"Retrieve a Chinook"];
 			_vehicle = createVehicle ["CH_47F_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonuschinook";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -824,7 +824,7 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_missiontype = "rob";
 			wcbonusfame = 0;
 		};
@@ -838,7 +838,7 @@
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
-			[_vehicle] spawn WC_fnc_sabotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_sabotage;
 			_missiontype = "sabotage";
 			wcbonusfame = 0;
 		};
@@ -848,7 +848,7 @@
 			_group = createGroup west;
 			_vehicle2 = "UH60_wreck_EP1" createvehicle _position;
 			_vehicle = _group createUnit ["US_Pilot_Light_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_liberatehotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_liberatehotage;
 			_missiontype = "liberate";
 			wcbonusfame = 0;
 		};
@@ -858,7 +858,7 @@
 			_vehicle = "Land_fortified_nest_big_EP1" createvehicle _position;
 			_vehicle = "FlagCarrierUSA_EP1" createvehicle _position;
 			_vehicle setVehicleInit "this addAction ['<t color=''#ff4500''>Defend the area</t>', 'warcontext\actions\WC_fnc_dobegindefend.sqf',[],6,false];";
-			[_vehicle] spawn WC_fnc_defend;
+			wcgarbage = [_vehicle] spawn WC_fnc_defend;
 			processInitCommands;
 			_missiontype = "defend";
 			wcbonusfame = 0;
@@ -869,7 +869,7 @@
 			_missiontext = [_missionname,"Defend the barracks"];
 			_vehicle = (nearestObjects [_position, ["Land_Mil_Barracks_i_EP1"], 400]) call BIS_fnc_selectRandom;
 			_vehicle setVehicleInit "this addAction ['<t color=''#ff4500''>Defend the barrack</t>', 'warcontext\actions\WC_fnc_dobegindefend.sqf',[],6,false];";
-			[_vehicle] spawn WC_fnc_defend;
+			wcgarbage = [_vehicle] spawn WC_fnc_defend;
 			processInitCommands;
 			_missiontype = "defend";
 			wcbonusfame = 0;
@@ -881,7 +881,7 @@
 			_group = createGroup west;
 			_vehicle2 = "C130J_wreck_EP1" createvehicle _position;
 			_vehicle = _group createUnit ["US_Pilot_Light_EP1", _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_liberatehotage;
+			wcgarbage = [_vehicle] spawn WC_fnc_liberatehotage;
 			_missiontype = "liberate";
 			wcbonusfame = 0;
 		};
@@ -891,7 +891,7 @@
 			_hangar = (nearestObjects [_position, ["Land_Mil_hangar_EP1"], 400]) call BIS_fnc_selectRandom;
 			_vehicle = "A10_US_EP1" createvehicle position _hangar;
 			_vehicle setdir (getdir _hangar + 180);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonusa10";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -904,7 +904,7 @@
 			_hangar = (nearestObjects [_position, ["Land_Mil_hangar_EP1"], 400]) call BIS_fnc_selectRandom;
 			_vehicle = "AH6X_EP1" createvehicle position _hangar;
 			_vehicle setdir (getdir _hangar + 180);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonusav8b";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -917,7 +917,7 @@
 			_hangar = (nearestObjects [_position, ["Land_Mil_hangar_EP1"], 400]) call BIS_fnc_selectRandom;
 			_vehicle = "AH64D_EP1" createvehicle position _hangar;
 			_vehicle setdir (getdir _hangar + 180);
-			[_vehicle] spawn WC_fnc_rob;
+			wcgarbage = [_vehicle] spawn WC_fnc_rob;
 			_varname="bonusf35b";
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
@@ -949,7 +949,7 @@
 			_missiontext = [_missionname, "Defend an Oil Pump"];
 			_vehicle = (nearestObjects [_position, ["Land_Ind_Oil_Pump_EP1"], 400]) call BIS_fnc_selectRandom;
 			_vehicle setVehicleInit "this addAction ['<t color=''#ff4500''>Defend the barrack</t>', 'warcontext\actions\WC_fnc_dobegindefend.sqf',[],6,false];";
-			[_vehicle] spawn WC_fnc_defend;
+			wcgarbage = [_vehicle] spawn WC_fnc_defend;
 			processInitCommands;
 			_missiontype = "defend";
 			wcbonusfame = 0;
@@ -961,7 +961,7 @@
 			_type = ["TK_CIV_Takistani01_EP1", "TK_CIV_Takistani02_EP1", "TK_CIV_Takistani03_EP1", "TK_CIV_Takistani04_EP1", "TK_CIV_Takistani05_EP1", "TK_CIV_Takistani06_EP1", "TK_CIV_Woman01_EP1", "TK_CIV_Woman02_EP1", "TK_CIV_Woman03_EP1", "TK_CIV_Worker01_EP1", "TK_CIV_Worker02_EP1"] call BIS_fnc_selectRandom;
 			_group = createGroup civilian;
 			_vehicle = _group createUnit [_type, _position, [], 0, "NONE"];
-			[_vehicle] spawn WC_fnc_heal;
+			wcgarbage = [_vehicle] spawn WC_fnc_heal;
 			_missiontype = "heal";
 			wcbonusfame = 0.1;
 		};
@@ -1021,7 +1021,7 @@
 		case 71: {
 			_missiontext = [_missionname, "Secure an Airfield zone"];
 			_vehicle = (nearestObjects [_position, ["Land_Mil_hangar_EP1"], 400]) call BIS_fnc_selectRandom;
-			[_vehicle] spawn WC_fnc_securezone;
+			wcgarbage = [_vehicle] spawn WC_fnc_securezone;
 			_missiontype = "secure";
 			wcbonusfame = 0;
 		};
@@ -1029,7 +1029,7 @@
 		case 72: {
 			_missiontext = [_missionname, "Secure an Oil Pump zone"];
 			_vehicle = (nearestObjects [_position, ["Land_Ind_Oil_Pump_EP1"], 400]) call BIS_fnc_selectRandom;
-			[_vehicle] spawn WC_fnc_securezone;
+			wcgarbage = [_vehicle] spawn WC_fnc_securezone;
 			_missiontype = "secure";
 			wcbonusfame = 0;
 		};
@@ -1041,7 +1041,7 @@
 			_vehicle setvehicleinit format["this setvehiclevarname %1;", _varname];
 			processinitcommands;
 			_unit = createVehicle ["TK_WarfareBBarracks_Base_EP1", _position, [], 0, "NONE"];
-			[_vehicle, _unit] spawn WC_fnc_bringvehicle;
+			wcgarbage = [_vehicle, _unit] spawn WC_fnc_bringvehicle;
 			_missiontype = "bring";
 			wcbonusfame = 0;
 		};
@@ -1061,7 +1061,7 @@
 			_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
 			processinitcommands;
 			_vehicle = createVehicle ["MASH_EP1", _position, [], 0, "NONE"];
-			[_unit, position _vehicle] spawn WC_fnc_bringunit;
+			wcgarbage = [_unit, position _vehicle] spawn WC_fnc_bringunit;
 			wcgarbage = [_unit] spawn WC_fnc_createmedic;
 			_missiontype = "bringunit";
 			wcbonusfame = 0;
@@ -1124,7 +1124,7 @@
 				if (_this select 2 > wcdammagethreshold) then {
 					(_this select 0) removeAllEventHandlers "HandleDamage";
 					wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-					if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; };
+					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 					["wcmessageW", "client"] call WC_fnc_publicvariable;
 					wcmissionsuccess = true;
 					wcobjectiveindex = wcobjectiveindex + 1;
@@ -1148,7 +1148,7 @@
 			}];
 			_vehicle addeventhandler ['killed', {
 				wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
 				wcleveltoadd = 1;
@@ -1164,7 +1164,7 @@
 			sleep 10;
 			waituntil {!(_vehicle getvariable "wciedactivate")};
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			wcleveltoadd = 1;

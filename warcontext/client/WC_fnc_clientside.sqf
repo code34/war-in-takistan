@@ -131,7 +131,7 @@
 		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUUNFLIPVEHICLE"+"</t>","warcontext\actions\WC_fnc_dounflipvehicle.sqf",[],-1,false];
 	};
 
-	[] spawn {
+	wcgarbage = [] spawn {
 		private ["_oldlevel", "_ranked"];
 
 		if(wckindofgame == 1) then {
@@ -174,13 +174,13 @@
 					playsound "drum";
 					_teampromote = localize format["STR_WC_TEAM%1", wcteamlevel];
 					_message =[localize "STR_WC_MESSAGETEAMPROMOTED", format["to %1 !", _teampromote]];
-					_message spawn EXT_fnc_infotext;
+					wcgarbage = _message spawn EXT_fnc_infotext;
 				} else {
 					_oldlevel = wcteamlevel;
 					playsound "drum";
 					_teampromote = localize format["STR_WC_TEAM%1", wcteamlevel];
 					_message =[localize "STR_WC_MESSAGETEAMDEGRADED", format["to %1 !", _teampromote]];
-					_message spawn EXT_fnc_infotext;
+					wcgarbage =  _message spawn EXT_fnc_infotext;
 				};
 			};
 			sleep 5;
@@ -216,7 +216,7 @@
 		(_x select 0) setrank (_x select 1);
 	}foreach wcranksync;
 
-	[] spawn {
+	wcgarbage = [] spawn {
 		while { true } do {
 			if (rating player < 0) then {
 				if(driver(vehicle player) == player) then {
@@ -238,11 +238,11 @@
 	wcgarbage = [] spawn WC_fnc_playerranking;
 
 	// BASE HOSPITAL
-	[] spawn {
+	wcgarbage = [] spawn {
 		while { true } do {
 			if((position player) distance (getmarkerpos "hospital") < 5) then {
 				_message =["You retrieve", format ["your %1 revives", R3F_REV_CFG_nb_reanimations]];
-				_message spawn EXT_fnc_infotext;
+				wcgarbage = _message spawn EXT_fnc_infotext;
 				R3F_REV_nb_reanimations = R3F_REV_CFG_nb_reanimations;
 				player setdamage 0;
 				wcclientlogs = wcclientlogs + [format["Hospital: you retrieve your %1 revives",  R3F_REV_CFG_nb_reanimations]];
@@ -256,7 +256,7 @@
 
 
 	// TEAMPLAY BONUS
-	[] spawn {
+	wcgarbage = [] spawn {
 		while { true } do {
 			{
 				if((_x distance player < 100) and _x != player) then {
@@ -266,7 +266,7 @@
 			}foreach playableUnits;
 			if(wcbonus > 10000) then {
 				_message =["You have win", "10 points Teamplay bonus"];
-				_message spawn EXT_fnc_infotext;
+				wcgarbage = _message spawn EXT_fnc_infotext;
 				wcbonus = 0;
 				wcplayeraddscore = [player, 10];
 				["wcplayeraddscore", "server"] call WC_fnc_publicvariable;
@@ -277,24 +277,24 @@
 	};
 
 	// TRANSFERT POINT
-	[] spawn {
+	wcgarbage = [] spawn {
 		// if not noteam server
 		if(wckindofserver != 3) then {
 			while { true } do {
 				if(wcteamplayscore > 29) then {
-					["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
+					wcgarbage = ["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 					sleep 10;
 				} else {
 					if(wcteamplayscore > 19) then {
-						["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
+						wcgarbage = ["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 						sleep 30;
 					} else {
 						if(wcteamplayscore > 9) then {
-							["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
+							wcgarbage = ["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 							sleep 60;
 						} else {
 							if(wcteamplayscore > 0) then {
-								["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
+								wcgarbage = ["Share points", format[localize "STR_WC_TRANSFERTPOINT",wcteamplayscore], localize "STR_WC_SHAREPOINTS", 10] spawn WC_fnc_playerhint;
 								sleep 120;
 							} else {
 								sleep 60;
@@ -307,7 +307,7 @@
 	};
 
 	// ADD ACTION MENU FOR ADMINS
-	[] spawn {
+	wcgarbage = [] spawn {
 		private ["_idaction", "_count"];
 		_count = 0;
 		while { true } do {
@@ -350,7 +350,7 @@
 	};
 
 	// DRAG & DROP BODY
-	[] spawn {
+	wcgarbage = [] spawn {
 		private ["_units", "_attached", "_animation", "_unit"];
 
 		_attached = false;
@@ -395,7 +395,7 @@
 	};
 
 	// AUTOLOAD WARNING MESSAGES IF DESYNC WITH SERVER
-	[] spawn {
+	wcgarbage = [] spawn {
 		waituntil {format ["%1", wccfgpatches] != 'any'};
 		wccfglocalpatches =  wccfgpatches;
 		{
@@ -409,7 +409,7 @@
 
 		if(count wccfglocalpatches > 0) then {
 			sleep 30;
-			[localize "STR_WC_MESSAGEWARNING", localize "STR_WC_MESSAGERESTARTGAME", localize "STR_WC_MESSAGENOTSYNC", 60] spawn WC_fnc_playerhint;
+			wcgarbage = [localize "STR_WC_MESSAGEWARNING", localize "STR_WC_MESSAGERESTARTGAME", localize "STR_WC_MESSAGENOTSYNC", 60] spawn WC_fnc_playerhint;
 		};
 	};
 
@@ -418,7 +418,7 @@
 
 	// NUCLEAR ZONE - RADIATION
 	if(wcwithnuclear == 1) then {
-		[] spawn {
+		wcgarbage = [] spawn {
 			while { true } do {
 				{
 					if((player distance _x < 500) and !wcplayerinnuclearzone) then {
@@ -431,7 +431,7 @@
 	};
 
 	// EVERYBODY IS MEDIC
-	[] spawn {
+	wcgarbage = [] spawn {
 		private ["_injured", "_men"];
 		wcmedicmenu = nil;
 		while { true } do {
@@ -468,7 +468,7 @@
 		", ""];
 		_end setTriggerType "END1";
 
-		[] spawn {
+		wcgarbage = [] spawn {
 			while { true } do {
 				if((name player) in wconelife) then {
 					removeallweapons player;
@@ -496,7 +496,7 @@
 		};
 	};
 
-	[localize "STR_WC_MENUWELCOMEBASE", localize "STR_WC_MENUTAKEWEAPONS", format[localize "STR_WC_MENUKINDOFGAME", _kindofgame], 10] spawn WC_fnc_playerhint;
+	wcgarbage = [localize "STR_WC_MENUWELCOMEBASE", localize "STR_WC_MENUTAKEWEAPONS", format[localize "STR_WC_MENUKINDOFGAME", _kindofgame], 10] spawn WC_fnc_playerhint;
 
 	wcclientlogs = wcclientlogs + [localize "STR_WC_MESSAGEMISSIONINITIALIZED"];
 

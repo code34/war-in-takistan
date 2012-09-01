@@ -64,10 +64,10 @@
 				_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [100,100,0], [], 0, "NONE"];
 				_soldier assignAsDriver _building;
 				_soldier moveindriver _building;
-				[_soldier, wcside] spawn WC_fnc_sentinelle;
+				wcgarbage = [_soldier, wcside] spawn WC_fnc_sentinelle;
 				wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
 				_soldier addeventhandler ['killed', {
-					_this spawn WC_fnc_garbagecollector;
+					wcgarbage = _this spawn WC_fnc_garbagecollector;
 					 wcenemykilled =  wcenemykilled + 1;
 					["wcenemykilled", "client"] call WC_fnc_publicvariable;
 				}];
@@ -82,10 +82,10 @@
 				_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [100,100,0], [], 0, "NONE"];
 				_soldier assignAsgunner _building;
 				_soldier moveingunner _building;
-				[_soldier, wcside] spawn WC_fnc_sentinelle;
+				wcgarbage = [_soldier, wcside] spawn WC_fnc_sentinelle;
 				wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
 				_soldier addeventhandler ['killed', {
-					_this spawn WC_fnc_garbagecollector;
+					wcgarbage = _this spawn WC_fnc_garbagecollector;
 					 wcenemykilled =  wcenemykilled + 1;
 					["wcenemykilled", "client"] call WC_fnc_publicvariable;
 				}];
@@ -102,10 +102,10 @@
 				_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), [100,100,0], [], 0, "NONE"];
 				_soldier assignAscommander _building;
 				_soldier moveincommander _building;
-				[_soldier, wcside] spawn WC_fnc_sentinelle;
+				wcgarbage = [_soldier, wcside] spawn WC_fnc_sentinelle;
 				wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
 				_soldier addeventhandler ['killed', {
-					_this spawn WC_fnc_garbagecollector;
+					wcgarbage = _this spawn WC_fnc_garbagecollector;
 					 wcenemykilled =  wcenemykilled + 1;
 					["wcenemykilled", "client"] call WC_fnc_publicvariable;
 				}];
@@ -117,7 +117,7 @@
 				wcblinde = wcblinde + [_soldier];
 			};
 		};
-		_building addeventhandler ['killed', {_this spawn WC_fnc_garbagecollector}];
+		_building addeventhandler ['killed', {wcgarbage = _this spawn WC_fnc_garbagecollector}];
 		sleep 0.1;
 		wcobjecttodelete = wcobjecttodelete + [_building];
 	}foreach _arrayof;

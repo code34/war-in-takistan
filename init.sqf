@@ -55,10 +55,10 @@
 	};
 
 	// init R3F arty and logistic script
-	[] spawn { execVM "extern\R3F_ARTY_AND_LOG\init.sqf"; };
+	wcgarbage = [] spawn { execVM "extern\R3F_ARTY_AND_LOG\init.sqf"; };
 
 	// init BON loadout script
-	[] spawn { presetDialogUpdate = compile preprocessFile "extern\bon_loadoutpresets\bon_func_presetdlgUpdate.sqf"; };
+	wcgarbage = [] spawn { presetDialogUpdate = compile preprocessFile "extern\bon_loadoutpresets\bon_func_presetdlgUpdate.sqf"; };
 
 	/////////////////////
 	// EXTERNAL SCRIPTS
@@ -68,6 +68,7 @@
 	EXT_fnc_createcomposition	= compile preprocessFile "extern\EXT_fnc_createcomposition.sqf";
 	EXT_fnc_SortByDistance		= compile preprocessFile "extern\EXT_fnc_Common_SortByDistance.sqf";
 	EXT_fnc_infotext		= compile preprocessFile "extern\EXT_fnc_infoText.sqf";
+	EXT_fnc_upsmon			= compile preprocessFile "extern\upsmon.sqf";
 	WC_fnc_teamstatus		= compile preprocessFile "extern\TeamStatusDialog\TeamStatusDialog.sqf";
 
 	//////////////////

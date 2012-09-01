@@ -32,7 +32,7 @@
 	// if noteam server
 	if(wckindofserver == 3) exitwith {
 		closedialog 0;
-		[localize "STR_WC_MENUTEAMMANAGEMENT", "Restart the game with team parameter ON to manage team", "There is no team", 10] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MENUTEAMMANAGEMENT", "Restart the game with team parameter ON to manage team", "There is no team", 10] spawn WC_fnc_playerhint;
 	};
 
 	waituntil {isnull wccam};
@@ -140,7 +140,7 @@
 	};
 
 	if !(wcadmin) then {
-		[localize "STR_WC_MENUTEAMMANAGEMENT", "Log you as server admin", "You can not recruit team members", 10] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MENUTEAMMANAGEMENT", "Log you as server admin", "You can not recruit team members", 10] spawn WC_fnc_playerhint;
 	} else {
 		wcinteam = _originalteam;
 		["wcinteam", "all"] call WC_fnc_publicvariable;

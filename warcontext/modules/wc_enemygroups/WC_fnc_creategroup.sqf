@@ -120,7 +120,7 @@
 
 	if (_motorized) then {
 		if(_vehicle isKindOf "Air") then {
-			[] spawn {
+			wcgarbage = [] spawn {
 				waituntil { format["%1", wcselectedzone] != "[0,0,0]"};
 				wcgarbage = [(driver _vehicle), wcselectedzone] spawn WC_fnc_airpatrol;
 			};
@@ -156,18 +156,18 @@
 		if((typeof _vehicle) in wcsabotagelist) then {
 			_vehicle setdamage 1;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", format["%1 sabotaged explosed", (typeof _vehicle)]];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 		};
 	} else {
 		if(random 1 > 0.4) then {
 			_list = nearestObjects [_position, ["house"] , 70];
 			if(count _list > 10) then {
-				wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] execVM 'extern\upsmon.sqf';
+				wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] spawn EXT_fnc_upsmon;
 			} else {
-				wcgarbage = [(leader _group), _marker, 'showmarker'] execVM 'extern\upsmon.sqf';
+				wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
 			};
 		} else {
-			wcgarbage = [(leader _group), _marker, 'showmarker'] execVM 'extern\upsmon.sqf';
+			wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
 		};
 	};
 

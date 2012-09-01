@@ -69,7 +69,7 @@
 	ctrlSetText [10011, format[localize "STR_WC_AMMOUSED", (wcammoused - 1)]];
 	ctrlSetText [10013, format[localize "STR_WC_REVIVELEFT", R3F_REV_nb_reanimations]];
 	
-	[] spawn {
+	wcgarbage = [] spawn {
 		while {dialog} do {
 			slidersetrange[10015,0, wcteamplayscore];
 			ctrlSetText [10016, format[localize "STR_WC_POINTSTOTRANSFERT", ceil(sliderPosition 10015), wcteamplayscore]];

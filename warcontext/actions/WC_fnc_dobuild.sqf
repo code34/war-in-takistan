@@ -18,7 +18,7 @@
 	_mydir = getdir player;
 	_object = _this select 0;
 
-	[localize "Build a construction", localize "STR_WC_MESSAGEBUILDING", localize "STR_WC_MESSAGEBUILDINGINFORMATION", 8] spawn WC_fnc_playerhint;
+	wcgarbage = [localize "Build a construction", localize "STR_WC_MESSAGEBUILDING", localize "STR_WC_MESSAGEBUILDINGINFORMATION", 8] spawn WC_fnc_playerhint;
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";
 	sleep 8;
 

@@ -7,7 +7,7 @@
 
 	if(count _crate > 0) exitwith {};
 
-	["Build an ammocrate", "Wait while the building of ammocrate", "The ammocrate will appear near you in few seconds.", 3] spawn WC_fnc_playerhint;
+	wcgarbage = ["Build an ammocrate", "Wait while the building of ammocrate", "The ammocrate will appear near you in few seconds.", 3] spawn WC_fnc_playerhint;
 	sleep 3;
 
 	_position = (position player) findemptyposition [10, 300];

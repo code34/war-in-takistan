@@ -215,12 +215,12 @@
 			{
 				_x action ["eject", _vehicle];
 			}foreach (crew _vehicle);
-			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
+			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
 		} else {
 			wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		};
 	} else {
-		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] execVM 'extern\upsmon.sqf';
+		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
 	};
 
 	if (count (units _group) < 1) then {

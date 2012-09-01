@@ -55,7 +55,7 @@
 
 	_lastposition = position _vehicle;
 
-	[_group] spawn {
+	wcgarbage = [_group] spawn {
 		private ["_group", "_list", "_cibles"];
 		_group = _this select 0;
 

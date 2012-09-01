@@ -47,7 +47,7 @@
 	_unit playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
 	_unit setvariable ["wchostage", true, true];
 
-	[_unit] spawn {
+	wcgarbage = [_unit] spawn {
 		private ["_unit"];
 		_unit = _this select 0;
 		while { ((alive _unit) and (_unit getvariable "wchostage")) } do {
@@ -60,19 +60,19 @@
 	while {!_missioncomplete} do {
 		if(!alive _unit) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcmessageW spawn EXT_fnc_infotext;
+			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 		};
 		if(getdammage _unit < 0.1) then {
 			_unit setvariable ["wchostage", false, true];
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then {wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcmessageW spawn EXT_fnc_infotext;
+			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 			wcleveltoadd = 1;
 			_enemy = true;

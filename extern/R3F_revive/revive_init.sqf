@@ -21,7 +21,7 @@
 
 if !(isServer && isDedicated) then
 {
-	[] spawn
+	wcgarbage = [] spawn
 	{
 		// Attente d'initialisation du joueur
 		waitUntil {!(isNull player)};

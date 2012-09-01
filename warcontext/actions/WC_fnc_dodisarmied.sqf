@@ -33,13 +33,13 @@
 	wciedcount = 0;
 	wciedchallenge = true;
 
-	["Disarm Ied", "Complete the combo keys sequence to disarm ied.", "Press the same numpad keys printed on the screen", 10] spawn WC_fnc_playerhint;
+	wcgarbage = ["Disarm Ied", "Complete the combo keys sequence to disarm ied.", "Press the same numpad keys printed on the screen", 10] spawn WC_fnc_playerhint;
 	sleep 6;
 
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";
-	["GO"] spawn BIS_fnc_dynamicText;
+	wcgarbage = ["GO"] spawn BIS_fnc_dynamicText;
 	sleep 1;
-	[""] spawn BIS_fnc_dynamicText;
+	wcgarbage = [""] spawn BIS_fnc_dynamicText;
 	
 	_lastletter = "";
 
@@ -60,7 +60,7 @@
 	};
 
 	if(wciedexplosed) then {
-		["FAILED"] spawn BIS_fnc_dynamicText;
+		wcgarbage = ["FAILED"] spawn BIS_fnc_dynamicText;
 		if!(_training) then {
 			wchintW = format["An ied has explosed near %1", name player];
 			["wchintW", "client"] call WC_fnc_publicvariable;
@@ -71,7 +71,7 @@
 			["wcteambonusaddscore", "server"] call WC_fnc_publicvariable;
 		};
 	} else {
-		["SUCCESS"] spawn BIS_fnc_dynamicText;
+		wcgarbage = ["SUCCESS"] spawn BIS_fnc_dynamicText;
 		if!(_training) then {
 			wchintW = format["An ied has been disarm by %1", name player];
 			["wchintW", "client"] call WC_fnc_publicvariable;

@@ -8,7 +8,7 @@
 		_vehicle = _this select 0;
 
 		_vehicle addeventhandler ['killed', {
-			_this spawn WC_fnc_garbagecollector; 
+			wcgarbage = _this spawn WC_fnc_garbagecollector; 
 		}];
 
 		if(isnil "mando_missile_init_done") then {

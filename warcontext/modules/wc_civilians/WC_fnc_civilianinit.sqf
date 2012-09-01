@@ -6,7 +6,7 @@
 	private ["_unit", "_civiltype"];
 
 	// sanitize propagander array
-	[] spawn {
+	wcgarbage = [] spawn {
 		while { true } do {
 			{
 				if(!alive _x) then {
@@ -62,7 +62,7 @@
 		}];
 
 		_unit addeventhandler ['killed', {
-			_this spawn WC_fnc_garbagecollector;
+			wcgarbage = _this spawn WC_fnc_garbagecollector;
 			if((name (_this select 1)) in wcinteam) then {
 				wcnumberofkilledofmissionC = wcnumberofkilledofmissionC + 1;
 				wccivilkilled =  wccivilkilled + 1;

@@ -70,7 +70,7 @@
 				_markername = format["wccompositionups%1", wccompositionindex];
 				_markersize = 20;
 				_marker = [_markername, _markersize, _pos, 'ColorBLUE', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
-				_handle = [_marker, wcfactions call BIS_fnc_selectRandom, false] spawn WC_fnc_creategroup;
+				wcgarbage = [_marker, wcfactions call BIS_fnc_selectRandom, false] spawn WC_fnc_creategroup;
 				wccompositionindex = wccompositionindex + 1;
 			};
 			

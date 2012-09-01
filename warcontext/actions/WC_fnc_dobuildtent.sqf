@@ -6,18 +6,18 @@
 	private ["_position", "_mydir", "_exit"];
 
 	if (((position player) distance (getmarkerpos "respawn_west")) < 300) exitwith { 
-		[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETRYTOMOVEOUT", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETRYTOMOVEOUT", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
 	};
 
 	_exit = false;
 	if(wcwithACE == 0) then {
 		if(isnull (unitBackpack player)) then {
-			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETAKEABACKPACK", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
+			wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETAKEABACKPACK", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
 			_exit = true;
 		};
 	} else {
 		if!(player call ace_sys_ruck_fnc_hasRuck) exitwith {
-			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETAKEABACKPACK", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
+			wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGETAKEABACKPACK", localize "STR_WC_MESSAGECANCREATETENT", 10] spawn WC_fnc_playerhint;
 			_exit = true;
 		};
 	};
@@ -28,7 +28,7 @@
 	_position =  [(getposatl player select 0) + (sin _mydir * 2), (getposatl player select 1) + (cos _mydir * 2), 0];
 
 	if(isnil "wctent") then {
-		[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDING", localize "STR_WC_MESSAGEBUILDINGINFORMATION", 8] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDING", localize "STR_WC_MESSAGEBUILDINGINFORMATION", 8] spawn WC_fnc_playerhint;
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 8;
 		if!(alive player) exitwith {}; 
@@ -41,11 +41,11 @@
 		wcrespawnposition = [position player, wctent];
 		wcrespawnmarker setmarkerposlocal _position;
 		wcrespawnmarker setmarkersizelocal [0,0]; 
-		[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
 	} else {
 		if((getdammage wctent > 0.9) or !(alive wctent)) then {
 			deletevehicle wctent;
-			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDING", localize "STR_WC_MESSAGEBUILDINGINFORMATION", 8] spawn WC_fnc_playerhint;
+			wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDING", localize "STR_WC_MESSAGEBUILDINGINFORMATION", 8] spawn WC_fnc_playerhint;
 			player playMove "AinvPknlMstpSlayWrflDnon_medic";
 			sleep 8;
 			if!(alive player) exitwith {}; 
@@ -59,9 +59,9 @@
 			wcrespawnposition = [position player, wctent];
 			wcrespawnmarker setmarkerposlocal _position;
 			wcrespawnmarker setmarkersizelocal [0.5,0.5]; 
-			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
+			wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
 		} else {
-			[localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEREMOVETENT", localize "STR_WC_MESSAGECANBUILDTENT", 10] spawn WC_fnc_playerhint;
+			wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEREMOVETENT", localize "STR_WC_MESSAGECANBUILDTENT", 10] spawn WC_fnc_playerhint;
 		};
 	};
 

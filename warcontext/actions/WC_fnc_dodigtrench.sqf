@@ -16,7 +16,7 @@
 	_position =  [(getposatl _player select 0) + (sin _mydir * 2), (getposatl _player select 1) + (cos _mydir * 2), (getposatl _player) select 2];
 
 	if (((position player) distance (getmarkerpos "respawn_west")) < 300) exitwith { 
-		[localize "STR_WC_MESSAGEDIGATRENCH", localize "STR_WC_MESSAGETRYTOMOVEOUT", localize "STR_WC_MESSAGECANDIG", 10] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MESSAGEDIGATRENCH", localize "STR_WC_MESSAGETRYTOMOVEOUT", localize "STR_WC_MESSAGECANDIG", 10] spawn WC_fnc_playerhint;
 	};
 
 

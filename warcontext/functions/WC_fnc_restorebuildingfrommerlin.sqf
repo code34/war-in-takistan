@@ -66,7 +66,7 @@
 								_markername = format["merlin%1ups", wcmerlinmrk];
 								wcmerlinmrk = wcmerlinmrk + 1;
 								_marker = [_markername, _markersize, _position, 'Default', 'ICON', 'FDIAGONAL', 'EMPTY'] call WC_fnc_createmarker;
-								[_group, _markername] spawn {
+								wcgarbage = [_group, _markername] spawn {
 									private["_group", "_position", "_markername", "_waypoint"];
 									_group = _this select 0;
 									_markername = _this select 1;
@@ -96,7 +96,7 @@
 					_building setposATL _position;
 					_building setdir _dir;
 					_building setVectorUp [0,0,1];
-					_building addeventhandler ['killed', {_this spawn WC_fnc_garbagecollector}];
+					_building addeventhandler ['killed', {wcgarbage = _this spawn WC_fnc_garbagecollector;}];
 					if (_withmen) then {
 						_group = creategroup east;
 						if (_building emptyPositions "driver" > 0) then {
@@ -104,21 +104,21 @@
 							_soldier assignAsDriver _building;
 							_soldier moveindriver _building;
 							wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
-							_soldier addeventhandler ['killed', {_this spawn WC_fnc_garbagecollector}];
+							_soldier addeventhandler ['killed', {wcgarbage = _this spawn WC_fnc_garbagecollector}];
 						};
 						if (_building emptyPositions "gunner" > 0) then {
 							_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
 							_soldier assignAsgunner _building;
 							_soldier moveingunner _building;
 							wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
-							_soldier addeventhandler ['killed', {_this spawn WC_fnc_garbagecollector}];
+							_soldier addeventhandler ['killed', {wcgarbage = _this spawn WC_fnc_garbagecollector}];
 						};
 						if (_building emptyPositions "commander" > 0) then {
 							_soldier = _group createUnit [(wccrewforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
 							_soldier assignAscommander _building;
 							_soldier moveincommander _building;
 							wcgarbage = [_soldier, wcskill] spawn WC_fnc_setskill;
-							_soldier addeventhandler ['killed', {_this spawn WC_fnc_garbagecollector}];
+							_soldier addeventhandler ['killed', {wcgarbage = _this spawn WC_fnc_garbagecollector}];
 						};
 						_markername = format["merlin%1ups", wcmerlinmrk];
 						wcmerlinmrk = wcmerlinmrk + 1;
@@ -154,7 +154,7 @@
 				_position = _x select 3;
 				wcgarbage = ['Destroy', 0.5, _position, 'ColorRed', 'ICON', 'FDIAGONAL', 'Flag', 0, 'Destroy'] call WC_fnc_createmarker;
 				_building = (_position nearObjects 5) select 0;
-				[_building] spawn {
+				wcgarbage = [_building] spawn {
 					private ["_building", "_missionend"];
 					_building = _this select 0;
 					_missionend = false;

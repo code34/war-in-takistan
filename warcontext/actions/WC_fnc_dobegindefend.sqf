@@ -12,7 +12,7 @@
 
 	wcmessageW = ["Defense mission", "starts now"];
 	["wcmessageW", "client"] call WC_fnc_publicvariable;
-	wcmessageW spawn EXT_fnc_infotext;
+	wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 
 	wcbegindefend = true;
 	["wcbegindefend", "server"] call WC_fnc_publicvariable;

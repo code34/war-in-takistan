@@ -141,7 +141,7 @@
 			closedialog 0;
 			menuaction = -1;
 			if((_count < 4) and (name player in wcinteam)) then {
-				["Headquarter radio", "Sending informations to headquarter...", "Wait during mission computation", 3] spawn WC_fnc_playerhint;
+				wcgarbage = ["Headquarter radio", "Sending informations to headquarter...", "Wait during mission computation", 3] spawn WC_fnc_playerhint;
 				sleep 3;
 				wcaskformission = [player,_wccurrentmission];
 				["wcaskformission", "server"] call WC_fnc_publicvariable;
@@ -151,7 +151,7 @@
 					wcchoosemissionmenu = nil;
 				};
 			} else {
-				["Headquarter radio", "You can not talk with headquarter", "Be one of the three best team members to talk with headquarter", 10] spawn WC_fnc_playerhint;
+				wcgarbage = ["Headquarter radio", "You can not talk with headquarter", "Be one of the three best team members to talk with headquarter", 10] spawn WC_fnc_playerhint;
 			};
 		};
 

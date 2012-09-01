@@ -16,12 +16,12 @@
 	];
 
 	if!(isformationleader player) exitwith {
-		[localize "STR_WC_MENURECRUITMENT", "You are not leader of your group", "Create a new group", 10] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MENURECRUITMENT", "You are not leader of your group", "Create a new group", 10] spawn WC_fnc_playerhint;
 		closedialog 0;
 	};
 
 	if!(name player in wcinteam) exitwith {
-		[localize "STR_WC_MENURECRUITMENT", "Only members of team can recruit", "Wait to be recruit as team member", 10] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MENURECRUITMENT", "Only members of team can recruit", "Wait to be recruit as team member", 10] spawn WC_fnc_playerhint;
 		closedialog 0;
 	};
 
@@ -59,10 +59,10 @@
 		if(menuaction == 1) then {
 			if(count(units (group player)) < _maxsize) then {
 				_unit = (group player) createUnit [_type, position player, [], 0, "FORM"];
-				[localize "STR_WC_MENURECRUITMENT", "Manage your squad", format["%1 joined your squad", name _unit], 2] spawn WC_fnc_playerhint;
+				wcgarbage = [localize "STR_WC_MENURECRUITMENT", "Manage your squad", format["%1 joined your squad", name _unit], 2] spawn WC_fnc_playerhint;
 				[_unit] joinSilent (group player);
 				_unit addeventhandler ['killed', {
-					_this spawn WC_fnc_garbagecollector;
+					wcgarbage = _this spawn WC_fnc_garbagecollector;
 					wcaddkilled = _unit;
 					["wcaddkilled", "server"] call WC_fnc_publicvariable;
 				}];
@@ -71,14 +71,14 @@
 				};
 			} else {
 				if(random 1 > 0.02) then {
-					[localize "STR_WC_MENURECRUITMENT", "You are not enough ranked to give some orders", "Increase your rank by winning points", 10] spawn WC_fnc_playerhint;
+					wcgarbage = [localize "STR_WC_MENURECRUITMENT", "You are not enough ranked to give some orders", "Increase your rank by winning points", 10] spawn WC_fnc_playerhint;
 				} else {
-					[localize "STR_WC_MENURECRUITMENT", "Ok, recruiter give you one men because you are a friend", "Increase your rank by winning points", 10] spawn WC_fnc_playerhint;
+					wcgarbage = [localize "STR_WC_MENURECRUITMENT", "Ok, recruiter give you one men because you are a friend", "Increase your rank by winning points", 10] spawn WC_fnc_playerhint;
 					sleep 10;
 					_unit = (group player) createUnit [_type, position player, [], 0, "FORM"]; 
 					[_unit] joinSilent (group player);
 					_unit addeventhandler ['killed', {
-						_this spawn WC_fnc_garbagecollector;
+						wcgarbage = _this spawn WC_fnc_garbagecollector;
 						wcaddkilled = _unit;
 						["wcaddkilled", "server"] call WC_fnc_publicvariable;
 					}];

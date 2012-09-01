@@ -18,7 +18,7 @@
 		if!((name player) in wcinteam) then { 
 			player action ['eject', wcvehicle];
 			_vehicle engineon false;
-			['Pilot', 'Ask to admin to recruit you as team member', 'You can not pilot air vehicle', 8] spawn WC_fnc_playerhint;
+			wcgarbage = ['Pilot', 'Ask to admin to recruit you as team member', 'You can not pilot air vehicle', 8] spawn WC_fnc_playerhint;
 			_vehicle setfuel 0;
 			sleep 1;
 			_text = format["this setfuel %1;", _fuel];

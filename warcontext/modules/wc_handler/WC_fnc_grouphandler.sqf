@@ -16,7 +16,7 @@
 				wcunits = wcunits + [_x];
 				_mags = [primaryweapon _x] call WC_fnc_weaponcanflare;
 				if(_mags select 0) then {
-					[_x, _mags] spawn WC_fnc_fireflare;
+					wcgarbage = [_x, _mags] spawn WC_fnc_fireflare;
 				};
 			} else {
 				wcblinde = wcblinde + [_x];
@@ -34,7 +34,7 @@
 						wcalert = 100;
 					};
 				};
-				_this spawn WC_fnc_garbagecollector;
+				wcgarbage = _this spawn WC_fnc_garbagecollector;
 				wcnumberofkilledofmissionE = wcnumberofkilledofmissionE + 1;
 				wcenemykilled =  wcenemykilled + 1;
 				["wcenemykilled", "client"] call WC_fnc_publicvariable;

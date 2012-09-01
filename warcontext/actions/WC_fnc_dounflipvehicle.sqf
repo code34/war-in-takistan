@@ -8,7 +8,7 @@
 	_list = nearestObjects [position player, ["LandVehicle", "Air", "Tank", "Car"], 8];
 
 	if(count _list == 0) exitwith {
-		[localize "STR_WC_MENUUNFLIPVEHICLE", localize "STR_WC_MESSAGENOVEHICLENEARYOU", localize "STR_WC_MESSAGEGOCLOSERUNFLIP", 3] spawn WC_fnc_playerhint;
+		wcgarbage = [localize "STR_WC_MENUUNFLIPVEHICLE", localize "STR_WC_MESSAGENOVEHICLENEARYOU", localize "STR_WC_MESSAGEGOCLOSERUNFLIP", 3] spawn WC_fnc_playerhint;
 	};
 
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";

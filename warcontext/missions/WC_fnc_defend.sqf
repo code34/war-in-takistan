@@ -60,13 +60,13 @@
 
 	for "_x" from 0 to ceil(random wclevelmaxincity) step 1 do {
 		_location = _locations call BIS_fnc_selectRandom;
-		_handle = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
+		wcgarbage = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
 		sleep 1;
 	};
 
 	for "_x" from 0 to ceil(random wclevelmaxincity) step 1 do {
 		_location = _locations call BIS_fnc_selectRandom;
-		_handle = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
+		wcgarbage = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
 		sleep 1;
 	};
 
@@ -76,7 +76,7 @@
 		_countdead = _countdead + 1;
 		if(_timer < 1) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
 				_missioncomplete = true;
@@ -84,7 +84,7 @@
 		};
 		if((wcnumberofkilledofmissionW - _delta) > (playersNumber west)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much died"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
@@ -95,21 +95,21 @@
 		};
 		if((_count == 60) or (_count == 120))then {
 			wcmessageW = ["Commandement", "All players must stay in AREA!"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 		};
 		if (_count > 180) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much players out of area"];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcmessageW spawn EXT_fnc_infotext;
+			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 		};
 		if (_countdead > 60) then {
 			_countdead = 0;
 
 			wcmessageW = [format["Still %1 minutes", floor(_timer / 60)], format["%1/%2 players died", (wcnumberofkilledofmissionW - _delta), (playersNumber west)]];
-			if!(isDedicated) then { wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 
 			// if less than 2 members lefts (base on uaz members number), we consider we should send new reinforcment
 			{
@@ -122,10 +122,10 @@
 				_location = _locations call BIS_fnc_selectRandom;
 
 				if(random 1 > 0.5) then {
-					_handle = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
+					wcgarbage = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
 				} else {
 					if(wcwithenemyvehicle == 0) then {
-						_handle = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
+						wcgarbage = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
 					};
 				};
 				sleep 4;

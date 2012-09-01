@@ -25,26 +25,26 @@
 		_name= getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "DisplayName");
 		_text = format[localize "STR_WC_MESSAGEUNLOCKING", _name];
 
-		[format["Unlock Vehicle: %1", _name], _text, "", 8] spawn WC_fnc_playerhint;
+		wcgarbage = [format["Unlock Vehicle: %1", _name], _text, "", 8] spawn WC_fnc_playerhint;
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 8;
 
 		if!(alive player) exitwith {};
 		_text = format[localize "STR_WC_MESSAGEISUNLOCKED", _name];
-		[format["Unlock Vehicle: %1", _name], _text, "", 3] spawn WC_fnc_playerhint;
+		wcgarbage = [format["Unlock Vehicle: %1", _name], _text, "", 3] spawn WC_fnc_playerhint;
 		_object setVehicleInit "this lock false;";
 		processInitCommands;
 	} else {
 		_name= getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "DisplayName");
 		_text = format[localize "STR_WC_MESSAGELOCKING", _name];
 
-		[format["Lock Vehicle: %1", _name], _text, "", 8] spawn WC_fnc_playerhint;
+		wcgarbage = [format["Lock Vehicle: %1", _name], _text, "", 8] spawn WC_fnc_playerhint;
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 8;
 
 		if!(alive player) exitwith {};
 		_text = format[localize "STR_WC_MESSAGEISLOCKED", _name];
-		[format["Lock Vehicle: %1", _name], _text, "", 3] spawn WC_fnc_playerhint;
+		wcgarbage = [format["Lock Vehicle: %1", _name], _text, "", 3] spawn WC_fnc_playerhint;
 		_object setVehicleInit "this lock true;";
 		processInitCommands;
 	};

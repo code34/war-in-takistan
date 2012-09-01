@@ -21,7 +21,7 @@
 
 	if(wcoriginalclothes != typeof player) exitwith {
 		_lastbody = player;
-		[_lastbody] spawn WC_fnc_garbagecollector;
+		wcgarbage = [_lastbody] spawn WC_fnc_garbagecollector;
 		_lastbody removeAllEventHandlers "killed";
 		_lastbody setpos wcinitpos;
 		wcbackupbody setpos wcbackupposition;
@@ -106,7 +106,7 @@
 			wcbackupbody setpos _position;
 
 			_unit addeventhandler ['killed', {
-				_this spawn WC_fnc_garbagecollector;
+				wcgarbage = _this spawn WC_fnc_garbagecollector;
 				wcbackupbody setpos wcbackupposition;
 				selectplayer wcbackupbody;
 

@@ -21,12 +21,12 @@
 
 	if(count _param == 0) then { _light = false; } else { _light = true; };
 
-	["Sabotage",  localize "STR_WC_MESSAGESABOTING", localize "STR_WC_MESSAGESABOTINGINFORMATION", 8] spawn WC_fnc_playerhint;
+	wcgarbage = ["Sabotage",  localize "STR_WC_MESSAGESABOTING", localize "STR_WC_MESSAGESABOTINGINFORMATION", 8] spawn WC_fnc_playerhint;
 	player playMove "AinvPknlMstpSlayWrflDnon_medic";
 	sleep 8;
 	if!(alive player) exitwith {};
 
-	["Sabotage", localize "STR_WC_MESSAGESABOTINGFINISHED", localize "STR_WC_MESSAGESABOTINGINFORMATION", 8] spawn WC_fnc_playerhint;
+	wcgarbage = ["Sabotage", localize "STR_WC_MESSAGESABOTINGFINISHED", localize "STR_WC_MESSAGESABOTINGINFORMATION", 8] spawn WC_fnc_playerhint;
 
 	_object setvariable ["wcsabotage", true, true];
 
