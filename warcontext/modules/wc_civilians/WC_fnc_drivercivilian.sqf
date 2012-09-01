@@ -18,7 +18,7 @@
 
 	_vehicles = nearestObjects[_unit,["LandVehicle"], 300];
 	if (count _vehicles == 0) exitwith {
-		_unit setvariable ["civilrole", "civil", false];
+		_unit setvariable ["civilrole", "civil", true];
 	};
 
 	diag_log format["WARCONTEXT: BUILD 1 DRIVER - fame: %1", wcfame];

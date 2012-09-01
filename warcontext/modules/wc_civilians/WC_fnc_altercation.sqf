@@ -74,7 +74,7 @@
 					if(_x distance _target > 5) then {
 						_position = (_positions call BIS_fnc_selectRandom);
 						_x setvariable ["destination", _position, false];
-						_x setvariable ["civilrole", "crowd", false];
+						_x setvariable ["civilrole", "crowd", true];
 						_x setvariable ["target", _target, false];
 						_x stop false;
 						_x domove _position;
@@ -90,7 +90,7 @@
 			_men = _men - [_unit];
 			{
 				if(side _x == civilian) then {
-					_x setvariable ["civilrole", "civil", false];
+					_x setvariable ["civilrole", "civil", true];
 				};
 			}foreach _men;
 		};

@@ -48,7 +48,7 @@
 	_conversion = 0;
 	_missioncomplete = false;
 
-	while {((alive _unit) and (_conversion < 100) and (!_missioncomplete))} do {
+	while {((alive _unit) and (_conversion < 1000) and (!_missioncomplete))} do {
 		_men = nearestObjects[_unit,["Man"], 400];
 		_men = _men - [_unit];
 		if(count _men > 1) then {
@@ -61,11 +61,11 @@
 						_x stop false;
 						_x domove _position;
 						_x setvariable ["destination", _position, false];
-						_x setvariable ["civilrole", "converting", false];
+						_x setvariable ["civilrole", "converting", true];
 					} else {
 						_x dowatch _unit;
 						_x setUnitPos "Up";
-						_x setvariable ["civilrole", "converted", false];
+						_x setvariable ["civilrole", "converted", true];
 						_x stop true;
 						_conversion = _conversion + 1;
 					};
@@ -100,13 +100,13 @@
 	// create a resistance group with weapons
 	if(!(_missioncomplete) and (alive _unit)) then {
 		_unit stop false;
-		_unit setvariable ["civilrole", "converted", false];
+		_unit setvariable ["civilrole", "converted", true];
 
 		_group = creategroup east;
 		_men = nearestObjects [_unit,["Man"], 30];
 
 		{
-			if((_x getvariable "civilrole" == "converted") and (side _x == civilian)) then {
+			if((_x getvariable "civilrole" == "converted") and !(isplayer _x)) then {
 				if!((typeof _x) in wccivilwithoutweapons) then {
 					_x stop false;
 					removeallweapons _x;
@@ -116,7 +116,7 @@
 					_x addmagazine "30Rnd_545x39_AK";
 				} else {
 					_civilrole = ["bomberman","propagander","altercation","saboter","builder","healer"] call BIS_fnc_selectRandom;
-					_x setvariable ["civilrole", _civilrole, false];
+					_x setvariable ["civilrole", _civilrole, true];
 					_men = _men - [_x];
 				};
 			} else {

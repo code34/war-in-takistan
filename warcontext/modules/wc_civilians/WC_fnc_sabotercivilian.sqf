@@ -61,9 +61,9 @@
 	while { ((alive _unit) and (!_missioncomplete)) } do {
 		if!(isnull _target) then {
 			if( west countside (nearestObjects[_target,["Man"], 30]) > 0) then {
-				_unit setvariable ["civilrole", "civil", false];
+				_unit setvariable ["civilrole", "civil", true];
 			} else {
-				_unit setvariable ["civilrole", "saboter", false];
+				_unit setvariable ["civilrole", "saboter", true];
 			};
 			_unit setvariable ["target", _target, false];
 			if (_target distance _unit < 600) then {
@@ -93,9 +93,9 @@
 		} else {
 			_target = [_unit] call WC_fnc_findtargetvehicle;
 			if(isnull _target) then {
-				_unit setvariable ["civilrole", "civil", false];
+				_unit setvariable ["civilrole", "civil", true];
 			} else {
-				_unit setvariable ["civilrole", "saboter", false];
+				_unit setvariable ["civilrole", "saboter", true];
 			};
 		};
 		if((getmarkerpos "jail") distance _unit < 50) then {
