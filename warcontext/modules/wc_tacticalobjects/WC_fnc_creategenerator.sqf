@@ -6,6 +6,8 @@
 	if (!isServer) exitWith{};
 
 	private [
+		"_building",
+		"_buildings",
 		"_marker", 
 		"_position",
 		"_type"
@@ -15,7 +17,15 @@
 
 	_type = wcgeneratortype call BIS_fnc_selectRandom;
 
+	_buildings = nearestObjects [_position,["Building"], 300];
+	_building = (_buildings call BIS_fnc_selectRandom);
+
+	_position = (position _building) findEmptyPosition [ 1 , 10 , _type];
+	if(count _position == 0) exitwith {diag_log "WARCONTEXT: no position for generator found";};
+
 	wcgenerator = createVehicle [_type, _position, [], 0, "NONE"];
+	wcgenerator setpos _position;
+
 	wcgenerator setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\actions\WC_fnc_dosabotage.sqf',[true],-1,false];";
 	processInitCommands;
 
