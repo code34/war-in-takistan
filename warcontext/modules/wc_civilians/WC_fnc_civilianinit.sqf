@@ -61,10 +61,6 @@
 			};
 		}];
 
-		_unit addEventHandler ['FiredNear', {
-			(_this select 0) playMove 'AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon';
-		}];
-
 		_unit addeventhandler ['killed', {
 			wcgarbage = _this spawn WC_fnc_garbagecollector;
 			if((name (_this select 1)) in wcinteam) then {
