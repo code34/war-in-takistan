@@ -1017,7 +1017,7 @@ class Mission
 		items=18;
 		class Item0
 		{
-			position[]={1150.7145,5,9032.8916};
+			position[]={1153.0115,5,9046.4209};
 			name="respawn_west";
 			text="Base";
 			type="Empty";
