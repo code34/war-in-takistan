@@ -4,12 +4,8 @@
 
 	if (!local player) exitWith{};
 
-	// terrain ground details 0(low) - 50(full)
-	wcterraingrid = 1;
+	// set view & grid
 	setTerrainGrid wcterraingrid;
-
-	// view distance is set by lobby parameter
-	wcviewdist = wcviewdistance;
 	setViewDistance wcviewdist;
 
 	// turn off ao marker
@@ -24,7 +20,7 @@
 	// -------------------------------------------
 	// don't edit below init of working variables
 	// -------------------------------------------
-	
+
 	wccamnvg = true;
 
 	wccam = objNull;

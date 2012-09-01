@@ -231,6 +231,12 @@
 	// kind of grave
 	wcgravetype = ["gravecross2_EP1", "GraveCrossHelmet_EP1"];
 
+	// terrain ground details 0(full) - 50(low)
+	wcterraingrid = 50;
+
+	// default player view distance
+	wcviewdist = 1500;
+
 	// Radio appear at x meter distance of goal (min & max)
 	wcradiodistminofgoal = 150;
 	wcradiodistmaxofgoal = 300;
