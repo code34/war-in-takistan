@@ -106,9 +106,10 @@
 			wcbackupbody setpos _position;
 
 			_unit addeventhandler ['killed', {
-				wcgarbage = _this spawn WC_fnc_garbagecollector;
-				wcbackupbody setpos wcbackupposition;
-				selectplayer wcbackupbody;
+				hidebody (_this select 0);
+				deletevehicle (_this select 0);
+
+				wcgarbage = [] spawn WC_fnc_restorebody;
 
 				if(rank player == "Private") then {
 					wcplayeraddscore = [player, -7];
@@ -149,6 +150,8 @@
 
 			wcgarbage = [] spawn WC_fnc_restoreloadout;
 
+			(findDisplay 46) displayAddEventHandler ["KeyDown","_this call WC_fnc_keymapper;"];
+
 			if(count (units (group player)) > 0) then {
 				_count = 0;
 				{
@@ -173,21 +176,4 @@
 	camDestroy wccam;
 	wccam = objNull;
 
-	if!(isnil "_unit") then {
-		_detected = false;
-		while { ((alive _unit) and !(_detected)) } do {
-			_enemys = nearestObjects[_unit,["Man"], 10];
-			{		
-				if((side _x) in wcenemyside) then {
-					_detected = true;
-				};
-			}foreach _enemys;
-			sleep 2;
-		};
-			
-		if((_detected) and (alive _unit)) then {
-			_group = creategroup west;
-			[player] joinsilent _group;
-			hintsilent localize "STR_WC_MESSAGEABEENDETECTED";
-		};
-	};
+	wcgarbage = [player] spawn WC_fnc_stealth;

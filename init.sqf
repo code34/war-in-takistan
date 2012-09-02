@@ -6,7 +6,7 @@
 	// DEVELOPPER - MAP 
 	//
 	// warcontext\ contains main scripts
-	// warcontext\others contains all mission.sqm for other map than takistan. 
+	// warcontext\others contains all mission.sqm for other maps
 	// warcontext\client\ contains the client side logic
 	// warcontext\server\ contains the server side logic
 	// warcontext\modules\ contains all standalone logics
@@ -175,6 +175,9 @@
 	WC_fnc_sabotercivilian 		= compile preprocessFile "warcontext\modules\wc_civilians\WC_fnc_sabotercivilian.sqf";
 	WC_fnc_walkercivilian 		= compile preprocessFile "warcontext\modules\wc_civilians\WC_fnc_walkercivilian.sqf";	
 
+	// CLOTHES
+	WC_fnc_restorebody		= compile preprocessFile "warcontext\modules\wc_clothes\WC_fnc_restorebody.sqf";
+
 	// COMPOSITIONS
 	WC_fnc_createcomposition	= compile preprocessFile "warcontext\modules\wc_compositions\WC_fnc_createcomposition.sqf";
 
@@ -253,6 +256,9 @@
 	
 	// STATIC WEAPONS
 	WC_fnc_createstatic	 	= compile preprocessFile "warcontext\modules\wc_staticweapons\WC_fnc_createstatic.sqf";
+
+	// STEALTH
+	WC_fnc_stealth	 		= compile preprocessFile "warcontext\modules\wc_stealth\WC_fnc_stealth.sqf";
 	
 	// SUPPORT
 	WC_fnc_support	 		= compile preprocessFile "warcontext\modules\wc_support\WC_fnc_support.sqf";
@@ -319,6 +325,7 @@
 	WC_fnc_heal			= compile preprocessFile "warcontext\missions\WC_fnc_heal.sqf";
 	WC_fnc_jail			= compile preprocessFile "warcontext\missions\WC_fnc_jail.sqf";
 	WC_fnc_liberatehotage 		= compile preprocessFile "warcontext\missions\WC_fnc_liberatehotage.sqf";
+	WC_fnc_record			= compile preprocessFile "warcontext\missions\WC_fnc_record.sqf";
 	WC_fnc_rescuecivil		= compile preprocessFile "warcontext\missions\WC_fnc_rescuecivil.sqf";
 	WC_fnc_rob			= compile preprocessFile "warcontext\missions\WC_fnc_rob.sqf";
 	WC_fnc_steal	 		= compile preprocessFile "warcontext\missions\WC_fnc_steal.sqf";
