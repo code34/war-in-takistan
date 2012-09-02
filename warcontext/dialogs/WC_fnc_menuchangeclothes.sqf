@@ -106,10 +106,10 @@
 			wcbackupbody setpos _position;
 
 			_unit addeventhandler ['killed', {
-				hidebody (_this select 0);
-				deletevehicle (_this select 0);
+				
 
-				wcgarbage = [] spawn WC_fnc_restorebody;
+				wcgarbage = [(_this select 1)] spawn WC_fnc_restorebody;
+				wcgarbage = [(_this select 0)] spawn WC_fnc_garbagecollector;
 
 				if(rank player == "Private") then {
 					wcplayeraddscore = [player, -7];
