@@ -15,7 +15,6 @@
 
 	_detected = false;
 
-
 	while { ((alive _unit) and !(_detected)) } do {
 		_enemys = nearestObjects[_unit,["Man"], 10];
 		_find = false;
@@ -55,7 +54,7 @@
 	if((_detected) and (alive _unit)) then {
 		_group = creategroup west;
 		[player] joinsilent _group;
-		_enemys = nearestObjects[_unit,["Man"], 10];
+		_enemys = nearestObjects[_unit,["Man"], 40];
 		{		
 			if((side _x) in wcenemyside) then {
 				_x dotarget player;

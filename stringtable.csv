@@ -261,7 +261,7 @@ STR_WC_MESSAGEMHQDEPLOYED,	"The MHQ has been deployed near mission zone",	"Le MH
 STR_WC_MESSAGEANIEDEXPLOSION,	"An IED exploded near %1",	"Un ied a explose a pres de %1"
 STR_WC_MESSAGEANIEDEXPLOSIONNEARVEHICLE,	"An IED exploded near a friendly vehicle",	"Un ied a explose a cote d un vehicle allie"
 STR_WC_MESSAGEABEENDETECTED,	"You have been detected",	"Vous avez ete reconnu"
-STR_WC_MESSAGEABEENLOOKED,	"Someone looks at you insistently",	"Quelqu'un vous regarde avec un insistance"
+STR_WC_MESSAGEABEENLOOKED,	"Someone looks at you insistently",	"Quelqu'un vous regarde avec insistance"
 STR_WC_INFOPOINTSTOSHARE,	"Points to share",	"Points a partager"
 STR_WC_WIN_MISSION,	"The war is won",	"La guerre est gagnee"
 STR_WC_LOOSE_MISSION,	"The war is lost",	"La guerre est perdue"
