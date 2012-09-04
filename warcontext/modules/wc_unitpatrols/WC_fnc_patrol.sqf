@@ -22,6 +22,10 @@
 	_group = _this select 0;
 	_areasize = _this select 1;
 
+	if(isnil "_areasize") exitwith {
+		hintc "WARCONTEXT: MISSION AREASIZE FOR PATROL";
+	};
+
 	_leader = leader _group;
 
 	if(_group in wcpatrolgroups) exitwith {};
