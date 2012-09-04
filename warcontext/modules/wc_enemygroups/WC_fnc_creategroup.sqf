@@ -129,12 +129,13 @@
 			if(random 1 > 0.05) then {
 				_localalert = 20 + (random 70);
 				{
-					if(random 1 > 0.2) then {
+					//if(random 1 > 0.2) then {
 						[_x] orderGetIn false;
-						_instances = _instances + [[_x] spawn WC_fnc_dosillything];
-					};
+					//	_instances = _instances + [[_x] spawn WC_fnc_dosillything];
+					//};
 					sleep 0.1;
 				} foreach (units _group);
+				_instances = [[_group, 30] spawn WC_fnc_patrol];
 
 				// use while instead waituntil - performance leak
 				while { (wcalert < _localalert) } do {

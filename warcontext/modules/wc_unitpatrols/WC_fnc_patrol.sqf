@@ -15,7 +15,8 @@
 		"_move",
 		"_position",
 		"_originalsize",
-		"_wp"
+		"_wp",
+		"_wptype"
 	];
 
 	_group = _this select 0;
@@ -31,6 +32,8 @@
 
 	_move = true;
 	_lastcible = objnull;
+
+	_wptype = ["MOVE","DESTROY", "SAD", "HOLD", "SENTRY", "GUARD", "TALK"];
 
 	_marker = [format['patrolzone%1', wcpatrolindex], _areasize, (position _leader), 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
 	wcpatrolindex = wcpatrolindex + 1;
@@ -88,7 +91,7 @@
 			_wp = _group addWaypoint [_position, 0];
 			_wp setWaypointFormation _formationtype;
 			_wp setWaypointPosition [_position, 5];
-			_wp setWaypointType "MOVE";
+			_wp setWaypointType (_wptype call BIS_fnc_selectRandom);
 			_wp setWaypointVisible true;
 			_wp setWaypointSpeed "LIMITED";
 			_group setCurrentWaypoint _wp;
