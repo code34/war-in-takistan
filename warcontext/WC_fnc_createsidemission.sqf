@@ -1055,7 +1055,7 @@
 		};
 
 		case 75: {
-			_missiontext = [_missionname,"Escort a medic on battlefield "];
+			_missiontext = [_missionname,"Escort a medic on battlefield"];
 			_group = createGroup civilian;
 			_unit = _group createUnit ["Dr_Hladik_EP1", getmarkerpos "convoystart", [], 0, "NONE"];
 			_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
@@ -1064,6 +1064,16 @@
 			wcgarbage = [_unit, position _vehicle] spawn WC_fnc_bringunit;
 			wcgarbage = [_unit] spawn WC_fnc_createmedic;
 			_missiontype = "bringunit";
+			wcbonusfame = 0;
+		};
+
+		case 76: {
+			_missiontext = [_missionname,"Recording a conversation"];
+			_group = createGroup east;
+			_vehicle = _group createUnit ["TK_Soldier_Officer_EP1", _position, [], 0, "NONE"];
+			_vehicle2 = _group createUnit ["TK_GUE_Warlord_EP1", _position, [], 0, "NONE"];
+			wcgarbage = [_group] spawn WC_fnc_record;
+			_missiontype = "record";
 			wcbonusfame = 0;
 		};
 
