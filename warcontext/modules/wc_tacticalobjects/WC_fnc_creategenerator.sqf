@@ -18,12 +18,14 @@
 	_type = wcgeneratortype call BIS_fnc_selectRandom;
 
 	_buildings = nearestObjects [_position,["Building"], 300];
+	sleep 1;
 	_building = _buildings call BIS_fnc_selectRandom;
 
-	_position = (position _building) findEmptyPosition [1, 100];
-
-	if(count _position == 0) exitwith {
-		diag_log "WARCONTEXT: no position for generator found";
+	if(count (position _buiding) > 0) then {
+		_position = (position _building) findEmptyPosition [1, 100];
+		if(count _position == 0) exitwith {
+			diag_log "WARCONTEXT: no position for generator found";
+		};
 	};
 
 	wcgenerator = createVehicle [_type, _position, [], 0, "NONE"];
