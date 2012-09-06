@@ -84,7 +84,7 @@
 				};
 			};
 		};
-		sleep 30;
+		sleep 10;
 	};
 
 	deletemarker _marker;
