@@ -47,11 +47,12 @@
 			_missioncomplete = true;
 		};
 
-		_enemy = nearestObjects [_leader, ["All"], 5];
+		_enemy = nearestObjects [_leader, ["All"], 7];
 		_find = false;
 		{
 			if((isplayer _x) and !_find) then {
 				_recordingtime = _recordingtime + 1;
+				_count = _count + 1;
 				_find = true;
 			};
 			if((isplayer _x) and (side _x == west) and (_leader knowsabout player > 1)) then {
@@ -59,12 +60,20 @@
 			};
 		}foreach _enemy;
 
-		if(_recordingtime > 120) then {
+		if(_recordingtime > 100) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
 			wcleveltoadd = 1;			
+		} else {
+			if(_find) then {
+				if((_recordingtime mod 10) == 0) then {
+					_message = format["Progression: %1", _recordingtime] + "%";
+					wcmessageW = ["Recording", _message];
+					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				};
+			};
 		};
 	};
