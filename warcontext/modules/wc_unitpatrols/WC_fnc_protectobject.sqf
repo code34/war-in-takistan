@@ -30,7 +30,7 @@
 		};
 	};
 
-	wcgarbage = [_group, 100] spawn WC_fnc_patrol;
+	wcgarbage = [_group, 30] spawn WC_fnc_patrol;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
 
 	diag_log format ["WARCONTEXT: COMPUTING A SPECIAL FORCE GROUP OF %1 UNITS FOR PROTECT GOAL", _sizeofgroup];
