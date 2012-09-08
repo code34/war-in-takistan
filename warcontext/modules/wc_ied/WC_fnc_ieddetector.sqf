@@ -53,7 +53,7 @@
 			}foreach _objects;
 
 			// false - positive
-			if((random 1 > 0.99) and wciedfalsepositive) then {
+			if((random 1 > 0.995) and wciedfalsepositive) then {
 				if(player distance getmarkerpos "respawn_west" > 1000) then {
 					if((getposatl player) select 2 < 1) then {
 						wcgarbage = [localize "STR_WC_MESSAGEDETECTORIED", localize "STR_WC_MESSAGETRYTOMOVEAROUND", localize "STR_WC_MESSAGEIEDHASBEENDETECT", 10] spawn WC_fnc_playerhint;
