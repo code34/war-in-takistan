@@ -52,7 +52,7 @@
 			_cibles = [];
 
 			_list = (getmarkerpos _marker) nearEntities [["Man"], _areasize];
-			if(count _list == 0) then {
+			if(count _list > 0) then {
 				{
 					if(side _x == west) then {
 						if( _x distance (_leader getHideFrom _x) < 100) then {
@@ -61,6 +61,7 @@
 					} else {
 						_list = _list - [_x];
 					};
+					sleep 0.1;
 				}foreach _list;
 		
 				if(count _cibles == 0) then {
@@ -78,6 +79,7 @@
 						_x domove _position;
 					};
 					_x dofire _cible;
+					sleep 0.1;
 				}foreach (units _group);
 			};
 			sleep 30;
