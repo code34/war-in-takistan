@@ -130,6 +130,11 @@
 			wcmapbottomleft = [0, 0];
 		};
 
+		case "tigeria": {
+			wcmaptopright 	= [20500, 20500];
+			wcmapbottomleft = [0, 0];
+		};
+
 		default {
 			// retrieve map ressource
 			_x = getNumber (configfile >> "cfgWorlds" >> worldname >> "Grid" >> "offsetX");
