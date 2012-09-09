@@ -158,27 +158,7 @@
 			_text = _text + "Mode: Combat<br/>"
 		};
 
-		if (rank player == "Private") then { 
-			_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_private.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
-		};
-		if (rank player == "Corporal") then { 
-			_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_corporal.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
-		};
-		if (rank player == "Sergeant") then { 
-			_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_sergeant.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
-		};
-		if (rank player == "Lieutenant") then { 
-			_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_lieutenant.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
-		};
-		if (rank player == "Captain") then { 
-			_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_captain.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
-		};
-		if (rank player == "Major") then { 
-				_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_major.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
-		};
-		if (rank player == "Colonel") then { 
-			_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_colonel.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
-		};
+		_text=_text+format ["<t size='0.8'><img image='\CA\warfare2\Images\rank_%1.paa'></t> <t size='1' shadow='true' color='#EEEEEE'>%1</t><br/>", rank player];
 
 		if(wckindofserver != 3) then {
 			if((name player) in wcinteam) then {
