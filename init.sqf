@@ -197,6 +197,7 @@
 	WC_fnc_dosillything		= compile preprocessFile "warcontext\modules\wc_gesture\WC_fnc_dosillything.sqf";
 	
 	// HANDLER
+	WC_fnc_civilhandler		= compile preprocessFile "warcontext\modules\wc_handler\WC_fnc_civilhandler.sqf";
 	WC_fnc_grouphandler		= compile preprocessFile "warcontext\modules\wc_handler\WC_fnc_grouphandler.sqf";
 	WC_fnc_vehiclehandler 		= compile preprocessFile "warcontext\modules\wc_handler\WC_fnc_vehiclehandler.sqf";
 
