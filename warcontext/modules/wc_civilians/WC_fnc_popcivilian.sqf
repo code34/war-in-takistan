@@ -65,7 +65,7 @@
 	for "_x" from 0 to _number do {
 		_civiltype = wccivilclass call BIS_fnc_selectRandom;
 		_position = _positions call BIS_fnc_selectRandom;
-		if(random 1 < wcterroristprobability) then {
+		if((random 1 < wcterroristprobability) and !(_civiltype in wccivilwithoutweapons)) then {
 			_civilrole = ["bomberman","propagander","altercation","saboter","builder","healer"] call BIS_fnc_selectRandom;
 		} else {
 			if(random 1 < wcciviliandriverprobability) then {
@@ -105,6 +105,7 @@
 				_civil setvariable ["wcprotected", true, false];
 				wccivilianstoinit = wccivilianstoinit + [_civil];
 			}foreach _back;
+			wcgarbage = [_group] spawn WC_fnc_civilhandler;			
 			wcgarbage = [_group] spawn WC_fnc_walkercivilian;
 			processInitCommands;
 			_back = [];
