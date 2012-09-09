@@ -11,3 +11,6 @@
 	_unit playMove 'AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon';
 	removeAllWeapons _unit; 
 	_unit stop true;
+	_unit setvariable ["civilrole", "arrest", true];
+	sleep 120;
+	_unit setvariable ["civilrole", "arrest", false];
