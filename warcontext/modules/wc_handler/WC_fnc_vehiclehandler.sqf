@@ -60,6 +60,8 @@
 					_x dofire (_this select 1);
 				}foreach [_gunner, _commander];
 			};
+			// if vehicle fire itself, it puts itself as cible to search and destroy on its own position
+			(_this select 0) setvariable ["cible", (_this select 1), false];
 		}];
 
 		wcvehicles = wcvehicles + [_vehicle];

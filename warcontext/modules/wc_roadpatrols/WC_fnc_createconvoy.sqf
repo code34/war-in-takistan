@@ -6,17 +6,23 @@
 
 	private [
 		"_arrayofvehicle",
-		"_bucket",
+		"_cible",
 		"_group",
 		"_target",
+		"_formationtype",
 		"_lastposition",
 		"_nearestenemy",
+		"_move",
+		"_originalsize",
+		"_originalcible",
 		"_position",
 		"_vehicle",
 		"_vehicles",
 		"_find",
 		"_typeof",
-		"_position"
+		"_position",
+		"_wp",
+		"_wptype"
 		];
 
 	diag_log "WARCONTEXT: BUILD 1 CONVOY";
@@ -28,74 +34,79 @@
 		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CONVOY SPAWN";
 	};
 
-	_bucket = 0;
-
 	_arrayofvehicle = [_position, 0, (wcvehicleslistE call BIS_fnc_selectRandom), east] call BIS_fnc_spawnVehicle;
 
-	sleep 2;
+	sleep 1;
 
 	_vehicle 	= _arrayofvehicle select 0;
 	_arrayofpilot 	= _arrayofvehicle select 1;
 	_group 		= _arrayofvehicle select 2;
 
 	_vehicle setVehicleLock "LOCKED";
+	_vehicle setvariable ["cible", objnull, false];
+
+	_originalsize = count (units _group);
 
 	wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;	
 
-	_target = wctownlocations call BIS_fnc_selectRandom;
-
-	_position = (position _target) findEmptyPosition [10, 500];
-	if(count _position == 0) then {
-		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR TARGET CONVOY";
-	};
-
-	_group setBehaviour "SAFE";
-	_group setSpeedMode "FULL";
-
-	_lastposition = position _vehicle;
-
-	wcgarbage = [_group] spawn {
-		private ["_group", "_list", "_cibles"];
-		_group = _this select 0;
-
-		while { (count (units _group) > 0) } do {
-			_cibles = [];
-			_list = (position (leader _group)) nearEntities [["AllVehicles"], 300];
-			{
-				if((side (driver _x) == west) or (side _x == west)) then {
-					_cibles = _cibles + [_x];
-				};
-				sleep 0.01;
-			}foreach _list;
-
-			{
-				_group reveal _x;
-				(gunner _vehicle) dowatch position _x;
-				sleep (random 10);
-			} foreach _cibles;
-			sleep (random 10);
-		};
-	};
-
-	while { count (crew _vehicle) > 0 } do {
-		if(format["%1", _lastposition] == format["%1", position _vehicle]) then {
-			_bucket = _bucket + 1;
+	while { count (units _group) > 0 } do {
+		if((wcalert > 50) || (count (units _group) < _originalsize)) then {
+			_group setBehaviour "AWARE";
+			_group setCombatMode "RED";
+			_group setSpeedMode "LIMITED";
+			_wptype = ["MOVE","DESTROY", "SAD", "GUARD"];
+		} else {
+			_group setBehaviour "SAFE";
+			_group setCombatMode "GREEN";
+			_group setSpeedMode "FULL";
+			_wptype = ["MOVE","DESTROY", "SAD", "HOLD", "SENTRY", "GUARD"];
 		};
 
-		_lastposition = position _vehicle;
+		_cible = _vehicle getvariable "cible";
+		_originalcible = _cible;
 
-		if(_bucket > 6) then {
+		if(isnull (_cible)) then {
+			_move = false;
 			_target = wctownlocations call BIS_fnc_selectRandom;
 			_position = (position _target) findEmptyPosition [10, 500];
-			if(count _position == 0) then {
-				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR NEW TARGET CONVOY";
+			while { count _position == 0 } do {
+				_target = wctownlocations call BIS_fnc_selectRandom;
+				_position = (position _target) findEmptyPosition [10, 500];
+				sleep 0.1;
 			};
-			(driver _vehicle) stop false;
-			(driver _vehicle) domove _position;
-			_vehicle setFuel 1;
-			_bucket = 0;
+		} else {
+			if(!(alive _cible) or !(_cible distance _vehicle < wcdistance)) then {
+				_cible = objnull;	
+			} else {
+				_wptype = ["SAD"];
+				_position = position _cible;
+				_group setBehaviour "AWARE";
+				_group setCombatMode "RED";
+				_group setSpeedMode "LIMITED";
+			};
 		};
 
-		sleep 10;
+		_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
+		_wp = _group addWaypoint [_position, 0];
+		_wp setWaypointFormation _formationtype;
+		_wp setWaypointPosition [_position, 5];
+		_wp setWaypointType (_wptype call BIS_fnc_selectRandom);
+		_wp setWaypointVisible true;
+		_wp setWaypointSpeed "FULL";
+		_group setCurrentWaypoint _wp;
+	
+		while { (!(_move) and (count (units _group) == _originalsize)) } do {
+			_lastposition = position (leader _group);
+			sleep 30;
+			if(_lastposition distance (position (leader _group)) < 5) then {
+				_move = true;
+			};
+			_cible = _vehicle getvariable "cible";
+			if(_originalcible != _cible) then {
+				_move = true;
+			};
+		};
+		deletewaypoint _wp;
+		_vehicle setFuel 1;
 	};
