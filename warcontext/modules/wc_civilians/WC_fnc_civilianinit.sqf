@@ -54,27 +54,5 @@
 					wcgarbage = [_unit] spawn WC_fnc_drivercivilian;
 				};
 		};
-		
-		_unit addEventHandler ['HandleDamage', {
-			if!((_this select 0) == (_this select 3)) then {
-				(_this select 0) setdamage (0.5 + (random 0.5));
-			};
-		}];
-
-		_unit addeventhandler ['killed', {
-			wcgarbage = _this spawn WC_fnc_garbagecollector;
-			if((name (_this select 1)) in wcinteam) then {
-				wcnumberofkilledofmissionC = wcnumberofkilledofmissionC + 1;
-				wccivilkilled =  wccivilkilled + 1;
-				["wccivilkilled", "client"] call WC_fnc_publicvariable;
-				wcfame = wcfame - random (0.1);
-			};
-		}];
-
-		if!((typeof _unit) in wccivilwithoutweapons) then {
-			_unit addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
-		};
-
-		wcgarbage = [_unit, wccivilianskill] spawn WC_fnc_setskill;
-		sleep 2;
+		sleep 1;
 	};
