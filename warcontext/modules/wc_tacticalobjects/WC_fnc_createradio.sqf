@@ -41,6 +41,9 @@
 	if(random 1 < wcenemyglobalelectrical) then {
 		wcradioalive = true;
 		["wcradioalive", "client"] call WC_fnc_publicvariable;
+		if(random 1 > 20) then {
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+		};
 	} else {
 		wcmessageW = ["Radio tower", "Electrical outage"];
 		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
