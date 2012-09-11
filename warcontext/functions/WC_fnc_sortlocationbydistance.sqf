@@ -1,3 +1,7 @@
+	// -----------------------------------------------
+	// Author: team  code34 nicolas_boiteux@yahoo.fr
+	// warcontext - sort location by distance of an object
+
 	private [
 		"_locations", 
 		"_sorted", 
@@ -7,7 +11,8 @@
 		];
 
 	_unit = _this select 0;
-	_locations = nearestLocations [position _unit, ["Name","NameCityCapital","NameCity","NameVillage","NameLocal","Hill","Mount", "ViewPoint","RockArea"], 400];
+	_locations = _this select 1;
+
 	_sorted = [];
 		
 	while { count _locations > 0 } do {
