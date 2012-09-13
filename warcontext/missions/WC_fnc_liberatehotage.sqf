@@ -27,7 +27,6 @@
 	_unit setcaptive true;
 	_unit allowFleeing 0;
 	_unit setUnitPos "Up"; 
-	dostop _unit;
 	removeallweapons _unit;
 
 	_buildings = nearestObjects [position _unit, ["House"], 350];
@@ -47,9 +46,9 @@
 
 	_unit setpos _position;
 	_unit setdamage 0;
-
 	_unit playMoveNow "AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon";
 	_unit setvariable ["wchostage", true, true];
+	_unit stop true;
 
 	_group = createGroup east;
 	_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), position _unit, [], 1, "NONE"];
@@ -59,7 +58,7 @@
 	_vehicle2 allowdammage false;
 
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
-	wcgarbage = [_group, 100] spawn WC_fnc_patrol;
+	wcgarbage = [_group, 30] spawn WC_fnc_patrol;
 
 	wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 	wcgarbage = [_vehicle2] spawn WC_fnc_dosillything;
