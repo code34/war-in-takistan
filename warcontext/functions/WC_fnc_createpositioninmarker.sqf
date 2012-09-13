@@ -128,8 +128,8 @@
 		_count = _count + 1;
 		_countsleep = _countsleep + 1;
 		if(_countsleep > 5) then { _countsleep = 0; sleep 0.5;};
-		if(_count > 100) then { _onflat = false; _emptysizezone = 3; diag_log "WARCONTEXT: POSITION LOOP exit over 100";};
-		if(_count > 300) then { _position = [1,1,0]; _invalidate = false; diag_log "WARCONTEXT: POSITION LOOP exit over 100";};
+		if(_count > 50) then { _onflat = false; _emptysizezone = 3; diag_log "WARCONTEXT: POSITION LOOP exit over 50";};
+		if(_count > 100) then { _position = [1,1,0]; _invalidate = false; diag_log "WARCONTEXT: POSITION LOOP exit over 100";};
 		sleep 0.05;
 	};
 
