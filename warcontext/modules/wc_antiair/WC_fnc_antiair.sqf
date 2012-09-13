@@ -69,7 +69,8 @@
 		wcaaindex = wcaaindex + 1;
 	};
 
-	while { (damage _vehicle) < 0.9 } do {
+	// vehicle can be not alive and damage can be at 0
+	while { ((damage _vehicle < 0.9) and (alive _vehicle)) } do {
 		_enemys = nearestObjects[_gunner, ["Air"], 3000];
 
 		if (count _enemys > 0) then {
