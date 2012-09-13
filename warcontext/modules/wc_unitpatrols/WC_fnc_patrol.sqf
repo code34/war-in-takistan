@@ -35,7 +35,6 @@
 	_lastposition = position (leader _group);
 
 	_move = true;
-	_lastcible = objnull;
 
 	_marker = [format['patrolzone%1', wcpatrolindex], _areasize, (position _leader), 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
 	wcpatrolindex = wcpatrolindex + 1;
@@ -44,7 +43,6 @@
 		_leader = leader _group;
 
 		if((wcalert > 50) || (count (units _group) < _originalsize)) then {
-			_wptype = ["DESTROY", "SAD"];
 			_group setBehaviour "AWARE";
 			_group setCombatMode "RED";
 
@@ -83,7 +81,12 @@
 			};
 			sleep 30;
 		} else {
-			_wptype = ["MOVE","DESTROY", "SAD", "HOLD", "SENTRY", "GUARD", "TALK"];
+			if(count (units _group) > 2) then {
+				_wptype = ["MOVE", "SAD"];
+			} else {
+				_wptype = ["MOVE", "SAD", "HOLD", "SENTRY", "GUARD", "TALK", "DISMISSED"];
+			};
+
 			_group setBehaviour "SAFE";
 			_group setCombatMode "GREEN";
 
@@ -91,8 +94,6 @@
 			_position = [_marker, "onground"] call WC_fnc_createpositioninmarker;
 
 			_group setformation _formationtype;
-
-			_move = false;
 
 			_wp = _group addWaypoint [_position, 0];
 			_wp setWaypointFormation _formationtype;
@@ -102,6 +103,7 @@
 			_wp setWaypointSpeed "LIMITED";
 			_group setCurrentWaypoint _wp;
 
+			_move = false;
 			while { ((wcalert < 50) and !(_move) and (count (units _group) == _originalsize)) } do {
 				_lastposition = position (leader _group);
 				sleep 30;
