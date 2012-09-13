@@ -7,20 +7,16 @@
 	private [
 		"_arrayofvehicle",
 		"_cible",
-		"_group",
-		"_target",
 		"_formationtype",
+		"_group",
 		"_lastposition",
-		"_nearestenemy",
 		"_move",
+		"_nearestenemy",
 		"_originalsize",
 		"_originalcible",
 		"_position",
+		"_target",
 		"_vehicle",
-		"_vehicles",
-		"_find",
-		"_typeof",
-		"_position",
 		"_wp",
 		"_wptype"
 		];
@@ -28,8 +24,8 @@
 	diag_log "WARCONTEXT: BUILD 1 CONVOY";
 
 	_target = wctownlocations call BIS_fnc_selectRandom;
-
 	_position = (position _target) findEmptyPosition [10, 500];
+
 	if(count _position == 0) exitwith {
 		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CONVOY SPAWN";
 	};
@@ -43,31 +39,32 @@
 	_group 		= _arrayofvehicle select 2;
 
 	_vehicle setVehicleLock "LOCKED";
-	_vehicle setvariable ["cible", objnull, false];
-
 	_originalsize = count (units _group);
 
 	wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;	
 
+	_vehicle setvariable ["cible", objnull, false];
+
 	while { count (units _group) > 0 } do {
+
 		if((wcalert > 50) || (count (units _group) < _originalsize)) then {
 			_group setBehaviour "AWARE";
 			_group setCombatMode "RED";
 			_group setSpeedMode "LIMITED";
-			_wptype = ["MOVE","DESTROY", "SAD", "GUARD"];
+			_wptype = ["MOVE","SAD"];
 		} else {
 			_group setBehaviour "SAFE";
 			_group setCombatMode "GREEN";
 			_group setSpeedMode "FULL";
-			_wptype = ["MOVE","DESTROY", "SAD", "HOLD", "SENTRY", "GUARD"];
+			_wptype = ["MOVE", "SAD"];
 		};
 
 		_cible = _vehicle getvariable "cible";
 		_originalcible = _cible;
 
-		if(isnull (_cible)) then {
-			_move = false;
+		if((isnull _cible) or !(alive _cible) or ((_cible distance _vehicle) > wcdistance)) then {
+			_vehicle setvariable ["cible", _vehicle, false];
 			_target = wctownlocations call BIS_fnc_selectRandom;
 			_position = (position _target) findEmptyPosition [10, 500];
 			while { count _position == 0 } do {
@@ -76,27 +73,24 @@
 				sleep 0.1;
 			};
 		} else {
-			if(!(alive _cible) or !(_cible distance _vehicle < wcdistance)) then {
-				_cible = objnull;	
-			} else {
-				_wptype = ["SAD"];
-				_position = position _cible;
-				_group setBehaviour "AWARE";
-				_group setCombatMode "RED";
-				_group setSpeedMode "LIMITED";
-			};
+			_wptype = ["SAD"];
+			_position = position _cible;
+			_group setBehaviour "AWARE";
+			_group setCombatMode "RED";
+			_group setSpeedMode "LIMITED";
 		};
 
-		_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
-		_wp = _group addWaypoint [_position, 0];
-		_wp setWaypointFormation _formationtype;
+		//_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
+		_wp = _group addwaypoint [_position, 0];
+		//_wp setWaypointFormation _formationtype;
 		_wp setWaypointPosition [_position, 5];
 		_wp setWaypointType (_wptype call BIS_fnc_selectRandom);
 		_wp setWaypointVisible true;
 		_wp setWaypointSpeed "FULL";
 		_group setCurrentWaypoint _wp;
-	
-		while { (!(_move) and (count (units _group) == _originalsize)) } do {
+
+		_move = false;
+		while { !(_move) } do {
 			_lastposition = position (leader _group);
 			sleep 30;
 			if(_lastposition distance (position (leader _group)) < 5) then {
