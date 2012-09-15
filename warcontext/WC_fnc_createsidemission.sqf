@@ -1109,10 +1109,10 @@
 
 	diag_log format ["WARCONTEXT: MISSION:%1 TYPE:%2 DESCRIPTION: %3", _missionnumber, _missiontype, _missiontext];
 
-	sleep 30;
-
 	// for debug purpose 
 	wctarget = _vehicle;
+
+	sleep 30;
 
 	wcobjective = [wcobjectiveindex, _vehicle, _missionnumber, _missionname, _missiontext];
 	["wcobjective", "client"] call WC_fnc_publicvariable;
