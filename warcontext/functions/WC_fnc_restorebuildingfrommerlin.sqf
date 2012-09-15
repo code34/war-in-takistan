@@ -73,7 +73,7 @@
 									while { count (units _group) > 1 } do {
 										_position = [_markername] call WC_fnc_createpositioninmarker;
 										_waypoint = _group addWaypoint [_position, 0];
-										[_group, 0] setWaypointType "DESTROY";
+										[_group, 0] setWaypointType "SAD";
 										sleep 120;
 										deleteWaypoint [_group, 0];
 									};
