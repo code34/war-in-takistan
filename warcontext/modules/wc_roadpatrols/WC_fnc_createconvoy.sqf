@@ -52,7 +52,7 @@
 			_group setBehaviour "AWARE";
 			_group setCombatMode "RED";
 			_group setSpeedMode "LIMITED";
-			_wptype = ["MOVE","SAD"];
+			_wptype = ["SAD"];
 		} else {
 			_group setBehaviour "SAFE";
 			_group setCombatMode "GREEN";
@@ -73,11 +73,13 @@
 				sleep 0.1;
 			};
 		} else {
-			_wptype = ["SAD"];
-			_position = position _cible;
-			_group setBehaviour "AWARE";
-			_group setCombatMode "RED";
-			_group setSpeedMode "LIMITED";
+			if(_cible != _vehicle) then {
+				_wptype = ["SAD"];
+				_position = position _cible;
+				_group setBehaviour "AWARE";
+				_group setCombatMode "RED";
+				_group setSpeedMode "LIMITED";
+			};
 		};
 
 		//_formationtype = ["COLUMN", "STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"] call BIS_fnc_selectRandom;
@@ -92,7 +94,7 @@
 		_move = false;
 		while { !(_move) } do {
 			_lastposition = position (leader _group);
-			sleep 30;
+			sleep 10;
 			if(_lastposition distance (position (leader _group)) < 5) then {
 				_move = true;
 			};
