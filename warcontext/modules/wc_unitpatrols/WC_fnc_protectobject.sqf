@@ -21,7 +21,7 @@
 
 	_position = getpos _unit;
 
-	for "_a" from 0 to (round random _number) do {
+	for "_a" from 1 to (round random _number) do {
 		_areasize = round (random 50);
 		_sizeofgroup = round (random 4);
 	
