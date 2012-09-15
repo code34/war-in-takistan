@@ -31,9 +31,8 @@ FNCT_R3F_DEBUG_doGodSight ={
 				while { !_check } do {
 					_base = _base + [_temp];
 					_temp = configName(inheritsFrom (configFile >> "CfgVehicles" >> _temp));
-					if (_temp == "All") then { _check = true};			
+					if (_temp == "") then { _check = true};			
 				};
-				_base = _base + ["All"];
 	
 				_temp = "";
 				_count = 0;
