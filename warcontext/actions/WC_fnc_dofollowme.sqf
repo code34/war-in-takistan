@@ -11,7 +11,7 @@
 		];
 	
 	_unit = _this select 0;
-	_leader = _this select 1;	
+	_leader = _this select 1;
 
 	_unit setVehicleInit "this enableAI 'Move'; this stop false;";
 	processInitCommands;
@@ -31,6 +31,12 @@
 
 	_ingroup = true;
 	while { _ingroup } do {
+		// can not bring weapon
+		if(primaryweapon _unit != "") then { 
+			_unit playMove "AinvPknlMstpSlayWrflDnon_medic";
+			sleep 4;
+			removeAllWeapons _unit;
+		};
 		if(count(units(group _unit)) > 1) then { _ingroup = true; } else { _ingroup = false;};
 		if(vehicle _unit == _unit) then {
 			if(_unit distance _leader < 150) then {
