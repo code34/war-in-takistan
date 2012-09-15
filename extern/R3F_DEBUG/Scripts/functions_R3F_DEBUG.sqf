@@ -41,8 +41,22 @@ VAR_R3F_DEBUG_SetVelocity				= CONST_R3F_DEBUG_VELOCITY1;
 VAR_R3F_DEBUG_InfiniteAmmoState				= CONST_R3F_DEBUG_INFINITEAMMO_OFF;
 VAR_R3F_DEBUG_Default_Script				= "";
 
+wcgarbage = [] spawn {
+	private ["_lowfps"];
+	wclowfps = 1000; 
+	while { true } do { 
+		_lowfps = diag_fps; 
+		if(_lowfps < wclowfps) then { 
+			wclowfps = _lowfps ;
+		}; 
+		sleep 0.01;
+	};
+};
+
 VAR_R3F_DEBUG_Spy	= [
-		"(position player)"
+		"(position player)",
+		"diag_fps",
+		"wclowfps"
 ];
 
 CONST_R3F_DEBUG_OptionNamesAndValues =
