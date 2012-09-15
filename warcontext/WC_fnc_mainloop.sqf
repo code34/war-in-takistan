@@ -22,7 +22,6 @@
 		"_ambushcounter",
 		"_position",
 		"_ieds",
-		"_active",
 		"_numberofplayers",
 		"_locationsneartarget",
 		"_vehicle",
@@ -36,11 +35,6 @@
 	} else {
 		diag_log format["WARCONTEXT: PC V%1", wcversion];
 	};
-
-	_active = createTrigger["EmptyDetector", [0,0,0]];
-	_active setTriggerArea[wcleaveareasizeatendofmission, wcleaveareasizeatendofmission, 0, false];
-	_active setTriggerActivation["WEST", "PRESENT", TRUE];
-	_active setTriggerStatements["this", "", ""];
 
 	_sanity = createTrigger["EmptyDetector", wcmapcenter];
 	_sanity setTriggerArea[20000, 20000, 0, false];
@@ -147,8 +141,6 @@
 			["wcday", "client"] call WC_fnc_publicvariable;
 		};
 		["wcweather", "client"] call WC_fnc_publicvariable;
-
-		_active setpos _position;
 
 		diag_log format ["WARCONTEXT: COMPUTING LOCATION %1", text _location];
 
@@ -270,13 +262,15 @@
 		_numberofplayers = 100;
 		_count = 0;
 		while { _numberofplayers >= (ceil((playersNumber west) * wcleaversatendofmission)) } do {
-			_list = list _active;
-			{
-				if !(isplayer _x) then { 
-					_list = _list - [_x];
+			_list = [];
+			{	
+				if(isplayer _x) then {
+					if (_x distance (position _location) < wcleaveareasizeatendofmission) then {
+						_list = _list + [_x];
+					};
 				};
-				sleep 0.05;
-			}foreach _list;
+			}foreach allunits;
+
 			_numberofplayers = count _list;
 			sleep 10;
 			if(_numberofplayers >= (ceil((playersNumber west) * wcleaversatendofmission))) then { 
