@@ -57,9 +57,6 @@
 	// init R3F arty and logistic script
 	wcgarbage = [] spawn { execVM "extern\R3F_ARTY_AND_LOG\init.sqf"; };
 
-	// init BON loadout script
-	wcgarbage = [] spawn { presetDialogUpdate = compile preprocessFile "extern\bon_loadoutpresets\bon_func_presetdlgUpdate.sqf"; };
-
 	/////////////////////
 	// EXTERNAL SCRIPTS
 	/////////////////////

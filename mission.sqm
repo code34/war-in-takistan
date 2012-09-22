@@ -3,10 +3,46 @@ class Mission
 {
 	addOns[]=
 	{
-		"takistan"
+		"takistan",
+		"ca_modules_functions",
+		"cacharacters_e",
+		"caweapons_e",
+		"cawheeled_e_hmmwv",
+		"CAWheeled_E_stryker",
+		"cawheeled_e_suv",
+		"CAWheeled_E",
+		"camisc_e_wf",
+		"CATracked_E_M2A2_Bradley",
+		"camisc3",
+		"CAAir_E_UH60M",
+		"CAMisc",
+		"camisc_e",
+		"caweapons_e_ammoboxes",
+		"CAWheeled_E_LandRover",
+		"CAWheeled_E_ATV",
+		"caweapons_pmc",
+		"warfarebuildings"
 	};
 	addOnsAuto[]=
 	{
+		"ca_modules_functions",
+		"cacharacters_e",
+		"caweapons_e",
+		"cawheeled_e_hmmwv",
+		"CAWheeled_E_stryker",
+		"cawheeled_e_suv",
+		"CAWheeled_E",
+		"camisc_e_wf",
+		"CATracked_E_M2A2_Bradley",
+		"camisc3",
+		"CAAir_E_UH60M",
+		"CAMisc",
+		"camisc_e",
+		"caweapons_e_ammoboxes",
+		"CAWheeled_E_LandRover",
+		"CAWheeled_E_ATV",
+		"caweapons_pmc",
+		"warfarebuildings",
 		"takistan"
 	};
 	randomSeed=4546277;
@@ -2582,7 +2618,7 @@ class Mission
 			leader=1;
 			skill=0.60000002;
 			text="preset";
-			init="this allowDamage false; this addAction [""<t color='#FFFFFF'>Get Equipment Preset</t>"",""extern\bon_loadoutpresets\bon_loadout_presets.sqf""];";
+			init="this allowDamage false; this addAction [""<t color='#FFFFFF'>Choose BackPack</t>"",""extern\bon_getbackpack\openmenu.sqf""];";
 		};
 		class Item142
 		{
@@ -11504,7 +11540,7 @@ class Mission
 			vehicle="WarfareBunkerSign";
 			skill=0.60000002;
 			text="sign1";
-			init="this setObjectTexture [0, ""pics\caution.paa""];this addAction [""<t color='#dddd00'>Read informations of the day</t>"", ""warcontext\actions\WC_fnc_doreadmotd.sqf"",[],6,false];this addAction [""<t color='#dddd00'>Write informations</t>"", ""warcontext\actions\WC_fnc_dowritemotd.sqf"",[],6,false]; this allowDamage false;";
+			init="this setObjectTexture [0, ""pics\caution.paa""];this addAction [""<t color='#dddd00'>Read instructions</t>"", ""warcontext\actions\WC_fnc_doreadmotd.sqf"",[],6,false];this addAction [""<t color='#dddd00'>Write instructions</t>"", ""warcontext\actions\WC_fnc_dowritemotd.sqf"",[],6,false]; this allowDamage false;";
 		};
 		class Item1060
 		{

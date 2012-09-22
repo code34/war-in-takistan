@@ -1,5 +1,5 @@
 //by Bon_Inf*
-// version 1.092 - always replace my Common.hpp with the latest version, if no version specified, consider it as version 1.0
+// version 1.19 - always replace my Common.hpp with the latest version, if no version specified, consider it as version 1.0
 //                 however, never include two Common.hpp at the same time in the Description.ext
 
 // Control types
@@ -179,6 +179,20 @@ class HW_RscSlider {
 	h = 0.03;
 	color[] = Color_White;
 	//colorActive[] = Color_White;
+};
+
+
+class HW_RscXSlider {
+	type = CT_XSLIDER;
+	style = 0x400  + 0x10;
+	x = 0; y = 0; w = 1; h = 1;
+	color[] = {1, 1, 1, 0.4};
+	colorActive[] = {1, 1, 1, 1};
+	colorDisabled[] = {1, 1, 1, 0.2};
+	arrowEmpty = "\ca\ui\data\ui_arrow_left_ca.paa";
+	arrowFull = "\ca\ui\data\ui_arrow_left_active_ca.paa";
+	border = "\ca\ui\data\ui_border_frame_ca.paa";
+	thumb = "\ca\ui\data\ui_slider_bar_ca.paa";
 };
 
 

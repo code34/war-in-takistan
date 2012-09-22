@@ -28,8 +28,8 @@ RespawnDialog = 0;
 #include "extern\R3F_revive\dlg_attente_reanimation.h"
 #include "extern\spect\spectating.hpp"
 #include "extern\TeamStatusdialog\TeamStatusDialog.hpp"
-#include "extern\bon_loadoutpresets\dialog\Common.hpp"
-#include "extern\bon_loadoutpresets\dialog\LoadoutPreset.hpp"
+#include "extern\bon_getbackpack\dialog\Common.hpp"
+#include "extern\bon_getbackpack\dialog\getbackpack.hpp"
 
 
 class RscTitles
