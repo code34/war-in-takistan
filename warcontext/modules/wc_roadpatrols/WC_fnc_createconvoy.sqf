@@ -30,6 +30,7 @@
 		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CONVOY SPAWN";
 	};
 
+
 	_arrayofvehicle = [_position, 0, (wcvehicleslistE call BIS_fnc_selectRandom), east] call BIS_fnc_spawnVehicle;
 
 	sleep 1;
@@ -43,6 +44,40 @@
 
 	wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;	
+
+	if(random 1 > 0.9) then {
+
+		_arrayofvehicle = [_position, 0, (wcvehicleslistE call BIS_fnc_selectRandom), east] call BIS_fnc_spawnVehicle;
+	
+		sleep 1;
+	
+		_vehicle2 	= _arrayofvehicle select 0;
+		_arrayofpilot2 	= _arrayofvehicle select 1;
+		_group2		= _arrayofvehicle select 2;
+
+		_vehicle2 setVehicleLock "LOCKED";
+
+		wcgarbage = [_vehicle2] spawn WC_fnc_vehiclehandler;
+		wcgarbage = [_group2] spawn WC_fnc_grouphandler;	
+
+		_arrayofpilot2 joinsilent _group;
+
+		_arrayofvehicle = [_position, 0, (wcconvoyvehicles call BIS_fnc_selectRandom), east] call BIS_fnc_spawnVehicle;
+	
+		sleep 1;
+	
+		_vehicle3 	= _arrayofvehicle select 0;
+		_arrayofpilot3 	= _arrayofvehicle select 1;
+		_group3		= _arrayofvehicle select 2;
+
+		_vehicle3 setVehicleLock "LOCKED";
+
+		wcgarbage = [_vehicle3] spawn WC_fnc_vehiclehandler;
+		wcgarbage = [_group3] spawn WC_fnc_grouphandler;	
+
+		_arrayofpilot3 joinsilent _group;
+	};
+
 
 	_vehicle setvariable ["cible", objnull, false];
 
