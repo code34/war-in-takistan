@@ -1080,10 +1080,11 @@
 		case 77: {
 			_missiontext = [_missionname, "Secure a Control Tower"];
 			_vehicle = (nearestObjects [_position, ["Land_Mil_ControlTower_EP1"], 400]) call BIS_fnc_selectRandom;
+			_position = position _vehicle;
 			_group = createGroup west;
 			{
-				_unit = _group createUnit [_x, _position, [], 0.8, "NONE"];
-			}foreach ["CZ_Soldier_Sniper_EP1","CZ_Special_Forces_Scout_DES_EP1","CZ_Special_Forces_MG_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_TL_DES_EP1"];
+				_unit = _group createUnit [_x, _position, [], 20, "NONE"];
+			}foreach ["CZ_Special_Forces_Scout_DES_EP1","CZ_Special_Forces_MG_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_TL_DES_EP1"];
 			wcgarbage = [_group, 50] spawn WC_fnc_patrol;
 			(leader _group) setVehicleInit "this addAction ['<t color=''#ff4500''>Replace the guard</t>', 'warcontext\actions\WC_fnc_dobeginguard.sqf',[],6,false];";
 			processInitCommands;
