@@ -95,6 +95,7 @@ STR_WC_MISSION73,	"A Forward Operating Base requires an ammo resupply. Bring an 
 STR_WC_MISSION74,	"We need an advanced Forward Operating Base. Build a bunker here!",	"Nous avons besoin d un poste avance, construisez un bunker ici"
 STR_WC_MISSION75,	"We need a medic on the battlefield to heal our solder. Escort the medic at the mash",	"Nous avons besoin d'un medic sur le champs de bataille pour soigner nos soldats. Escortez le medecin a la tente mobile"
 STR_WC_MISSION76,	"An military officer should talk with a terrorist warlod about weapon caches. Record the conversation.",	"Un officier militaire doit avoir une conversation avec un warlord a propos de caches d'armes. Enregistrez la conversation."
+STR_WC_MISSION77,	"We need to guard a control tower. One of our group is already guarding it, talk with the leader and replace them",	"Nous avons besoin de garder une tour de controle. Un de nos groupes est déjà en place, parlez avec le chef, et prenez la garde"
 STR_WC_MISSION100,	"Final mission: Intel have identified where the enemy leader is based. Your mission is to kill him as we we believe this will stop the war. Good luck!",	"Final mission: Vous avez decouvert l'endroit ou se cache le leader enemi. Vous devez le tuer pour arreter la guerre. Bonne chance !"
 STR_WCSHORT_MISSION0,	"Destroy a SCUD launcher",	"Destroy a SCUD launcher"
 STR_WCSHORT_MISSION1,	"Kill a gold trafficker",	"Kill a gold trafficker"
