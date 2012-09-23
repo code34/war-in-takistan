@@ -193,7 +193,7 @@
 
 		// CREATE x CONVOY ON MAP
 		for "_x" from 1 to wcconvoylevel step 1 do {
-			wcgarbage = [] spawn WC_fnc_createconvoy;
+			wcgarbage = [wcvehicleslistE, wcconvoyvehicles, (round random(3))] spawn WC_fnc_createconvoy;
 			sleep 2;
 		};
 

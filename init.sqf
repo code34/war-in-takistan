@@ -244,6 +244,7 @@
 	WC_fnc_respawnvehicle		= compile preprocessFile "warcontext\modules\wc_respawnvehicle\WC_fnc_respawnvehicle.sqf";
 
 	// ROAD PATROL
+	WC_fnc_roadpatrol 		= compile preprocessFile "warcontext\modules\wc_roadpatrols\WC_fnc_roadpatrol.sqf";
 	WC_fnc_createconvoy 		= compile preprocessFile "warcontext\modules\wc_roadpatrols\WC_fnc_createconvoy.sqf";
 
 	// SABOTAGE
