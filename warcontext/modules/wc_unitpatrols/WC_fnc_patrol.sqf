@@ -24,7 +24,7 @@
 	_areasize = _this select 1;
 
 	if(isnil "_areasize") exitwith {
-		hintc "WARCONTEXT: MISSION AREASIZE FOR PATROL";
+		hintc "WARCONTEXT: patrolscript: areasize parameter is not set";
 	};
 
 	_leader = leader _group;
