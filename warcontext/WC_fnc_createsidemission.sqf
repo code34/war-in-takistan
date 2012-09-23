@@ -1079,7 +1079,7 @@
 
 		case 77: {
 			_missiontext = [_missionname, "Secure a Control Tower"];
-			_vehicle = (nearestObjects [_position, ["Land_Mil_ControlTower_EP1"], 400]) call BIS_fnc_selectRandom;
+			_vehicle = (nearestObjects [_position, ["Land_Mil_ControlTower_EP1", "Land_Mil_ControlTower"], 400]) call BIS_fnc_selectRandom;
 			_position = position _vehicle;
 			_group = createGroup west;
 			{

@@ -119,7 +119,7 @@
 		};
 
 		if(_missionnumber == 77) then {
-			_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_ControlTower_EP1"], 20000]) call BIS_fnc_selectRandom;
+			_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_ControlTower_EP1", "Land_Mil_ControlTower"], 20000]) call BIS_fnc_selectRandom;
 			_position = position _vehicle;
 		};
 
