@@ -65,20 +65,30 @@
 	};
 
 	// exclude mission that contains building not present on map
-	if(count(nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_Barracks_i_EP1"], 20000]) == 0) then {
+
+	wcallbaracks = nearestObjects [wcmapcenter, wckindofbarracks, 20000];
+	if(count(wcallbaracks) == 0) then {
 		wcmissiondone = wcmissiondone + [56];
 	};
 
-	if(count(nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_hangar_EP1"], 20000]) == 0) then {
+	wcallhangars = nearestObjects [wcmapcenter, wckindofhangars, 20000];
+	if(count(wcallhangars) == 0) then {
 		wcmissiondone = wcmissiondone + [58,59,60,61,62,71];
 	};
 
-	if(count(nearestObjects [getmarkerpos "respawn_west", ["Land_Ind_Oil_Pump_EP1"], 20000]) == 0) then {
+	wcalloilpumps = nearestObjects [wcmapcenter, wckindofoilpumps, 20000];
+	if(count(wcalloilpumps) == 0) then {
 		wcmissiondone = wcmissiondone + [63,72];
 	};
 
-	if(count(nearestObjects [getmarkerpos "respawn_west", ["Land_Ind_FuelStation_Feed_EP1"], 20000]) == 0) then {
+	wcallfuelstations = nearestObjects [wcmapcenter, wckindoffuelstations, 20000];
+	if(count(wcallfuelstations) == 0) then {
 		wcmissiondone = wcmissiondone + [65];
+	};
+
+	wcallcontroltowers = nearestObjects [wcmapcenter, wckindofcontroltowers, 20000];
+	if(count(wcallcontroltowers) == 0) then {
+		wcmissiondone = wcmissiondone + [77];
 	};
 	
 	// enemy zone size

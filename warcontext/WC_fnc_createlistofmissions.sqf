@@ -82,20 +82,109 @@
 		} else {
 			_missionnumber = 100;
 		};
-		_missionnumber = 77;
+		_missionnumber = 58;
 		_thislist = _thislist + [_missionnumber];
 
-		// defend mission
-		if((_missionnumber == 55) or (_missionnumber == 56) or (_missionnumber == 63) or (_missionnumber == 77)) then {_numberofgroup = 0; _numberofvehicle = 0;};
+		// Compute name of mission
+		_name = [] call WC_fnc_missionname;
+		_objective = call compile format['localize "STR_WC_MISSION%1"', _missionnumber];
 
-		if(_missionnumber == 56) then {
-			_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_Barracks_i_EP1"], 20000]) call BIS_fnc_selectRandom;
-			_position = position _vehicle;
+		// Compute a type vehicle for debug purpose
+		wcmissionvehicle = wcvehicleslistEmission call BIS_fnc_selectRandom;
+
+		switch (_missionnumber) do {	
+			case 51: {
+
+				_objective = format[localize "STR_WC_MISSION51", getText (configFile >> "CfgVehicles" >> wcmissionvehicle >> "DisplayName")];
+				wcvehicleslistEmission = wcvehicleslistEmission - [_vehicle];
+			};
+
+			case 52: {
+				_objective = format[localize "STR_WC_MISSION52", getText (configFile >> "CfgVehicles" >> wcmissionvehicle >> "DisplayName")];
+				wcvehicleslistEmission = wcvehicleslistEmission - [_vehicle];
+			};
+
+			case 53: {
+				_objective = format[localize "STR_WC_MISSION53", getText (configFile >> "CfgVehicles" >> wcmissionvehicle >> "DisplayName")];
+				wcvehicleslistEmission = wcvehicleslistEmission - [_vehicle];
+			};
+
+			case 55: {
+				_numberofgroup = 0; 
+				_numberofvehicle = 0;
+			};
+
+			case 56: {
+				_numberofgroup = 0; 
+				_numberofvehicle = 0;
+				_vehicle = wcallbaracks call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 58: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 59: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 60: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 61: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 62: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 63: {
+				_numberofgroup = 0; 
+				_numberofvehicle = 0;
+				_vehicle = wcalloilpumps call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 65: {
+				_vehicle = wcallfuelstations call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 71: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 72: {
+				_vehicle = wcalloilpumps call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 77: {
+				_numberofgroup = 0; 
+				_numberofvehicle = 0;
+				_vehicle = wcallcontroltowers call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 100: {
+				_numberofgroup = 16; 
+				_numberofvehicle = 10;
+			};
 		};
 
+
+		// To add before to check 
+		// If mission can be done with SAFE ZONE
 		if((_missionnumber == 58) or (_missionnumber == 59) or (_missionnumber == 60) or (_missionnumber == 61) or (_missionnumber == 62) or (_missionnumber == 71)) then {
-			_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_hangar_EP1"], 20000]) call BIS_fnc_selectRandom;
-			_position = position _vehicle;
 			_done = true;
 			_counter = 0;
 			while { _done } do {
@@ -106,7 +195,7 @@
 					};
 				}foreach wcsecurezone;
 				if(_done) then {
-					_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_hangar_EP1"], 20000]) call BIS_fnc_selectRandom;
+					_vehicle = wckindofhangars call BIS_fnc_selectRandom;
 					_position = position _vehicle;
 					_counter = _counter + 1;
 					if(_counter > 10) then {
@@ -115,44 +204,6 @@
 					};
 				};
 				sleep 0.1;
-			};
-		};
-
-		if(_missionnumber == 77) then {
-			_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Mil_ControlTower_EP1", "Land_Mil_ControlTower"], 20000]) call BIS_fnc_selectRandom;
-			_position = position _vehicle;
-		};
-
-		if((_missionnumber == 63) or (_missionnumber == 72)) then {
-			_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Ind_Oil_Pump_EP1"], 20000]) call BIS_fnc_selectRandom;
-			_position = position _vehicle;
-		};
-
-		if(_missionnumber == 65) then {
-			_vehicle = (nearestObjects [getmarkerpos "respawn_west", ["Land_Ind_FuelStation_Feed_EP1"], 20000]) call BIS_fnc_selectRandom;
-			_position = position _vehicle;
-		};
-
-		if(_missionnumber == 100) then { _numberofgroup = 16; _numberofvehicle = 10; };
-
-		_name = [] call WC_fnc_missionname;
-		_objective = call compile format['localize "STR_WC_MISSION%1"', _missionnumber];
-
-		// always compute a mission vehicle for debug purpose
-		wcmissionvehicle = wcvehicleslistEmission call BIS_fnc_selectRandom;
-
-		if(_missionnumber in [51,52,53]) then {
-			wcvehicleslistEmission = wcvehicleslistEmission - [_vehicle];
-			switch (_missionnumber) do {
-				case 51: {
-					_objective = format[localize "STR_WC_MISSION51", getText (configFile >> "CfgVehicles" >> wcmissionvehicle >> "DisplayName")];
-				};
-				case 52: {
-					_objective = format[localize "STR_WC_MISSION52", getText (configFile >> "CfgVehicles" >> wcmissionvehicle >> "DisplayName")];
-				};
-				case 53: {
-					_objective = format[localize "STR_WC_MISSION53", getText (configFile >> "CfgVehicles" >> wcmissionvehicle >> "DisplayName")];
-				};
 			};
 		};
 
