@@ -7,6 +7,7 @@
 
 	_diary = player createDiaryRecord ["Diary", ["Author", "The main mission was developped by code34"]];
 	_diary = player createDiaryRecord ["Diary", ["Tent", "You can build tent. Tent can be used as personnal respawn."]];
+	_diary = player createDiaryRecord ["Diary", ["IED", "IED are detected when you hear a sound alarm."]];
 	_diary = player createDiaryRecord ["Diary", ["Repair\Unlock\Unflip vehicles", "Only engineers can repair, unflip, unlock vehicles."]];
 	_diary = player createDiaryRecord ["Diary", ["Points", "At the end of each mission, the players have to distribute some points to other players to evaluate their contribution to the successfull of the mission. Thoses points affects the players ranking. More the rank of the player is higher, more the game is hardier for him (less revive)"]];
 	_diary = player createDiaryRecord ["Diary", ["Players revives", "When you are die, only medics or corpsman can heal you. If nobody come to heal, you have to respawn to base. You can be heal a couple of time, before to have to return to base. Medic can t heal themself, if they do, they will return to base and loose some points. <br/><br/>When a player died, the teamscore is decreased by 1 until a medic revive him. If the player respawn to base, the score is decrease again by 1."]];
