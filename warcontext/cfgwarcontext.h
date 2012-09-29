@@ -18,37 +18,37 @@
 			};
 		}
 
-		class AMBIANTS
+		class MODULES
 		{
 			class ambiantLife
 			{
 				description = "[EN]\nCreate ambiant life in a location";
-				file = "warcontext\WC_fnc_ambiantlife.sqf";
+				file = "warcontext\modules\wc_enemygroups\WC_fnc_ambiantlife.sqf";
 			};
 			class antiair
 			{
 				description = "[EN]\nCreate an antiair site at random position on map";
-				file = "warcontext\WC_fnc_antiair.sqf";
+				file = "warcontext\modules\wc_antiair\WC_fnc_antiair.sqf";
 			};
 			class createcomposition
 			{
 				description = "[EN]\nCreate composition in a location";
-				file = "warcontext\WC_fnc_createcomposition.sqf";
+				file = "warcontext\modules\wc_compositions\WC_fnc_createcomposition.sqf";
 			};
 			class creategroup
 			{
 				description = "[EN]\nCreate groups of enemys in a location";
-				file = "warcontext\WC_fnc_creategroup.sqf";
+				file = "warcontext\modules\wc_enemygroups\WC_fnc_creategroup.sqf";
 			};
 			class createmortuary
 			{
 				description = "[EN]\nCreate a mortuary at a position";
-				file = "warcontext\WC_fnc_createmortuary.sqf";
+				file = "warcontext\modules\wc_mortuary\WC_fnc_createmortuary.sqf";
 			};
 			class createnuclearfire
 			{
 				description = "[EN]\nCreate a nuclear fire from a vehicle with x ammo";
-				file = "warcontext\WC_fnc_createnuclearfire.sqf";
+				file = "warcontext\modules\wc_nuke\WC_fnc_createnuclearfire.sqf";
 			};
 			class createsidemission
 			{
@@ -63,12 +63,22 @@
 			class createcivilcars
 			{
 				description = "[EN]\nCreate civil cars in a location";
-				file = "warcontext\WC_fnc_createcivilcar.sqf";
+				file = "warcontext\modules\wc_civilcars\WC_fnc_createcivilcar.sqf";
 			};
 			class createammobox
 			{
 				description = "[EN]\nCreate an ammobox at a position";
-				file = "warcontext\WC_fnc_createammobox.sqf";
+				file = "warcontext\modules\wc_ammobox\WC_fnc_createammobox.sqf";
+			};
+			class lifeslider
+			{
+				description = "[EN]\nGenerate the ranking player HUD";
+				file = "warcontext\modules\wc_hud\WC_fnc_lifeslider.sqf";
+			};
+			class weather
+			{
+				description = "[EN]\nGenerate a random weather";
+				file = "warcontext\modules\wc_weather\WC_fnc_weather.sqf";
 			};
 		};
 		class FUNCTIONS
@@ -213,19 +223,9 @@
 				description = "[EN]\nSet skill of a unit";
 				file = "warcontext\functions\WC_fnc_setskill.sqf";
 			};
-			class weather
-			{
-				description = "[EN]\nGenerate a random weather";
-				file = "warcontext\functions\WC_fnc_weather.sqf";
-			};
 		};
 		class DIALOGS
 		{
-			class lifeslider
-			{
-				description = "[EN]\nGenerate the ranking player HUD";
-				file = "warcontext\WC_fnc_lifeslider.sqf";
-			};
 			class menubuildvehicles
 			{
 				description = "[EN]\nOpen a dialog box to build a vehicle";
