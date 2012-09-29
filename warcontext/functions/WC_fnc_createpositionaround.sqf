@@ -22,6 +22,8 @@
 	_distancemin = _this select 1;
 	_radius = _this select 2;
 
+	if(count _this < 3) exitwith {hintc "WARCONTEXT: Missing createpositionaround parameter";};
+
 	_size = _radius - _distancemin;
 
 	_position = [0,0,0];
