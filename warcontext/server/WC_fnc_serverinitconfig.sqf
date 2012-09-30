@@ -24,6 +24,9 @@
 	// index for marker of town
 	wcciviltownindex = 0;
 
+	// index of virtual
+	wcvirtualindex = 0;
+
 	// array of player name intizialited
 	wcplayerready = [];
 
@@ -204,6 +207,9 @@
 
 	// contains all aa site position
 	wcallaaposition = [];
+
+	// contains all position to send mortar
+	wcmortarposition = [];
 
 	// contains all support groups
 	wcsupportgroup = [];

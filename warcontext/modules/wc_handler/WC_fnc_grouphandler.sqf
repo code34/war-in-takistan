@@ -86,4 +86,23 @@
 			sleep 0.1;
 		} foreach (units _group);
 
+		// mortar radio - handler
+		wcgarbage = [_group] spawn {
+			private ["_group", "_leader", "_target"];
+	
+			_group = _this select 0;	
+			while {count units _group > 0} do {
+				_leader = leader _group;
+				_target = assignedtarget _leader;
+				if(!(isnull _target) and (_target distance _leader > 50)) then {
+					wcmortarposition = wcmortarposition + [position _target];
+				};
+				if(count wcmortarposition > 3) then {
+					wcmortarposition set [0,-1]; 
+					wcmortarposition = wcmortarposition - [-1];
+				};
+				sleep 15 + (random 30);
+			};
+		};
+
 		processInitCommands;
