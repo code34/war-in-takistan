@@ -112,6 +112,7 @@
 					removeallweapons _x;
 					_x addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
 					_x removeAllEventHandlers "killed";
+					_x removeAllEventHandlers "FiredNear";
 					_x addweapon "AKS_74";
 					_x addmagazine "30Rnd_545x39_AK";
 				} else {
