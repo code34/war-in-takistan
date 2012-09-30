@@ -12,6 +12,7 @@
 
 	player sidechat format["%1: Put your hands up", name player];
 	if(side _unit == civilian) then {
+		sleep 1;
 		player sidechat format["%1: Do not make me wrong", name _unit];
 		_unit playMove 'AmovPercMstpSnonWnonDnon_AmovPercMstpSsurWnonDnon';
 		removeAllWeapons _unit; 
