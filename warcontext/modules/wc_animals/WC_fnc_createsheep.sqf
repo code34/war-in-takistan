@@ -65,13 +65,14 @@
 			_group = creategroup civilian;
 			{
 				_civiltype = _x select 0;
-				_civil = _group createUnit [_civiltype, (_x select 1), [], 0, "FORM"];
+				_civil = _group createUnit [_civiltype, (_x select 1), [], 5, "NONE"];
 				_civil setspeedmode "limited";
 				_civil setbehaviour "safe";
 				_civil allowFleeing random (0.8);
-				dostop _civil;
+				_civil stop true;
 				_civil setdir (random 360);
 				_civil setvariable ["wcprotected", true, false];
+				_civil setvariable ["civilrole", "animal", true];
 			}foreach _back;
 			_allunits = units _group;
 			_back = [];
