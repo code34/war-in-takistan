@@ -276,6 +276,9 @@
 		};
 	};
 
+	// addaction target graber
+	wcgarbage = [] spawn WC_fnc_targetaction;
+
 	// TRANSFERT POINT
 	wcgarbage = [] spawn {
 		// if not noteam server

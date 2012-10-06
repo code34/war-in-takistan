@@ -11871,24 +11871,8 @@ class Mission
 	};
 	class Sensors
 	{
-		items=4;
+		items=3;
 		class Item0
-		{
-			position[]={7133.7046,333.00479,4881.752};
-			a=5;
-			b=5;
-			angle=-7.0861096;
-			activationBy="ANY";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			expCond=" (""AllVehicles"" countType thislist  > 0) ";
-			expActiv="_xhandle= [thislist] execVM ""warcontext\modules\wc_repairzone\WC_fnc_servicing.sqf"";";
-			class Effects
-			{
-			};
-		};
-		class Item1
 		{
 			position[]={7191.6133,331.85867,4911.3896};
 			a=6;
@@ -11905,7 +11889,7 @@ class Mission
 			{
 			};
 		};
-		class Item2
+		class Item1
 		{
 			position[]={7044.2622,330.61841,4955.7979};
 			a=6;
@@ -11922,7 +11906,7 @@ class Mission
 			{
 			};
 		};
-		class Item3
+		class Item2
 		{
 			position[]={7042.0752,331.10776,4919.5879};
 			a=1;

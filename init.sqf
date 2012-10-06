@@ -183,6 +183,7 @@
 
 	// ENEMYS GROUPS
 	WC_fnc_ambiantlife 		= compile preprocessFile "warcontext\modules\wc_enemygroups\WC_fnc_ambiantlife.sqf";
+	WC_fnc_popgroup 		= compile preprocessFile "warcontext\modules\wc_enemygroups\WC_fnc_popgroup.sqf";
 	WC_fnc_creategroup 		= compile preprocessFile "warcontext\modules\wc_enemygroups\WC_fnc_creategroup.sqf";
 	WC_fnc_creategroupdefend	= compile preprocessFile "warcontext\modules\wc_enemygroups\WC_fnc_creategroupdefend.sqf";
 	WC_fnc_creategroupsupport	= compile preprocessFile "warcontext\modules\wc_enemygroups\WC_fnc_creategroupsupport.sqf";
@@ -266,6 +267,9 @@
 	// SUPPORT
 	WC_fnc_support	 		= compile preprocessFile "warcontext\modules\wc_support\WC_fnc_support.sqf";
 
+	// TARGET ADDACTION
+	WC_fnc_targetaction		= compile preprocessFile "warcontext\modules\wc_targetaction\WC_fnc_targetaction.sqf";
+
 	// TACTICAL OBJECTS
 	WC_fnc_creategenerator 		= compile preprocessFile "warcontext\modules\wc_tacticalobjects\WC_fnc_creategenerator.sqf";
 	WC_fnc_createradio	 	= compile preprocessFile "warcontext\modules\wc_tacticalobjects\WC_fnc_createradio.sqf";
@@ -279,6 +283,9 @@
 	// UNITS ROLE
 	WC_fnc_createmedic 		= compile preprocessFile "warcontext\modules\wc_unitsrole\WC_fnc_createmedic.sqf";
 	WC_fnc_fireflare 		= compile preprocessFile "warcontext\modules\wc_unitsrole\WC_fnc_fireflare.sqf";
+
+	// virtual
+	WC_fnc_virtual		 	= compile preprocessFile "warcontext\modules\wc_virtual\WC_fnc_virtual.sqf";
 
 	// WEATHER
 	WC_fnc_light			= compile preprocessFile "warcontext\modules\wc_weather\WC_fnc_light.sqf";

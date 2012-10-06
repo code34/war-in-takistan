@@ -256,6 +256,9 @@
 	// kind of radio tower
 	wcradiotype = ["TK_WarfareBUAVterminal_EP1"];
 
+	// kind of repair point
+	wcrepairpointtype = ["US_WarfareBVehicleServicePoint_Base_EP1", "US_WarfareBVehicleServicePoint_Base"];
+
 	// kind of grave
 	wcgravetype = ["gravecross2_EP1", "GraveCrossHelmet_EP1"];
 

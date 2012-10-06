@@ -11,35 +11,31 @@
 		"_countother", 
 		"_i",
 		"_magazines",
-		"_object",
+		"_vehicle",
 		"_type", 
 		"_removed",
 		"_text"
 		];
 
-	_list	 	= _this select 0;
+	_vehicle = vehicle player;
 
-	{
-		if((_x iskindof "Landvehicle") or (_x iskindof "Air")) then {
-			if((getposatl _x) select 2 < 2.5) then {
-				_object = _x;
-			};
-		};
-	}foreach _list;
+	if(_vehicle == player) exitwith {
+		wcgarbage = [localize "STR_WC_MENUREPAIRVEHICLE", localize "STR_WC_MESSAGETRYTOMOVEIN", localize "STR_WC_MESSAGENOVEHICLENEARYOU", 10] spawn WC_fnc_playerhint;
+	};
 
-	sleep 1;
+	if(isnull _vehicle) exitwith {};
+	if(!alive _vehicle) exitWith {};
 
-	if (!alive _object) exitWith {};
-	_type = typeof _object;
-	_object setVehicleInit "this setfuel 0;this vehicleChat ""Servicing... Please stand by..."";";
+	_type = typeof _vehicle;
+	_vehicle setVehicleInit "this setfuel 0;this vehicleChat ""Servicing... Please stand by..."";";
 	processInitCommands;
 	sleep ceil(random(5));
 
-	_type = typeOf _object;
+	_type = typeOf _vehicle;
 	_magazines = getArray(configFile >> "CfgVehicles" >> _type >> "magazines");
 
-	if (!alive _object) exitWith {};
-	_object setVehicleInit "this vehicleChat ""Reloading weapons ..."";";
+	if (!alive _vehicle) exitWith {};
+	_vehicle setVehicleInit "this vehicleChat ""Reloading weapons ..."";";
 	processInitCommands;
 	sleep ceil(random(5));
 
@@ -57,7 +53,7 @@
 		} forEach _magazines;
 		_text = _text + "this setVehicleAmmo 1;";
 		copytoclipboard _text;
-		_object setVehicleInit _text;
+		_vehicle setVehicleInit _text;
 		processInitCommands;
 	};
 
@@ -79,20 +75,20 @@
 			} forEach _magazines;
 
 		};
-		_object setVehicleInit _text;
+		_vehicle setVehicleInit _text;
 		processInitCommands;
 	};
 
 
-	if (!alive _object) exitWith {};
+	if (!alive _vehicle) exitWith {};
 	sleep ceil(random(5));
-	if (!alive _object) exitWith {};
-	_object setVehicleInit "this vehicleChat ""Repairing...""; this setDamage 0;";
+	if (!alive _vehicle) exitWith {};
+	_vehicle setVehicleInit "this vehicleChat ""Repairing...""; this setDamage 0;";
 	processInitCommands;
 	sleep ceil(random(5));
-	_object setVehicleInit "this vehicleChat ""Refueling..."";";
+	_vehicle setVehicleInit "this vehicleChat ""Refueling..."";";
 	processInitCommands;
 	sleep ceil(random(5));
-	_object setVehicleInit "this vehicleChat ""Vehicle is ready"";this setfuel 1;";
+	_vehicle setVehicleInit "this vehicleChat ""Vehicle is ready"";this setfuel 1;";
 	processInitCommands;
 	
