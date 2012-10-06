@@ -93,6 +93,11 @@
 		wcmissionvehicle = wcvehicleslistEmission call BIS_fnc_selectRandom;
 
 		switch (_missionnumber) do {	
+			case 12: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
 			case 43: {
 				_vehicle = wcallhangars call BIS_fnc_selectRandom;
 				_position = position _vehicle;

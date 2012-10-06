@@ -255,7 +255,6 @@
 		case 12: {
 			_missiontext = [_missionname,"Destroy a commando group"];
 			_vehicle = createVehicle ["Mi17_TK_EP1", _position, [], 0, "NONE"];
-			_camo = createVehicle ["Land_CamoNetB_EAST_EP1", [0,0,0], [], 0, "NONE"];
 			_camo allowdammage false;
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
