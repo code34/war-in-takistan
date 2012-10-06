@@ -8,6 +8,7 @@
 		"_knowsabout",
 		"_cooldown",
 		"_cooldownmax",
+		"_dofire",
 		"_check",
 		"_enemy", 
 		"_enemys", 
@@ -64,19 +65,29 @@
 				wcmortarposition = wcmortarposition - [-1];
 				_unit dowatch _position;
 				_position = [_position, 0, 55] call WC_fnc_createpositionaround;
-				if(_position distance _unit < 800) then {
-					if(random 1 > 0.3) then {
-						if(wcwithACE == 1) then {
-							"ACE_ARTY_Sh_82_HE" createVehicle _position;
+				_units = nearestObjects [_position, ["Man"], 60];			
+				_dofire = true;
+				{
+					if!(isplayer _x) then {
+						_dofire = false;
+					};
+				}foreach _units;
+
+				if(_dofire) then {				
+					if(_position distance _unit < 800) then {
+						if(random 1 > 0.3) then {
+							if(wcwithACE == 1) then {
+								"ACE_ARTY_Sh_82_HE" createVehicle _position;
+							} else {
+								"ARTY_Sh_82_HE" createVehicle _position;
+							};
 						} else {
-							"ARTY_Sh_82_HE" createVehicle _position;
+							if(wcwithACE == 1) then {
+								"ACE_ARTY_SmokeShellWhite" createVehicle _position;
+							} else {
+								"ARTY_SmokeShellWhite" createVehicle _position;
+							};					
 						};
-					} else {
-						if(wcwithACE == 1) then {
-							"ACE_ARTY_SmokeShellWhite" createVehicle _position;
-						} else {
-							"ARTY_SmokeShellWhite" createVehicle _position;
-						};					
 					};
 				};
 			};
