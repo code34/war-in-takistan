@@ -289,7 +289,7 @@
 		wcheavyfactory removeAllEventHandlers "HandleDamage";
 		wcbarrack removeAllEventHandlers "HandleDamage";
 
-		sleep 30;
+		//sleep 30;
 
 		wcheavyfactory setdamage 1;
 		wcbarrack setdamage 1;

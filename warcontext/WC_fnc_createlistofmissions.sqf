@@ -82,6 +82,7 @@
 		} else {
 			_missionnumber = 100;
 		};
+
 		_thislist = _thislist + [_missionnumber];
 
 		// Compute name of mission
@@ -92,6 +93,26 @@
 		wcmissionvehicle = wcvehicleslistEmission call BIS_fnc_selectRandom;
 
 		switch (_missionnumber) do {	
+			case 43: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 44: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 46: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
+			case 49: {
+				_vehicle = wcallhangars call BIS_fnc_selectRandom;
+				_position = position _vehicle;
+			};
+
 			case 51: {
 
 				_objective = format[localize "STR_WC_MISSION51", getText (configFile >> "CfgVehicles" >> wcmissionvehicle >> "DisplayName")];

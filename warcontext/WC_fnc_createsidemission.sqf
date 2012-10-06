@@ -54,7 +54,7 @@
 		};
 
 		case 1: {
-			_missiontext = [_missionname, "Kill gold trafficant"];
+			_missiontext = [_missionname, "Kill a gold trafficant"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["Functionary1_EP1", _position, [], 0, "NONE"];
 			_buildings = nearestObjects [position _vehicle, ["House"], 350];
@@ -85,8 +85,9 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = -0.1;
 		};
@@ -123,8 +124,9 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = -0.1;
 		};
@@ -192,8 +194,9 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = 0.1;
 		};
@@ -309,8 +312,9 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = 0;
 		};
@@ -372,7 +376,7 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 			wcgarbage = [_vehicle] spawn WC_fnc_createied;
 			_missiontype = "eliminate";
@@ -415,8 +419,9 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = 0.1;
 		};
@@ -455,8 +460,9 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = -0.1;
 		};
@@ -795,7 +801,7 @@
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
-			dostop _vehicle;
+			_vehicle stop true;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 			_missiontype = "eliminate";
 			wcbonusfame = -0.1;
@@ -1109,6 +1115,7 @@
 			processInitCommands;
 			wcgarbage = [(group _vehicle), 300] spawn WC_fnc_patrol;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = 0;
 		};

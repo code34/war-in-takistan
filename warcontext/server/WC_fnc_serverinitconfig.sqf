@@ -76,7 +76,7 @@
 
 	wcallhangars = nearestObjects [wcmapcenter, wckindofhangars, 20000];
 	if(count(wcallhangars) == 0) then {
-		wcmissiondone = wcmissiondone + [58,59,60,61,62,71];
+		wcmissiondone = wcmissiondone + [43,44,46,49,58,59,60,61,62,71];
 	};
 
 	wcalloilpumps = nearestObjects [wcmapcenter, wckindofoilpumps, 20000];
