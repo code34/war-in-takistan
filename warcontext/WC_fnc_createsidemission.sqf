@@ -1090,7 +1090,7 @@
 			{
 				_unit = _group createUnit [_x, _position, [], 20, "NONE"];
 			}foreach ["CZ_Special_Forces_Scout_DES_EP1","CZ_Special_Forces_MG_DES_EP1","CZ_Special_Forces_DES_EP1","CZ_Special_Forces_TL_DES_EP1"];
-			wcgarbage = [_group, 50] spawn WC_fnc_patrol;
+			wcgarbage = [_group, (position(leader _group)), 50] spawn WC_fnc_patrol;
 			(leader _group) setVehicleInit "this addAction ['<t color=''#ff4500''>Replace the guard</t>', 'warcontext\actions\WC_fnc_dobeginguard.sqf',[],6,false];";
 			processInitCommands;
 			_missiontype = "defend";
@@ -1100,7 +1100,6 @@
 		case 100: {
 			_missiontext = [_missionname," Kill the enemy leader"];
 			_vehicle = imam;
-			_vehicle allowdammage true;
 			_vehicle addweapon "AKS_74";
 			_vehicle addmagazine "30Rnd_545x39_AK";
 			_vehicle addEventHandler ['Fired', '(_this select 0) setvehicleammo 1;'];
@@ -1112,7 +1111,7 @@
 			_vehicle setpos _position;
 			_vehicle setvehicleinit "this allowdammage true;";
 			processInitCommands;
-			wcgarbage = [(group _vehicle), 300] spawn WC_fnc_patrol;
+			wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";

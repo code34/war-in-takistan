@@ -103,5 +103,5 @@
 	};
 
 	if(alive _unit) then {
-		wcgarbage = [group _unit, wcdistance] spawn WC_fnc_patrol;
+		wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 	};

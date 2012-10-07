@@ -8,8 +8,6 @@
 		"_countdead", 
 		"_delta",
 		"_flag", 
-		"_locations", 
-		"_location", 
 		"_markerdest", 
 		"_missioncomplete", 
 		"_position", 
@@ -20,14 +18,6 @@
 	];
 
 	_flag = _this select 0;
-
-	_locations = nearestLocations [position _flag, ["NameCityCapital", "NameCity","NameVillage", "Name", "Hill", "Mount"], 1500];
-	
-	{
-		if((position _x) distance (position _flag) < 700) then {
-			_locations = _locations - [_x];
-		};
-	}foreach _locations;
 
 	_missioncomplete = false;
 	_timer = 300 + random (600);
@@ -59,14 +49,16 @@
 	waituntil {wcbegindefend};
 
 	for "_x" from 0 to ceil(random wclevelmaxincity) step 1 do {
-		_location = _locations call BIS_fnc_selectRandom;
-		wcgarbage = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
+		_position = [_position, 700, 1000] call WC_fnc_createpositionaround;
+		_position = _position findEmptyPosition [5, 100];
+		wcgarbage = [_position, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
 		sleep 1;
 	};
 
 	for "_x" from 0 to ceil(random wclevelmaxincity) step 1 do {
-		_location = _locations call BIS_fnc_selectRandom;
-		wcgarbage = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
+		_position = [_position, 700, 1000] call WC_fnc_createpositionaround;
+		_position = _position findEmptyPosition [5, 100];
+		wcgarbage = [_position, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
 		sleep 1;
 	};
 
@@ -119,13 +111,14 @@
 			}foreach wcdefendgroup;
 
 			while { (count wcdefendgroup < wclevelmaxincity) } do {
-				_location = _locations call BIS_fnc_selectRandom;
+				_position = [_position, 700, 1000] call WC_fnc_createpositionaround;
+				_position = _position findEmptyPosition [5, 100];
 
 				if(random 1 > 0.5) then {
-					wcgarbage = [position _location, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
+					wcgarbage = [_position, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
 				} else {
 					if(wcwithenemyvehicle == 0) then {
-						wcgarbage = [position _location, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
+						wcgarbage = [_position, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
 					};
 				};
 				sleep 4;

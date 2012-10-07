@@ -57,7 +57,7 @@
 	wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 	wcgarbage = [_vehicle2, wcskill] spawn WC_fnc_setskill;
 
-	wcgarbage = [_group, 100] spawn WC_fnc_patrol;
+	wcgarbage = [_group, (position(leader _group)), 100] spawn WC_fnc_patrol;
 
 	wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 	wcgarbage = [_vehicle2] spawn WC_fnc_dosillything;

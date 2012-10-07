@@ -39,7 +39,7 @@
 		if(wcalert > 99) then {
 			(_units select 0) enableAI "ANIM";
 			(_units select 1) enableAI "ANIM";
-			wcgarbage = [_group, 300] spawn WC_fnc_patrol;
+			wcgarbage = [_group, (position(leader _group)), 300] spawn WC_fnc_patrol;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
 			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
 			wcmissionsuccess = true;

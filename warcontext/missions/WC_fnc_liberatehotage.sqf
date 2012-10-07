@@ -58,7 +58,7 @@
 	_vehicle2 allowdammage false;
 
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
-	wcgarbage = [_group, 30] spawn WC_fnc_patrol;
+	wcgarbage = [_group, (position(leader _group)), 30] spawn WC_fnc_patrol;
 
 	wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 	wcgarbage = [_vehicle2] spawn WC_fnc_dosillything;

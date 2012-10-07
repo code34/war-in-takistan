@@ -30,7 +30,7 @@
 		_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), _position, [], 0, "NONE"];
 		wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 	};
-	wcgarbage = [_group, 100] spawn WC_fnc_patrol;
+	wcgarbage = [_group, (position(leader _group)), 100] spawn WC_fnc_patrol;
 
 
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;

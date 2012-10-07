@@ -55,44 +55,22 @@
 
 		wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	} else {
-		_group = createGroup east;
-		_sizeofgroup = ceil(random 6);
-		{
-			if(_typeofgroup == (_x select 0)) then {
-				_unitsoftype = 	_unitsoftype + [(_x select 1)];
-			};
-		}foreach wcclasslist;
-
-		_unitsoftype = _unitsoftype - wcblacklistenemyclass;
-
-		for "_x" from 1 to _sizeofgroup do {
-			if(count _unitsoftype > 0) then {
-				_unitoftype = (_unitsoftype call BIS_fnc_selectRandom);
-				_unitsoftype = _unitsoftype - [_unitoftype];
-				_unitsofgroup = [_unitoftype] + _unitsofgroup;
-			};
-		};
-
-
-		{
-			_soldier = _group createUnit [_x, _position, [], 0, 'FORM'];
-			sleep 0.05;
-		}foreach _unitsofgroup;
+		_group = [_typeofgroup, east, _position] call WC_fnc_popgroup;
 
 		_leader = leader _group;		
 		_position = (position _leader) findEmptyPosition [5, 50];
+
 		if(count _position == 0) then {
 			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR TRANSPORT GROUP DEFEND";
+		} else {
+			_vehicle = "V3S_TK_EP1" createvehicle _position;
+			wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
+			_group addvehicle _vehicle;
+			_leader moveindriver _vehicle;
+			{
+				_x moveincargo _vehicle;
+			}foreach (units _group);
 		};
-
-		_vehicle = "V3S_TK_EP1" createvehicle _position;
-		wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
-		_group addvehicle _vehicle;
-		
-		_leader moveindriver _vehicle;
-		{
-			_x moveincargo _vehicle;
-		}foreach (units _group);
 	};
 	
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
@@ -215,12 +193,14 @@
 			{
 				_x action ["eject", _vehicle];
 			}foreach (crew _vehicle);
-			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
+			//wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
+			wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 		} else {
 			wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		};
 	} else {
-		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
+		//wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
+		wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 	};
 
 	if (count (units _group) < 1) then {

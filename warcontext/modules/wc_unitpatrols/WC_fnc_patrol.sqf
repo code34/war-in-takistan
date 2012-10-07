@@ -21,7 +21,8 @@
 	];
 
 	_group = _this select 0;
-	_areasize = _this select 1;
+	_position = _this select 1;
+	_areasize = _this select 2;
 
 	if(isnil "_areasize") exitwith {
 		hintc "WARCONTEXT: patrolscript: areasize parameter is not set";
@@ -35,15 +36,16 @@
 	};
 
 	if(_group in wcpatrolgroups) exitwith {};
+
+	_marker = [format['patrolzone%1', wcpatrolindex], _areasize, _position, 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
+	wcpatrolindex = wcpatrolindex + 1;
+
 	wcpatrolgroups = wcpatrolgroups + [_group];
 
 	_originalsize = count (units _group);
 	_lastposition = position (leader _group);
 
 	_move = true;
-
-	_marker = [format['patrolzone%1', wcpatrolindex], _areasize, (position _leader), 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
-	wcpatrolindex = wcpatrolindex + 1;
 
 	while { (count (units _group) > 0) } do {
 		_leader = leader _group;

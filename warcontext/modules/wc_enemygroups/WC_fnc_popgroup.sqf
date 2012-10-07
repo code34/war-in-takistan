@@ -19,11 +19,14 @@
 	_faction = _this select 0;
 	_side = _this select 1;
 	_position = _this select 2;
+	_sizeofgroup = _this select 3;
 
 	_unitsofgroup = [];
 	_unitsoftype = [];
 
-	_sizeofgroup = round (random 6);
+	if(isnil "_sizeofgroup") then {
+		_sizeofgroup = round (random 6);
+	};
 
 	// retrieve all units of faction
 	{

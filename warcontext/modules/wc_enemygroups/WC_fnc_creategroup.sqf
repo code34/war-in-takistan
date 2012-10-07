@@ -81,35 +81,9 @@
 
 		wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	} else {
-		_sizeofgroup = ceil(random 6);
-		{
-			if(_typeofgroup == (_x select 0)) then {
-				_unitsoftype = 	_unitsoftype + [(_x select 1)];
-			};
-		}foreach wcclasslist;
-
-		_unitsoftype = _unitsoftype - wcblacklistenemyclass;
-
-		for "_x" from 1 to _sizeofgroup do {
-			if(count _unitsoftype > 0) then {
-				_unitoftype = (_unitsoftype call BIS_fnc_selectRandom);
-				_unitsoftype = _unitsoftype - [_unitoftype];
-				_unitsofgroup = [_unitoftype] + _unitsofgroup;
-			};
-		};
-
-		diag_log format ["WARCONTEXT: CREATING A GROUP %2 IN ZONE %1 OF SIZE %3", _marker, _typeofgroup, _sizeofgroup];
-
 		_position = [_marker, "onground"] call WC_fnc_createpositioninmarker;
-		{
-			_soldier = _group createUnit [_x, _position, [], 0, 'FORM'];
-			if(random 1 > 0.3) then {
-				_backpack = wcenemybackpack call BIS_fnc_selectRandom;
-				_soldier addbackpack _backpack;
-			};
-			sleep 0.05;
-		}foreach _unitsofgroup;
-
+		_group = [_typeofgroup, east, _position] call WC_fnc_popgroup;
+		diag_log format ["WARCONTEXT: CREATING A GROUP %2 IN ZONE %1 OF SIZE %3", _marker, _typeofgroup, _sizeofgroup];
 	};
 
 	wcgarbage = [_group] spawn WC_fnc_grouphandler;
@@ -135,16 +109,17 @@
 					//};
 					sleep 0.1;
 				} foreach (units _group);
-				_instances = [[_group, 30] spawn WC_fnc_patrol];
+				_instances = [_group, (position(leader _group)), 30] spawn WC_fnc_patrol;
 
 				// use while instead waituntil - performance leak
 				while { (wcalert < _localalert) } do {
 					sleep 1;
 				};
 
-				{
-					terminate _x;
-				}foreach _instances;
+				terminate _instances;
+				//{
+				//	terminate _x;
+				//}foreach _instances;
 				(units _group) orderGetIn true;
 
 				// use while instead waituntil - performance leak
@@ -163,12 +138,15 @@
 		if(random 1 > 0.4) then {
 			_list = nearestObjects [_position, ["house"] , 70];
 			if(count _list > 10) then {
-				wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] spawn EXT_fnc_upsmon;
+				//wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] spawn EXT_fnc_upsmon;
+				wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 			} else {
-				wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
+				//wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
+				wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 			};
 		} else {
-			wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
+			//wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
+			wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 		};
 	};
 
