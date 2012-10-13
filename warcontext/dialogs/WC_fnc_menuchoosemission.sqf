@@ -21,10 +21,7 @@
 		"_player", 
 		"_score", 
 		"_time", 
-		"_day", 
-		"_rain", 
-		"_fog", 
-		"_overcast"
+		"_day"
 	];
 
 	waituntil {isnull wccam};
@@ -62,9 +59,6 @@
 	_numberofvehicle = [];
 	_position = [];
 	_time = [];
-	_rain = [];
-	_fog = [];
-	_overcast = [];
 
 	{
 		_missionnumber = _missionnumber + [_x select 0];
@@ -76,9 +70,6 @@
 		_numberofvehicle = _numberofvehicle + [_x select 5];
 		_position = _position + [_x select 6];
 		_time = _time + [_x select 7];
-		_rain = _rain + [_x select 8];
-		_fog = _fog + [_x select 9];
-		_overcast = _overcast + [_x select 10];
 	}foreach wclistofmissions;
 	lbSetCurSel [1500, 0];
 

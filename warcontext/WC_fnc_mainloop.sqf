@@ -109,9 +109,6 @@
 		_location 		= createLocation ["Strategic", _position, 50, 50];
 		wcmissionlocations 	= wcmissionlocations + [_location];
 		_time 			= wccurrentmission select 7;
-		_rain 			= wccurrentmission select 8;
-		_fog 			= wccurrentmission select 9;
-		_overcast 		= wccurrentmission select 10;
 		wcmissiondone = wcmissiondone + [_missionnumber];
 
 		if((_time select 3) < (date select 3)) then { wcday = wcday + 1; wcfame = wcfame - 0.15;};
@@ -127,11 +124,6 @@
 			wcgarbage = [_location] spawn WC_fnc_popcivilian;
 		};
 
-		wcweather = [_rain, _fog, _overcast];
-		100 setRain (wcweather select 0);
-		100 setfog (wcweather select 1);
-		100 setOvercast (wcweather select 2);
-
 		if(wcskiptime > 0) then {
 			wcdate = _time;
 			if(isdedicated) then {
@@ -140,7 +132,6 @@
 			["wcdate", "client"] call WC_fnc_publicvariable;
 			["wcday", "client"] call WC_fnc_publicvariable;
 		};
-		["wcweather", "client"] call WC_fnc_publicvariable;
 
 		diag_log format ["WARCONTEXT: COMPUTING LOCATION %1", text _location];
 

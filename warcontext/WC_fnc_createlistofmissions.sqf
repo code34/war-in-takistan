@@ -16,9 +16,6 @@
 		"_numberofvehicle", 
 		"_position", 
 		"_time", 
-		"_rain", 
-		"_overcast", 
-		"_fog", 
 		"_month", 
 		"_day", 
 		"_hour", 
@@ -82,7 +79,7 @@
 		} else {
 			_missionnumber = 100;
 		};
-
+		_missionnumber = 55;
 		_thislist = _thislist + [_missionnumber];
 
 		// Compute name of mission
@@ -235,21 +232,9 @@
 		// generate the mission date
 		_time = [] call WC_fnc_newdate;
 
-		_rain = random wcrainrate;
-		if((_hour > 3) and (_hour <5)) then {
-			_fog = 0.7 + random (0.3);
-		} else {
-			if((_hour > 4) and (_hour <6)) then {
-				_fog = 0.5 + random (0.2);
-			}else{
-				_fog  = random 0.6;
-			};
-		};
-		_overcast = random 1;	
-
 		_city = text (nearestLocation [_position, "NameCity"]);
 
-		wclistofmissions = wclistofmissions + [[_missionnumber, _name, _objective, _city, _numberofgroup, _numberofvehicle, _position, _time, _rain, _fog, _overcast]];
+		wclistofmissions = wclistofmissions + [[_missionnumber, _name, _objective, _city, _numberofgroup, _numberofvehicle, _position, _time]];
 		diag_log format ["WARCONTEXT: MISSION LIST: %1", _missionnumber];
 	};
 
