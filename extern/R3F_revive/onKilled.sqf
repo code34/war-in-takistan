@@ -66,6 +66,10 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 	};
 	
 	closeDialog 0;
+
+	if(surfaceiswater (position player)) then { 
+		R3F_REV_nb_reanimations = 0;
+	};
 	
 	if (R3F_REV_CFG_afficher_marqueur) then {
 		player setvariable ["deadmarker", false, true];
@@ -90,7 +94,7 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 	R3F_REV_effet_video_couleur ppEffectEnable true;
 	R3F_REV_effet_video_couleur ppEffectAdjust [0.25, 1, 0, [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
 	R3F_REV_effet_video_couleur ppEffectCommit 2;
-	
+
 	// Attendre que le nouveau corps apparaissent
 	waitUntil {alive player};
 
@@ -152,21 +156,21 @@ R3F_REV_fil_exec_attente_reanimation = [] spawn {
 		wcgarbage = [localize "STR_R3F_REV_attente_reanimation"] call BIS_fnc_dynamicText;
 
 		// On blesse le nouveau corps pour qu'il nécessite des soins d'un medic
-		player setDamage 0.8;
-		
+		player setDamage 0.8;		
+
 		sleep 5;
 		
 		// Ramener le nouveau corps au lieu du décès
 		player setVelocity [0, 0, 0];
 		player setDir _direction_avant_mort;
 		player setPosatl _position_avant_mort;
-		
+			
 		// Suppression de l'ancien corps (compatibilité ArmA2)
 		deletevehicle R3F_REV_corps_avant_mort;
-		
+			
 		// On mémorise le nouveau corps pour la prochaine fois que le joueur mourra
 		R3F_REV_corps_avant_mort = player;
-		
+
 		// Fil d'exécution générant des effets vidéo et d'animations symbolisant l'état inconscient
 		// Il sera terminé dès que le joueur aura reçu des soins
 		R3F_REV_fil_exec_effet_inconscient = [] spawn
