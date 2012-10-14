@@ -7,7 +7,7 @@
 		"_count", 
 		"_countdead", 
 		"_delta",
-		"_flag", 
+		"_object", 
 		"_markerdest", 
 		"_missioncomplete", 
 		"_position", 
@@ -17,7 +17,7 @@
 		"_vehicle"
 	];
 
-	_flag = _this select 0;
+	_object = _this select 0;
 
 	_missioncomplete = false;
 	_timer = 300 + random (600);
@@ -25,11 +25,11 @@
 	_countdead = 0;
 	_delta = wcnumberofkilledofmissionW;
 
-	_markerdest = [format['defendzone%1', wcdefendzoneindex], 300, position _flag, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
+	_markerdest = [format['defendzone%1', wcdefendzoneindex], 300, position _object, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
 	wcdefendzoneindex = wcdefendzoneindex  + 1;
 
 	//for "_x" from 0 to floor(random 2) step 1 do {
-		_position = (position _flag) findEmptyPosition [5, 100];
+		_position = (position _object) findEmptyPosition [5, 100];
 		if(count _position == 0) then {
 			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CREATE FRIENDLY DEFEND GROUP";
 		};
@@ -39,8 +39,6 @@
 		_vehicle 	= _arrayofvehicle select 0;
 		_arrayofpilot 	= _arrayofvehicle select 1;
 		_group 		= _arrayofvehicle select 2;
-		//_scriptinit = format["wcgarbage = [this, '%1', 'showmarker'] execVM 'extern\ups.sqf';", _markerdest];
-		//_vehicle setVehicleInit _scriptinit;
 		wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		processInitCommands;
 	//};
@@ -81,7 +79,15 @@
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
 		};
-		_units = nearestObjects[_flag,["Man"], 1000];
+		if(!(alive _object) or (damage _object > 0.8)) then {
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Objective has been destroyed"];
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			wcmissionsuccess = true;
+			wcobjectiveindex = wcobjectiveindex + 1;
+			_missioncomplete = true;			
+		};
+
+		_units = nearestObjects[_object,["Man"], 1000];
 		if ((west countside _units) < (ceil((playersNumber west) * 0.2))) then {
 			_count = _count + 1;
 		};
