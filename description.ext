@@ -909,7 +909,7 @@ class Params
 	{
 		title = "MAX NUMBER OF TOWNS (TO AVOID PERFORMANCE LEAK)";
 		values[] = {20, 30, 40};
-		texts[] = {"POOR: 20 ZONES", "NORMAL: 30 ZONES", "A LOT: 40 ZONES"};
+		texts[] = {"LESS: 20 ZONES", "NORMAL: 30 ZONES", "A LOT: 40 ZONES"};
 		default = 30;
 	};
 
@@ -917,7 +917,7 @@ class Params
 	{
 		title = "MAX CIVILIANS PER TOWN";
 		values[] = {0, 3, 5, 10};
-		texts[] = {"OFF", "POOR: 3 CIVILIANS", "NORMAL: 5 CIVILIANS", "A LOT: 10 CIVILIANS"};
+		texts[] = {"OFF", "LESS: 3 CIVILIANS", "NORMAL: 5 CIVILIANS", "A LOT: 10 CIVILIANS"};
 		default = 5;
 	};
 
@@ -933,7 +933,7 @@ class Params
 	{
 		title = "MAX CIVILIAN VEHICLES PER TOWN";
 		values[] = {0, 1, 3, 5};
-		texts[] = {"OFF", "POOR: 1 VEHICLE", "NORMAL: 3 VEHICLES", "A LOT: 5 VEHICLES"};
+		texts[] = {"OFF", "LESS: 1 VEHICLE", "NORMAL: 3 VEHICLES", "A LOT: 5 VEHICLES"};
 		default = 1;
 	};
 
