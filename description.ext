@@ -826,7 +826,7 @@ class Params
 
 	class wcwithinjuredeffect
 	{
-		title = "PLAYERS INJURED SEE RED EFFECT WHEN INJURED";
+		title = "RED EFFECT WHEN INJURED";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
