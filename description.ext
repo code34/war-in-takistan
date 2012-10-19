@@ -673,7 +673,7 @@ class Params
 
 	class wcopposingforce
 	{
-		title = "ENEMIES FORCE ON ZONE";
+		title = "ENEMY FORCE ON MISSION ZONE";
 		values[] = {1, 2, 3, 4, 5};
 		texts[] = {"WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
 		default = 2;
@@ -681,7 +681,7 @@ class Params
 
 	class wclevelmaxoutofcity
 	{
-		title = "ENEMIES FORCE AROUND ZONE";
+		title = "ENEMY FORCE AROUND MISSION ZONE";
 		values[] = {1, 2, 4, 8, 10};
 		texts[] = {"WEAK", "NORMAL", "STRONG", "VERY STRONG", "AWESOME"};
 		default = 4;
@@ -689,7 +689,7 @@ class Params
 
 	class wcairopposingforce
 	{
-		title = "ENEMIES AIR FORCE ON ZONE";
+		title = "ENEMY AIR FORCE ON ZONE";
 		values[] = {0, 1, 2, 4};
 		texts[] = {"OFF", "WEAK: 1 PLANE", "NORMAL: 2 PLANES", "STRONG: 4 PLANES"};
 		default = 0;
@@ -706,7 +706,7 @@ class Params
 
 	class wcconvoylevel
 	{
-		title = "ENEMIES VEHICLES PATROL ON MAP";
+		title = "ENEMIES VEHICLES PATROLLING ON MAP";
 		values[] = {0, 5, 10, 15};
 		texts[] = {"OFF", "WEAK: 5 VEHICLES", "NORMAL: 10 VEHICLES", "STRONG: 15 VEHICLES"};
 		default = 5;
@@ -722,7 +722,7 @@ class Params
 
 	class wcwithcomposition
 	{
-		title = "ENEMIES BUILDING COMPOSITION ON MAP";
+		title = "DYNAMIC ENEMY OUTPOSTS";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -746,7 +746,7 @@ class Params
 
 	class wcwithcam
 	{
-		title = "DISTANCE OF CAMERA FOR GOAL OPERATION";
+		title = "DISTANCE OF CAMERA IN EACH MISSION INTRO";
 		values[] = {1, 2, 3};
 		texts[] = {"NO CAMERA","NEAR","FAR"};
 		default = 3;
@@ -762,7 +762,7 @@ class Params
 
 	class wcrecruitberanked
 	{
-		title = "PLAYERS MUST BE RANKED TO RECRUIT SOME IA";
+		title = "PLAYER MUST BE RANKED TO RECRUIT SOME AI";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -770,7 +770,7 @@ class Params
 
 	class wcwithhalojump
 	{
-		title = "PLAYERS CAN DO HALO JUMP FROM THE BASE";
+		title = "PLAYER CAN DO HALO JUMP FROM BASE";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -778,7 +778,7 @@ class Params
 
 	class wcwithteleporttent
 	{
-		title = "PLAYERS CAN TELEPORT AT HIS OWN TENT";
+		title = "PLAYER CAN TELEPORT TO !HIS OWN! TENT";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -794,7 +794,7 @@ class Params
 
 	class wcwithmarkers
 	{
-		title = "PLAYERS NAME MARKERS ON MAP";
+		title = "PLAYER NAME MARKER ON MAP";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -802,7 +802,7 @@ class Params
 
 	class wcwithvehicles
 	{
-		title = "PLAYERS CAN BUILD AT MHQ";
+		title = "PLAYER CAN BUILD AT MHQ";
 		values[] = {1, 2, 3};
 		texts[] = {"NONE", "ATV", "ALL VEHICLES"};
 		default = 2;
@@ -810,9 +810,9 @@ class Params
 
 	class wceverybodymedic
 	{
-		title = "PLAYERS ARE MEDICS";
+		title = "WHO CAN HEAL ?";
 		values[] = {0, 1};
-		texts[] = {"NO (ONLY MEDICS)", "YES (EVERYBODY)"};
+		texts[] = {"MEDICS", "EVERYBODY"};
 		default = 1;
 	};
 
@@ -826,7 +826,7 @@ class Params
 
 	class wcwithinjuredeffect
 	{
-		title = "PLAYERS INJURED SEE RED EFFECT";
+		title = "PLAYERS INJURED SEE RED EFFECT WHEN INJURED";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -866,7 +866,7 @@ class Params
 
 	class wcwithrandomfuel
 	{
-		title = "RANDOM AMOUNT OF FUEL AND AMMOS IN VEHICLES";
+		title = "RANDOM AMOUNT OF FUEL AND AMMO IN VEHICLES";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 0;
@@ -874,7 +874,7 @@ class Params
 
 	class wcwithteleportflagatend
 	{
-		title = "TELEPORT FLAG APPEAR ON ZONE AT END OF OPERATIONS";
+		title = "TELEPORT FLAG APPEARS ON ZONE AFTER FINISHING MISSION";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -882,7 +882,7 @@ class Params
 
 	class wcwithenvironment
 	{
-		title = "ENVIRONMENT SOUNDS";
+		title = "ENVIRONMENTAL SOUND";
 		values[] = {0, 1};
 		texts[] = {"NO", "YES"};
 		default = 1;
@@ -891,7 +891,7 @@ class Params
 
 	class wcminimunbuildings
 	{
-		title = "SIZE OF TOWNS FOR MISSION ZONE";
+		title = "SIZE OF TOWNS FOR MISSION LOCATION";
 		values[] = {3, 25, 50, 1000};
 		texts[] = {"ALL (VILLAGE, TOWN, BIG TOWN)", "TOWN: (TOWN, BIG TOWN)", "BIG TOWN", "NONE (ONLY COMPUTED VILLAGE)"};
 		default = 3;
@@ -899,9 +899,9 @@ class Params
 
 	class wccomputedvillages
 	{
-		title = "BUILD ADDITIONAL VILLAGES FOR EMPTY MAP";
+		title = "CREATE ADDITIONAL DYNAMIC VILLAGES";
 		values[] = {0, 10, 20, 30};
-		texts[] = {"OFF", "POOR: +10 VILLAGES", "NORMAL: +20 VILLAGES", "A LOT: +30 VILLAGES"};
+		texts[] = {"OFF", "LESS: +10 VILLAGES", "NORMAL: +20 VILLAGES", "A LOT: +30 VILLAGES"};
 		default = 0;
 	};
 
@@ -923,7 +923,7 @@ class Params
 
 	class wccivilianfame
 	{
-		title = "CIVILIAN FAME";
+		title = "CIVILIAN ATTITUDE";
 		values[] = {0, 10, 20, 40};
 		texts[] = {"PEACEFULL", "FRIENDLY", "HOSTILE", "DESTRUCTIVE"};
 		default = 20;
@@ -931,7 +931,7 @@ class Params
 
 	class wcwithcivilcar
 	{
-		title = "MAX CIVIL VEHICLES PER TOWN";
+		title = "MAX CIVILIAN VEHICLES PER TOWN";
 		values[] = {0, 1, 3, 5};
 		texts[] = {"OFF", "POOR: 1 VEHICLE", "NORMAL: 3 VEHICLES", "A LOT: 5 VEHICLES"};
 		default = 1;
@@ -947,7 +947,7 @@ class Params
 
 	class wcwithminefield
 	{
-		title = "MINEFIELD ON ROAD";
+		title = "CUSTOM MINEFIELDS ON ROAD";
 		values[] = {0, 1};
 		texts[] = {"OFF", "ON"};
 		default = 1;
@@ -1011,7 +1011,7 @@ class Params
 
 	class wcautoloadweapons
 	{
-		title = "AUTOLOAD WEAPONS (REQUIRE SAME ADDONS ON CLIENT SIDE)";
+		title = "AUTOLOAD WEAPONS (Requires the same addons clientside)";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 0;
@@ -1019,7 +1019,7 @@ class Params
 
 	class wcautoloadtroops
 	{
-		title = "AUTOLOAD TROOPS (REQUIRE SAME ADDONS ON CLIENT SIDE)";
+		title = "AUTOLOAD TROOPS (Requires the same addons clientside)";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 0;
@@ -1027,7 +1027,7 @@ class Params
 
 	class wcautoloadvehicles
 	{
-		title = "AUTOLOAD VEHICLES (REQUIRE SAME ADDONS ON CLIENT SIDE)";
+		title = "AUTOLOAD VEHICLES (Requires the same addons clientside)";
 		values[] = {0,1};
 		texts[] = {"NO", "YES"};
 		default = 0;
