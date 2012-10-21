@@ -410,7 +410,7 @@ class RscTitles
 		duration = 10000; 
 		fadein=1;    
 		name="infomission";
-		controlsBackground[] = {"wcinfomissiontext"};
+		controlsBackground[] = {"wcinfomissiontext", "wcinfomissionpicture"};
 		onLoad = "uiNamespace setVariable ['wcinfomissiondisplay', _this select 0];";
 		onunLoad = "uiNamespace setVariable ['wcinfomissiondisplay', objnull];";    
 
@@ -427,6 +427,23 @@ class RscTitles
 			colorBackground[] = { 0, 0, 0, 0 };
 			colortext[] = {0,0,0,0.7};
 			text ="";
+		};
+
+		class wcinfomissionpicture
+		{ 
+			idc = -1; 
+			type = CT_STATIC; 
+			style = ST_LEFT + ST_PICTURE; 
+			x = (SafeZoneW + SafezoneX) - 0.80;
+			y = (1 + ((0 + SafeZoneY) * -1) - 0.44);
+			w = 0.20;
+			h = 0.35;
+			size = 0.08; 
+			font = "Zeppelin32";
+			colorBackground[] = {0,0,0,0};
+			colortext[] = {1,1,1,1};
+			text ="pics\commander.paa";
+			sizeEx = 0.02;
 		};
 	};
 

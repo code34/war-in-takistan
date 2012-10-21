@@ -1,5 +1,6 @@
 	//	File: infoText.sqf
-	//	Author: Karel Moricky - reworked by code34 for warcontext
+	//	Author: Karel Moricky 
+	// 	Reworked by code34 for warcontext
 	// 	Description: Info with some effects.
 
 	private [
@@ -15,7 +16,6 @@
 	waituntil {wccanwriteinfotext};
 	wccanwriteinfotext = false;
 
-	//3100 cutrsc ["rscInfoText","plain"];
 	10200 cutrsc ["infomission","PLAIN"];
 
 	// add info text to warcontext logs
@@ -103,8 +103,6 @@
 		sleep 0.01;
 	} foreach _nArray;
 	
-	
-	//3100 cuttext ["","plain"];
 	10200 cuttext ["","plain"];
 	
 	wccanwriteinfotext = true;
