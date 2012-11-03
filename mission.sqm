@@ -26,7 +26,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=26;
+		items=25;
 		class Item0
 		{
 			side="LOGIC";
@@ -938,29 +938,10 @@ class Mission
 				};
 			};
 		};
-		class Item25
-		{
-			side="WEST";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={8243.3281,296.04001,2114.5989};
-					azimut=0.47870064;
-					id=299;
-					side="WEST";
-					vehicle="US_Delta_Force_Night_EP1";
-					player="PLAYER COMMANDER";
-					leader=1;
-					skill=0.60000002;
-				};
-			};
-		};
 	};
 	class Vehicles
 	{
-		items=247;
+		items=248;
 		class Item0
 		{
 			presence=0.53239715;
@@ -988,7 +969,7 @@ class Mission
 		class Item2
 		{
 			presence=0.52179128;
-			position[]={8176.3794,296.13214,2069.0823};
+			position[]={8173.5024,296.13214,2076.4866};
 			azimut=57.956501;
 			id=4;
 			side="EMPTY";
@@ -1000,7 +981,7 @@ class Mission
 		class Item3
 		{
 			presence=0.49527654;
-			position[]={8185.0571,296.13214,2055.1826};
+			position[]={8185.4165,296.13214,2054.3196};
 			azimut=59.795898;
 			id=5;
 			side="EMPTY";
@@ -1047,8 +1028,8 @@ class Mission
 		};
 		class Item7
 		{
-			position[]={8202.3018,296.13214,2063.2705};
-			azimut=1317.6294;
+			position[]={8203.9414,296.13214,2057.6399};
+			azimut=1317.63;
 			id=9;
 			side="EMPTY";
 			vehicle="MtvrRepair_DES_EP1";
@@ -1057,7 +1038,7 @@ class Mission
 		};
 		class Item8
 		{
-			position[]={8200.5332,296.13214,2066.0908};
+			position[]={8200.5439,296.13214,2063.0806};
 			azimut=956.69781;
 			id=10;
 			side="EMPTY";
@@ -1078,8 +1059,8 @@ class Mission
 		};
 		class Item10
 		{
-			presence=0.53239715;
-			position[]={8190.2114,296.13214,2083.9802};
+			presence=0.45285305;
+			position[]={8186.4722,296.13214,2087.9338};
 			azimut=1677.64;
 			special="FLY";
 			id=12;
@@ -1092,7 +1073,7 @@ class Mission
 		class Item11
 		{
 			presence=0.52974582;
-			position[]={8194.2529,296.13214,2077.0745};
+			position[]={8191.375,296.13214,2078.5112};
 			azimut=1316.72;
 			special="FLY";
 			id=13;
@@ -1105,7 +1086,7 @@ class Mission
 		class Item12
 		{
 			presence=0.52709401;
-			position[]={8178.5542,296.13214,2065.7236};
+			position[]={8176.3247,296.13214,2071.1863};
 			azimut=1138.66;
 			special="FLY";
 			id=14;
@@ -2897,7 +2878,7 @@ class Mission
 		};
 		class Item190
 		{
-			position[]={8198.417,296.13214,2069.467};
+			position[]={8197.3828,296.13214,2068.363};
 			azimut=1677.6733;
 			id=232;
 			side="EMPTY";
@@ -3204,7 +3185,7 @@ class Mission
 		class Item218
 		{
 			presence=0.5430032;
-			position[]={8182.9014,296.13214,2058.7776};
+			position[]={8182.2539,296.13214,2060.5034};
 			azimut=59.762798;
 			id=267;
 			side="EMPTY";
@@ -3216,7 +3197,7 @@ class Mission
 		class Item219
 		{
 			presence=0.487322;
-			position[]={8180.6191,296.13214,2062.2524};
+			position[]={8179.1084,296.13214,2066.062};
 			azimut=1139.45;
 			special="FLY";
 			id=268;
@@ -3229,7 +3210,7 @@ class Mission
 		class Item220
 		{
 			presence=0.487322;
-			position[]={8192.165,296.13214,2080.3474};
+			position[]={8188.7852,296.13214,2083.5095};
 			azimut=1677.64;
 			special="FLY";
 			id=269;
@@ -3242,7 +3223,7 @@ class Mission
 		class Item221
 		{
 			presence=0.51383674;
-			position[]={8196.4609,296.13214,2073.2014};
+			position[]={8194.4482,296.13214,2073.7041};
 			azimut=1316.72;
 			special="FLY";
 			id=270;
@@ -3515,13 +3496,23 @@ class Mission
 		class Item246
 		{
 			presence=0.61459261;
-			position[]={8145.7466,296.12735,2045.3774};
-			azimut=151.064;
-			id=300;
+			position[]={8156.4722,296.12735,2026.8816};
+			azimut=150;
+			id=299;
 			side="EMPTY";
 			vehicle="A10_US_EP1";
 			skill=0.60000002;
 			text="US30_1";
+		};
+		class Item247
+		{
+			position[]={8268.3037,296.04001,2004.6788};
+			azimut=335.60001;
+			id=300;
+			side="EMPTY";
+			vehicle="MH6J_EP1";
+			skill=0.60000002;
+			text="US29_1";
 		};
 	};
 	class Markers
@@ -3561,7 +3552,6 @@ class Mission
 			text="teleporter";
 			type="mil_flag";
 			colorName="ColorGreen";
-			angle=-756.1377;
 		};
 		class Item5
 		{
@@ -3578,21 +3568,19 @@ class Mission
 			text="H.Q";
 			type="HQ";
 			colorName="ColorBlue";
-			angle=151.59605;
 		};
 		class Item7
 		{
 			position[]={8209.3721,296.04001,2102.9736};
 			name="jail";
-			type="Empty";
-			angle=42.885948;
+			text="Jail";
+			type="b_recon";
 		};
 		class Item8
 		{
 			position[]={8025.4033,296.04001,1658.8959};
 			name="mortuary";
 			type="Empty";
-			angle=70.69989;
 		};
 		class Item9
 		{
@@ -3610,7 +3598,6 @@ class Mission
 			type="b_med";
 			a=0.5;
 			b=0.5;
-			angle=222.17767;
 		};
 		class Item11
 		{
@@ -3619,7 +3606,6 @@ class Mission
 			text="Repair";
 			type="b_maint";
 			colorName="ColorBlue";
-			angle=-150.95212;
 		};
 		class Item12
 		{
@@ -3663,7 +3649,6 @@ class Mission
 			text="clothes";
 			type="b_inf";
 			colorName="ColorBlue";
-			angle=147.88043;
 		};
 		class Item17
 		{
@@ -3675,12 +3660,11 @@ class Mission
 		};
 		class Item18
 		{
-			position[]={8260.4248,296.04001,2003.42};
+			position[]={8267.8037,296.04001,2004.3928};
 			name="FAARP";
 			text="FAARP";
 			type="Heliport";
 			colorName="ColorBlue";
-			angle=-29.030865;
 		};
 		class Item19
 		{
@@ -3689,16 +3673,14 @@ class Mission
 			text="vehicle store";
 			type="Depot";
 			colorName="ColorBlue";
-			angle=232.77237;
 		};
 		class Item20
 		{
-			position[]={8210.0508,296.04001,1967.978};
+			position[]={8207.0508,296.04001,1967.817};
 			name="mash";
 			text="mash";
 			type="b_med";
 			colorName="ColorBlue";
-			angle=-119.952;
 		};
 		class Item21
 		{
@@ -3707,7 +3689,6 @@ class Mission
 			text="Artillery";
 			type="b_art";
 			colorName="ColorBlue";
-			angle=58.8769;
 		};
 		class Item22
 		{
