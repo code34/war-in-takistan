@@ -309,12 +309,9 @@
 		wcscorelimitmax = 25;
 	};
 
-	// threshold of dammage to do, for enemy vehicle explose
-	if(wcwithACE == 1) then {
-		wcdammagethreshold = 0.3;
-	} else {
-		wcdammagethreshold = 0.5;
-	};
+	// threshold of dammage to do, for enemy vehicle been damaged
+	// this variable can affect ACE damaged threshold
+	wcdammagethreshold = 0.3;
 
 	// Goal cam uses color
 	wccamgoalwithcolor = true;
