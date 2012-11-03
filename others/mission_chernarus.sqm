@@ -3,59 +3,10 @@ class Mission
 {
 	addOns[]=
 	{
-		"takistan",
-		"ca_modules_functions",
-		"cacharacters_e",
-		"caweapons_e",
-		"cawheeled_e_hmmwv",
-		"CAWheeled_E_stryker",
-		"cawheeled_e_suv",
-		"CAWheeled_E",
-		"camisc_e_wf",
-		"CATracked_E_M2A2_Bradley",
-		"camisc3",
-		"CAAir_E_UH60M",
-		"CAMisc",
-		"camisc_e",
-		"caweapons_e_ammoboxes",
-		"CAWheeled_E_LandRover",
-		"CAWheeled_E_ATV",
-		"caweapons_pmc",
-		"warfarebuildings",
-		"CAAir_E",
-		"chernarus",
-		"cacharacters2",
-		"CATracked2_T90",
-		"caweapons_ammoboxes",
-		"caweapons_baf",
-		"CAWheeled_E_SCUD"
+		"chernarus"
 	};
 	addOnsAuto[]=
 	{
-		"ca_modules_functions",
-		"cacharacters_e",
-		"caweapons_e",
-		"cacharacters2",
-		"cawheeled_e_hmmwv",
-		"CAWheeled_E_stryker",
-		"cawheeled_e_suv",
-		"CAWheeled_E",
-		"camisc_e_wf",
-		"CATracked_E_M2A2_Bradley",
-		"camisc3",
-		"CAAir_E_UH60M",
-		"CAMisc",
-		"camisc_e",
-		"caweapons_e_ammoboxes",
-		"CAWheeled_E_LandRover",
-		"CAWheeled_E_ATV",
-		"caweapons_pmc",
-		"warfarebuildings",
-		"CAAir_E",
-		"CAWheeled_E_SCUD",
-		"caweapons_ammoboxes",
-		"caweapons_baf",
-		"CATracked2_T90",
 		"chernarus"
 	};
 	randomSeed=4546277;
