@@ -1061,8 +1061,7 @@ class Mission
 			position[]={4324.5586,4.9074764,7502.4453};
 			name="jail";
 			text="Jail";
-			type="Empty";
-			angle=0.82791501;
+			type="b_recon";
 		};
 		class Item6
 		{
