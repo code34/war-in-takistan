@@ -860,9 +860,9 @@
 
 		case 55: {
 			_missiontext = [_missionname, "Defend an area"];
-			_vehicle = "Land_fortified_nest_big_EP1" createvehicle _position;
 			_vehicle = "FlagCarrierUSA_EP1" createvehicle _position;
 			_vehicle setVehicleInit "this addAction ['<t color=''#ff4500''>Defend the area</t>', 'warcontext\actions\WC_fnc_dobegindefend.sqf',[],6,false];";
+			_vehicle = "Land_fortified_nest_big_EP1" createvehicle _position;
 			wcgarbage = [_vehicle] spawn WC_fnc_defend;
 			processInitCommands;
 			_missiontype = "defend";
