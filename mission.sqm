@@ -3,10 +3,52 @@ class Mission
 {
 	addOns[]=
 	{
-		"takistan"
+		"takistan",
+		"ca_modules_functions",
+		"cacharacters_e",
+		"caweapons_e",
+		"cawheeled_e_hmmwv",
+		"CAWheeled_E_stryker",
+		"cawheeled_e_suv",
+		"CAWheeled_E",
+		"camisc_e_wf",
+		"CATracked_E_M2A2_Bradley",
+		"camisc3",
+		"CAAir_E_UH60M",
+		"CAMisc",
+		"camisc_e",
+		"caweapons_e_ammoboxes",
+		"CAWheeled_E_LandRover",
+		"CAWheeled_E_ATV",
+		"caweapons_pmc",
+		"opxmisc",
+		"warfarebuildings",
+		"CAAir_E",
+		"CAAir_E_AH6J"
 	};
 	addOnsAuto[]=
 	{
+		"ca_modules_functions",
+		"cacharacters_e",
+		"caweapons_e",
+		"cawheeled_e_hmmwv",
+		"CAWheeled_E_stryker",
+		"cawheeled_e_suv",
+		"CAWheeled_E",
+		"camisc_e_wf",
+		"CATracked_E_M2A2_Bradley",
+		"camisc3",
+		"CAAir_E_UH60M",
+		"CAMisc",
+		"camisc_e",
+		"caweapons_e_ammoboxes",
+		"CAWheeled_E_LandRover",
+		"CAWheeled_E_ATV",
+		"caweapons_pmc",
+		"opxmisc",
+		"warfarebuildings",
+		"CAAir_E",
+		"CAAir_E_AH6J",
 		"takistan"
 	};
 	randomSeed=4546277;
@@ -1048,8 +1090,8 @@ class Mission
 		};
 		class Item9
 		{
-			position[]={8288.9209,296.04001,2079.6909};
-			azimut=598.91113;
+			position[]={8366.8623,296.04001,1887.9696};
+			azimut=55;
 			special="NONE";
 			id=11;
 			side="EMPTY";
@@ -3601,7 +3643,7 @@ class Mission
 		};
 		class Item11
 		{
-			position[]={8289.5752,296.04001,2079.2034};
+			position[]={8366.7354,296.04001,1886.1294};
 			name="repair";
 			text="Repair";
 			type="b_maint";
@@ -3623,16 +3665,16 @@ class Mission
 		};
 		class Item14
 		{
-			position[]={8075.4502,296.04001,1850.8113};
+			position[]={8023.8301,296.04001,1888.2655};
 			name="bluefor";
 			text="bluefor";
 			markerType="RECTANGLE";
 			type="Empty";
 			colorName="ColorBlue";
 			fillName="FDiagonal";
-			a=400;
-			b=300;
-			angle=331.74316;
+			a=430;
+			b=200;
+			angle=331.74301;
 		};
 		class Item15
 		{
