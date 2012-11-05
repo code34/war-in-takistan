@@ -105,11 +105,11 @@
 
 	while { (format["%1", wcanim] != "" and _sleep < 60)} do {
 
-		_x = random _distance;
-		_y = random _distance;
+		_x = 2 + random _distance;
+		_y = 2 + random _distance;
 		if(random 1 > 0.5) then { _xsign = 1; } else { _xsign = -1;};
 		if(random 1 > 0.5) then { _ysign = 1; } else { _ysign = -1;};	
-		if(_distance == 10) then { _alt = random 2;}else{_alt = 2 + (random 20);};
+		if(_distance == 10) then { _alt = random 3;}else{_alt = 2 + (random 20);};
 
 		_newx = ((getpos _object) select 0) + (_x * _xsign);
 		_newy = ((getpos _object) select 1) + (_y * _ysign);
