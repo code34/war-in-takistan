@@ -55,7 +55,7 @@
 
 		wcgarbage = [_vehicle] spawn WC_fnc_vehiclehandler;
 	} else {
-		_group = [_typeofgroup, east, _position] call WC_fnc_popgroup;
+		_group = [_typeofgroup, east, _position, (6 + random 4)] call WC_fnc_popgroup;
 
 		_leader = leader _group;		
 		_position = (position _leader) findEmptyPosition [5, 50];
