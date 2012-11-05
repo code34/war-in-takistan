@@ -139,6 +139,13 @@ _areadir = 0;
 _areaname = "";
 _areatrigger = objNull;
 _showmarker = "HIDEMARKER";
+
+// add index 
+if(isnil "wcupsindex") then {
+	wcupsindex = 0;
+};
+
+
 _getAreaInfo = {
 	if (typeName _areamarker=="String") then {
 		// remember center position of area marker
@@ -468,11 +475,13 @@ _zoneempty = ["EMPTY:",0,_UCthis] call WC_KRON_getArg;
 
 // create area trigger
 if (_usetrigger!="NOTRIGGER") then {
-	_trgside = switch (side _npc) do { case west: {"WEST"}; case east: {"EAST"}; case resistance: {"GUER"}; case civilian: {"CIV"};};
-	_trgname="WC_KRON_Trig_"+_trgside+"_"+_areaname;
-	_flgname="WC_KRON_Cleared_"+_areaname;
+	_trgside = switch (side _npc) do { case west: {"WEST"}; case east: {"EAST"}; case resistance: {"GUER"}; case civilian: {"CIV"}; default {"EAST"}; };
+	_trgname = "WC_KRON_Trig_"+_trgside+"_"+_areaname+"_"+format["%1",wcupsindex];
+	_flgname = "WC_KRON_Cleared_"+_areaname+"_"+format["%1",wcupsindex];
+	wcupsindex = wcupsindex + 1;
 
-	diag_log format["AREANAME: %1 %2", _trgname, _flgname];
+
+	diag_log format["UPS AREANAME: %1 %2", _trgname, _flgname];
 
 	// has the trigger been created already?
 	WC_KRON_TRGFlag=-1;
