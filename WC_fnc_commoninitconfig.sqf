@@ -319,8 +319,8 @@
 	// Goal cam turn around goal
 	wccamgoalanimate = false;
 
-	// Ied false positive are...
-	wciedfalsepositive = true;
+	// Ied false positive are off by default
+	wciedfalsepositive = false;
 
 	// contain all nuclear zone
 	wcnuclearzone = [];
