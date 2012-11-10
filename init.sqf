@@ -115,6 +115,7 @@
 	WC_fnc_createpositioninmarker 	= compile preprocessFile "warcontext\functions\WC_fnc_createpositioninmarker.sqf";
 	WC_fnc_deletemarker		= compile preprocessFile "warcontext\functions\WC_fnc_deletemarker.sqf";
 	WC_fnc_exportweaponsplayer	= compile preprocessFile "warcontext\functions\WC_fnc_exportweaponsplayer.sqf";
+	WC_fnc_farofpos		 	= compile preprocessFile "warcontext\functions\WC_fnc_farofpos.sqf";
 	WC_fnc_feelwithzero	 	= compile preprocessFile "warcontext\functions\WC_fnc_feelwithzero.sqf";
 	WC_fnc_garbagecollector		= compile preprocessFile "warcontext\functions\WC_fnc_garbagecollector.sqf";
 	WC_fnc_getobject		= compile preprocessFile "warcontext\functions\WC_fnc_getobject.sqf";
