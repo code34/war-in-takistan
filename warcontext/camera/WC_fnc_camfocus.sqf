@@ -16,10 +16,13 @@
 		"_sleep",
 		"_missiontext",
 		"_distance",
-		"_exit"
+		"_exit",
+		"_size"
 	];
 
 	_object = _this select 0;
+	_size = round(sizeof (typeof  _object));
+
 	_exit 	= false;
 
 	waituntil {isnull wccam};
@@ -105,12 +108,12 @@
 
 	while { (format["%1", wcanim] != "" and _sleep < 60)} do {
 
-		_x = 2 + random _distance;
-		_y = 2 + random _distance;
+		_x = 2 + random _distance + _size;
+		_y = 2 + random _distance + _size;
 		if(random 1 > 0.5) then { _xsign = 1; } else { _xsign = -1;};
 		if(random 1 > 0.5) then { _ysign = 1; } else { _ysign = -1;};	
 		if(_distance == 10) then { 
-			_alt = ((random 3) + ((getposatl _object) select 2));
+			_alt = (1 + (random 2) + ((getposatl _object) select 2));
 		}else{
 			_alt = 2 + (random 20);
 		};
