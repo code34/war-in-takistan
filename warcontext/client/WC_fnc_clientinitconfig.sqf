@@ -20,6 +20,7 @@
 	// -------------------------------------------
 	// don't edit below init of working variables
 	// -------------------------------------------
+	wcadmin = false;
 
 	wccamnvg = true;
 
@@ -50,8 +51,6 @@
 	wcbonus = 0;
 
 	wcrankchanged = false;
-
-	wcadmin = false;
 
 	wcteamplayscore = 0;
 
