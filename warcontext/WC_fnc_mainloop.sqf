@@ -116,6 +116,7 @@
 
 		// Delete zones for next mission near this zone
 		wclastmissionposition = _position;
+		wcmissionposition = _position;
 
 		// Check if we are in town or not
 		_buildings = nearestObjects [position _location, ["house"] , wcdistance];
