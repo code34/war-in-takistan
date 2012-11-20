@@ -268,6 +268,10 @@
 	// default player view distance
 	wcviewdist = 1500;
 
+	// alert threshold begin to increase
+	// when something happens at ... meters of the mission position
+	wcalertzonesize = 3000;
+
 	// Radio appear at x meter distance of goal (min & max)
 	wcradiodistminofgoal = 150;
 	wcradiodistmaxofgoal = 300;
