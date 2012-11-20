@@ -202,32 +202,6 @@
 			};
 		};
 
-
-		// To add before to check 
-		// If mission can be done with SAFE ZONE
-		if((_missionnumber == 58) or (_missionnumber == 59) or (_missionnumber == 60) or (_missionnumber == 61) or (_missionnumber == 62) or (_missionnumber == 71)) then {
-			_done = true;
-			_counter = 0;
-			while { _done } do {
-				_done = false;
-				{
-					if(_x distance _position < 1000) then {
-						_done = true;
-					};
-				}foreach wcsecurezone;
-				if(_done) then {
-					_vehicle = wckindofhangars call BIS_fnc_selectRandom;
-					_position = position _vehicle;
-					_counter = _counter + 1;
-					if(_counter > 10) then {
-						_done = false;
-						_missionnumber = floor(random _maxnumberofmission);
-					};
-				};
-				sleep 0.1;
-			};
-		};
-
 		// generate the mission date
 		_time = [] call WC_fnc_newdate;
 
