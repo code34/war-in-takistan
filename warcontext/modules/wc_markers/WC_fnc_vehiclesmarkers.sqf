@@ -29,6 +29,11 @@
 				_varname = vehiclevarname _x;
 				if!(_varname == "") then {
 					_name = getText (configFile >> "CfgVehicles" >> (typeOf (_x)) >> "DisplayName");
+					if(locked _x) then {
+						_name = _name + " - locked";
+					} else {
+						_name = _name + " - unlocked";
+					};
 					_arrayofvehicle2 = _arrayofvehicle2 + [[_x, _varname, _name]];
 				};
 			};
