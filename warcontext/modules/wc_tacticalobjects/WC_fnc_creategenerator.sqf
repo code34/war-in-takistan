@@ -31,7 +31,7 @@
 	wcgenerator = createVehicle [_type, _position, [], 0, "NONE"];
 	wcgenerator setpos _position;
 
-	wcgenerator setVehicleInit "this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\actions\WC_fnc_dosabotage.sqf',[true],-1,false];";
+	wcgenerator setVehicleInit "this addAction ['<t color=''#ffcb00''>Sabotage</t>', 'warcontext\actions\WC_fnc_dosabotage.sqf',[true],6,false];";
 	processInitCommands;
 
 	if(wcwithgeneratormarkers == 1) then {
