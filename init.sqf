@@ -304,6 +304,7 @@
 	WC_fnc_createlistofmissions	= compile preprocessFile "warcontext\WC_fnc_createlistofmissions.sqf";
 	WC_fnc_createsidemission 	= compile preprocessFile "warcontext\WC_fnc_createsidemission.sqf";
 	WC_fnc_debug			= compile preprocessFile "warcontext\WC_fnc_debug.sqf";
+	WC_fnc_deletemissioninsafezone	= compile preprocessFile "warcontext\WC_fnc_deletemissioninsafezone.sqf";
 	WC_fnc_eventhandler 		= compile preprocessFile "warcontext\WC_fnc_eventhandler.sqf";
 	WC_fnc_mainloop 		= compile preprocessFile "warcontext\WC_fnc_mainloop.sqf";
 
