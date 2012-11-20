@@ -352,7 +352,7 @@ class acInfoDLG
 	name = "ac_info_dlg";
 	controlsBackground[] = {New_BackGround};
 	objects[] = {};
-	controls[] = { MM_MENU1, MM_MENU2, MM_MENU3, MM_MENU4, MM_MENU5, MM_MENU6, MM_BtnTransfert, MM_TAG, infomainmission, infosidemission, MM_BtnOk, MM_BtnOpt, MM_BtnLogs, MM_BtnCredits, MM_Label, MM_PLAYERROLE, MM_BtnObj, MM_BtnTEAMSTATUS, MM_PLAYERLIST, MM_SLIDER_TRANSFER};
+	controls[] = { MM_MENU1, MM_MENU2, MM_MENU3, MM_MENU4, MM_MENU5,  MM_sendreport, MM_TAG, infomainmission, infosidemission, MM_BtnOk, MM_BtnOpt, MM_BtnLogs, MM_BtnCredits, MM_Label, MM_PLAYERROLE, MM_BtnObj, MM_BtnTEAMSTATUS};
 
 	onLoad = "ExecVM ""warcontext\dialogs\WC_fnc_menumissioninfo.sqf""; uiNamespace setVariable [""ac_INFO_DLG"", _this select 0];";
 	
@@ -385,7 +385,7 @@ class acInfoDLG
 			y = 0.12;
 			w = 0.69;
 			h = 0.11;
-			SizeEx = 0.030;
+			SizeEx = 0.040;
 			style = ST_MULTI;
 			lineSpacing = 0.7;
 			colorText[] = {1, 1, 1, 1};
@@ -398,8 +398,8 @@ class acInfoDLG
 			x = 0.410;
 			y = 0.24;
 			w = 0.69;
-			h = 0.11;
-			SizeEx = 0.030;
+			h = 0.34;
+			SizeEx = 0.040;
 			style = ST_MULTI;
 			lineSpacing = 0.7;
 			colorText[] = {1, 1, 1, 1};
@@ -454,53 +454,31 @@ class acInfoDLG
 			SizeEx = 0.030;
 		};
 
-	class MM_MENU6: RscText
-		{
-			idc = 10016;
-			x = 0.04;
-			y = 0.36;
-			SizeEx = 0.030;
-		};
-
-	class MM_SLIDER_TRANSFER : RscXSliderH {
-		idc = 10015;
-		x = 0.04;
-		y = 0.40;
-		w = 0.30;
-	};
-
-	class MM_PLAYERLIST: RscCombo {
-		idc = 10014;
-		x = 0.04;
-		y = 0.44;
-		w = 0.30;
-		SizeEx = 0.030;
-	};
-
-	class MM_BtnTransfert : New_Btn 
-	{
-			x = 0.04;
-			y = 0.45;
-			w = 0.22;
-			text = $STR_ACGUI_MM_BTN_TRANSFERT;
-			action = "[] call WC_fnc_transfert;";
-	};
-
-
 	class MM_BtnObj : New_Btn 
 		{
 			x = 0.04;
-			y = 0.54;
-			w = 0.2200;
+			y = 0.32;
+			w = 0.30;
 			text = $STR_ACGUI_MM_BTN_Obj;
 			action = "CloseDialog 0; wcanim = [(wcobjective select 1), 6] spawn WC_fnc_camfocus;";
 		};
 
+
+	class MM_sendreport : New_Btn 
+	{
+			x = 0.04;
+			y = 0.38;
+			w = 0.30;
+			text = $STR_SENDREPORT;
+			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialogs\WC_fnc_createmenusendreport.sqf""";
+	};
+
+
 	class MM_BtnOpt : New_Btn 
 		{
 			x = 0.04;
-			y = 0.59;
-			w = 0.2200;
+			y = 0.44;
+			w = 0.30;
 			text = $STR_ACGUI_MM_BTN_Opt;
 			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialogs\WC_fnc_createmenusettings.sqf""";
 		};
@@ -508,8 +486,8 @@ class acInfoDLG
 	class MM_BtnTEAMSTATUS  : New_Btn {
 			idc = 10002;
 			x = 0.04;
-			y = 0.64;
-			w = 0.2200;
+			y = 0.50;
+			w = 0.30;
 			text = $STR_ACGUI_MM_BTN_TEAMSTATUS;
 			action = "CloseDialog 0; [] call WC_fnc_teamstatus;";
 	};
@@ -518,8 +496,8 @@ class acInfoDLG
 		{
 			idc = 10003;
 			x = 0.04;
-			y = 0.69;
-			w = 0.2200;
+			y = 0.56;
+			w = 0.30;
 			text = $STR_ACGUI_MM_BTN_Logs;
 			action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialogs\WC_fnc_createmenureadlogs.sqf"";";
 	};
@@ -528,17 +506,17 @@ class acInfoDLG
 		{
 			idc = 10002;
 			x = 0.04;
-			y = 0.74;
-			w = 0.2200;
+			y = 0.62;
+			w = 0.30;
 			text = $STR_ACGUI_MM_BTN_CREDITS;
 			action = "CloseDialog 0; wcanim = [] execVM ""warcontext\camera\WC_fnc_credits.sqf"";";
 	};
 
 	class MM_BtnOk  : New_Btn 
 		{
-			x = 0.89;
+			x = 0.87;
 			y = 0.892;
-			w = 0.20;
+			w = 0.22;
 			default = true;
 			text = $STR_ACGUI_MM_BTN_CLOSE;
 			action = "closeDialog 0;";
@@ -548,10 +526,10 @@ class acInfoDLG
 		{
 			idc = 10009;
 			x = 0.410;
-			y = 0.36;
+			y = 0.64;
 			w = 0.69;
-			h = 0.15;
-			SizeEx = 0.030;
+			h = 0.20;
+			SizeEx = 0.040;
 			style = ST_MULTI;
 			lineSpacing = 0.7;
 			colorText[] = {1, 1, 1, 1};
@@ -618,7 +596,7 @@ class SettingsDialog {
 				idc = 13005;
 				x = 0.04;
 				y = 0.41;
-				w = 0.2200;
+				w = 0.30;
 				text = $STR_ACGUI_MM_BTN_WEAPONS;
 				action = "[] call WC_fnc_exportweaponsplayer;";
 		};
@@ -628,7 +606,7 @@ class SettingsDialog {
 			idc = 10002;
 			x = 0.04;
 			y = 0.46;
-			w = 0.2200;
+			w = 0.30;
 			text = $STR_ACGUI_MM_BTN_HBFIX;
 			action = "[] call WC_fnc_fixheadbug;";
 		};
@@ -863,6 +841,93 @@ class RscDisplayLogs {
 		action = "CloseDialog 0; execVM ""warcontext\actions\WC_fnc_docancelmission.sqf""";
 	};
 };
+
+class RscDisplaySendreport {
+	idd = 16000;
+	movingEnable = 0;
+	enableSimulation = 1;
+	objects[] = {};
+	controlsBackground[] = {Sendreportbackground};
+	controls[] = {SendreportLabel, Sendreportslidertext, Sendreportslider, Sendreportlist, Sendreportbttransfert, Sendreportmaintext, Sendreportclose};
+	onLoad = "  ExecVM ""warcontext\dialogs\WC_fnc_menusendreport.sqf""; ";
+
+	class SendreportLabel: RscText
+	{
+		idc = 16001;
+		text = $STR_ACGUI_MM_LABEL;
+		x = 0.04;
+		y = 0.05;
+	};
+	
+	class Sendreportbackground : RscPicture
+	{
+		idc = 16002;
+		style = 48; 
+		x = 0;
+		y = 0;
+		w = 1.498;
+		h = 1.2;
+		text = "\ca\ui\data\ui_wiz_background_ca.paa";
+	};
+
+	class Sendreportslidertext: RscText
+		{
+			idc = 16004;
+			x = 0.55;
+			y = 0.34;
+			SizeEx = 0.030;
+		};
+
+	class Sendreportslider : RscXSliderH {
+		idc = 16005;
+		x = 0.55;
+		y = 0.38;
+		w = 0.30;
+	};
+
+	class Sendreportlist: RscCombo {
+		idc = 16006;
+		x = 0.55;
+		y = 0.42;
+		w = 0.30;
+		SizeEx = 0.030;
+	};
+
+	class Sendreportbttransfert : New_Btn 
+	{
+		x = 0.55;
+		y = 0.46;
+		w = 0.30;
+		text = $STR_ACGUI_MM_BTN_TRANSFERT;
+		action = "[] call WC_fnc_transfert;";
+	};
+
+	class Sendreportmaintext: RscText
+	{
+			x = 0.410;
+			y = 0.12;
+			w = 0.69;
+			h = 0.20;
+			SizeEx = 0.040;
+			style = ST_MULTI;
+			lineSpacing = 0.7;
+			text = $STR_SENDREPORTTEXT;
+			colorText[] = {1, 1, 1, 1};
+			colorBackground[] = {0.3, 0.3, 0.3, 0.3};
+	};
+
+	class Sendreportclose  : New_Btn 
+	{
+		x = 0.87;
+		y = 0.892;
+		w = 0.22;
+		default = true;
+		text = $STR_ACGUI_MM_BTN_CLOSE;
+		action = "closedialog 0;";
+	};
+
+};
+
 
 class infomessage
 	{
