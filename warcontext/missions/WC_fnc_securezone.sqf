@@ -3,14 +3,20 @@
 	// warcontext  - secure a zone
 
 	private [
-		"_unit", 
+		"_counter",
 		"_enemys",
 		"_global",
-		"_count",
-		"_counter"
+		"_position",
+		"_sizeofzone",
+		"_unit"
+
 	];
 
 	_unit = _this select 0;
+	_position = position _unit;
+
+	_sizeofzone = 400;
+
 	_missioncomplete = false;
 
 	_enemys = [];
@@ -23,7 +29,7 @@
 	while {!_missioncomplete} do {
 		_enemys = [];
 		_counter = _counter + 1;
-		_global = nearestObjects[_unit,["Man"], wcdistance];
+		_global = nearestObjects[_unit,["Man"], _sizeofzone];
 		{
 			if!(isplayer _x) then {
 				if((side _x == east) or (side _x == resistance)) then {
@@ -33,7 +39,7 @@
 			};
 		}foreach _global;
 
-		_global = nearestObjects[_unit,["Landvehicle"], wcdistance];
+		_global = nearestObjects[_unit,["Landvehicle"], _sizeofzone];
 		{
 			{
 				if!(isplayer _x) then {
@@ -72,7 +78,8 @@
 			_marker setMarkersize [1,1]; 
 			_marker setMarkerType "Warning";
 			_marker setMarkerColor "ColorBlue";			
-			wcsecurezone = wcsecurezone + [position _unit];
+			wcsecurezone = wcsecurezone + [_position];
+			wcgarbage = [] spawn WC_fnc_deletemissioninsafezone;
 		};
 		sleep 4;
 	};
