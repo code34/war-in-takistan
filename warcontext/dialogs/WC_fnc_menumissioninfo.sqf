@@ -28,31 +28,6 @@
 		player setpos _pos;
 	};
 
-	WC_fnc_transfert = {
-		private["_point", "_index", "_friend", "_me", "_player"];
-		_point = ceil(sliderPosition 10015);
-		if(_point > 0) then {
-			_index = lbCurSel 10014;
-			_friend = lbData [10014,_index];
-			// only a trick to retrieve the player object refering to _friend
-			{
-				if(side _x == west) then {
-					if(name _x == _friend) then {
-						_me = name player;
-						wcteamplayaddscore = [_friend, _me, _point];
-						wcplayeraddscore = [_x, _point];
-						["wcteamplayaddscore", "client"] call WC_fnc_publicvariable;
-						["wcplayeraddscore", "server"] call WC_fnc_publicvariable;
-						wcteamplayscore = wcteamplayscore - _point;
-						if(wcteamplayscore < 0) then {
-							wcteamplayscore = 0;
-						};
-					};
-				};
-			}foreach allunits;
-		};
-	};
-	
 	playsound "paper";
 
 	ctrlSetText [10001, format[localize "STR_WC_BRIEFING", (wclevelmax - 1)]];
@@ -69,14 +44,6 @@
 	ctrlSetText [10011, format[localize "STR_WC_AMMOUSED", (wcammoused - 1)]];
 	ctrlSetText [10013, format[localize "STR_WC_REVIVELEFT", R3F_REV_nb_reanimations]];
 	
-	wcgarbage = [] spawn {
-		while {dialog} do {
-			slidersetrange[10015,0, wcteamplayscore];
-			ctrlSetText [10016, format[localize "STR_WC_POINTSTOTRANSFERT", ceil(sliderPosition 10015), wcteamplayscore]];
-			sleep 0.05;
-		};
-	};
-
 	if (!isnil "wcobjective") then {
 		_missionnumber = (wcobjective select 2);
 		switch (_missionnumber) do {
@@ -115,24 +82,3 @@
 			ctrlSetText [10009, format["%3 : %1\n\n%2", _teampromote, _info, localize "STR_WC_ACTUALLYYOURTEAMRANK"]];
 		};
 	};
-
-	lbClear 10014;
-	_count = 0;
-	{
-		if((isplayer _x) and (name _x != name player)) then {
-			_name = name _x;
-			_index = lbAdd[10014,Format ["[%1] %2",_count, _name]];
-			lbSetData[10014,_index,_name];
-			lbSetValue[10014,_index, (_count - 1)];
-			_count = _count + 1;
-		};
-	} forEach allunits;
-
-	if(_count == 0) then {
-		_name = name player;
-		_index = lbAdd[10014,Format ["[%1] %2",_count, _name]];
-		lbSetData[10014,_index,_name];
-		lbSetValue[10014,_index, (_count - 1)];
-	};
-
-	lbSetCurSel[10014,0];
