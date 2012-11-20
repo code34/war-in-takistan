@@ -168,6 +168,22 @@
 		};
 	};
 
+	// admin command - unlock all vehicles
+	WC_fnc_netcode_wcunlockall = {
+		{
+			_x setvehicleinit "this lock false;";
+		}foreach vehicles;
+		processinitcommands;
+	};
+
+	// admin command - lock all vehicles
+	WC_fnc_netcode_wclockall = {
+		{
+			_x setvehicleinit "this lock true;";
+		}foreach vehicles;
+		processinitcommands;
+	};
+
 	// bomb via c130 request by admin on a zone
 	WC_fnc_netcode_wcbombingrequest = {
 		if(wcbombingavalaible == 1) then {
