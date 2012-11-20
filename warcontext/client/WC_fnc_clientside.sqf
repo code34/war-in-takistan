@@ -27,6 +27,9 @@
 	wcgarbage = [] spawn WC_fnc_eventhandler;
 	wcgarbage = [] spawn WC_fnc_clienthandler;
 
+	// Init action menu
+	wcgarbage = [] call WC_fnc_restoreactionmenu;
+
 	sleep 1;
 
 	// notify server that player is ready
@@ -117,19 +120,8 @@
 	_trgmenuoption setTriggerStatements[
 	"vehicle player != player", 
 	"wcvehicle = vehicle player; 
-	wcactionmenuoption = wcvehicle addAction ['<t color=''#ff4500''>Mission Info</t>', 'warcontext\dialogs\WC_fnc_createmenumissioninfo.sqf',[],-1,false]; wcgarbage = [] spawn WC_fnc_checkpilot; enableEnvironment false;", 
+	wcactionmenuoption = wcvehicle addAction ['<t color=''#ff4500''>Mission Info</t>', 'warcontext\dialogs\WC_fnc_createmenumissioninfo.sqf',[],5,false]; wcgarbage = [] spawn WC_fnc_checkpilot; enableEnvironment false;", 
 	"wcvehicle removeAction wcactionmenuoption; if(wcwithenvironment == 1) then { enableEnvironment true;};"];
-
-	// Init GUI
-	player addaction ["<t color='#ff4500'>Mission Info</t>","warcontext\dialogs\WC_fnc_createmenumissioninfo.sqf",[],-1,false];
-	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUDEPLOYTENT"+"</t>", "warcontext\actions\WC_fnc_dobuildtent.sqf",[],-1,false];
-	player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBUILDTRENCH"+"</t>", "warcontext\actions\WC_fnc_dodigtrench.sqf",[],-1,false];
-
-	if (typeOf player in wcengineerclass) then {
-		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUREPAIRVEHICLE"+"</t>","warcontext\actions\WC_fnc_dorepairvehicle.sqf",[],-1,false];
-		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUUNLOCKVEHICLE"+"</t>","warcontext\actions\WC_fnc_dounlockvehicle.sqf",[],-1,false];
-		player addaction ["<t color='#dddd00'>"+localize "STR_WC_MENUUNFLIPVEHICLE"+"</t>","warcontext\actions\WC_fnc_dounflipvehicle.sqf",[],-1,false];
-	};
 
 	wcgarbage = [] spawn {
 		private ["_oldlevel", "_ranked"];
@@ -309,7 +301,7 @@
 		};
 	};
 
-	// ADD ACTION MENU FOR ADMINS
+	// CHECK IF PLAYER IS ADMIN
 	wcgarbage = [] spawn {
 		private ["_idaction", "_count"];
 		_count = 0;
@@ -323,30 +315,6 @@
 				} else {
 					wcadmin = false;
 				};
-			};
-
-			if (wcadmin) then {
-				if(isnil "wcspectate") then {
-					wcspectate = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUSPECTATOR"+"</t>", "extern\spect\specta.sqf",[],-1,false];
-				};
-				if(isnil "wccancelmission") then {
-					wccancelmission = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCANCELMISSION"+"</t>", "warcontext\actions\WC_fnc_docancelmission.sqf",[],-1,false];
-				};
-				if((isnil "wcbombingsupport") and (wcbombingavalaible == 1)) then {
-					wcbombingsupport = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUBOMBING"+"</t>", "warcontext\actions\WC_fnc_dobombingrequest.sqf",[],-1,false];
-				};
-				if((isnil "wcmanageteam") and (wckindofserver != 3)) then {
-					wcmanageteam = player addAction ["<t color='#dddd00'>Manage team</t>", "warcontext\dialogs\WC_fnc_createmenumanageteam.sqf",[],6,false];
-				};
-			} else {
-				if!(isnil "wcspectate") then { player removeAction wcspectate;};
-				if!(isnil "wccancelmission") then { player removeAction wccancelmission;};
-				if!(isnil "wcbombingsupport") then { player removeAction wcbombingsupport;};
-				if!(isnil "wcmanageteam") then { player removeaction wcmanageteam;};
-				wcspectate = nil;
-				wcbombingsupport = nil;
-				wccancelmission = nil;
-				wcmanageteam = nil;
 			};
 			sleep 5;
 		};
