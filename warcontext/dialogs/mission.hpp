@@ -758,10 +758,9 @@ class RscDisplayLogs {
 	idd = 15000;
 	movingEnable = 0;
 	enableSimulation = 1;
-	enableDisplay = 1;
 	objects[] = {};
 	controlsBackground[] = {Logbackground};
-	controls[] = {Logbackground, LogLabel, Logtext, LogClose};
+	controls[] = {LogLabel, Logtext, LogClose, Logbtmanage, Logbtspectator, Logbtunlockallvehicles, Logbtlockallvehicles, Logbtbombingsupport, Logbtcancelmission};
 	onLoad = "  ExecVM ""warcontext\dialogs\WC_fnc_menureadlogs.sqf""; ";
 
 	class LogLabel: RscText
@@ -801,6 +800,67 @@ class RscDisplayLogs {
 		default = true;
 		text = $STR_ACGUI_MM_BTN_CLOSE;
 		action = "closedialog 0;";
+	};
+
+	class Logbtmanage : New_Btn 
+	{
+		idc = 15005;
+		x = 0.04;
+		y = 0.10;
+		w = 0.30;
+		text = "Manage team";
+		action = "CloseDialog 0; _handle = [] execVM ""warcontext\dialogs\WC_fnc_createmenumanageteam.sqf""";
+	};
+
+	class Logbtspectator : New_Btn 
+	{
+		idc = 15006;
+		x = 0.04;
+		y = 0.16;
+		w = 0.30;
+		text = $STR_WC_MENUSPECTATOR;
+		action = "CloseDialog 0; execVM ""extern\spect\specta.sqf""";
+	};
+
+	class Logbtunlockallvehicles : New_Btn 
+	{
+		idc = 15007;
+		x = 0.04;
+		y = 0.22;
+		w = 0.30;
+		text = "Unlock all vehicles";
+		action = "CloseDialog 0; wcunlockall = true; ['wcunlockall', 'server'] call WC_fnc_publicvariable;";
+	};
+
+	class Logbtlockallvehicles : New_Btn 
+	{
+		idc = 15008;
+		x = 0.04;
+		y = 0.28;
+		w = 0.30;
+		text = "Lock all vehicles";
+		action = "CloseDialog 0; wclockall = true; ['wclockall', 'server'] call WC_fnc_publicvariable;";
+	};
+
+	class Logbtbombingsupport : New_Btn 
+	{
+		idc = 15009;
+		x = 0.04;
+		y = 0.34;
+		w = 0.30;
+		text = "Bombing support";
+		action = "CloseDialog 0; wcbombingrequest = true; ['wcbombingrequest', 'server'] call WC_fnc_publicvariable;";
+	};
+
+
+	class Logbtcancelmission : New_Btn 
+	{
+		idc = 15010;
+		x = 0.04;
+		y = 0.40;
+		w = 0.30;
+		text = $STR_WC_MENUCANCELMISSION;
+		action = "CloseDialog 0; execVM ""warcontext\actions\WC_fnc_docancelmission.sqf""";
 	};
 };
 
