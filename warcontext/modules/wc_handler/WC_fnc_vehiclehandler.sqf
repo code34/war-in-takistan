@@ -43,10 +43,12 @@
 
 		_vehicle addEventHandler ['Fired', '
 			_increase = ceil(random 5);
-			if((wcalert + _increase) < 101) then {
-				wcalert = wcalert + _increase;
-			} else {
-				wcalert = 100;
+			if(position _vehicle distance wcmissionposition < wcalertzonesize) then {
+				if((wcalert + _increase) < 101) then {
+					wcalert = wcalert + _increase;
+				} else {
+					wcalert = 100;
+				};
 			};
 		'];
 

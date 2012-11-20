@@ -9,8 +9,8 @@
 		{
 			wcgarbage = [_x, wcskill] spawn WC_fnc_setskill;
 
-			_x setVehicleInit "this addAction ['<t color=''#ff4500''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],-1,false, true];";
-			_x setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
+			_x setVehicleInit "this addAction ['<t color=''#ffcb00''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],-1,false, true];";
+			_x setVehicleInit "this addAction ['<t color=''#ffcb00''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
 
 			if(vehicle _x == _x) then {
 				wcunits = wcunits + [_x];
@@ -28,10 +28,12 @@
 				_name = getText (configFile >> "CfgMagazines" >> _name >> "displayNameShort");
 				_increase = ceil(random (5));
 				if!(_name == "SD") then {
-					if((wcalert + _increase) < 101) then {
-						wcalert = wcalert + _increase;
-					} else {
-						wcalert = 100;
+					if(position (_this select 0) distance wcmissionposition < wcalertzonesize) then {
+						if((wcalert + _increase) < 101) then {
+							wcalert = wcalert + _increase;
+						} else {
+							wcalert = 100;
+						};
 					};
 				};
 				wcgarbage = _this spawn WC_fnc_garbagecollector;
@@ -41,16 +43,19 @@
 				_marker = [format["dead%1", wcenemykilled], 0.1, position (_this select 0), 'ColorRED', 'ICON', 'FDIAGONAL', 'Camp', 0, 'dead', false] call WC_fnc_createmarkerlocal;
 				wcambiantmarker = wcambiantmarker + [_marker];
 			}];
+
 			_x addEventHandler ['Fired', '
 				private ["_name", "_increase"];
 				_name = currentMagazine (_this select 0);
 				_name = getText (configFile >> "CfgMagazines" >> _name >> "displayNameShort");
 				_increase = ceil(random (5));
 				if!(_name == "SD") then {
-					if((wcalert + _increase) < 101) then {
-						wcalert = wcalert + _increase;
-					} else {
-						wcalert = 100;
+					if(position (_this select 0) distance wcmissionposition < wcalertzonesize) then {
+						if((wcalert + _increase) < 101) then {
+							wcalert = wcalert + _increase;
+						} else {
+							wcalert = 100;
+						};
 					};
 				};
 			'];
