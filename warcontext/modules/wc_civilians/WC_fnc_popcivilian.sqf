@@ -96,9 +96,9 @@
 			{
 				_civiltype = _x select 0;
 				_civil = _group createUnit [_civiltype, (_x select 1), [], 0, "FORM"];
-				_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],-1,false, true];";
-				_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],-1,false, true];";
-				_civil setVehicleInit "this addAction ['<t color=''#ff4500''>Search Civil</t>', 'warcontext\actions\WC_fnc_dosearchsomeone.sqf',[],-1,false, true];";
+				_civil setVehicleInit "this addAction ['<t color=''#ffcb00''>Hands up</t>', 'warcontext\actions\WC_fnc_dohandsup.sqf',[],6,false, true];";
+				_civil setVehicleInit "this addAction ['<t color=''#ffcb00''>Follow me</t>', 'warcontext\actions\WC_fnc_dofollowme.sqf',[],6,false, true];";
+				_civil setVehicleInit "this addAction ['<t color=''#ffcb00''>Search Civil</t>', 'warcontext\actions\WC_fnc_dosearchsomeone.sqf',[],6,false, true];";
 				_position = _positions call BIS_fnc_selectRandom;
 				_civil setvariable ["civilrole", (_x select 2), true];
 				_civil setvariable ["destination", _position, false];
