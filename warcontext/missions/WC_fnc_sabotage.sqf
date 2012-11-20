@@ -12,7 +12,7 @@
 	_unit = _this select 0;
 	_unit setVehicleInit "this lock true;";
 	_unit setvariable ["wcsabotage", false, true];
-	_unit setVehicleInit "this lock true; this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\actions\WC_fnc_dosabotage.sqf',[],-1,false];";
+	_unit setVehicleInit "this lock true; this addAction ['<t color=''#ff4500''>Sabotage</t>', 'warcontext\actions\WC_fnc_dosabotage.sqf',[],6,false];";
 	processInitCommands;
 
 	_missioncomplete = false;

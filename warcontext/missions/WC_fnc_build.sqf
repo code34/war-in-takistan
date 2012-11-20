@@ -17,7 +17,7 @@
 	_position = position _unit;
 
 	_unit setvariable ["wcbuild", false, true];
-	_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Build</t>', 'warcontext\actions\WC_fnc_dobuild.sqf',[],-1,false];";
+	_unit setVehicleInit "this addAction ['<t color=''#ff4500''>Build</t>', 'warcontext\actions\WC_fnc_dobuild.sqf',[],6,false];";
 	processInitCommands;
 
 	_missioncomplete = false;
