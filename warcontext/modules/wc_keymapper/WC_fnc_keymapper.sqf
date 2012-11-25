@@ -73,7 +73,7 @@
 		player sideChat format["%1 - %2", wcindexmusic, _music];
 	};
 
-	if(_dikCode == DIK_GRAVE) then {
+	if(_dikCode in actionKeys "User16") then {
 		if(dialog) then {
 			closedialog 0;
 		} else {
