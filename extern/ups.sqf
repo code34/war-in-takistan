@@ -561,7 +561,10 @@ while {_loop} do {
 	};
 	
 	// current position
-	_currPos = getpos _npc; _currX = _currPos select 0; _currY = _currPos select 1;
+	_currPos = getpos _npc; 
+	_currX = _currPos select 0; 
+	_currY = _currPos select 1;
+
 	if (_track=="TRACK") then { _trackername setmarkerpos _currPos; };
 	
 	// if the AI is a civilian we don't have to bother checking for enemy encounters
