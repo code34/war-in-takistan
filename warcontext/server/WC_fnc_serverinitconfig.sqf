@@ -72,7 +72,7 @@
 	wcsecurezoneindex = 0;
 
 	// exclude mission that contains building not present on map, or in safe zone
-	wcgarbage = [] call WC_fnc_deletemissioninsafezone;
+	[] call WC_fnc_deletemissioninsafezone;
 
 	// enemy zone size
 	wcdistancegrowth = 10;
