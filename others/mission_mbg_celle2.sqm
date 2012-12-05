@@ -13,7 +13,7 @@ class Mission
 	class Intel
 	{
 		briefingName="WAR IN MBG CELLE2 1.6";
-		briefingDescription="by =[A*C]= code34";
+		briefingDescription="by code34";
 		resistanceWest=0;
 		resistanceEast=1;
 		startWeather=0.0099999905;
