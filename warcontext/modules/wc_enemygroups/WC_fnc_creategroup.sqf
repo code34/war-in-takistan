@@ -138,15 +138,15 @@
 		if(random 1 > 0.4) then {
 			_list = nearestObjects [_position, ["house"] , 70];
 			if(count _list > 10) then {
-				//wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] spawn EXT_fnc_upsmon;
-				wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
+				wcgarbage = [(leader _group), _marker, 'showmarker', 'fortify'] spawn EXT_fnc_upsmon;
+				//wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 			} else {
-				//wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
-				wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
+				wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
+				//wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 			};
 		} else {
-			//wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
-			wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
+			wcgarbage = [(leader _group), _marker, 'showmarker'] spawn EXT_fnc_upsmon;
+			//wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 		};
 	};
 

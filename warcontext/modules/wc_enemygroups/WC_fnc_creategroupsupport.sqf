@@ -209,8 +209,8 @@
 			{
 				_x action ["eject", _vehicle];
 			}foreach (crew _vehicle);
-			//wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
-			wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
+			wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
+			//wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 
 			// after group leave vehicle, a new group drive the vehicle
 			_group = creategroup east;
@@ -232,8 +232,8 @@
 			wcgarbage = [_vehicle, _markerdest, 'showmarker'] execVM 'extern\ups.sqf';
 		};
 	} else {
-		//wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
-		wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
+		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
+		//wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 	};
 
 	if (count (units _group) < 1) then {
