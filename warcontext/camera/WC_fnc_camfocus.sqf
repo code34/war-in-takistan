@@ -73,7 +73,7 @@
 	};
 
 	waituntil {isnull wccam};
-
+	waituntil {preloadCamera position _object};
 
 	wccam = "camera" camCreate [0,0,1000];
 	wccam cameraEffect ["internal","back"];

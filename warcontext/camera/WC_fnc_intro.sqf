@@ -10,10 +10,6 @@
 		_vehicle = player;
 	};
 
-	wccam = "camera" camCreate [0,0,1000];
-	wccam cameraEffect ["internal","back"];
-	ShowCinemaBorder true;
-
 	switch(tolower(worldname)) do {
 		case "isoladicapraia": {
 			playMusic "CAPRI1";
@@ -24,9 +20,13 @@
 		};
 	};
 
-	preloadCamera position anim;
-	preloadCamera position _vehicle;
-	preloadCamera position imam;
+	waituntil {preloadCamera position anim};
+	waituntil {preloadCamera position _vehicle};
+	waituntil {preloadCamera position imam};
+
+	wccam = "camera" camCreate [0,0,1000];
+	wccam cameraEffect ["internal","back"];
+	ShowCinemaBorder true;
 	
 	titleText ["", "PLAIN"];
 
