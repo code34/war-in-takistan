@@ -100,18 +100,6 @@
 			processInitCommands;
 			sleep 0.01;
 		}foreach _positions;
-	
-		// static weapons at takistan BASE
-		if(tolower(worldname) == "takistan") then {
-			wcgarbage = [defender1, wcenemyside] spawn WC_fnc_sentinelle;
-			wcgarbage = [defender2, wcenemyside] spawn WC_fnc_sentinelle;
-			wcgarbage = [defender3, wcenemyside] spawn WC_fnc_sentinelle;
-			wcgarbage = [defender4, wcenemyside] spawn WC_fnc_sentinelle;
-			wcgarbage = [defender5, wcenemyside] spawn WC_fnc_sentinelle;
-			wcgarbage = [defender6, wcenemyside] spawn WC_fnc_sentinelle;
-			wcgarbage = [defender7, wcenemyside] spawn WC_fnc_sentinelle;
-			wcgarbage = [defender8, wcenemyside] spawn WC_fnc_sentinelle;
-		};
 	};
 
 	{
