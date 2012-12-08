@@ -16,9 +16,7 @@
 	// warcontext\camera\ contains all script that happens camera
 	// warcontext\functions\ contains all shared functions
 
-	//titleText [localize "STR_WC_MESSAGEINITIALIZING", "BLACK FADED"];
-	cutText [localize "STR_WC_MESSAGEINITIALIZING", "BLACK FADED",60];
-
+	cutText [localize "STR_WC_MESSAGEINITIALIZING", "BLACK FADED", 60];
 
 	////////////////////////////////
 	// initialize lobby parameters
