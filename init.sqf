@@ -286,7 +286,7 @@
 	WC_fnc_fireflare 		= compile preprocessFile "warcontext\modules\wc_unitsrole\WC_fnc_fireflare.sqf";
 
 	// virtual
-	WC_fnc_virtual		 	= compile preprocessFile "warcontext\modules\wc_virtual\WC_fnc_virtual.sqf";
+	// WC_fnc_virtual		 	= compile preprocessFile "warcontext\modules\wc_virtual\WC_fnc_virtual.sqf";
 
 	// WEATHER
 	WC_fnc_light			= compile preprocessFile "warcontext\modules\wc_weather\WC_fnc_light.sqf";
