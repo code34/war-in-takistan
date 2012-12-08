@@ -28,7 +28,7 @@
 	wccam cameraEffect ["internal","back"];
 	ShowCinemaBorder true;
 	
-	titleText ["", "PLAIN"];
+	//titleText ["", "PLAIN"];
 
 	wccam camsettarget player;
 	wccam camsetrelpos [300, 300, 80];
