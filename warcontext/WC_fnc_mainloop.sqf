@@ -221,12 +221,12 @@
 				wcgarbage = [position _x] spawn WC_fnc_createcivilcar;
 			};
 			if(wcwithied > 0) then {
-				if(random 1 > 0.9) then {
+				if((random 1 > 0.9) and ((position _x) distance (getmarkerpos "respawn_west") > 1000) ) then {
 					wcgarbage = [position _x] spawn WC_fnc_createiedintown;
 				};
 			};
 			if(wcwithminefield > 0) then {
-				if(random 1 > 0.9) then {
+				if((random 1 > 0.9) and ((position _x) distance (getmarkerpos "respawn_west") > 1000) ) then {
 					wcgarbage = [position _x] spawn WC_fnc_createminefield;
 				};
 			};
