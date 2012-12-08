@@ -55,6 +55,6 @@
 
 	while {dialog} do {
 		slidersetrange[16005,0, wcteamplayscore];
-		ctrlSetText [16004, format[localize "STR_WC_POINTSTOTRANSFERT", ceil(sliderPosition 10015), wcteamplayscore]];
+		ctrlSetText [16004, format[localize "STR_WC_POINTSTOTRANSFERT", ceil(sliderPosition 16005), wcteamplayscore]];
 		sleep 0.05;
 	};
