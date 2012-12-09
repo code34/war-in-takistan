@@ -11,11 +11,9 @@
 
 	wcbackupbody setpos wcbackupposition;
 
-	if(name _killer == name player) then {
-		waituntil { alive player };
-		_dummy = player;
-		player setpos getmarkerpos "initpos";	
-		selectplayer wcbackupbody;
-		(findDisplay 46) displayAddEventHandler ["KeyDown","_this call WC_fnc_keymapper;"];
-		deletevehicle _dummy;
-	};
+	waituntil { alive player };
+	_dummy = player;
+	player setpos getmarkerpos "initpos";	
+	selectplayer wcbackupbody;
+	(findDisplay 46) displayAddEventHandler ["KeyDown","_this call WC_fnc_keymapper;"];
+	deletevehicle _dummy;
