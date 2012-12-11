@@ -131,7 +131,7 @@
 			_alt = 2 + (random 20);
 		};
 		if(wcwithcam == 4) then {
-			_alt = 200 + random(300);
+			_alt = 300 + random(200);
 		};
 
 		_newx = ((getpos _object) select 0) + (_x * _xsign);
