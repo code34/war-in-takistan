@@ -47,6 +47,10 @@
 		case 3: {
 			_distance = 100;
 		};
+
+		case 4: {
+			_distance = 100;
+		};
 	};
 
 	if(_exit) exitwith {};
@@ -99,6 +103,14 @@
 			wccam CamCommit 0;
 			_distance = 200;
 		};
+
+		case 4: {
+			wccam camsettarget _object;
+			_object setCameraInterest 50;
+			wccam camsetrelpos [-2, -2, 500];
+			wccam CamCommit 0;
+			_distance = 200;
+		};
 	};
 
 	"FilmGrain" ppEffectEnable true;
@@ -112,10 +124,14 @@
 		_y = 2 + random _distance + _size;
 		if(random 1 > 0.5) then { _xsign = 1; } else { _xsign = -1;};
 		if(random 1 > 0.5) then { _ysign = 1; } else { _ysign = -1;};	
+
 		if(_distance == 10) then { 
 			_alt = (1 + (random 2) + ((getposatl _object) select 2));
 		}else{
 			_alt = 2 + (random 20);
+		};
+		if(wcwithcam == 4) then {
+			_alt = 200 + random(300);
 		};
 
 		_newx = ((getpos _object) select 0) + (_x * _xsign);
