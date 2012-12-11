@@ -153,8 +153,8 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8249.5322,296.05713,2174.6123};
-					azimut=158.07486;
+					position[]={8250.0459,296.06302,2175.6155};
+					azimut=155;
 					id=141;
 					side="WEST";
 					vehicle="US_Soldier_TL_EP1";
@@ -2312,8 +2312,8 @@ class Mission
 		};
 		class Item131
 		{
-			position[]={8252.8838,296.66379,2183.4761};
-			azimut=-376.86517;
+			position[]={8240.3271,295.98074,2178.4421};
+			azimut=340;
 			id=134;
 			side="EMPTY";
 			vehicle="Land_Barrack2_EP1";
@@ -2708,8 +2708,8 @@ class Mission
 		};
 		class Item170
 		{
-			position[]={8246.7607,296.60892,2181.4565};
-			azimut=703.19183;
+			position[]={8247.3994,296.06812,2181.0254};
+			azimut=340;
 			special="NONE";
 			id=176;
 			side="EMPTY";
@@ -2720,8 +2720,8 @@ class Mission
 		};
 		class Item171
 		{
-			position[]={8240.5898,296.54489,2179.4634};
-			azimut=702.69574;
+			position[]={8255.1592,296.13794,2183.4751};
+			azimut=340;
 			special="NONE";
 			id=177;
 			side="EMPTY";
@@ -3699,7 +3699,7 @@ class Mission
 		};
 		class Item11
 		{
-			position[]={8249.4609,296.05661,2174.5083};
+			position[]={8250.7578,296.0582,2173.884};
 			name="recruit1";
 			text="Recruitment";
 			type="b_inf";
@@ -3707,7 +3707,7 @@ class Mission
 		};
 		class Item12
 		{
-			position[]={8253.4063,296.66385,2183.7659};
+			position[]={8255.8672,296.13504,2182.8108};
 			name="clothes";
 			text="Clothes";
 			type="b_inf";

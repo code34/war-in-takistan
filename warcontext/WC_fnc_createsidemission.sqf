@@ -1138,6 +1138,7 @@
 	["wcobjective", "client"] call WC_fnc_publicvariable;
 
 	if!(isDedicated) then {
+		waituntil { wcclientinitialized };
 		if(vehicle player == player) then {
 		 	wcanim = [(wcobjective select 1)] spawn WC_fnc_camfocus;
 		};

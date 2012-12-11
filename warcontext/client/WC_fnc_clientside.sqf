@@ -15,6 +15,7 @@
 		];
 
 	// Init global variables
+	wcclientinitialized = false;
 	wcgarbage = [] call WC_fnc_clientinitconfig;
 
 	// call intro cam
@@ -79,15 +80,6 @@
 		wcgarbage = ["Jail", getmarkerpos "jail"] spawn BIS_fnc_3dcredits;
 		wcgarbage = ["Headquarters", getpos anim] spawn BIS_fnc_3dcredits;
 		wcgarbage = ["Ied training", getpos iedtraining] spawn BIS_fnc_3dcredits;
-	};
-
-	// create a light in takistan base
-	if!(isnull tower1) then {
-		_light = "#lightpoint" createVehiclelocal (position tower1); 
-		_light setLightBrightness 0.4; 
-		_light setLightAmbient[0.0, 0.0, 0.0]; 
-		_light setLightColor[1.0, 1.0, 1.0]; 
-		_light lightAttachObject [tower1, [0,0,15]];
 	};
 
 	_end = createTrigger["EmptyDetector", wcmapcenter];
@@ -467,12 +459,13 @@
 		};
 	};
 
-	wcgarbage = [localize "STR_WC_MENUWELCOMEBASE", localize "STR_WC_MENUTAKEWEAPONS", format[localize "STR_WC_MENUKINDOFGAME", _kindofgame], 10] spawn WC_fnc_playerhint;
-
 	wcclientlogs = wcclientlogs + [localize "STR_WC_MESSAGEMISSIONINITIALIZED"];
 
 	// INITIALIZE PLAYER SCORE ON SERVER
 	sleep 30;
+
+	wcclientinitialized = true;
+	wcgarbage = [localize "STR_WC_MENUWELCOMEBASE", localize "STR_WC_MENUTAKEWEAPONS", format[localize "STR_WC_MENUKINDOFGAME", _kindofgame], 10] spawn WC_fnc_playerhint;
 
 	wcplayeraddscore = [player, -1];
 	["wcplayeraddscore", "server"] call WC_fnc_publicvariable;

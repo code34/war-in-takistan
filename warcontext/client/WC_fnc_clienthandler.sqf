@@ -9,7 +9,8 @@
 	};
 
 	WC_fnc_netcode_wcdate = {
-		wcdate = _this select 0;	
+		wcdate = _this select 0;
+		waituntil {wcclientinitialized};	
 		wcgarbage = [] spawn WC_fnc_fasttime;
 	};
 
@@ -102,6 +103,7 @@
 
 	WC_fnc_netcode_wcobjective = {
 		wcobjective = _this select 0;
+		waituntil {wcclientinitialized};
 		if ((wcobjective select 0) > wcobjectiveindex) then {
 			wcobjectiveindex = wcobjective select 0;
 			if(vehicle player == player) then {
@@ -172,11 +174,13 @@
 
 	WC_fnc_netcode_wchintW = {
 		wchintW = _this select 0;
+		waituntil {wcclientinitialized};
 		hintsilent wchintW;
 	};
 
 	WC_fnc_netcode_wcmessageW = {
 		wcmessageW = _this select 0;
+		waituntil {wcclientinitialized};
 		wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 	};
 
