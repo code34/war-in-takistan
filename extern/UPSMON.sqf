@@ -366,7 +366,7 @@
 
 	// exit if something went wrong during initialization (or if unit is on roof)
 	if (_exit) exitWith {
-		hint "UPSMON: Initialization aborted";
+		hint "UPSMON: Initialization aborted";		
 	};
 
 	// remember the original group members, so we can later find a new leader, in case he dies
