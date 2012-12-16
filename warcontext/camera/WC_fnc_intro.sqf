@@ -20,10 +20,6 @@
 		};
 	};
 
-	waituntil {preloadCamera position anim};
-	waituntil {preloadCamera position _vehicle};
-	waituntil {preloadCamera position imam};
-
 	wccam = "camera" camCreate [0,0,1000];
 	wccam cameraEffect ["internal","back"];
 	ShowCinemaBorder true;

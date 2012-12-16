@@ -15,7 +15,6 @@
 		];
 
 	// Init global variables
-	wcclientinitialized = false;
 	wcgarbage = [] call WC_fnc_clientinitconfig;
 
 	// call intro cam
@@ -464,7 +463,6 @@
 	// INITIALIZE PLAYER SCORE ON SERVER
 	sleep 30;
 
-	wcclientinitialized = true;
 	wcgarbage = [localize "STR_WC_MENUWELCOMEBASE", localize "STR_WC_MENUTAKEWEAPONS", format[localize "STR_WC_MENUKINDOFGAME", _kindofgame], 10] spawn WC_fnc_playerhint;
 
 	wcplayeraddscore = [player, -1];
