@@ -3489,7 +3489,7 @@ class Mission
 			azimut=120;
 			id=299;
 			side="EMPTY";
-			vehicle="T90";
+			vehicle="T72_TK_EP1";
 			skill=0.60000002;
 		};
 	};

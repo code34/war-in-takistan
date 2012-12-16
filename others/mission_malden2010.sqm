@@ -2999,7 +2999,7 @@ class Mission
 			azimut=260;
 			id=258;
 			side="EMPTY";
-			vehicle="T90";
+			vehicle="T72_TK_EP1";
 			skill=0.60000002;
 		};
 	};

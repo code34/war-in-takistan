@@ -3003,7 +3003,7 @@ class Mission
 			azimut=200;
 			id=260;
 			side="EMPTY";
-			vehicle="T90";
+			vehicle="T72_TK_EP1";
 			skill=0.60000002;
 		};
 		class Item213
@@ -3012,7 +3012,7 @@ class Mission
 			azimut=200;
 			id=261;
 			side="EMPTY";
-			vehicle="T90";
+			vehicle="T72_TK_EP1";
 			skill=0.60000002;
 		};
 	};
