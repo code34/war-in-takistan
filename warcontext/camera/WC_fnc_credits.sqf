@@ -30,8 +30,8 @@
 		"External Scripts",
 		"UPS, UPSMON: patrol IA scripting by Kronzky & Monsada",
 		"Revive, Artillery, Debug by R3F Team,",
-		"Domination by Xeno: global informations",
-		"Atot By Miguel Rodriguez, FOB by Ei8ght,",
+		"Domination by Xeno",
+		"Atot By Miguel Rodriguez, Base by Ei8ght,",
 		"Nuclear Nuke by Benny Warfare",
 		"ACE: Magic Box",
 		"Spectator by Kegetys",
@@ -40,6 +40,7 @@
 		"FlashpointChernarus107 mission: civil cars idea",
 		"and all others that i can forgot (..)",
 		"Thanks to Slerbal for his english translation",
+		"Thanks to Fruity Rudy",
 		"Thanks to Ei8ght, Mario",
 		"Thanks to Air Commando Team",
 		"You can find more information about WIT at BIS FORUM"
