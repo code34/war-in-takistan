@@ -10,6 +10,7 @@
 		"_civil", 
 		"_civiltype", 
 		"_civilrole",
+		"_exit",
 		"_group", 
 		"_marker", 
 		"_size", 
@@ -41,10 +42,15 @@
 	_active setTriggerActivation["WEST", "PRESENT", TRUE];
 	_active setTriggerStatements["", "", ""];
 
+	_exit = 0;
 	_count = count (nearestObjects [_position, ["House"] , 150]);
-	while { _count < 4 } do {
+	while { ((_count < 4) or (_exit <4)) } do {
 		_count = count (nearestObjects [_position, ["House"] , 150]);
+		_exit = _exit + 1;
 		sleep 1;
+	};
+
+	if(_exit > 3) exitwith {
 		diag_log "WARCONTEXT: NO FOUND ENOUGH HOUSES FOR CIVILIANS POP";
 	};
 
