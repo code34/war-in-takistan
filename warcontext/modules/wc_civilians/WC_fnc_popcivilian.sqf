@@ -33,15 +33,6 @@
 	_allunits = [];
 	_back = [];
 
-	_name = format["civiltown%1", wcciviltownindex];
-	wcciviltownindex  = wcciviltownindex + 1;
-	_marker = [_name, 500, _position, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
-
-	_active = createTrigger["EmptyDetector", _position];
-	_active setTriggerArea[wccivildistancepop, wccivildistancepop, 0, false];
-	_active setTriggerActivation["WEST", "PRESENT", TRUE];
-	_active setTriggerStatements["", "", ""];
-
 	_exit = 0;
 	_count = count (nearestObjects [_position, ["House"] , 150]);
 	while { ((_count < 4) or (_exit <4)) } do {
@@ -53,6 +44,15 @@
 	if(_exit > 3) exitwith {
 		diag_log "WARCONTEXT: NO FOUND ENOUGH HOUSES FOR CIVILIANS POP";
 	};
+
+	_name = format["civiltown%1", wcciviltownindex];
+	wcciviltownindex  = wcciviltownindex + 1;
+	_marker = [_name, 500, _position, 'ColorBLACK', 'ELLIPSE', 'FDIAGONAL', 'EMPTY', 0, '', false] call WC_fnc_createmarkerlocal;
+
+	_active = createTrigger["EmptyDetector", _position];
+	_active setTriggerArea[wccivildistancepop, wccivildistancepop, 0, false];
+	_active setTriggerActivation["WEST", "PRESENT", TRUE];
+	_active setTriggerStatements["", "", ""];
 
 	_buildings = nearestObjects[_position,["Building"], 500];
 	sleep 1;
