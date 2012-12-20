@@ -35,7 +35,7 @@
 
 	_exit = 0;
 	_count = count (nearestObjects [_position, ["House"] , 150]);
-	while { ((_count < 4) or (_exit <4)) } do {
+	while { ((_count < 4) and (_exit <4)) } do {
 		_count = count (nearestObjects [_position, ["House"] , 150]);
 		_exit = _exit + 1;
 		sleep 1;
