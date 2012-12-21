@@ -358,7 +358,8 @@
 			} else {
 				wcteamscore = wcteamscore + 3;
 			};
-			if(local player) then {	wcteamplayscore = wcteamplayscoretoadd;	} else { ["wcteamplayscoretoadd", "client"] call WC_fnc_publicvariable; };
+			if(local player) then {wcteamplayscore = wcteamplayscoretoadd;};
+			["wcteamplayscoretoadd", "client"] call WC_fnc_publicvariable;
 		};
 
 		// SANITING MAP
