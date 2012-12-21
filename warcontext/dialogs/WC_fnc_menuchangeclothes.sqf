@@ -16,6 +16,7 @@
 		"_maxsize",
 		"_unit",
 		"_group",
+		"_newgroup",
 		"_position"
 	];
 
@@ -143,6 +144,10 @@
 				["wcaddscore", "server"] call WC_fnc_publicvariable;
 			}];
 			selectPlayer _unit;
+
+			// leave the group of players
+			_newgroup = creategroup west;
+			[wcbackupbody] joinsilent _newgroup;			
 
 			wcgarbage = [] spawn WC_fnc_clienthandler;
 
