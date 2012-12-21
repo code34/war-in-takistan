@@ -13,7 +13,6 @@
 	// Array of info text
 	_text = _this;
 
-	waituntil {wcclientinitialized};
 	waituntil {wccanwriteinfotext};
 	wccanwriteinfotext = false;
 
