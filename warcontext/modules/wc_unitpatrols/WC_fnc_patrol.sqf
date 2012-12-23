@@ -4,8 +4,10 @@
 
 	private [
 		"_areasize",
+		"_alert",
 		"_cible", 
 		"_cibles", 
+		"_deadcounter",
 		"_formationtype",
 		"_group", 
 		"_leader", 
@@ -46,11 +48,24 @@
 	_lastposition = position (leader _group);
 
 	_move = true;
+	_deadcounter = 0;
+	_alert = false;
 
 	while { (count (units _group) > 0) } do {
 		_leader = leader _group;
 
-		if((wcalert > 50) || (count (units _group) < _originalsize)) then {
+		// Check if someone has been kill recently in the group
+		if(_originalsize < count (units _group)) then {
+			_alert = true;
+			_deadcounter = _deadcounter + 1;
+			if(_deadcounter > 20) then {
+				_originalsize = count (units _group);
+				_deadcounter = 0;
+				_alert = false;
+			};
+		};
+
+		if((wcalert > 50) or _alert) then {
 			_group setBehaviour "AWARE";
 			_group setCombatMode "RED";
 
@@ -70,22 +85,21 @@
 				}foreach _list;
 		
 				if(count _cibles == 0) then {
-					_cible = (([_leader, _list] call EXT_fnc_SortByDistance) select 0);
+					_group setbehaviour "SAFE";
 				} else {
-					_cible = (([_leader, _cibles] call EXT_fnc_SortByDistance) select 0);
+					{			
+						_cible = (([_x, _cibles] call EXT_fnc_SortByDistance) select 0);
+						_x setvariable ["cible", _cible, false];
+						_x dotarget _cible;
+						if((_x getvariable "destination") distance (position _cible) > 10) then {
+							_position = ([position _cible, 3, 360, getdir _cible, 10] call WC_fnc_createcircleposition) call BIS_fnc_selectRandom;
+							_x setvariable ["destination", _position, false];
+							_x domove _position;
+						};
+						_x dofire _cible;
+						sleep 0.1;
+					}foreach (units _group);
 				};
-	
-				{			
-					_x setvariable ["cible", _cible, false];
-					_x dotarget _cible;
-					if((_x getvariable "destination") distance (position _cible) > 10) then {
-						_position = ([position _cible, 3, 360, getdir _cible, 10] call WC_fnc_createcircleposition) call BIS_fnc_selectRandom;
-						_x setvariable ["destination", _position, false];
-						_x domove _position;
-					};
-					_x dofire _cible;
-					sleep 0.1;
-				}foreach (units _group);
 			};
 			sleep 30;
 		} else {
