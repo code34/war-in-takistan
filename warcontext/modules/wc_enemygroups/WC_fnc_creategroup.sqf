@@ -9,6 +9,7 @@
 	private [
 		"_arrayofvehicle",
 		"_arrayofpilot",
+		"_alert",
 		"_count",
 		"_indexparameters",
 		"_group",
@@ -112,8 +113,17 @@
 				_instances = [_group, (position(leader _group)), 30] spawn WC_fnc_patrol;
 
 				// use while instead waituntil - performance leak
-				while { (wcalert < _localalert) } do {
-					sleep 1;
+				// Soldier dont go into vehicle while no alert
+				_alert = false;
+				while { !_alert } do {
+					if(wcalert > _localalert) then {
+						_alert = true;
+					};
+					if(behaviour (leader _group) == "COMBAT") then {
+						_alert = true;
+					} else {
+						sleep (1 + random 5);
+					};
 				};
 
 				terminate _instances;
