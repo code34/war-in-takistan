@@ -42,14 +42,16 @@
         	sleep 1;
 		if((!alive _unit) or (damage _unit > 0.9)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
 		};
 		if(_startpos distance position _unit > 1000) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;

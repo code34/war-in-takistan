@@ -29,7 +29,8 @@
 			["wcradioalive", "client"] call WC_fnc_publicvariable;
 			wcradio setdamage 1;
 			wcmessageW = ["Radio tower", localize "STR_WC_MESSAGEHASBEENDESTROYED"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			diag_log "WARCONTEXT: RADIO TOWER HAS BEEN DESTROYED";
 		};
 		(_this select 2);
@@ -46,6 +47,7 @@
 		};
 	} else {
 		wcmessageW = ["Radio tower", "Electrical outage"];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW", "client"] call WC_fnc_publicvariable;
 		wcradio setdamage 1;
 	};

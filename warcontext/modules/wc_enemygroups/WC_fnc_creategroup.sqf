@@ -142,7 +142,8 @@
 		if((typeof _vehicle) in wcsabotagelist) then {
 			_vehicle setdamage 1;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", format["%1 sabotaged explosed", (typeof _vehicle)]];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 		};
 	} else {
 		if(random 1 > 0.4) then {
