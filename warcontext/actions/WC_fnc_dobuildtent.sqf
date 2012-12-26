@@ -40,7 +40,8 @@
 		processInitCommands;
 		wcrespawnposition = [position player, wctent];
 		wcrespawnmarker setmarkerposlocal _position;
-		wcrespawnmarker setmarkersizelocal [0,0]; 
+		wcrespawnmarker setmarkersizelocal [0.5,0.5]; 
+		wcrespawnmarker setmarkertextlocal format["%1 Camp", name player];
 		wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
 	} else {
 		if((getdammage wctent > 0.9) or !(alive wctent)) then {
@@ -59,6 +60,7 @@
 			wcrespawnposition = [position player, wctent];
 			wcrespawnmarker setmarkerposlocal _position;
 			wcrespawnmarker setmarkersizelocal [0.5,0.5]; 
+			wcrespawnmarker setmarkertextlocal format["%1 Camp", name player];
 			wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEBUILDINGFINISHED",localize "STR_WC_MESSAGEBUILDINGINFORMATION", 3] spawn WC_fnc_playerhint;
 		} else {
 			wcgarbage = [localize "STR_WC_MESSAGEDEPLOYATENT", localize "STR_WC_MESSAGEREMOVETENT", localize "STR_WC_MESSAGECANBUILDTENT", 10] spawn WC_fnc_playerhint;

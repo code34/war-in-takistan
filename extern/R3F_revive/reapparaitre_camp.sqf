@@ -38,13 +38,15 @@ R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 	if(_camp == "tent") then {
 		if(isnil "wctent") then {
 			_camp = "base";
-			wcrespawnmarker setmarkerpos [0,0];
-			wcrespawnmarker setMarkerSize [0, 0];
+			wcrespawnmarker setmarkerposlocal [0,0];
+			wcrespawnmarker setmarkersizelocal [0, 0];
+			wcrespawnmarker setmarkertextlocal "";
 		} else {
 			if((getdammage wctent > 0.9) or !(alive wctent)) then {
 				_camp = "base"; 
-				wcrespawnmarker setmarkerpos [0,0];
-				wcrespawnmarker setMarkerSize [0, 0];
+				wcrespawnmarker setmarkerposlocal [0,0];
+				wcrespawnmarker setmarkersizelocal [0, 0];
+				wcrespawnmarker setmarkertextlocal "";
 			};
 		};
 	};
