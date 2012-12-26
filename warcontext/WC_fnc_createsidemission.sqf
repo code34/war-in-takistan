@@ -95,7 +95,7 @@
 		case 2: {
 			_missiontext = [_missionname, "Kill a nuclear scientist"];
 			_group = createGroup east;
-			_vehicle = _group createUnit ["Dr_Hladik_EP1", _position, [], 0, "NONE"];
+			_vehicle = _group createUnit ["Functionary1_EP1", _position, [], 0, "NONE"];
 			_buildings = nearestObjects [position _vehicle, ["House"], 350];
 			_arrayofpos = [];
 			{
@@ -103,30 +103,18 @@
 					_index = 0;
 					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
 						_position = _x buildingPos _index;
-						_arrayofpos = _arrayofpos + [_position];
+						if(_position select 2 < 1) then {
+							_arrayofpos = _arrayofpos + [_position];
+						};
 						_index = _index + 1;
 						sleep 0.05;
 					};
 				};
 			}foreach _buildings;
-			wcgarbage = [_vehicle] spawn {
-				private ["_unit", "_enemy"];
-				_unit = _this select 0;
-				while {alive _unit} do {
-					_enemy = (nearestObjects [_unit, ["Man"], 150]) select 1;
-					if(side _enemy in wcside) then {
-						_unit dotarget _enemy;
-						_unit dofire _enemy;
-					};
-					sleep 1;
-				};
-			};
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
-			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
-			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = -0.1;
 		};
@@ -1138,7 +1126,6 @@
 	["wcobjective", "client"] call WC_fnc_publicvariable;
 
 	if!(isDedicated) then {
-		waituntil { wcclientinitialized };
 		if(vehicle player == player) then {
 		 	wcanim = [(wcobjective select 1)] spawn WC_fnc_camfocus;
 		};
