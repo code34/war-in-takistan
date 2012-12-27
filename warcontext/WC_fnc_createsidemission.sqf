@@ -57,35 +57,19 @@
 			_missiontext = [_missionname, "Kill a gold trafficant"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["Functionary1_EP1", _position, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						_arrayofpos = _arrayofpos + [_position];
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
-			wcgarbage = [_vehicle] spawn {
-				private ["_unit", "_enemy"];
-				_unit = _this select 0;
-				while {alive _unit} do {
-					_enemy = (nearestObjects [_unit, ["Man"], 150]) select 1;
-					if(side _enemy in wcside) then {
-						_unit dotarget _enemy;
-						_unit dofire _enemy;
-					};
-					sleep 1;
-				};
-			};
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
+			wcgarbage = [_vehicle] spawn {
+				private ["_unit"];
+				_unit = _this select 0;
+				while {wcalert < 99} do {
+					sleep 5;
+				};
+				_unit stop false;
+			};
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
@@ -96,25 +80,21 @@
 			_missiontext = [_missionname, "Kill a nuclear scientist"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["Functionary1_EP1", _position, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						if(_position select 2 < 1) then {
-							_arrayofpos = _arrayofpos + [_position];
-						};
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
+			wcgarbage = [_vehicle] spawn {
+				private ["_unit"];
+				_unit = _this select 0;
+				while {wcalert < 99} do {
+					sleep 5;
+				};
+				_unit stop false;
+			};
+			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
+			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
 			wcbonusfame = -0.1;
 		};
@@ -152,34 +132,17 @@
 			_missiontext = [_missionname, "Kill a takistani commander"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_Aziz_EP1", _position, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						//if (_position select 2 > 2) then {
-							_arrayofpos = _arrayofpos + [_position];
-						//};
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_position = _arrayofpos call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
-				while {alive _unit} do {
-					_enemy = (nearestObjects [_unit, ["Man"], 150]) select 1;
-					if(side _enemy in wcside) then {
-						_unit dotarget _enemy;
-						_unit dofire _enemy;
-					};
-					sleep 1;
+				while {wcalert < 99} do {
+					sleep 5;
 				};
+				_unit stop false;
+				wcgarbage = [group _unit, position _unit, 50] spawn WC_fnc_patrol;
 			};
-			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
@@ -272,31 +235,16 @@
 			_group = createGroup east;
 			_vehicle = _group createUnit ["CIV_EuroMan01_EP1", _position, [], 0, "NONE"];
 			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						_arrayofpos = _arrayofpos + [_position];
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
-			wcgarbage = [_vehicle] spawn {
-				private ["_unit", "_enemy"];
-				_unit = _this select 0;
-				while {alive _unit} do {
-					_enemy = (nearestObjects [_unit, ["Man"], 150]) select 1;
-					if(side _enemy in wcside) then {
-						_unit dotarget _enemy;
-						_unit dofire _enemy;
-					};
-					sleep 1;
-				};
-			};
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
+			wcgarbage = [_vehicle] spawn {
+				private ["_unit"];
+				_unit = _this select 0;
+				while {wcalert < 99} do {
+					sleep 5;
+				};
+				_unit stop false;
+			};
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
@@ -335,32 +283,16 @@
 			_group = createGroup east;
 			_type = ["TK_CIV_Takistani06_EP1", "TK_GUE_Bonesetter_EP1", "TK_CIV_Woman01_EP1", "TK_GUE_Warlord_EP1"] call BIS_fnc_selectRandom;
 			_vehicle = _group createUnit [_type, _position, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						_arrayofpos = _arrayofpos + [_position];
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_position = _arrayofpos call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
-				while {alive _unit} do {
-					_enemy = (nearestObjects [_unit, ["Man"], 150]) select 1;
-					if(side _enemy in wcside) then {
-						_unit dotarget _enemy;
-						_unit dofire _enemy;
-					};
-					sleep 1;
+				while {wcalert < 99} do {
+					sleep 5;
 				};
+				_unit stop false;
 			};
-			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
@@ -374,36 +306,17 @@
 			_missiontext = [_missionname, "Kill a war lord"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_GUE_Warlord_EP1", _position, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					if(getdammage _x == 0) then {
-						while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-							_position = _x buildingPos _index;
-							//if (_position select 2 > 2) then {
-								_arrayofpos = _arrayofpos + [_position];
-							//};
-							_index = _index + 1;
-							sleep 0.05;
-						};
-					};
-				};
-			}foreach _buildings;
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_position = _arrayofpos call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
-				while {alive _unit} do {
-					_enemy = (nearestObjects [_unit, ["Man"], 150]) select 1;
-					if(side _enemy in wcside) then {
-						_unit dotarget _enemy;
-						_unit dofire _enemy;
-					};
-					sleep 1;
+				while {wcalert < 99} do {
+					sleep 5;
 				};
+				_unit stop false;
+				wcgarbage = [group _unit, position _unit, 50] spawn WC_fnc_patrol;
 			};
-			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
@@ -417,34 +330,17 @@
 			_missiontext = [_missionname, "Kill a takistani officer"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_Soldier_Officer_EP1", _position, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						//if (_position select 2 > 2) then {
-							_arrayofpos = _arrayofpos + [_position];
-						//};
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_position = _arrayofpos call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
 				_unit = _this select 0;
-				while {alive _unit} do {
-					_enemy = (nearestObjects [_unit, ["Man"], 150]) select 1;
-					if(side _enemy in wcside) then {
-						_unit dotarget _enemy;
-						_unit dofire _enemy;
-					};
-					sleep 1;
+				while {wcalert < 99} do {
+					sleep 5;
 				};
+				_unit stop false;
+				wcgarbage = [group _unit, position _unit, 50] spawn WC_fnc_patrol;
 			};
-			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
@@ -593,19 +489,7 @@
 			_house = nearestObjects [_position, ["House"], 500];
 			_house = _house call BIS_fnc_selectRandom;
 			_vehicle = createVehicle ["EvMoscow", position _house, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						_arrayofpos = _arrayofpos + [_position];
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			wcgarbage = [_vehicle] spawn WC_fnc_steal;
@@ -770,25 +654,19 @@
 			_missiontext = [_missionname, "Kill a takistani woman civil"];
 			_group = createGroup civilian;
 			_vehicle = _group createUnit ["TK_CIV_Woman01_EP1", _position, [], 0, "NONE"];
-			_buildings = nearestObjects [position _vehicle, ["House"], 350];
-			_arrayofpos = [];
-			{
-				if(getdammage _x == 0) then {
-					_index = 0;
-					while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-						_position = _x buildingPos _index;
-						//if (_position select 2 > 2) then {
-							_arrayofpos = _arrayofpos + [_position];
-						//};
-						_index = _index + 1;
-						sleep 0.05;
-					};
-				};
-			}foreach _buildings;
+			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
 			_vehicle stop true;
+			wcgarbage = [_vehicle] spawn {
+				private ["_unit"];
+				_unit = _this select 0;
+				while {wcalert < 99} do {
+					sleep 5;
+				};
+				_unit stop false;
+			};
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 			_missiontype = "eliminate";
 			wcbonusfame = -0.1;
@@ -1099,7 +977,7 @@
 			_vehicle setpos _position;
 			_vehicle setvehicleinit "this allowdammage true;";
 			processInitCommands;
-			wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
+			wcgarbage = [group _vehicle, _position, wcdistance] spawn WC_fnc_patrol;
 			wcgarbage = [_vehicle, wcskill] spawn WC_fnc_setskill;
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
 			_missiontype = "eliminate";
