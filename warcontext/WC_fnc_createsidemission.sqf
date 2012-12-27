@@ -1044,7 +1044,8 @@
 			}];
 			_vehicle addeventhandler ['killed', {
 				wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+				if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
+				["wcmessageW", "client"] call WC_fnc_publicvariable;
 				wcmissionsuccess = true;
 				wcobjectiveindex = wcobjectiveindex + 1;
 				wcleveltoadd = 1;
@@ -1060,7 +1061,8 @@
 			sleep 10;
 			waituntil {!(_vehicle getvariable "wciedactivate")};
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else {["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			wcleveltoadd = 1;
