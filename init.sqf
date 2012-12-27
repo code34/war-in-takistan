@@ -119,6 +119,7 @@
 	WC_fnc_feelwithzero	 	= compile preprocessFile "warcontext\functions\WC_fnc_feelwithzero.sqf";
 	WC_fnc_garbagecollector		= compile preprocessFile "warcontext\functions\WC_fnc_garbagecollector.sqf";
 	WC_fnc_getobject		= compile preprocessFile "warcontext\functions\WC_fnc_getobject.sqf";
+	WC_fnc_gethousespositions	= compile preprocessFile "warcontext\functions\WC_fnc_gethousespositions.sqf";
 	WC_fnc_getterraformvariance	= compile preprocessFile "warcontext\functions\WC_fnc_getterraformvariance.sqf";
 	WC_fnc_markerhint		= compile preprocessFile "warcontext\functions\WC_fnc_markerhint.sqf";
 	WC_fnc_markerhintlocal		= compile preprocessFile "warcontext\functions\WC_fnc_markerhintlocal.sqf";
