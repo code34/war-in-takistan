@@ -29,19 +29,7 @@
 	_unit setUnitPos "Up"; 
 	removeallweapons _unit;
 
-	_buildings = nearestObjects [position _unit, ["House"], 350];
-	{
-		if(getdammage _x == 0) then {
-			_index = 0;
-			while { format ["%1", _x buildingPos _index] != "[0,0,0]" } do {
-				_position = _x buildingPos _index;
-				_arrayofpos = _arrayofpos + [_position];
-				_index = _index + 1;
-				sleep 0.05;
-			};
-		};
-	}foreach _buildings;
-
+	_arrayofpos = [position _unit, "all"] call WC_fnc_gethousespositions;
 	_position = _arrayofpos call BIS_fnc_selectRandom;
 
 	_unit setpos _position;
@@ -81,7 +69,8 @@
 	while {!_missioncomplete} do {
 		if((!alive _unit) or (damage _unit > 0.7)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
@@ -90,7 +79,8 @@
 		if((getmarkerpos "respawn_west") distance _unit < 100) then {
 			_unit setvariable ["wchostage", false, true];
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
 			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
