@@ -77,7 +77,8 @@
 				if!(isDedicated) then {
 					if(wcchoosemission) then {
 						wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_MENUCHOOSEMISSION"];
-						if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+						if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
+						["wcmessageW", "client"] call WC_fnc_publicvariable;
 						if(isnil "wcchoosemissionmenu") then {
 							wcchoosemissionmenu = player addAction ["<t color='#dddd00'>"+localize "STR_WC_MENUCHOOSEMISSION"+"</t>", "warcontext\dialogs\WC_fnc_createmenuchoosemission.sqf",[],6,false];
 						};
@@ -143,7 +144,8 @@
 		} else {
 			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGEGOTO", text _location], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
 		};
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW","client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW","client"] call WC_fnc_publicvariable;
 
 		_marker = ['rescuezone', wcdistance, _position, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarker;
 
@@ -270,7 +272,8 @@
 				if(_count > 10) then {
 					_count = 0;
 					wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", wclevel], localize "STR_WC_MESSAGELEAVEZONE"];
-					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
+					["wcmessageW", "client"] call WC_fnc_publicvariable;
 				};
 			};
 		};
@@ -299,28 +302,33 @@
 		deletemarkerlocal "airzone";
 
 		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONFINISHED", wcmissioncount], localize "STR_WC_MESSAGNEXTSTEP"];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		// PRINT STATS BEFORE SANITING MAP
 		wcmessageW = ["Casualty", format["%1 East soldiers killed", wcnumberofkilledofmissionE]];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 West soldiers killed", wcnumberofkilledofmissionW]];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 Civils killed", wcnumberofkilledofmissionC]];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 Vehicles destroyed", wcnumberofkilledofmissionV]];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
@@ -338,7 +346,8 @@
 			};
 		};
 		wcmessageW = ["Military intervention", format["%1 fame", _fame]];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; } else { ["wcmessageW", "client"] call WC_fnc_publicvariable;};
+		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 

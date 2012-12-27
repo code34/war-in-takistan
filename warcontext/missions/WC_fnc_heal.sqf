@@ -64,7 +64,6 @@
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 		};
 		if(getdammage _unit < 0.1) then {
@@ -74,7 +73,6 @@
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 			wcleveltoadd = 1;
 			_enemy = true;

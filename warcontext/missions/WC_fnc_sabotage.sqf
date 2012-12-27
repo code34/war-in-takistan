@@ -28,13 +28,13 @@
 			_missioncomplete = true;
 		};
 		if((!alive _unit) or (damage _unit > 0.9)) then {
-				wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
-				["wcmessageW", "client"] call WC_fnc_publicvariable;
-				wcmissionsuccess = true;
-				wcobjectiveindex = wcobjectiveindex + 1;
-				_missioncomplete = true;
-				_unit setdamage 1;
+			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
+			wcmissionsuccess = true;
+			wcobjectiveindex = wcobjectiveindex + 1;
+			_missioncomplete = true;
+			_unit setdamage 1;
 		};
 		if(_unit getvariable "wcsabotage") then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];

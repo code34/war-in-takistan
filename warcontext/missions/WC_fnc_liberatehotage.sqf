@@ -73,7 +73,6 @@
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 		};
 		if((getmarkerpos "respawn_west") distance _unit < 100) then {
@@ -83,7 +82,6 @@
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcobjectiveindex = wcobjectiveindex + 1;
-			wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 			_missioncomplete = true;
 			wcleveltoadd = 1;
 			_enemy = true;
