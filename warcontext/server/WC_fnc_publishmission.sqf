@@ -8,9 +8,11 @@
 		"_count",
 		"_ok",
 		"_name",
+		"_playerid",
 		"_variables"
 	];
 	
+	_playerid = _this select 0;
 	_name = _this select 1;
 
 	diag_log format["WARCONTEXT: PLAYER %1 CONNECTING", _name];
@@ -51,7 +53,7 @@
 	];
 
 	{
-		[_x, "client"] call WC_fnc_publicvariable;
+		[_x, "client", _playerid] call WC_fnc_publicvariable;
 		sleep 0.2;
 	}foreach _variables; 
 
