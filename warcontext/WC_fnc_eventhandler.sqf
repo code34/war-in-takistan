@@ -7,17 +7,35 @@
 	wcqueue = [];
 
 	WC_fnc_publicvariable = {
-		private ["_variablename", "_variablevalue", "_type"];
+		private ["_variablename", "_variablevalue", "_type", "_playerid"];
 
 		_variablename = _this select 0;
 		_variablevalue =  call compile format["%1", _variablename];
 		_type = _this select 1;
+		_playerid = _this select 2;
 
 		wcaddqueue = [_variablename, _variablevalue, _type];
 		if(isserver and local player) then {
 			wcqueue = wcqueue + [wcaddqueue];
 		};
-		publicvariable "wcaddqueue";
+
+		switch (_type) do {
+			case "server": {
+				publicvariableserver "wcaddqueue";
+			};
+
+			case "client": {
+				if(!isnil "_playerid") then {
+					_playerid publicvariableclient "wcaddqueue";
+				} else {
+					publicvariable "wcaddqueue";
+				};
+			};
+
+			default {
+				publicvariable "wcaddqueue";
+			};
+		};
 	};
 
 	"wcaddqueue" addPublicVariableEventHandler {
