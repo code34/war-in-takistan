@@ -183,6 +183,9 @@
 	// TOWN GENERATOR
 	WC_fnc_computeavillage 		= compile preprocessFile "warcontext\modules\wc_computevillage\WC_fnc_computeavillage.sqf";
 
+	// DOGS PATROL
+	WC_fnc_dogpatrol		= compile preprocessFile "warcontext\modules\wc_dogpatrol\WC_fnc_dogpatrol.sqf";
+
 	// ENEMYS GROUPS
 	WC_fnc_ambiantlife 		= compile preprocessFile "warcontext\modules\wc_enemygroups\WC_fnc_ambiantlife.sqf";
 	WC_fnc_popgroup 		= compile preprocessFile "warcontext\modules\wc_enemygroups\WC_fnc_popgroup.sqf";

@@ -317,6 +317,9 @@
 	// this variable can affect ACE damaged threshold
 	wcdammagethreshold = 0.3;
 
+	// patrols use  dogs
+	wcpatrolwithdogs = true;
+
 	// Goal cam uses color
 	wccamgoalwithcolor = true;
 
@@ -335,10 +338,10 @@
 	// position of goal zone
 	wcselectedzone = [0,0,0];
 
-	// radio is alive or not
+	// radio is alive or not  
 	wcradioalive = true;
 
-	// level start at ..
+	// level start at .. 
 	wclevel = 1;
 
 	// IA skill

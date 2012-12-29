@@ -47,6 +47,14 @@
 	_originalsize = count (units _group);
 	_lastposition = position (leader _group);
 
+	// create dog
+	if(_originalsize < 3) then {
+		if((random 1 > 0.5) and wcpatrolwithdogs) then {
+			_dog = _group createUnit ["pastor", position (leader _group), [], 3, "NONE"]; 
+			wcgarbage = [_dog] spawn WC_fnc_dogpatrol;
+		};
+	};
+
 	_move = true;
 	_deadcounter = 0;
 	_alert = false;
