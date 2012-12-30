@@ -1130,4 +1130,4 @@
 
 	// create an electrical generator
 	_position = [_position, wcgeneratordistminofgoal, wcgeneratordistmaxofgoal] call WC_fnc_createpositionaround;
-	wcgarbage = [_position] spawn WC_fnc_creategenerator;
+	wcgenerator = [_position, wcgeneratortype] call WC_fnc_creategenerator;
