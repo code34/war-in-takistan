@@ -206,6 +206,9 @@
 	// kind of units crew of enemies vehicles
 	wccrewforces = ["TK_Soldier_Crew_EP1"];
 
+	// kind of dogs
+	wcdogclass = ["Fin", "Pastor"];
+
 	// kind of sheep
 	wcsheeps = ["Sheep01_EP1", "Sheep02_EP1"];
 	
