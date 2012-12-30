@@ -614,6 +614,18 @@ class CfgSounds
 		sound[] = {"\sound\geiger.ogg", 0.6, 1};
 		titles[] = {};
 	};
+	class dog_grognement
+	{
+		name = "dog_grognement";
+		sound[] = {"\sound\dog_grognement.ogg", 0.6, 1};
+		titles[] = {};
+	};
+	class dog_bark
+	{
+		name = "dog_bark";
+		sound[] = {"\sound\dog_bark.ogg", 0.6, 1};
+		titles[] = {};
+	};
 	class missionvoid1
 	{
 		name = "missionvoid1";

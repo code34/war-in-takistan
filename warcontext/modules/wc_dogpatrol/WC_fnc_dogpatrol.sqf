@@ -58,7 +58,9 @@
 				_unit dowatch _cible;
 				_oldgroup setBehaviour "COMBAT";
 				_oldgroup setCombatMode "RED";
+				_unit say3d "dog_grognement";
 			} else {
+				_unit say3d "dog_bark";
 				_cible setdamage (damage _cible) + 0.05;
 			};
 		};
