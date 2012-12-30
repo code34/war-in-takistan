@@ -22,7 +22,7 @@
 	_position = getpos _unit;
 
 	for "_a" from 1 to (round random _number) do {
-		_areasize = round (random 50);
+		_areasize = 30 + (round (random 50));
 		_sizeofgroup = round (random 4);
 	
 		_group = creategroup east;
@@ -32,7 +32,6 @@
 				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR PROTECT OBJECT PATROL";
 			} else {
 				_vehicle = _group createUnit [(wcspecialforces call BIS_fnc_selectRandom), _position, [], 5, "NONE"];
-				//wcgarbage = [_vehicle] spawn WC_fnc_dosillything;
 			};
 		};
 
@@ -42,3 +41,9 @@
 		diag_log format ["WARCONTEXT: COMPUTING A SPECIAL FORCE GROUP OF %1 UNITS FOR PROTECT GOAL", _sizeofgroup];
 	};
 
+	// create dog
+	if((random 1 > 0.5) and wcpatrolwithdogs) then {
+		_class = wcdogclass call BIS_fnc_selectRandom;
+		_dog = _group createUnit [_class, position (leader _group), [], 3, "NONE"]; 
+		wcgarbage = [_dog] spawn WC_fnc_dogpatrol;
+	};
