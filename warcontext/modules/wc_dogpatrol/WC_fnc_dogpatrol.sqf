@@ -26,7 +26,7 @@
 		_list = (position _unit) nearEntities [["Man"], 100];
 		if(count _list > 0) then {
 			{
-				if(side _x in _enemyside) then {
+				if(isplayer _x) then {
 					_cibles = _cibles + [_x];
 				} else {
 					_list = _list - [_x];
