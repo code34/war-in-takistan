@@ -25,6 +25,60 @@
 	_vehicle = vehicle (leader _group);
 	_vehicle setvariable ["cible", objnull, false];
 
+	WC_fnc_defineaircible = {
+		private ["_gunner", "_cible", "_enemys", "_exit", "_ghost", "_group"];
+		_gunner = _this select 0;
+		_ghost = false;
+		_cible = objnull;
+
+		_enemys = nearestObjects[_gunner, ["Air"], 3000];
+		if (count _enemys > 0) then {
+			_exit = false;
+			while {(!_exit and (count _enemys) > 0)} do {
+				_cible = (([_gunner, _enemys] call EXT_fnc_SortByDistance) select 0);
+				if((getposatl _cible) select 2 > 20) then {
+					{
+						if((side _x == west) or (isplayer _x)) then {
+							if(side _x != west) then {
+								_ghost = true;
+							};
+							_exit = true;
+						};
+					}foreach (crew _cible);
+				};
+				if(!_exit) then {
+					_enemys = _enemys - [_cible];
+				};
+				sleep 0.5;
+			};
+			if(!_exit) then {
+				_cible = objnull;
+			};
+			if(_ghost) then {
+				// unauthorized civil fly
+				_group = creategroup west;
+				(crew _cible) joinsilent _group;
+			};
+		} else {
+			_cible = objnull;
+		};
+		_cible;
+	};
+
+	[_vehicle] spawn {
+		private ["_vehicle"];
+		_vehicle = _this select 0;
+
+		while { (alive _vehicle and alive (driver _vehicle)) } do {
+			_cible = [(driver _vehicle)] call WC_fnc_defineaircible;
+			if(!isnull _cible) then {
+				_vehicle setvariable ["cible", _cible, false];
+			};
+			sleep 3;
+		};
+	};
+
+
 	while { count (units _group) > 0 } do {
 
 		if((wcalert > 50) || (count (units _group) < _originalsize)) then {
