@@ -24,8 +24,9 @@
 	_cible = objnull;
 
 	WC_fnc_definedogcible = {
-		private ["_dog", "_cible", "_cibles", "_list"];
+		private ["_dog", "_cible", "_cibles", "_list", "_oldgroup"];
 		_dog = _this select 0;
+		_oldgroup = _this select 1;
 
 		_cibles = [];
 		_list = (position _dog) nearEntities [["Man"], 50];
@@ -46,6 +47,9 @@
 			_cible = objnull;
 		}else{
 			_cible = (([_dog, _cibles] call EXT_fnc_SortByDistance) select 0);
+			// master of dogs discover cibles
+			_oldgroup setbehaviour "COMBAT";
+			_oldgroup reveal _cible;
 		};
 		_cible;
 	};
