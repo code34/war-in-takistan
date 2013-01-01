@@ -8,21 +8,24 @@
 	private [
 		"_marker", 
 		"_position",
+		"_radio",
+		"_radiotype",
 		"_type"
 	];
 
 	_position = _this select 0;
+	_radiotype = _this select 1;
 
-	_type = wcradiotype call BIS_fnc_selectRandom;
+	_type = _radiotype call BIS_fnc_selectRandom;
 	
-	wcradio = createVehicle [_type, _position, [], 0, "NONE"];
+	_radio = createVehicle [_type, _position, [], 0, "NONE"];
 
 	if(wcwithradiomarkers == 1) then {
-		_marker = ['radiotower', 0.5, position wcradio, 'ColorRED', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, 'Radio site', false] call WC_fnc_createmarker;
+		_marker = ['radiotower', 0.5, position _radio, 'ColorRED', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, 'Radio site', false] call WC_fnc_createmarker;
 	};
 
-	wcradio setVectorUp [0,0,1];
-	wcradio addeventhandler ['HandleDamage', {
+	_radio setVectorUp [0,0,1];
+	_radio addeventhandler ['HandleDamage', {
 		if (_this select 2 > wcdammagethreshold) then {
 			wcradio removeAllEventHandlers "HandleDamage";
 			wcradioalive = false;
@@ -42,12 +45,14 @@
 	if(random 1 < wcenemyglobalelectrical) then {
 		wcradioalive = true;
 		["wcradioalive", "client"] call WC_fnc_publicvariable;
-		if(random 1 > 20) then {
-			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+		if(random 1 > 0.20) then {
+			wcgarbage = [_radio] spawn WC_fnc_protectobject;
 		};
 	} else {
 		wcmessageW = ["Radio tower", "Electrical outage"];
 		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
-		wcradio setdamage 1;
+		_radio setdamage 1;
 	};
+
+	_radio;

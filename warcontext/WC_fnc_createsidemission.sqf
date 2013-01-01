@@ -1126,7 +1126,7 @@
 
 	// create radio tower near side goal
 	_position = [_position, wcradiodistminofgoal, wcradiodistmaxofgoal] call WC_fnc_createpositionaround;
-	wcgarbage = [_position] spawn WC_fnc_createradio;
+	wcradio = [_position, wcradiotype] call WC_fnc_createradio;
 
 	// create an electrical generator
 	_position = [_position, wcgeneratordistminofgoal, wcgeneratordistmaxofgoal] call WC_fnc_createpositionaround;
