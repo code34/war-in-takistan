@@ -11,6 +11,7 @@
 		"_list",
 		"_position",
 		"_oldgroup",
+		"_recheck",
 		"_unit"
 	];
 
@@ -21,7 +22,6 @@
 
 	_position = [0,0,0];
 	_unit setvariable ["destination", _position, false];
-	_cible = objnull;
 
 	WC_fnc_definedogcible = {
 		private ["_dog", "_cible", "_cibles", "_list", "_oldgroup"];
@@ -54,6 +54,9 @@
 		_cible;
 	};
 
+	_cible = objnull;
+	_recheck = 0;
+
 	while { alive _unit } do {
 		if(isnull _cible or !alive _cible or _cible distance _unit > 100) then {
 			_cible = [_unit] call WC_fnc_definedogcible;
@@ -77,12 +80,23 @@
 				_unit domove _position;
 				if(random 1 > 0.9) then {
 					_unit say3d "dog_grognement";
+					if(unit getvariable "sound" != "dog_grognement") then {
+						_unit setvariable ["sound", "dog_grognement", true];
+					};
 				};
 			} else {
 				_unit dowatch _cible;
 				_unit say3d "dog_bark";
+				if(unit getvariable "sound" != "dog_bark") then {
+					_unit setvariable ["sound", "dog_bark", true];
+				};
 				_cible setdamage (damage _cible) + 0.05;
 				sleep ceil(random 3);
+			};
+			_recheck = _recheck + 1;
+			if(_recheck > 3) then {
+				_cible = [_unit] call WC_fnc_definedogcible;
+				_recheck = 0;
 			};
 		};
 		sleep 1;
