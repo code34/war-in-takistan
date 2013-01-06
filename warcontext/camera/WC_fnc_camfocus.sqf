@@ -27,14 +27,6 @@
 
 	waituntil {isnull wccam};
 
-	#ifdef _MISSIONVOIDS_
-		_sound = format["missionvoid%1", wcobjective select 2];
-		playsound _sound;
-	#else
-		_music = wcjukebox call BIS_fnc_selectRandom;
-		playMusic _music;
-	#endif
-
 	switch (wcwithcam) do {
 		case 1:{
 			_exit = true;			
@@ -78,6 +70,14 @@
 
 	waituntil {isnull wccam};
 	waituntil {preloadCamera position _object};
+
+	#ifdef _MISSIONVOIDS_
+		_sound = format["missionvoid%1", wcobjective select 2];
+		playsound _sound;
+	#else
+		_music = wcjukebox call BIS_fnc_selectRandom;
+		playMusic _music;
+	#endif
 
 	wccam = "camera" camCreate [0,0,1000];
 	wccam cameraEffect ["internal","back"];
