@@ -196,10 +196,6 @@
 	// contains all enemies group that attack defend missions
 	wcdefendgroup = [];
 
-	// objective informations
-	wcobjectiveindex = 0;
-	wcobjective = [-1, objnull, 0, "", ""];	
-
 	// alert threshold
 	wcalert = 0;
 	wcindexpropagande = 0;
