@@ -391,6 +391,10 @@
 	// array of all players in team
 	wcinteam = [];
 
+	// objective informations - don't edit
+	wcobjectiveindex = 0;
+	wcobjective = [-1, objnull, 0, "", ""];	
+
 	// vehicles avalaible at hq
 	wcvehicleslistathq = ["ATV_US_EP1"];
 
