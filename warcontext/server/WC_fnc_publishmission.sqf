@@ -12,10 +12,9 @@
 		"_variables"
 	];
 	
-	_playerid = _this select 0;
 	_name = _this select 1;
 
-	diag_log format["WARCONTEXT: PLAYER %1 CONNECTING", _name];
+	diag_log format["WARCONTEXT: PLAYER %1 %2 CONNECTING", _playerid, _name];
 
 	_ok = true;
 	_count = 0;
@@ -31,6 +30,13 @@
 		_count = _count + 1;
 		sleep 1;
 	};
+
+	{
+		if(name _x == _name) then {
+			_playerid = owner _x;
+		};
+		sleep 0.01;
+	}foreach playableunits;
 
 	_variables = [
 		"wcobjective",
