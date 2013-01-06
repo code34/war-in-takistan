@@ -50,6 +50,7 @@
 					wcalert = 100;
 				};
 			};
+			(_this select 0) setvariable ["cible", assignedtarget (_this select 0), false];
 		'];
 
 		_vehicle addeventhandler ['FiredNear', {
