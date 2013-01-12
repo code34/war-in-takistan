@@ -52,8 +52,8 @@
 	while {!_missioncomplete} do {
 		_count = 0;
 		{
-			if(_x distance getmarkerpos "mash" < 100) then {
-				_x domove getmarkerpos "mash";
+			if(_x distance getmarkerpos "respawn_west" < 100) then {
+				_x domove getmarkerpos "respawn_west";
 				_count = _count + 1;
 			};
 			if!(alive _x) then {
