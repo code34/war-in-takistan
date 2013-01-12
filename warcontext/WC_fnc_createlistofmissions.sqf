@@ -179,6 +179,13 @@
 				_position = position _vehicle;
 			};
 
+			case 70: {
+				if(random 1 > 0.3) then {
+					_numberofgroup = 0; 
+					_numberofvehicle = 0;
+				};
+			};
+
 			case 71: {
 				_vehicle = wcallhangars call BIS_fnc_selectRandom;
 				_position = position _vehicle;
@@ -187,6 +194,13 @@
 			case 72: {
 				_vehicle = wcalloilpumps call BIS_fnc_selectRandom;
 				_position = position _vehicle;
+			};
+
+			case 73: {
+				if(random 1 > 0.3) then {
+					_numberofgroup = 0; 
+					_numberofvehicle = 0;
+				};
 			};
 
 			case 77: {
