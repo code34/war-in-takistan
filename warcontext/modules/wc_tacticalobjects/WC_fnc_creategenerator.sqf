@@ -37,6 +37,10 @@
 	_generator setVehicleInit "this addAction ['<t color=''#ffcb00''>Sabotage</t>', 'warcontext\actions\WC_fnc_dosabotage.sqf',[true],6,false];";
 	processInitCommands;
 
+	if(random 1 > 0.20) then {
+		wcgarbage = [_generator] spawn WC_fnc_protectobject;
+	};
+
 	if(wcwithgeneratormarkers == 1) then {
 		_marker = ['generator', 0.5, position _generator, 'ColorRED', 'ICON', 'FDIAGONAL', 'mil_triangle', 0, 'Generator site', false] call WC_fnc_createmarker;
 	};
