@@ -48,7 +48,7 @@
 
 	wcgarbage = [_group] spawn WC_fnc_civilhandler;	
 
-	_counter = 0;
+	_counter = 20;
 	while {!_missioncomplete} do {
 		_count = 0;
 		{
@@ -85,8 +85,13 @@
 		};
 
 		if(_counter > 20) then {
-			"SmokeShellRed" createVehicle position _unit;
+			_position = (position (leader _group)) findEmptyPosition[ 1 , 20];
+			"SmokeShellRed" createVehicle _position;
+			wcmessageW = [format["Still %1 civils", (count _civils - _count)], "to rescue"];
+			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
+			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			_counter = 0;
 		};
+		_counter = _counter + 1;
 		sleep 5;
 	};
