@@ -1,5 +1,5 @@
 showGps = 1;
-
+enableItemsDropping = 0;
 loadScreen = "pics\loading.jpg";
 OnLoadMission  = "War In Takistan";
 
@@ -238,14 +238,33 @@ class RscTitles
 
 	class TitreMission
 	{
-		controls[]={"TitreMission_texte1","TitreMission_texte2"};
+		controls[]={"TitreMission_texte1"};
 		duration= 3; 
 		idd=50001;
 
 		class TitreMission_texte1: RscText
 		{
 			text = $STR_WC_TITLE_MISSION;
-			x = 0.05;
+			x = 0.1;
+			y = 0.2;
+			w = 0.9;
+			h = 0.7;
+			sizeEx = 0.2;
+			colorText[]={1,1,1,1};
+			duration= 4;  
+		};
+	};
+
+	class Titrecredits
+	{
+		controls[]={"Titrecredits_texte1","Titrecredits_texte2"};
+		duration= 3; 
+		idd=50002;
+
+		class Titrecredits_texte1: RscText
+		{
+			text = "Code34";
+			x = 0;
 			y = 0.4;
 			w = 0.9;
 			h = 0.7;
@@ -254,10 +273,10 @@ class RscTitles
 			duration= 4;  
 		};
 		
-		class TitreMission_texte2: RscText
+		class Titrecredits_texte2: RscText
 		{
-			text = "Cooperative campaign";
-			x = 0.05;
+			text = "Designed by";
+			x = 0;
 			y = 0.35;
 			w = 0.9;
 			h = 0.7;
@@ -329,37 +348,6 @@ class RscTitles
 			sizeEx = 0.05;
 			colorText[]={0,0,0,1};
 			duration= 10;  
-		};
-	};
-
-	class Titrecredits
-	{
-		controls[]={"Titrecredits_texte1","Titrecredits_texte2"};
-		duration= 3; 
-		idd=50002;
-
-		class Titrecredits_texte1: RscText
-		{
-			text = "Code34";
-			x = 0.05;
-			y = 0.4;
-			w = 0.9;
-			h = 0.7;
-			sizeEx = 0.075;
-			colorText[]={1,1,1,1};
-			duration= 4;  
-		};
-		
-		class Titrecredits_texte2: RscText
-		{
-			text = "Designed by";
-			x = 0.05;
-			y = 0.35;
-			w = 0.9;
-			h = 0.7;
-			sizeEx = 0.05;
-			colorText[]={0,0,0,1};
-			duration= 4;  
 		};
 	};
 
