@@ -37,6 +37,14 @@
 		_position = ["sidezone", "onground", "onflat", "empty"] call WC_fnc_createpositioninmarker;
 	};
 
+	// create radio tower near side goal
+	_newposition = [_position, wcradiodistminofgoal, wcradiodistmaxofgoal] call WC_fnc_createpositionaround;
+	wcradio = [_newposition, wcradiotype] call WC_fnc_createradio;
+
+	// create an electrical generator
+	_newposition = [_position, wcgeneratordistminofgoal, wcgeneratordistmaxofgoal] call WC_fnc_createpositionaround;
+	wcgenerator = [_newposition, wcgeneratortype] call WC_fnc_creategenerator;
+
 	wcbonusfame = 0;
 	wcbonusfuel = 0;
 	wcbonuselectrical = 0;
@@ -47,10 +55,11 @@
 			_missiontext = [_missionname, "Destroy a scud launcher"];
 			_vehicle = createVehicle ["MAZ_543_SCUD_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle, 0.15] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_vehicle action ["scudLaunch", _vehicle];
 			_missiontype = "destroy";
-			wcbonusfame = 0;
-			wcbonusnuclear = 0.15;
 		};
 
 		case 1: {
@@ -103,29 +112,28 @@
 			_missiontext = [_missionname,"Destroy the barracks location"];
 			_vehicle = createVehicle ["Land_Barrack2_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0.1;
 		};
 
 		case 4: {
 			_missiontext = [_missionname, "Destroy the ural refuel"];
 			_vehicle = createVehicle ["UralRefuel_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle, 0, 0.1] spawn WC_fnc_destroyvehicle;
 			_vehicle setVehicleInit "this lock true;";
 			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
-			wcbonusfuel = -0.1;
 		};
 
 		case 5: {
 			_missiontext = [_missionname, "Destroy the ural"];
 			_vehicle = createVehicle ["Ural_ZU23_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_vehicle setVehicleInit "this lock true;";
 			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 6: {
@@ -160,26 +168,26 @@
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 8: {
 			_missiontext = [_missionname, "Destroy a small fuel location"];
 			_vehicle = createVehicle ["Land_Ind_TankSmall2_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle, 0, 0.1] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
-			wcbonusfuel = -0.1;
 		};
 
 		case 9: {
 			_missiontext = [_missionname, "Destroy a big fuel location"];
 			_vehicle = createVehicle ["Land_Fuel_tank_big", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle, 0, 0.2] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
-			wcbonusfuel = -0.1;
 		};
 
 		case 10: {
@@ -190,17 +198,18 @@
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 11: {
 			_missiontext = [_missionname,"Destroy the enemy airfac"];
 			_vehicle = createVehicle ["TK_WarfareBAircraftFactory_Base_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = -0.1;
-			wcbonuselectrical = -0.15;
 		};
 
 		case 12: {
@@ -224,10 +233,10 @@
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_vehicle setVehicleInit "this lock true;";
 			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 14: {
@@ -258,24 +267,24 @@
 			_missiontext = [_missionname, "Destroy the radar"];
 			_vehicle = createVehicle ["TK_GUE_WarfareBArtilleryRadar_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 16: {
 			_missiontext = [_missionname, "Destroy the hospital"];
 			_vehicle = createVehicle ["TK_GUE_WarfareBFieldhHospital_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = -0.1;
 		};
 
 		case 17: {
 			_missiontext = [_missionname, "Destroy the heavy factory"];
 			_vehicle = createVehicle ["TK_WarfareBHeavyFactory_Base_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 18: {
@@ -354,17 +363,18 @@
 			_missiontext = [_missionname, "Destroy an AA pod"];
 			_vehicle = createVehicle ["ZU23_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 22: {
 			_missiontext = [_missionname, "Destroy a missile launcher"];
 			_vehicle = createVehicle ["GRAD_TK_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
-			wcbonusnuclear = 0.15;
 		};
 
 		case 23: {
@@ -378,20 +388,16 @@
 
 		case 24: {
 			_missiontext = [_missionname, "Destroy a radio tower"];
-			_type = wcradiotype call BIS_fnc_selectRandom;
-			_vehicle = createVehicle [_type, _position, [], 0, "NONE"];
-			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [wcradio] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 25: {
 			_missiontext = [_missionname, "Destroy an electrical station"];
 			_vehicle = createVehicle ["PowGen_Big_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle, 0, 0, 0.15] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = -0.1;
-			wcbonuselectrical = -0.15;
 		};
 
 		case 26: {
@@ -402,8 +408,10 @@
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 27: {
@@ -414,8 +422,10 @@
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 28: {
@@ -431,8 +441,8 @@
 			_missiontext = [_missionname, "Destroy an UAV terminal"];
 			_vehicle = createVehicle ["TK_WarfareBUAVterminal_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 30: {
@@ -627,16 +637,16 @@
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0.1;
 		};
 
 		case 48: {
 			_missiontext = [_missionname, "Destroy a repair center"];
 			_vehicle = createVehicle ["TK_GUE_WarfareBHeavyFactory_Base_EP1", _position, [], 0, "NONE"];
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 49: {
@@ -682,8 +692,10 @@
 			_camo setdir getdir _vehicle;
 			_camo setpos (position _vehicle);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 52: {
@@ -802,8 +814,10 @@
 			_vehicle = "Su25_TK_EP1" createvehicle position _hangar;
 			_vehicle setdir (getdir _hangar + 180);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 62: {
@@ -812,8 +826,10 @@
 			_vehicle = "L39_TK_EP1" createvehicle position _hangar;
 			_vehicle setdir (getdir _hangar + 180);
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle] spawn WC_fnc_destroyvehicle;
+			_vehicle setVehicleInit "this lock true;";
+			processInitCommands;
 			_missiontype = "destroy";
-			wcbonusfame = 0;
 		};
 
 		case 63: {
@@ -841,6 +857,7 @@
 			_missiontext = [_missionname, "Destroy a fuel location"];
 			_vehicle = (nearestObjects [_position, ["Land_Ind_FuelStation_Feed_EP1"], 400]) call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn WC_fnc_protectobject;
+			wcgarbage = [_vehicle, 0, 0.05] spawn WC_fnc_destroyvehicle;
 			_missiontype = "destroy";
 			wcbonusfame = 0;
 		};
@@ -1014,27 +1031,6 @@
 	};
 
 	switch (_missiontype) do {
-		case "destroy": {
-			_vehicle removeAllEventHandlers "HandleDamage";
-			_vehicle addeventhandler ['HandleDamage', {
-				if (_this select 2 > wcdammagethreshold) then {
-					(_this select 0) removeAllEventHandlers "HandleDamage";
-					wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
-					["wcmessageW", "client"] call WC_fnc_publicvariable;
-					wcmissionsuccess = true;
-					wcobjectiveindex = wcobjectiveindex + 1;
-					(_this select 0) setdamage 1;
-					wcleveltoadd = 1;
-					wcfame = wcfame + wcbonusfame;
-					wcenemyglobalelectrical = wcenemyglobalelectrical + wcbonuselectrical;
-					wcenemyglobalfuel = wcenemyglobalfuel + wcbonusfuel;
-					wcnuclearprobability = wcnuclearprobability + wcbonusnuclear;
-				};
-			}];
-
-		};
-
 		case "eliminate": {
 			_vehicle removeAllEventHandlers "HandleDamage";
 			_vehicle addeventhandler ['HandleDamage', {
@@ -1047,7 +1043,6 @@
 				if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 				["wcmessageW", "client"] call WC_fnc_publicvariable;
 				wcmissionsuccess = true;
-				wcobjectiveindex = wcobjectiveindex + 1;
 				wcleveltoadd = 1;
 				wcfame = wcfame + wcbonusfame;
 				wcenemyglobalelectrical = wcenemyglobalelectrical + wcbonuselectrical;
@@ -1064,7 +1059,6 @@
 			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
-			wcobjectiveindex = wcobjectiveindex + 1;
 			wcleveltoadd = 1;
 			wcfame = wcfame + wcbonusfame;
 			wcenemyglobalelectrical = wcenemyglobalelectrical + wcbonuselectrical;
@@ -1123,11 +1117,3 @@
 
 		};
 	};
-
-	// create radio tower near side goal
-	_position = [_position, wcradiodistminofgoal, wcradiodistmaxofgoal] call WC_fnc_createpositionaround;
-	wcradio = [_position, wcradiotype] call WC_fnc_createradio;
-
-	// create an electrical generator
-	_position = [_position, wcgeneratordistminofgoal, wcgeneratordistmaxofgoal] call WC_fnc_createpositionaround;
-	wcgenerator = [_position, wcgeneratortype] call WC_fnc_creategenerator;
