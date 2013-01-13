@@ -47,6 +47,9 @@
 	if(isnil "_markertext") then { _markertext = "";};
 	if(isnil "_protect") then { _protect = false;};
 
+	if(isnil "_markerposition") exitwith { diag_log format["WARCONTEXT: Marker %1 %2 position error", _markername, _markerposition];};
+	if(count _markerposition < 3) exitwith { diag_log format["WARCONTEXT: Marker %1 %2 position error", _markername, _markerposition];};
+
 	_marker = createMarkerlocal[_markername, _markerposition];
 	if (!isnil ("_markersize")) then { _marker setMarkerSizelocal [_markersize, _markersize]; };
 	if (_markershape != "") then { _marker setMarkershapelocal _markershape; };
