@@ -22,7 +22,6 @@
 			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
-			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
 		};
 
@@ -39,7 +38,6 @@
 			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
-			wcobjectiveindex = wcobjectiveindex + 1;
 			_missioncomplete = true;
 			wcleveltoadd = 1;
 		};
