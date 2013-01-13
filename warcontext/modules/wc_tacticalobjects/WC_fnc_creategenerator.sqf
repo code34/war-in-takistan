@@ -7,6 +7,7 @@
 	private [
 		"_building",
 		"_buildings",
+		"_exit",
 		"_generatortype",
 		"_generator",
 		"_marker", 
@@ -18,9 +19,10 @@
 	_position = _this select 0;
 	_generatortype = _this select 1;
 
+	_exit = false;
 	_type = _generatortype call BIS_fnc_selectRandom;
 
-	_buildings = nearestObjects [_position,["Building"], 300];
+	_buildings = nearestObjects [_position,["House"], 300];
 	sleep 1;
 	_building = _buildings call BIS_fnc_selectRandom;
 
@@ -28,7 +30,14 @@
 		_newposition = (position _building) findEmptyPosition [1, 10];
 		if(count _newposition > 0) then {
 			_position = _newposition;
+		} else {
+			// generator can not be far from a building
+			_exit = true;
 		};
+	};
+
+	if(_exit) exitwith {
+		diag_log "WARCONTEXT: GENERATOR CAN NOT BE BUILD CAUSE FAR OF BUILDINGS";
 	};
 
 	_generator = createVehicle [_type, _position, [], 0, "NONE"];
