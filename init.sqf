@@ -336,6 +336,7 @@
 	WC_fnc_build			= compile preprocessFile "warcontext\missions\WC_fnc_build.sqf";
 	WC_fnc_defend			= compile preprocessFile "warcontext\missions\WC_fnc_defend.sqf";
 	WC_fnc_destroygroup		= compile preprocessFile "warcontext\missions\WC_fnc_destroygroup.sqf";
+	WC_fnc_destroyvehicle		= compile preprocessFile "warcontext\missions\WC_fnc_destroyvehicle.sqf";
 	WC_fnc_heal			= compile preprocessFile "warcontext\missions\WC_fnc_heal.sqf";
 	WC_fnc_jail			= compile preprocessFile "warcontext\missions\WC_fnc_jail.sqf";
 	WC_fnc_liberatehotage 		= compile preprocessFile "warcontext\missions\WC_fnc_liberatehotage.sqf";
