@@ -39,6 +39,10 @@
 		(_this select 2);
 	}];	
 	diag_log format["WARCONTEXT: CREATE A RADIO TOWER: %1", _type];
+	
+	if(random 1 > 0.20) then {
+		wcgarbage = [_radio] spawn WC_fnc_protectobject;
+	};
 
 
 	// Check for an electrical outage		
