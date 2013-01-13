@@ -103,7 +103,6 @@
 
 	WC_fnc_netcode_wcobjective = {
 		wcobjective = _this select 0;
-		waituntil {wcclientinitialized};
 		if ((wcobjective select 0) > wcobjectiveindex) then {
 			wcobjectiveindex = wcobjective select 0;
 			if(vehicle player == player) then {
