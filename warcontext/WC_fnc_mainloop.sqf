@@ -238,6 +238,9 @@
 		// Wait until the end of Mission - use while instead of waituntil - performance leak
 		while { !wcmissionsuccess } do { sleep 1; };
 		wcmissionsuccess = false;
+		// increase objective cursor
+		wcobjectiveindex = wcobjectiveindex + 1;
+
 
 		"operationtext" setMarkerText "Mission is finished. Leave the zone";
 
