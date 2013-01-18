@@ -28,7 +28,7 @@
 	wccam camsetrelpos [300, 300, 80];
 	wccam CamCommit 0;
 	
-	2 cutRsc ["arma2oasplash", "PLAIN"]; 
+	TitleRsc ["Titrecredits","Plain",2];
 
 	wccam camsetrelpos [150, 150, 45];
 	wccam CamCommit 10;
@@ -45,6 +45,7 @@
 	wccam camsetrelpos [100, 100, 40];
 	wccam CamCommit 0;
 	TitleRsc ["TitreMission","Plain",2];
+
 	wccam camsetrelpos [50, 50, 10];
 	wccam CamCommit 16;
 	sleep 6;
@@ -55,7 +56,7 @@
 	wccam CamCommit 0;
 	imam setmimic "smile";
 
-	TitleRsc ["Titrecredits","Plain",2];
+
 	wccam camsetrelpos [2, 1, 1.65];
 	wccam CamCommit 10;
 	sleep 6;

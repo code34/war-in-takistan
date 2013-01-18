@@ -238,7 +238,7 @@ class RscTitles
 
 	class TitreMission
 	{
-		controls[]={"TitreMission_texte1"};
+		controls[]={"Picturew", "TitreMission_texte1"};
 		duration= 3; 
 		idd=50001;
 
@@ -246,12 +246,21 @@ class RscTitles
 		{
 			text = $STR_WC_TITLE_MISSION;
 			x = 0.1;
-			y = 0.2;
+			y = 0.3;
 			w = 0.9;
 			h = 0.7;
 			sizeEx = 0.2;
 			colorText[]={1,1,1,1};
 			duration= 4;  
+		};
+
+		class Picturew : RscPicture
+		{
+			x= 0.20;
+			y= 0.15
+			w=0.6; 
+			h=0.4;
+			text="pics\w.paa";
 		};
 	};
 
