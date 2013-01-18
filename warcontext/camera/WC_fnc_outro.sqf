@@ -57,12 +57,7 @@
 		"During this development time, there was an anormal number of IA killings",
 		"that were due to nuclear and carpet bombing.",
 		"The mission uses the WARCONTEXT ENGINE v3",
-		"And a lot of good stuff that you can find in the credits",
-		"Thanks to: Air Commando Team for theirs intensives tests",
-		"and all theirs advices, and courage against ied bomberman",
-		"Thanks to: all of our friends that came and play with us",
-		" and all others that i can forgot (..)",
-		"You can find more information on www.air-commando.org"
+		"Thanks to: all of my friends"
 		];
 
 	_original = _texts;

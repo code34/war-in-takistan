@@ -18,8 +18,15 @@
 	_cam cameraEffect ["internal","back"];
 	ShowCinemaBorder true;
 
-	player setpos [0,0,0];
 	playMusic "outro";
+
+	_position = (getmarkerpos "respawn_west") findEmptyPosition [10, 200];
+	if(count _position == 0) then {
+		diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR PLAYER OUTRO";
+		player setpos wcmapcenter;
+	} else {
+		player setpos _position;
+	};
 
 	while { true } do {	
 		_grave = nearestObjects[getmarkerpos "mortuary",[["gravecross2", "GraveCrossHelmet"] call BIS_fnc_selectRandom], 200];
