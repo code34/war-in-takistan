@@ -12,23 +12,9 @@
 
 	_vehicle = _this select 0;
 
-	if(!isnil (_this select 1)) then {
-		_nuclearmalus 		= _this select 1;
-	} else {
-		_nuclearmalus = 0;
-	};
-
-	if(!isnil (_this select 2)) then {
-		_fuelmalus 		= _this select 2;
-	} else {
-		_fuelmalus = 0;
-	};
-
-	if(!isnil (_this select 3)) then {
-		_electricalmalus 	= _this select 3;
-	} else {
-		_electricalmalus = 0;
-	};
+	//_nuclearmalus 		= _this select 1;
+	//_fuelmalus 		= _this select 2;
+	//_electricalmalus 	= _this select 3;
 
 	_missioncomplete = false;
 
@@ -46,6 +32,6 @@
 	};
 
 
-	wcnuclearprobability = wcnuclearprobability - _nuclearmalus;
-	wcenemyglobalfuel = wcenemyglobalfuel - _fuelmalus;
-	wcenemyglobalelectrical = wcenemyglobalelectrical - _electricalmalus;
+	//wcnuclearprobability = wcnuclearprobability - _nuclearmalus;
+	//wcenemyglobalfuel = wcenemyglobalfuel - _fuelmalus;
+	//wcenemyglobalelectrical = wcenemyglobalelectrical - _electricalmalus;
