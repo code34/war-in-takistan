@@ -5,6 +5,7 @@
 	if (!isServer) exitWith{};
 
 	private [
+		"_arrayofpos",
 		"_building",
 		"_buildings",
 		"_exit",
@@ -22,21 +23,13 @@
 	_exit = false;
 	_type = _generatortype call BIS_fnc_selectRandom;
 
-	_buildings = nearestObjects [_position,["House"], 300];
-	sleep 1;
-	_building = _buildings call BIS_fnc_selectRandom;
-
-	if(count (position _buiding) > 0) then {
-		_newposition = (position _building) findEmptyPosition [1, 10];
-		if(count _newposition > 0) then {
-			_position = _newposition;
-		} else {
-			// generator can not be far from a building
-			_exit = true;
-		};
+	_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+	if(count _arrayofpos == 0) exitwith {
+		diag_log "WARCONTEXT: GENERATOR CAN NOT BE BUILD CAUSE FAR OF BUILDINGS";
 	};
 
-	if(_exit) exitwith {
+	_position = (_arrayofpos call BIS_fnc_selectRandom) findEmptyPosition [1, 10];
+	if(count _position == 0) exitwith {
 		diag_log "WARCONTEXT: GENERATOR CAN NOT BE BUILD CAUSE FAR OF BUILDINGS";
 	};
 

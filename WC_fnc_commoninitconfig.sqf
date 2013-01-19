@@ -318,7 +318,11 @@
 
 	// threshold of dammage to do, for enemy vehicle been damaged
 	// this variable can affect ACE damaged threshold
-	wcdammagethreshold = 0.3;
+	if(wcwithACE == 1) then {
+		wcdammagethreshold = 0.5;
+	} else {
+		wcdammagethreshold = 0.3;
+	};
 
 	// patrols use  dogs
 	wcpatrolwithdogs = true;

@@ -34,6 +34,8 @@
 	wccam CamCommit 10;
 	sleep 6;
 
+	TitleRsc ["TitreMission","Plain",2];
+
 	wccam camsettarget anim;
 	wccam camsetrelpos [3, 1, 1.65];
 	wccam CamCommit 0;
@@ -44,7 +46,7 @@
 	wccam camsettarget _vehicle;
 	wccam camsetrelpos [100, 100, 40];
 	wccam CamCommit 0;
-	TitleRsc ["TitreMission","Plain",2];
+
 
 	wccam camsetrelpos [50, 50, 10];
 	wccam CamCommit 16;

@@ -19,7 +19,7 @@
 	_buildings = nearestObjects [_position, ["House"], 350];
 	_arrayofpos = [];
 
-	if(count _position < 3) exitwith { diag_log "WARCONTEXT: Gethousesposition error - missing position parameter"; };
+	if(count _position < 2) exitwith { diag_log "WARCONTEXT: Gethousesposition error - missing position parameter"; };
 	if(isnil "_type") then { _type = "all";};
 
 	{
