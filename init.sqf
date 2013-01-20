@@ -98,6 +98,7 @@
 	// GLOBAL FUNCTIONS
 	////////////////////
 
+	WC_fnc_addplayerscore 		= compile preprocessFile "warcontext\functions\WC_fnc_addplayerscore.sqf";
 	WC_fnc_attachmarker 		= compile preprocessFile "warcontext\functions\WC_fnc_attachmarker.sqf";
 	WC_fnc_attachmarkerlocal	= compile preprocessFile "warcontext\functions\WC_fnc_attachmarkerlocal.sqf";
 	WC_fnc_attachmarkerinzone	= compile preprocessFile "warcontext\functions\WC_fnc_attachmarkerinzone.sqf";

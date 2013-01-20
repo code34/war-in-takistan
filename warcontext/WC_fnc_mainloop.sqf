@@ -241,7 +241,6 @@
 		// increase objective cursor
 		wcobjectiveindex = wcobjectiveindex + 1;
 
-
 		"operationtext" setMarkerText "Mission is finished. Leave the zone";
 
 		if(wcwithteleportflagatend == 1) then {
@@ -370,7 +369,7 @@
 			} else {
 				wcteamscore = wcteamscore + 3;
 			};
-			if(local player) then {wcteamplayscore = wcteamplayscoretoadd;};
+			if(local player) then {[wcteamplayscoretoadd] spawn WC_fnc_addplayerscore;};
 			["wcteamplayscoretoadd", "client"] call WC_fnc_publicvariable;
 		};
 

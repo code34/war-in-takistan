@@ -137,18 +137,7 @@
 	// More ranked player is, less points he has to distribute
 	WC_fnc_netcode_wcteamplayscoretoadd = {
 			wcteamplayscoretoadd = _this select 0;
-			private ["_rank", "_ratio"];
-			if((name player) in wcinteam) then {
-				_rank = rank player;
-				if(_rank == "Private") then { _ratio = ceil(wcteamplayscoretoadd * 0.4);};
-				if(_rank == "Corporal") then { _ratio = ceil(wcteamplayscoretoadd * 0.5);};
-				if(_rank == "Sergeant") then { _ratio = ceil(wcteamplayscoretoadd * 0.6);};
-				if(_rank == "Lieutenant") then { _ratio = ceil(wcteamplayscoretoadd * 0.7);};
-				if(_rank == "Captain") then { _ratio = ceil(wcteamplayscoretoadd * 0.8);};
-				if(_rank == "Major") then { _ratio = ceil(wcteamplayscoretoadd * 0.9);};
-				if(_rank == "Colonel") then { _ratio = ceil(wcteamplayscoretoadd);};
-				wcteamplayscore = wcteamplayscore + _ratio;
-			};
+			[wcteamplayscoretoadd] spawn WC_fnc_addplayerscore;
 			if(wckindofgame == 1) then {
 				wcclientlogs = wcclientlogs + ["Mission finished : +5 points teamscore"];
 			} else {
@@ -179,7 +168,6 @@
 
 	WC_fnc_netcode_wcmessageW = {
 		wcmessageW = _this select 0;
-		waituntil {wcclientinitialized};
 		wcgarbage = wcmessageW spawn EXT_fnc_infotext;
 	};
 
