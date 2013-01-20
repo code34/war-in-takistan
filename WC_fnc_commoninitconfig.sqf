@@ -321,7 +321,7 @@
 	if(wcwithACE == 1) then {
 		wcdammagethreshold = 0.5;
 	} else {
-		wcdammagethreshold = 0.3;
+		wcdammagethreshold = 0.45;
 	};
 
 	// patrols use  dogs
