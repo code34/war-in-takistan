@@ -60,25 +60,25 @@ R3F_REV_fil_exec_reapparaitre_camp = [_camp] spawn
 	closeDialog 0;
 
 	if(rank player == "Private") then {
-		wcplayeraddscore = [player, -7];
+		wcplayeraddscore = [player, -1];
 	};
 	if(rank player == "Corporal") then {
-		wcplayeraddscore = [player, -6];
+		wcplayeraddscore = [player, -2];
 	};
 	if(rank player == "Sergeant") then {
-		wcplayeraddscore = [player, -5];
+		wcplayeraddscore = [player, -3];
 	};
 	if(rank player == "Lieutenant") then {
 		wcplayeraddscore = [player, -4];
 	};
 	if(rank player == "Captain") then {
-		wcplayeraddscore = [player, -3];
+		wcplayeraddscore = [player, -5];
 	};
 	if(rank player == "Major") then {
-		wcplayeraddscore = [player, -2];
+		wcplayeraddscore = [player, -7];
 	};
 	if(rank player == "Colonel") then {
-		wcplayeraddscore = [player, -1];
+		wcplayeraddscore = [player, -10];
 	};
 	["wcplayeraddscore", "server"] call WC_fnc_publicvariable;
 	
