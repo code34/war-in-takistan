@@ -10,10 +10,11 @@
 		"_vehicle"
 	];
 
+
 	while { true } do {
 		_target = cursortarget;
 	
-		if(!(isnull _target) and (_target distance player < 5)) then {
+		if(!(isnull _target) and (_target distance player < 10)) then {
 			sleep 1;
 			if(_target == cursortarget) then {
 				_name = getText (configFile >> "CfgVehicles" >> typeof _target >> "displayName");
