@@ -66,7 +66,7 @@
 			_missiontext = [_missionname, "Kill a gold trafficant"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["Functionary1_EP1", _position, [], 0, "NONE"];
-			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_arrayofpos = [_position, "bot"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
@@ -89,7 +89,7 @@
 			_missiontext = [_missionname, "Kill a nuclear scientist"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["Functionary1_EP1", _position, [], 0, "NONE"];
-			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_arrayofpos = [_position, "bot"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
@@ -140,7 +140,7 @@
 			_missiontext = [_missionname, "Kill a takistani commander"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_Aziz_EP1", _position, [], 0, "NONE"];
-			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_arrayofpos = [_position, "bot"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
@@ -315,7 +315,7 @@
 			_missiontext = [_missionname, "Kill a war lord"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_GUE_Warlord_EP1", _position, [], 0, "NONE"];
-			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_arrayofpos = [_position, "bot"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
@@ -339,7 +339,7 @@
 			_missiontext = [_missionname, "Kill a takistani officer"];
 			_group = createGroup east;
 			_vehicle = _group createUnit ["TK_Soldier_Officer_EP1", _position, [], 0, "NONE"];
-			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_arrayofpos = [_position, "bot"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			wcgarbage = [_vehicle] spawn {
 				private ["_unit", "_enemy"];
@@ -664,7 +664,7 @@
 			_missiontext = [_missionname, "Kill a takistani woman civil"];
 			_group = createGroup civilian;
 			_vehicle = _group createUnit ["TK_CIV_Woman01_EP1", _position, [], 0, "NONE"];
-			_arrayofpos = [_position, "all"] call WC_fnc_gethousespositions;
+			_arrayofpos = [_position, "bot"] call WC_fnc_gethousespositions;
 			_position = _arrayofpos call BIS_fnc_selectRandom;
 			_vehicle setpos _position;
 			_vehicle setUnitPos "Up"; 
