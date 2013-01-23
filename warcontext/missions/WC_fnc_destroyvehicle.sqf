@@ -22,7 +22,6 @@
 		if((!alive _vehicle) or (damage _vehicle > 0.9)) then {
 			_vehicle setdamage 1;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcleveltoadd = 1;

@@ -63,7 +63,6 @@
 
 		if(_count == count _civils) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
@@ -75,7 +74,6 @@
 
 		if(count _civils < floor(0.80 * _number)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
@@ -86,7 +84,6 @@
 			_position = (position (leader _group)) findEmptyPosition[ 1 , 20];
 			"SmokeShellRed" createVehicle _position;
 			wcmessageW = [format["Still %1 civils", (count _civils - _count)], "to rescue"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			_counter = 0;
 		};

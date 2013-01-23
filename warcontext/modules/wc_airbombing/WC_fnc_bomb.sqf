@@ -30,7 +30,6 @@
 	_returnbase = false;
 
 	wcmessageW = ["Bombing begins", "Take cover!"]; 
-	if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 	["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 	wcbomb = true;
@@ -102,7 +101,6 @@
 	};
 
 	wcmessageW = ["Bombing finished", "Go to Battle!"]; 
-	if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 	["wcmessageW", "client"] call WC_fnc_publicvariable;
 	diag_log "WARCONTEXT: BOMBING SUPPORT IS FINISHED";
 

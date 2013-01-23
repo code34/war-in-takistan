@@ -72,7 +72,6 @@
 			wcheavyfactory removeAllEventHandlers "HandleDamage";
 			wcheavyfactory setdamage 1;
 			wcmessageW = ["Heavy Factory", "has been destroyed"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			diag_log "WARCONTEXT: HEAVY FACTORY HAS BEEN DESTROYED";
 		};
@@ -84,7 +83,6 @@
 			wcbarrack removeAllEventHandlers "HandleDamage";
 			wcbarrack setdamage 1;
 			wcmessageW = ["Barrack", "has been destroyed"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			diag_log "WARCONTEXT: BARRACK HAS BEEN DESTROYED";
 		};
@@ -139,7 +137,6 @@
 				};
 				if(_support) then { 
 					wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", localize "STR_WC_CALLREINFORCEMENT"];
-					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 					["wcmessageW", "client"] call WC_fnc_publicvariable;
 					sleep (600 - (wclevel * 20));
 				};

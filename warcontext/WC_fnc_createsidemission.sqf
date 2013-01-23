@@ -1020,12 +1020,6 @@
 	wcobjective = [wcobjectiveindex, _vehicle, _missionnumber, _missionname, _missiontext];
 	["wcobjective", "client"] call WC_fnc_publicvariable;
 
-	if!(isDedicated) then {
-		if(vehicle player == player) then {
-		 	wcanim = [(wcobjective select 1)] spawn WC_fnc_camfocus;
-		};
-	};
-
 	if(wcwithmarkerongoal == 2) then {
 		"operationtext" setmarkerpos _position;
 	};
@@ -1040,7 +1034,6 @@
 			}];
 			_vehicle addeventhandler ['killed', {
 				wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-				if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 				["wcmessageW", "client"] call WC_fnc_publicvariable;
 				wcmissionsuccess = true;
 				wcleveltoadd = 1;
@@ -1056,7 +1049,6 @@
 			sleep 10;
 			waituntil {!(_vehicle getvariable "wciedactivate")};
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			wcleveltoadd = 1;

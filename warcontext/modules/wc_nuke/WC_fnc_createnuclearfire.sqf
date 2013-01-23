@@ -31,7 +31,6 @@
 		wcbomb = true;
 		["wcbomb", "client"] call WC_fnc_publicvariable;
 		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", wclevel], "NUCLEAR BOMBING TAKE COVER"];
-		if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		// create nuclear marker
@@ -48,7 +47,6 @@
 		wcnewnuclearzone = _position;
 		["wcnewnuclearzone", "client"] call WC_fnc_publicvariable;
 		wcnuclearzone = wcnuclearzone + [_position];
-		if!(isDedicated) then {wcgarbage = [wcnewnuclearzone] spawn WC_fnc_nuclearnuke;};
 		["wcnuclearzone", "client"] call WC_fnc_publicvariable;
 		_nuclearammo = _nuclearammo - 1;
         	sleep 240 + random 240;

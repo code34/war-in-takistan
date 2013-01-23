@@ -79,6 +79,7 @@
 		} else {
 			_missionnumber = 100;
 		};
+		_missionnumber = 50;
 		_thislist = _thislist + [_missionnumber];
 
 		// Compute name of mission

@@ -100,7 +100,6 @@
 		};
 		if((getmarkerpos "jail") distance _unit < 50) then {
 			wcmessageW = ["Saboter", "A prisonner is in jail"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			_unit setpos getmarkerpos "jail";
 			[_unit] joinSilent group prisoner;

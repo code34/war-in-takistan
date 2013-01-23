@@ -66,7 +66,6 @@
 		_countdead = _countdead + 1;
 		if(_timer < 1) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
@@ -74,14 +73,12 @@
 		};
 		if((wcnumberofkilledofmissionW - _delta) > (playersNumber west)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much died"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
 		};
 		if(!(alive _object) or (damage _object > 0.8)) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Objective has been destroyed"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;			
@@ -93,12 +90,10 @@
 		};
 		if((_count == 60) or (_count == 120))then {
 			wcmessageW = ["Commandement", "All players must stay in AREA!"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 		};
 		if (_count > 180) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", "Too much players out of area"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
@@ -106,7 +101,6 @@
 		if (_countdead > 60) then {
 			_countdead = 0;
 			wcmessageW = [format["Still %1 minutes", floor(_timer / 60)], format["%1/%2 players died", (wcnumberofkilledofmissionW - _delta), (playersNumber west)]];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			// if less than 2 members lefts (base on uaz members number), we consider we should send new reinforcment
 			{

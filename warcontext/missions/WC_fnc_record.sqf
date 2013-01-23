@@ -41,7 +41,6 @@
 			(_units select 1) enableAI "ANIM";
 			wcgarbage = [_group, (position(leader _group)), 300] spawn WC_fnc_patrol;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONFAILED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
@@ -62,7 +61,6 @@
 
 		if(_recordingtime > 100) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
@@ -72,7 +70,6 @@
 				if((_recordingtime mod 10) == 0) then {
 					_message = format["Progression: %1", _recordingtime] + "%";
 					wcmessageW = ["Recording", _message];
-					if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 					["wcmessageW", "client"] call WC_fnc_publicvariable;
 				};
 			};

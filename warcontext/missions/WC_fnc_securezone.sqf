@@ -55,14 +55,12 @@
 		if(_counter > 20) then {
 			_counter = 0;
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", format["Still %1 enemies", count _enemys]];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;			
 		};
 
 		// if -5 of enemy stay on zone success
 		if(count _enemys < 5) then {
 			wcmessageW = [localize "STR_WC_MESSAGEMISSIONCOMPLETED", localize "STR_WC_MESSAGELEAVEZONE"];
-			if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 			["wcmessageW", "client"] call WC_fnc_publicvariable;
 			wcmissionsuccess = true;
 			_missioncomplete = true;
