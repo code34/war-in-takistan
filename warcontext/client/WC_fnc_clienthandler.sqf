@@ -133,6 +133,14 @@
 		}; 
 	};
 
+	WC_fnc_netcode_wcinteamfired = {
+		wcinteamfired = _this select 0;
+		if(wcinteamfired == name player) then {
+			wcgarbage = [localize "STR_WC_MENURECRUITMENT", localize "STR_WC_MENUFOLLOWTHELEADERTOBERECRUIT", localize "STR_WC_MENUFIREDASTEAMMENBER", 10] spawn WC_fnc_playerhint;
+			wcclientlogs = wcclientlogs + ["You have been fired of team members"];
+		}; 
+	};
+
 	// Recieve points to share
 	// More ranked player is, less points he has to distribute
 	WC_fnc_netcode_wcteamplayscoretoadd = {

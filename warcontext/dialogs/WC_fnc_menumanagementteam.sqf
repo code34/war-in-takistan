@@ -12,6 +12,7 @@
 		"_rank",
 		"_type",
 		"_maxsize",
+		"_memberfired",
 		"_unit",
 		"_group",
 		"_players",
@@ -142,6 +143,7 @@
 	if !(wcadmin) then {
 		wcgarbage = [localize "STR_WC_MENUTEAMMANAGEMENT", "Log you as server admin", "You can not recruit team members", 10] spawn WC_fnc_playerhint;
 	} else {
+		_memberfired = wcinteam - _originalteam;
 		wcinteam = _originalteam;
 		["wcinteam", "all"] call WC_fnc_publicvariable;
 		{
@@ -149,6 +151,11 @@
 			["wcinteamintegration", "client"] call WC_fnc_publicvariable;
 			sleep 1;
 		}foreach _newplayers;
+		{
+			wcinteamfired = _x;
+			["wcinteamfired", "client"] call WC_fnc_publicvariable;
+			sleep 1;			
+		}foreach _memberfired;
 	};
 
 	ppEffectDestroy wccameffect;
