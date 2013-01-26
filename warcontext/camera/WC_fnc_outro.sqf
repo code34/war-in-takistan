@@ -44,7 +44,8 @@
 	sleep 6;		
 	titleText ["", "PLAIN"];
 
-	playMusic "outro";
+	_music = wcjukebox call BIS_fnc_selectRandom;
+	playMusic _music;
 
 	sleep 4;
 
@@ -52,12 +53,24 @@
 	setDate [1986, 2, 25, 17, 0];
 
 	_texts = [
-		"This mission was designed by  code34",
-		"There was more than 120 versions ...",
-		"During this development time, there was an anormal number of IA killings",
-		"that were due to nuclear and carpet bombing.",
-		"The mission uses the WARCONTEXT ENGINE v3",
-		"Thanks to: all of my friends"
+		localize "STR_WC_TITLE_MISSION",
+		"External Scripts",
+		"UPS, UPSMON: patrol IA scripting by Kronzky & Monsada",
+		"Revive, Artillery, Debug by R3F Team,",
+		"Domination by Xeno",
+		"Atot By Miguel Rodriguez, Base by Ei8ght,",
+		"Nuclear Nuke by Benny Warfare",
+		"ACE: Magic Box",
+		"Spectator by Kegetys",
+		"Takistan Force by Bon: Loadout Preset",
+		"ValHalla mission: crew informations", 
+		"FlashpointChernarus107 mission: civil cars idea",
+		"and all others that i can forgot (..)",
+		"Thanks to Slerbal for his english translation",
+		"Thanks to Fruity Rudy",
+		"Thanks to Ei8ght, Mario",
+		"Thanks to my friends",
+		"You can find more information about WIT at BIS FORUM"
 		];
 
 	_original = _texts;
@@ -65,11 +78,6 @@
 	while { count _texts > 0} do {
 		_text = _texts select 0;
 		_texts = _texts - [_text];
-
-
-		if(_text == "Thanks to: Air Commando Team for theirs intensives tests") then {
-			playMusic "pumpit";
-		};
 
 		titleText [_text, "BLACK FADED"];
 		sleep 2;		
