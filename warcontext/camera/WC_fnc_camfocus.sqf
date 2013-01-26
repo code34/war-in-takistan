@@ -27,25 +27,7 @@
 
 	waituntil {isnull wccam};
 
-	switch (wcwithcam) do {
-		case 1:{
-			_exit = true;			
-		};
-
-		case 2: {
-			_distance = 10;
-		};
-		
-		case 3: {
-			_distance = 100;
-		};
-
-		case 4: {
-			_distance = 100;
-		};
-	};
-
-	if(_exit) exitwith {};
+	if(wcwithcam == 1) exitwith {};
 
 	if!(wccamgoalwithcolor) then {
 		wccameffect = PPEffectCreate ["ColorCorrections", 1999];
