@@ -416,7 +416,7 @@ class RscTitles
 			idc = 10201; 
 			type = CT_STRUCTURED_TEXT; 
 			style = ST_LEFT; 
-			x = (SafeZoneW + SafezoneX) - 0.60;
+			x = (SafeZoneW + SafezoneX) - 0.70;
 			y = (1 + ((0 + SafeZoneY) * -1) - 0.44);
 			w = 0.60;
 			h = 0.44;
@@ -431,7 +431,7 @@ class RscTitles
 			idc = -1; 
 			type = CT_STATIC; 
 			style = ST_LEFT + ST_PICTURE; 
-			x = (SafeZoneW + SafezoneX) - 0.80;
+			x = (SafeZoneW + SafezoneX) - 0.90;
 			y = (1 + ((0 + SafeZoneY) * -1) - 0.44);
 			w = 0.20;
 			h = 0.35;
@@ -460,7 +460,7 @@ class CfgMusic {
 	class intro
 	{
 		name = "intro";
-		sound[] = {"\sound\intro.ogg", db+0, 1.0};
+		sound[] = {"\sound\intro.ogg", db+1, 1.0};
 	};
 	class outro
 	{
