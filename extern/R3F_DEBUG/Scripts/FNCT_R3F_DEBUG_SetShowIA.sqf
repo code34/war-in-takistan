@@ -76,7 +76,7 @@ FNCT_R3F_DEBUG_GetMarkerType = {
 
 
 FNCT_R3F_DEBUG_GetMarkerText = {
-	private ["_unit","_text"];
+	private ["_unit","_text", "_role"];
 	_unit = _this select 0;
 	if (_unit == leader _unit) then {
 		_driver = assignedDriver (vehicle _unit);
@@ -86,10 +86,20 @@ FNCT_R3F_DEBUG_GetMarkerText = {
 			_nbr_cargo = 0;
 		};
 		if((vehicle _unit) == _unit) then {
-			_text =  format ["%1", (_nbr_cargo + count (units (vehicle _unit)))];
+			_role = _unit getvariable "civilrole";
+			if(!isnil "_role") then {
+				_text =  format ["%1 %2", (_nbr_cargo + count (units (vehicle _unit))), _role];
+			} else {
+				_text =  format ["%1", (_nbr_cargo + count (units (vehicle _unit)))];
+			};
 		} else {
 			_name = getText (configFile >> "CfgVehicles" >> (typeof (vehicle _unit)) >> "DisplayName");
 			_text =  format ["%1: %2 %3", (_nbr_cargo + count (units (vehicle _unit))), _name, (damage (vehicle _unit))] + "%";
+		};
+	} else {
+		_role = _unit getvariable "civilrole";
+		if(!isnil "_role") then {
+			_text =  format ["%1", _role];
 		};
 	};
 	_text;
@@ -155,9 +165,9 @@ FNCT_R3F_DEBUG_SetShowIA = {
 					_mark setMarkerTypeLocal ([_unit] call FNCT_R3F_DEBUG_GetMarkerType);
 					_mark setMarkerSizeLocal ([_unit] call FNCT_R3F_DEBUG_GetMarkerSize);
 				};
-				if (_unit == leader _unit) then {
+				//if (_unit == leader _unit) then {
 					_mark setMarkerTextLocal ([_unit] call FNCT_R3F_DEBUG_GetMarkerText);
-				};
+				//};
 				_mark setMarkerPosLocal (getPos (vehicle _unit));
 				_mark setMarkerDirLocal (getDir (vehicle _unit));
 			};
