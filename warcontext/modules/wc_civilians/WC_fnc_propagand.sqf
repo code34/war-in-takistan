@@ -55,7 +55,7 @@
 			_positions = [position _unit, 5, 360, getdir _unit, 5] call WC_fnc_createcircleposition;
 			_unit stop true;
 			{
-				if(side _x == civilian) then {
+				if((side _x == civilian) and ((_x getvariable "civilrole" == "civil") or (_x getvariable "civilrole" == "converting") or (_x getvariable "civilrole" == "converted"))) then {
 					if(_x distance _unit > 7) then {
 						_position = _positions call BIS_fnc_selectRandom;
 						_x stop false;
