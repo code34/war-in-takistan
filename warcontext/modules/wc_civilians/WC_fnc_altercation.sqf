@@ -70,7 +70,7 @@
 			_men = nearestObjects[_target,["Man"], 400];
 			_men = _men - [_unit];
 			{
-				if(side _x == civilian) then {
+				if((side _x == civilian) and ((_x getvariable "civilrole" == "civil") or (_x getvariable "civilrole" == "crowd"))) then {
 					if(_x distance _target > 5) then {
 						_position = (_positions call BIS_fnc_selectRandom);
 						_x setvariable ["destination", _position, false];
