@@ -1112,8 +1112,8 @@ class Mission
 		class Item11
 		{
 			presence=0.52974582;
-			position[]={8191.375,296.13214,2078.5112};
-			azimut=1316.72;
+			position[]={8124.9585,296.04001,2088.5017};
+			azimut=120;
 			special="FLY";
 			id=12;
 			side="EMPTY";
@@ -3262,8 +3262,8 @@ class Mission
 		class Item221
 		{
 			presence=0.51383674;
-			position[]={8194.4482,296.13214,2073.7041};
-			azimut=1316.72;
+			position[]={8130.2842,296.04001,2092.5601};
+			azimut=120;
 			special="FLY";
 			id=269;
 			side="EMPTY";
