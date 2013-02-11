@@ -389,9 +389,9 @@ class RscTitles
 			idc = 10103; 
 			type = CT_STRUCTURED_TEXT; 
 			style = ST_LEFT; 
-			x = (SafeZoneW + SafezoneX) - 0.25;
+			x = (SafeZoneW + SafezoneX) - 0.30;
 			y = (1 + ((0 + SafeZoneY) * -1) - 0.20);
-			w = 0.25;
+			w = 0.30;
 			h = 0.20;
 			size = 0.03; 
 			colorBackground[] = { 0, 0, 0, 0 };
