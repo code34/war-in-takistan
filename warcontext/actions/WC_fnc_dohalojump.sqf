@@ -30,4 +30,17 @@
 		player switchmove "HaloFreeFall_non";
 		wcgarbage = [player, 1000] spawn bis_fnc_halo;
 		wcgarbage = [player] spawn WC_fnc_altimeter;
+
+		{		
+			if!(isplayer _x) then {
+				_x setpos _position;
+				_para = "ParachuteC" createVehicle _position;
+				_para setpos [_position select 0, _position select 1, 250];
+				_para setdir (getdir player);
+				_para setvelocity [random 30, random 30, 10];
+				_x moveindriver _para;
+				_para lock false;
+				sleep 1;
+			};
+		}foreach (units(group player));
 	};
