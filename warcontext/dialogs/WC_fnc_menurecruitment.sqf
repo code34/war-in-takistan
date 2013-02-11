@@ -90,17 +90,8 @@
 			menuaction = -1;
 		};
 		if(menuaction == 2) then {
-			ppEffectDestroy wccameffect;
-			wccam cameraEffect ["terminate","back"];
-			camDestroy wccam;
-			wccam = objNull;
 			closedialog 0;
 			menuaction = -1;
 		};
 		sleep 0.5;
 	};
-
-	ppEffectDestroy wccameffect;
-	wccam cameraEffect ["terminate","back"];
-	camDestroy wccam;
-	wccam = objNull;
