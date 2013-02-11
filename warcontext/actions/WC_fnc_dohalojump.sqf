@@ -32,7 +32,7 @@
 		wcgarbage = [player] spawn WC_fnc_altimeter;
 
 		{		
-			if!(isplayer _x) then {
+			if(!(isplayer _x) and (_x distance player < 50)) then {
 				_x setpos _position;
 				_para = "ParachuteC" createVehicle _position;
 				_para setpos [_position select 0, _position select 1, 250];
