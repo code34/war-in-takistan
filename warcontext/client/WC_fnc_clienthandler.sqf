@@ -10,7 +10,6 @@
 
 	WC_fnc_netcode_wcdate = {
 		wcdate = _this select 0;
-		waituntil {wcclientinitialized};	
 		wcgarbage = [] spawn WC_fnc_fasttime;
 	};
 
@@ -171,7 +170,6 @@
 
 	WC_fnc_netcode_wchintW = {
 		wchintW = _this select 0;
-		waituntil {wcclientinitialized};
 		hintsilent wchintW;
 	};
 
