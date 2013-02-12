@@ -976,6 +976,7 @@
 			wcgarbage = [_group, (position(leader _group)), 50] spawn WC_fnc_patrol;
 			(leader _group) setVehicleInit "this addAction ['<t color=''#ff4500''>Replace the guard</t>', 'warcontext\actions\WC_fnc_dobeginguard.sqf',[],6,false];";
 			processInitCommands;
+			wcgarbage = [_vehicle] spawn WC_fnc_defend;
 			_missiontype = "defend";
 			wcbonusfame = 0;			
 		};
