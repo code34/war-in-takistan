@@ -3,11 +3,15 @@
 	// IED - attach an ied to an existing object or unit
 
 	private [
+		"_cibles",
+		"_count",
+		"_list",
 		"_object", 
 		"_enemys", 
 		"_enemy", 
 		"_missioncomplete", 
-		"_count"
+		"_object",
+		"_position"
 	];
 
 	_object = _this select 0;
@@ -44,7 +48,6 @@
 							if(_object isKindOf "Man") then {
 								wcallahsound = name _enemy;
 								["wcallahsound", "client"] call WC_fnc_publicvariable;
-								playsound "allah";
 								if(_enemy iskindof "LandVehicle") then {
 									wchintW = "A bomber man has explosed near friendly vehicle";
 								} else {
@@ -58,7 +61,6 @@
 								};
 							};
 							["wchintW", "client"] call WC_fnc_publicvariable;
-							hintsilent wchintW;
 							_missioncomplete = true;
 							_object setvariable ["wciedactivate", false, true];
 							_object setdamage 1;
@@ -67,8 +69,29 @@
 				}foreach _enemys;
 			};
 			if(_object isKindOf "Man") then {
+				hint format["conter : %1 %2 %3", _count, _position, position player];
 				if(_count > 30) then {
-					_position = position (_object findNearestEnemy (position _object));
+					_cibles = [];
+	
+					_list = (position _object) nearEntities [["Man"], 150];
+					if(count _list > 0) then {
+						{
+							if(side _x in wcside) then {
+								if( _x distance _object < 150) then {
+									_cibles = _cibles + [_x];
+								};
+							} else {
+								_list = _list - [_x];
+							};
+							sleep 0.1;
+						}foreach _list;
+				
+						_position = position (([_object, _cibles] call EXT_fnc_SortByDistance) select 0);
+					} else {
+						_count = 20;
+						_position = [0,0,0];
+					};
+
 					if(format["%1", _position] != "[0,0,0]") then {
 						_object domove _position;
 					};
