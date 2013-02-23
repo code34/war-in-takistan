@@ -51,6 +51,10 @@
 	_deadcounter = 0;
 	_alert = false;
 
+	{			
+		_x setvariable ["destination", [0,0,0], false];
+	}foreach (units _group);
+
 	while { (count (units _group) > 0) } do {
 		_leader = leader _group;
 
