@@ -47,14 +47,14 @@
 	waituntil {wcbegindefend};
 
 	for "_x" from 0 to ceil(random wclevelmaxincity) step 1 do {
-		_position = [_position, 700, 1000] call WC_fnc_createpositionaround;
+		_position = [_position, 500, 700] call WC_fnc_createpositionaround;
 		_position = _position findEmptyPosition [5, 100];
 		wcgarbage = [_position, _markerdest, (wcfactions call BIS_fnc_selectRandom), false] spawn WC_fnc_creategroupdefend;
 		sleep 1;
 	};
 
 	for "_x" from 0 to ceil(random wclevelmaxincity) step 1 do {
-		_position = [_position, 700, 1000] call WC_fnc_createpositionaround;
+		_position = [_position, 500, 700] call WC_fnc_createpositionaround;
 		_position = _position findEmptyPosition [5, 100];
 		wcgarbage = [_position, _markerdest, (wcvehicleslistE call BIS_fnc_selectRandom), true] spawn WC_fnc_creategroupdefend;
 		sleep 1;
