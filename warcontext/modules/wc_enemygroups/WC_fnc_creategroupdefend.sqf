@@ -79,6 +79,7 @@
 	// initialisation script for units
 	_leader = leader _group;
 
+	// move units to zone
 	_position = getmarkerpos _markerdest;
 	while { ((count (units _group) > 0) and (_leader distance _position > wcdistance )) } do {
 		_leader = leader _group;
@@ -182,6 +183,7 @@
 		sleep 30;
 	};
 
+	// units are in zone and patrol
 	if(count (units _group) == 0) exitwith {};
 
 	if(vehicle _leader != _leader) then { _motorized = true; _vehicle = vehicle _leader;} else { _motorized = false; };
@@ -200,7 +202,6 @@
 		};
 	} else {
 		wcgarbage = [(leader _group), _markerdest, 'noslow', 'showmarker'] spawn EXT_fnc_upsmon;
-		//wcgarbage = [_group, (position(leader _group)), wcdistance] spawn WC_fnc_patrol;
 	};
 
 	if (count (units _group) < 1) then {
