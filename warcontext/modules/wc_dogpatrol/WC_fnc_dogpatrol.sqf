@@ -79,17 +79,13 @@
 			        _unit setbehaviour "safe";
 				_unit domove _position;
 				if(random 1 > 0.9) then {
-					_unit say3d "dog_grognement";
-					if(unit getvariable "sound" != "dog_grognement") then {
-						_unit setvariable ["sound", "dog_grognement", true];
-					};
+					wcdoggrognement = true;
+					["wcdoggrognement", "client", owner _cible] call WC_fnc_publicvariable;
 				};
 			} else {
 				_unit dowatch _cible;
-				_unit say3d "dog_bark";
-				if(unit getvariable "sound" != "dog_bark") then {
-					_unit setvariable ["sound", "dog_bark", true];
-				};
+				wcdogbark = true;
+				["wcdogbark", "client", owner _cible] call WC_fnc_publicvariable;
 				_cible setdamage (damage _cible) + 0.05;
 				sleep ceil(random 3);
 			};

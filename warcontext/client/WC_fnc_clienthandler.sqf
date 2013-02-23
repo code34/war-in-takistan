@@ -38,6 +38,14 @@
 		};
 	};
 
+	WC_fnc_netcode_wcdogbark = {
+		playsound "dog_bark";
+	};
+
+	WC_fnc_netcode_wcdoggrognement = {
+		playsound "dog_grognement";
+	};
+
 	WC_fnc_netcode_wcaddkilled = {
 		wcaddkilled = _this select 0;
 		if(name wcaddkilled in wcinteam) then {
