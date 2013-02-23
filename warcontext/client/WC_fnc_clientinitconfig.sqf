@@ -74,7 +74,7 @@
 
 	wcindexmusic = 0;
 
-	wcclientlogs = ["Client logs"];
+	wcclientlogs = ["Client logs - Playeruid: "+getplayeruid player];
 
 	wclistofweaponsindex = 0;
 

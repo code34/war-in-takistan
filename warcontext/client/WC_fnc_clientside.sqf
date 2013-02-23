@@ -301,7 +301,7 @@
 			if(serverCommandAvailable "#kick") then {
 				wcadmin = true;
 			} else {
-				if((name player) in wcteammembers) then {
+				if((getplayeruid player) in wcteammembers) then {
 					wcadmin = true;
 				} else {
 					wcadmin = false;

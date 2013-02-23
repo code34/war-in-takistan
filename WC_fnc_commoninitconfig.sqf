@@ -17,10 +17,10 @@
 	// Adress of teamspeak server
 	wcteamspeak = "Join me on BIS forum: Code34";
 
-	// put names of team members in array
+	// put PLAYERUID of team members in array
 	// will give same rights as the admin
 	// uncomment line below
-	// wcteammembers = ["code34", "tom12"];
+	wcteammembers = ["381830"];
 
 	// limit of playable map
 	switch (tolower(worldname)) do {
