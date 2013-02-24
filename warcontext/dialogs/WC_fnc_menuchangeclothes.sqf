@@ -147,9 +147,7 @@
 
 			// leave the group of players
 			_newgroup = creategroup west;
-			[wcbackupbody] joinsilent _newgroup;			
-
-			wcgarbage = [] spawn WC_fnc_clienthandler;
+			[wcbackupbody] joinsilent _newgroup;
 
 			wcgarbage = [] spawn WC_fnc_restoreactionmenu;
 
