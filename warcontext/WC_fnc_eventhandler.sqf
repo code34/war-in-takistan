@@ -58,7 +58,12 @@
 		waituntil {count wcqueue > 0};
 		_variablename = (wcqueue select 0) select 0;
 		_variable = (wcqueue select 0) select 1;
-		call compile format["wcgarbage = [_variable] spawn WC_fnc_netcode_%1;", _variablename];
+		if(isserver) then {
+			call compile format["wcgarbage = [_variable] spawn WC_fnc_netcode_server_%1;", _variablename];
+		};
+		if(local player) then {
+			call compile format["wcgarbage = [_variable] spawn WC_fnc_netcode_%1;", _variablename];
+		};
 		wcqueue set [0,-1]; 
 		wcqueue = wcqueue - [-1];
 		sleep 0.1;

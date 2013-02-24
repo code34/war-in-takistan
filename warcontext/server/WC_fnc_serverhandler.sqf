@@ -2,7 +2,7 @@
 	// Netcode replace addpublicvariableeventhandler by WC eventhandler
 
 	// Recieve mission choosen by player
-	WC_fnc_netcode_wcaskformission = {
+	WC_fnc_netcode_server_wcaskformission = {
 		private ["_count", "_player", "_score", "_wcaskformission"];
 		_wcaskformission = _this select 0;
 		if(isnil "wccurrentmission") then {
@@ -30,7 +30,7 @@
 	};
 
 	// promote a player
-	WC_fnc_netcode_wcpromote = {
+	WC_fnc_netcode_server_wcpromote = {
 		private ["_wcpromote"];
 		_wcpromote = _this select 0;
 		(_wcpromote select 0) setrank (_wcpromote select 1);
@@ -43,7 +43,7 @@
 	};
 
 	// degrade a player
-	WC_fnc_netcode_wcdegrade = {
+	WC_fnc_netcode_server_wcdegrade = {
 		private ["_wcdegrade"];
 		_wcdegrade = _this select 0;
 		(_wcdegrade select 0) setrank (_wcdegrade select 1);
@@ -56,7 +56,7 @@
 	};
 
 	// a player respawn to tent
-	WC_fnc_netcode_wcrespawntotent = {
+	WC_fnc_netcode_server_wcrespawntotent = {
 		if(wckindofserver != 3) then {
 			_respawntotent = _this select 0;
 			if(_respawntotent in wcinteam) then {
@@ -66,7 +66,7 @@
 	};
 
 	// a player respawn to hq
-	WC_fnc_netcode_wcrespawntohq = {
+	WC_fnc_netcode_server_wcrespawntohq = {
 		if(wckindofserver != 3) then {
 			_respawntohq = _this select 0;
 			if(_respawntohq in wcinteam) then {
@@ -76,7 +76,7 @@
 	};
 
 	// a player respawn to base
-	WC_fnc_netcode_wcrespawntobase = {
+	WC_fnc_netcode_server_wcrespawntobase = {
 		if(wckindofserver != 3) then {
 			_respawntobase = _this select 0;
 			if(_respawntobase in wcinteam) then {
@@ -86,23 +86,23 @@
 	};
 
 	// add player in ready state
-	WC_fnc_netcode_wcplayerreadyadd = {
+	WC_fnc_netcode_server_wcplayerreadyadd = {
 		wcplayerreadyadd = _this select 0;
 		wcplayerready = wcplayerready + [wcplayerreadyadd];
 	};
 
 	// add x points to teamscore
-	WC_fnc_netcode_wcaddscore = {
+	WC_fnc_netcode_server_wcaddscore = {
 		wcteamscore = wcteamscore + (_this select 0);
 	};
 
 	// add x points to team bonus score
-	WC_fnc_netcode_wcteambonusaddscore = {
+	WC_fnc_netcode_server_wcteambonusaddscore = {
 		wcteambonus = wcteambonus + (_this select 0);
 	};
 
 	// add x points to player
-	WC_fnc_netcode_wcplayeraddscore = {
+	WC_fnc_netcode_server_wcplayeraddscore = {
 		private ["_index", "_find", "_player", "_point", "_score", "_playername", "_wcplayeraddscore"];
 		_wcplayeraddscore = _this select 0;
 
@@ -134,17 +134,17 @@
 	};
 
 	// increase the detection level of x prct
-	WC_fnc_netcode_wcalerttoadd = {
+	WC_fnc_netcode_server_wcalerttoadd = {
 		wcalert = wcalert + (_this select 0);
 	};
 
 	// log blame
-	WC_fnc_netcode_wctk = {
+	WC_fnc_netcode_server_wctk = {
 		diag_log format ["WARCONTEXT: %1 IS TEAM KILLER", _this select 0];
 	};
 
 	// unflip a vehicle
-	WC_fnc_netcode_wcflip = {
+	WC_fnc_netcode_server_wcflip = {
 		 private ["_vehicle", "_position", "_typeof", "_dir", "_dammage", "_vehiclename", "_objets_charges", "_fuel"];
 		_vehicle = _this select 0;
 		if(!(locked _vehicle) and (getdammage _vehicle < 0.9)) then {
@@ -169,7 +169,7 @@
 	};
 
 	// admin command - unlock all vehicles
-	WC_fnc_netcode_wcunlockall = {
+	WC_fnc_netcode_server_wcunlockall = {
 		{
 			_x setvehicleinit "this lock false;";
 		}foreach vehicles;
@@ -177,7 +177,7 @@
 	};
 
 	// admin command - lock all vehicles
-	WC_fnc_netcode_wclockall = {
+	WC_fnc_netcode_server_wclockall = {
 		{
 			_x setvehicleinit "this lock true;";
 		}foreach vehicles;
@@ -185,7 +185,7 @@
 	};
 
 	// bomb via c130 request by admin on a zone
-	WC_fnc_netcode_wcbombingrequest = {
+	WC_fnc_netcode_server_wcbombingrequest = {
 		if(wcbombingavalaible == 1) then {
 			diag_log "WARCONTEXT: CALL 1 C130 BOMBING SUPPORT";
 			wcgarbage = [] spawn WC_fnc_bomb;
@@ -195,7 +195,7 @@
 	};
 
 	// count how many W soldier died during a mission, and complete campaign
-	WC_fnc_netcode_wcaddkilled = {
+	WC_fnc_netcode_server_wcaddkilled = {
 		wcaddkilled = _this select 0;
 		wcnumberofkilled = wcnumberofkilled + 1;
 		wcnumberofkilledofmissionW = wcnumberofkilledofmissionW + 1;
@@ -208,30 +208,30 @@
 	};
 
 	// recompute the list of missions when admin asks
-	WC_fnc_netcode_wcrecomputemission = {
+	WC_fnc_netcode_server_wcrecomputemission = {
 		wcday = wcday + 1;
 		wclistofmissions = [];
 		wcgarbage = [] spawn WC_fnc_createlistofmissions;
 	};
 
 	// insert player name died during a one life mission
-	WC_fnc_netcode_wctoonelife = {
+	WC_fnc_netcode_server_wctoonelife = {
 		if!((_this select 0) in wconelife) then {
 			wconelife = wconelife + [(_this select 0)];		
 		};
 	};
 
 	// start a defend mission
-	WC_fnc_netcode_wcbegindefend = {
+	WC_fnc_netcode_server_wcbegindefend = {
 		wcbegindefend = _this select 0;
 	};
 
 	// cancel a mission by admin
-	WC_fnc_netcode_wcmissionsuccess = {
+	WC_fnc_netcode_server_wcmissionsuccess = {
 		wcmissionsuccess = _this select 0;
 	};
 
 	// retrieve team members
-	WC_fnc_netcode_wcinteam = {
+	WC_fnc_netcode_server_wcinteam = {
 		wcinteam = _this select 0;
 	};
