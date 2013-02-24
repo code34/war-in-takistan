@@ -14,7 +14,7 @@
 	
 	_name = _this select 1;
 
-	diag_log format["WARCONTEXT: PLAYER %1 %2 CONNECTING", _playerid, _name];
+	diag_log format["WARCONTEXT: PLAYER %1 CONNECTING", _name];
 
 	_ok = true;
 	_count = 0;
@@ -24,8 +24,8 @@
 		if(_name in wcplayerready) then {
 			_ok = false;
 		};
-		if(_count > 480) then {
-			_ok = _false;
+		if(_count > 500) then {
+			_ok = false;
 		};
 		_count = _count + 1;
 		sleep 1;
