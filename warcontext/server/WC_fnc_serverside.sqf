@@ -56,52 +56,6 @@
 	// create mortuary
 	wcgarbage = [(getmarkerpos "mortuary")] spawn WC_fnc_createmortuary;
 
-	// TAKISTAN BASE INIT
-	wcgarbage = [] spawn {
-		// put light around chopper landing zone
-		if!(isnull tower2) then {
-			_positions = [position tower2, 7, 360, getdir tower2, 7] call WC_fnc_createcircleposition;
-			{
-				_light = "Land_runway_edgelight" createVehicle _x;
-				_light setpos _x;
-				_light setVehicleInit "this allowdammage false;";
-				processInitCommands;
-				sleep 0.01;
-			}foreach _positions;
-		};
-	
-		if!(isnull tower3) then {	
-			_positions = [position tower3, 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
-			{
-				_light = "Land_runway_edgelight" createVehicle _x;
-				_light setpos _x;
-				_light setVehicleInit "this allowdammage false;";
-				processInitCommands;
-				sleep 0.01;
-			}foreach _positions;
-		};
-		
-		if!(isnull tower4) then {
-			_positions = [position tower4, 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
-			{
-				_light = "Land_runway_edgelight" createVehicle _x;
-				_light setpos _x;
-				_light setVehicleInit "this allowdammage false;";
-				processInitCommands;
-				sleep 0.01;
-			}foreach _positions;
-		};
-	
-		_positions = [getmarkerpos "repair", 7, 360, getdir tower3, 7] call WC_fnc_createcircleposition;
-		{
-			_light = "Land_runway_edgelight" createVehicle _x;
-			_light setpos _x;
-			_light setVehicleInit "this allowdammage false;";
-			processInitCommands;
-			sleep 0.01;
-		}foreach _positions;
-	};
-
 	{
 		wcgarbage = [_x, 120] spawn WC_fnc_respawnvehicle;
 		sleep 0.01;
@@ -176,7 +130,6 @@
 			sleep 5;
 		};
 	};
-
 
 
 	// decrease alert level by time
