@@ -39,7 +39,7 @@
 
 	if(_group in wcpatrolgroups) exitwith {};
 
-	_marker = [format['patrolzone%1', wcpatrolindex], _areasize, _position, 'ColorGREEN', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarkerlocal;
+	_marker = [format['patrolzone%1', wcpatrolindex], _areasize, _position, 'ColorRED', 'ELLIPSE', 'Border', '', 0, '', false] call WC_fnc_createmarkerlocal;
 	wcpatrolindex = wcpatrolindex + 1;
 
 	wcpatrolgroups = wcpatrolgroups + [_group];
