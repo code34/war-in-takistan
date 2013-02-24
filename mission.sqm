@@ -3707,7 +3707,7 @@ class Mission
 		};
 		class Item12
 		{
-			position[]={8255.8672,296.13504,2182.8108};
+			position[]={8240.3184,295.98212,2177.9531};
 			name="clothes";
 			text="Clothes";
 			type="b_inf";
