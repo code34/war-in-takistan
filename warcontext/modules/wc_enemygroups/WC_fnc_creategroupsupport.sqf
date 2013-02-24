@@ -20,7 +20,6 @@
 		"_position", 
 		"_objects",
 		"_scriptinit",
-		"_sizeofgroup",
 		"_soldier",
 		"_typeofgroup", 
 		"_typeofvehicle",
@@ -67,7 +66,7 @@
 			diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR UNITS SUPPORT GROUP SPAWN";
 		};
 		_group = [_typeofgroup, east, _position] call WC_fnc_popgroup;
-		diag_log format ["WARCONTEXT: CREATING A SUPPORT GROUP %2 IN ZONE %1 OF SIZE %3", _marker, _typeofgroup, _sizeofgroup];
+		diag_log format ["WARCONTEXT: CREATING A SUPPORT GROUP %2 IN ZONE %1 OF SIZE %3", _marker, _typeofgroup, count (units _group)];
 		
 		_leader = leader _group;
 
