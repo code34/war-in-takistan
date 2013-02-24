@@ -7,7 +7,7 @@ class Header
 {
 	gameType = COOP;
 	minPlayers = 1;
-	maxPlayers = 40;
+	maxPlayers = 35;
 };
 
 // description.ext settings for revive
@@ -257,7 +257,7 @@ class RscTitles
 		class Picturew : RscPicture
 		{
 			x= 0.35;
-			y= 0.30
+			y= 0.30;
 			w=0.4; 
 			h=0.2;
 			text="pics\w.paa";
