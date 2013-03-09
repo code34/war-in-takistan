@@ -52,7 +52,7 @@ class Mission
 	randomSeed=4546277;
 	class Intel
 	{
-		briefingName="WAR IN TAKISTAN 1.6";
+		briefingName="WAR IN TAKISTAN 1.6 BETA OFFICIAL";
 		briefingDescription="by code34";
 		resistanceWest=0;
 		resistanceEast=1;
