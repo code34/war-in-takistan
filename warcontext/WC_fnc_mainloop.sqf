@@ -144,7 +144,6 @@
 		} else {
 			wcmessageW = [format["Mission %1", wcmissioncount], format[localize "STR_WC_MESSAGEGOTO", text _location], localize "STR_WC_MESSAGETAKISTANLOCALISED"];
 		};
-		//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW","client"] call WC_fnc_publicvariable;
 
 		_marker = ['rescuezone', wcdistance, _position, 'ColorRED', 'ELLIPSE', 'FDIAGONAL', '', 0, '', false] call WC_fnc_createmarker;
@@ -274,7 +273,6 @@
 				if(_count > 10) then {
 					_count = 0;
 					wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONCOMMANDEMENT", wclevel], localize "STR_WC_MESSAGELEAVEZONE"];
-					//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext; };
 					["wcmessageW", "client"] call WC_fnc_publicvariable;
 				};
 			};
@@ -304,32 +302,27 @@
 		deletemarkerlocal "airzone";
 
 		wcmessageW = [format[localize "STR_WC_MESSAGEMISSIONFINISHED", wcmissioncount], localize "STR_WC_MESSAGNEXTSTEP"];
-		//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		// PRINT STATS BEFORE SANITING MAP
 		wcmessageW = ["Casualty", format["%1 East soldiers killed", wcnumberofkilledofmissionE]];
-		//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 West soldiers killed", wcnumberofkilledofmissionW]];
-		//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 Civils killed", wcnumberofkilledofmissionC]];
-		//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
 
 		wcmessageW = ["Casualty", format["%1 Vehicles destroyed", wcnumberofkilledofmissionV]];
-		//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
@@ -348,7 +341,6 @@
 			};
 		};
 		wcmessageW = ["Military intervention", format["%1 fame", _fame]];
-		//if!(isDedicated) then { wcgarbage = wcmessageW spawn EXT_fnc_infotext;};
 		["wcmessageW", "client"] call WC_fnc_publicvariable;
 
 		sleep 0.5;
@@ -369,7 +361,6 @@
 			} else {
 				wcteamscore = wcteamscore + 3;
 			};
-			if(local player) then {[wcteamplayscoretoadd] spawn WC_fnc_addplayerscore;};
 			["wcteamplayscoretoadd", "client"] call WC_fnc_publicvariable;
 		};
 
