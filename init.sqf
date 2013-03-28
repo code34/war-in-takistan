@@ -126,7 +126,6 @@
 	WC_fnc_markerhintlocal		= compile preprocessFile "warcontext\functions\WC_fnc_markerhintlocal.sqf";
 	WC_fnc_missionname	 	= compile preprocessFile "warcontext\functions\WC_fnc_missionname.sqf";
 	WC_fnc_newdate		 	= compile preprocessFile "warcontext\functions\WC_fnc_newdate.sqf";
-	WC_fnc_loadweaponsplayer	= compile preprocessFile "warcontext\functions\WC_fnc_loadweaponsplayer.sqf";
 	WC_fnc_playerhint		= compile preprocessFile "warcontext\functions\WC_fnc_playerhint.sqf";
 	WC_fnc_sortlocationbydistance	= compile preprocessFile "warcontext\functions\WC_fnc_sortlocationbydistance.sqf";
 	WC_fnc_refreshmarkers		= compile preprocessFile "warcontext\functions\WC_fnc_refreshmarkers.sqf";
@@ -319,6 +318,7 @@
 	WC_fnc_clientinitconfig 	= compile preprocessFile "warcontext\client\WC_fnc_clientinitconfig.sqf";
 	WC_fnc_clienthandler		= compile preprocessFile "warcontext\client\WC_fnc_clienthandler.sqf";
 	WC_fnc_clientside		= compile preprocessFile "warcontext\client\WC_fnc_clientside.sqf";
+	WC_fnc_clientitems		= compile preprocessFile "warcontext\client\WC_fnc_clientitems.sqf";
 	
 	//////////////
 	// SERVER SIDE

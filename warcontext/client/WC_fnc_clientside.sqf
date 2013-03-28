@@ -170,19 +170,9 @@
 		};
 	};
 	
-	removeBackpack player;
-
 	// load player team preset
-	wcgarbage = [] spawn WC_fnc_loadweaponsplayer;
+	wcgarbage = [] spawn WC_fnc_clientitems;
 	wcgarbage = [] spawn WC_fnc_creatediary;
-
-	player addweapon "ITEMGPS";
-	player addweapon "Binocular";
-	player addweapon "ItemRadio";
-
-	if(wcwithACE == 1) then {
-		player addweapon "ACE_Earplugs";
-	};
 
 	wcgarbage = [(getmarkerpos "crate1"), "base"] spawn WC_fnc_createammobox;
 	if(wcautoloadweapons == 1) then {
