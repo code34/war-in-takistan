@@ -3,56 +3,16 @@ class Mission
 {
 	addOns[]=
 	{
-		"takistan",
-		"ca_modules_functions",
-		"cacharacters_e",
-		"caweapons_e",
-		"cawheeled_e_hmmwv",
-		"CAWheeled_E_stryker",
-		"cawheeled_e_suv",
-		"CAWheeled_E",
-		"camisc_e_wf",
-		"CATracked_E_M2A2_Bradley",
-		"camisc3",
-		"CAAir_E_UH60M",
-		"CAMisc",
-		"camisc_e",
-		"caweapons_e_ammoboxes",
-		"CAWheeled_E_LandRover",
-		"CAWheeled_E_ATV",
-		"caweapons_pmc",
-		"warfarebuildings",
-		"CAAir_E",
-		"CAAir_E_AH6J"
+		"takistan"
 	};
 	addOnsAuto[]=
 	{
-		"ca_modules_functions",
-		"cacharacters_e",
-		"caweapons_e",
-		"cawheeled_e_hmmwv",
-		"CAWheeled_E_stryker",
-		"cawheeled_e_suv",
-		"CAWheeled_E",
-		"camisc_e_wf",
-		"CATracked_E_M2A2_Bradley",
-		"camisc3",
-		"CAAir_E_UH60M",
-		"CAMisc",
-		"camisc_e",
-		"caweapons_e_ammoboxes",
-		"CAWheeled_E_LandRover",
-		"CAWheeled_E_ATV",
-		"caweapons_pmc",
-		"warfarebuildings",
-		"CAAir_E",
-		"CAAir_E_AH6J",
 		"takistan"
 	};
 	randomSeed=4546277;
 	class Intel
 	{
-		briefingName="WAR IN TAKISTAN 1.6 BETA OFFICIAL";
+		briefingName="WAR IN TAKISTAN 1.6 FINAL RELEASE";
 		briefingDescription="by code34";
 		resistanceWest=0;
 		resistanceEast=1;
