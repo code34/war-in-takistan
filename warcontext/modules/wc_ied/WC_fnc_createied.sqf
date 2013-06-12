@@ -69,7 +69,6 @@
 				}foreach _enemys;
 			};
 			if(_object isKindOf "Man") then {
-				hint format["conter : %1 %2 %3", _count, _position, position player];
 				if(_count > 30) then {
 					_cibles = [];
 	
