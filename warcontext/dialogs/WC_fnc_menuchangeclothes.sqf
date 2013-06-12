@@ -26,6 +26,9 @@
 		_lastbody removeAllEventHandlers "killed";
 		_lastbody setpos wcinitpos;
 		wcbackupbody setpos wcbackupposition;
+		wcbackupbody addeventhandler ["HandleDamage", { 
+			(_this select 0) setdamage ((getdammage(_this select 0)) + (_this select 2));
+		}];
 		selectplayer wcbackupbody;
 		_lastbody setdamage 1;
 		ppEffectDestroy wccameffect;
@@ -102,8 +105,9 @@
 			_position = wcinitpos findEmptyPosition[ 1 , 100];
 			if(count _position == 0) then {
 				diag_log "WARCONTEXT: NO FOUND EMPTY POSITION FOR CHANGE CLOTHES BACKUP POSITION";
+				_position = getmarkerpos "respawn_west";
 			};
-
+			wcbackupbody addeventhandler ["HandleDamage",{0;}];
 			wcbackupbody setpos _position;
 
 			_unit addeventhandler ['killed', {

@@ -10,6 +10,9 @@
 	_killer = _this select 0;
 
 	wcbackupbody setpos wcbackupposition;
+	wcbackupbody addeventhandler ["HandleDamage", { 
+		(_this select 0) setdamage ((getdammage(_this select 0)) + (_this select 2));
+	}];
 
 	waituntil { alive player };
 	_dummy = player;
